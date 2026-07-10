@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-印西トピック - 自動ニュースサイト生成スクリプト
+印西ニュース - 自動ニュースサイト生成スクリプト
 Google News RSSから印西関連ニュースを取得し、index.htmlを生成します。
 """
 
@@ -148,7 +148,7 @@ def build_html(items):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>印西トピック - 千葉県印西市のニュース</title>
+<title>印西ニュース - 千葉県印西市のニュース</title>
 <meta name="description" content="千葉県印西市の最新ニュース・話題をお届けします。">
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
@@ -187,7 +187,7 @@ footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
     {news_rows}
   </div>
   <footer>
-    © 印西トピック — Google Newsより自動収集。記事の著作権は各メディアに帰属します。
+    © 印西ニュース — Google Newsより自動収集。記事の著作権は各メディアに帰属します。
   </footer>
 </div>
 </body>
