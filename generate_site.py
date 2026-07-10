@@ -15,6 +15,11 @@ JST = timezone(timedelta(hours=9))
 
 RSS_SOURCES = [
     {
+        "url": "https://www.city.inzai.lg.jp/rss/rss_new.xml",
+        "label": "印西市公式",
+        "source": "市役所公式",
+    },
+    {
         "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF%E5%B8%82&hl=ja&gl=JP&ceid=JP:ja",
         "label": "印西市",
     },
@@ -49,7 +54,10 @@ CATEGORY_KEYWORDS = {
     "話題・その他": [],
 }
 
-def get_category(title, summary):
+def get_category(title, summary, source=None):
+    # 市役所公式は専用カテゴリに固定
+    if source == "市役所公式":
+        return "印西市役所"
     text = title + " " + summary
     for cat, keywords in CATEGORY_KEYWORDS.items():
         if any(k in text for k in keywords):
@@ -57,6 +65,7 @@ def get_category(title, summary):
     return "話題・その他"
 
 CATEGORY_COLORS = {
+    "印西市役所":     ("#E8EDF8", "#2C5282", "#1A325A"),
     "開発・街づくり": ("#E1F5EE", "#1D9E75", "#085041"),
     "行政・市政":     ("#E6F1FB", "#378ADD", "#0C447C"),
     "イベント・文化": ("#FAEEDA", "#EF9F27", "#633806"),
@@ -66,6 +75,7 @@ CATEGORY_COLORS = {
 }
 
 CATEGORY_ICONS = {
+    "印西市役所":     "🏢",
     "開発・街づくり": "🏗️",
     "行政・市政":     "🏛️",
     "イベント・文化": "🎉",
@@ -122,13 +132,15 @@ def fetch_all_news():
     seen_titles = set()
     for source in RSS_SOURCES:
         items = fetch_rss(source["url"])
+        src_label = source.get("source", "Google News")
         for item in items:
             key = item["title"][:30]
             if key not in seen_titles:
                 seen_titles.add(key)
+                item["source"] = src_label
                 all_items.append(item)
     all_items.sort(key=lambda x: x["pub_dt"], reverse=True)
-    return all_items[:30]
+    return all_items[:40]
 
 
 def build_html(items):
@@ -139,11 +151,11 @@ def build_html(items):
     from collections import defaultdict
     cat_map = defaultdict(list)
     for item in items[1:]:
-        cat = get_category(item["title"], item["desc"])
+        cat = get_category(item["title"], item["desc"], item.get("source"))
         cat_map[cat].append(item)
 
-    # カテゴリの表示順
-    cat_order = list(CATEGORY_KEYWORDS.keys())
+    # カテゴリの表示順（市役所を先頭に）
+    cat_order = ["印西市役所"] + list(CATEGORY_KEYWORDS.keys())
 
     # トップニュース
     if top_item:
@@ -160,8 +172,8 @@ def build_html(items):
     else:
         top_html = ""
 
-    # カテゴリ別セクション
-    sections_html = ""
+    # カテゴリ別セクション（2列グリッド）
+    grid_items_html = ""
     for cat in cat_order:
         cat_items = cat_map.get(cat, [])
         if not cat_items:
@@ -172,12 +184,10 @@ def build_html(items):
         for item in cat_items:
             rows += f"""
         <a class="news-item" href="{html.escape(item['link'])}" target="_blank" rel="noopener">
-          <span class="news-body">
-            <span class="news-title">{html.escape(item['title'])}</span>
-            <span class="news-date">{html.escape(item['pub_str'])}</span>
-          </span>
+          <span class="news-title">{html.escape(item['title'])}</span>
+          <span class="news-date">{html.escape(item['pub_str'])}</span>
         </a>"""
-        sections_html += f"""
+        grid_items_html += f"""
     <div class="cat-section">
       <div class="cat-header" style="background:{bg};border-left:4px solid {fg};">
         <span class="cat-icon">{icon}</span>
@@ -188,7 +198,9 @@ def build_html(items):
       </div>
     </div>"""
 
-    if not sections_html:
+    if grid_items_html:
+        sections_html = f'<div class="cat-grid">{grid_items_html}\n  </div>'
+    else:
         sections_html = '<p class="no-news">現在ニュースを取得できませんでした。しばらくお待ちください。</p>'
 
     return f"""<!DOCTYPE html>
@@ -211,18 +223,19 @@ header{{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;displa
 .hero-title{{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}}
 .hero-title:hover{{color:#1D9E75}}
 .hero-meta{{font-size:12px;color:#888}}
-.cat-section{{margin:0 12px 14px;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07)}}
-.cat-header{{display:flex;align-items:center;gap:8px;padding:10px 14px}}
-.cat-icon{{font-size:16px}}
-.cat-name{{font-size:13px;font-weight:700;flex:1}}
+.cat-grid{{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px}}
+.cat-section{{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);align-self:start}}
+.cat-header{{display:flex;align-items:center;gap:8px;padding:10px 12px}}
+.cat-icon{{font-size:15px}}
+.cat-name{{font-size:12px;font-weight:700;flex:1}}
 .cat-count{{font-size:11px;font-weight:600}}
-.news-item{{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;background:#fff;border-top:1px solid #ededea;transition:background .15s}}
+.news-item{{display:flex;flex-direction:column;gap:3px;padding:9px 12px;background:#fff;border-top:1px solid #ededea;transition:background .15s}}
 .news-item:hover{{background:#f9f9f6}}
-.news-body{{display:flex;flex-direction:column;gap:3px}}
-.news-title{{font-size:14px;font-weight:500;color:#1a1a18;line-height:1.5}}
+.news-title{{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}}
 .news-item:hover .news-title{{color:#1D9E75}}
-.news-date{{font-size:11px;color:#aaa}}
+.news-date{{font-size:10px;color:#aaa}}
 .no-news{{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}}
+@media(max-width:480px){{.cat-grid{{grid-template-columns:1fr}}}}
 footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
 </style>
 </head>
@@ -235,7 +248,7 @@ footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
   {top_html}
   {sections_html}
   <footer>
-    © 印西ニュース — Google Newsより自動収集。記事の著作権は各メディアに帰属します。
+    © 印西ニュース — Google News・印西市公式サイトより自動収集。記事の著作権は各メディアに帰属します。
   </footer>
 </div>
 </body>
