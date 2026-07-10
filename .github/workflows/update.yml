@@ -3,7 +3,7 @@ name: 印西ニュース 自動更新
 on:
   schedule:
     # 毎朝6時（日本時間）に実行 = UTC 21:00
-    - cron: "0 21 * * *"
+    - cron: "0 21,1,4,8 * * *"
   # 手動実行も可能
   workflow_dispatch:
 
