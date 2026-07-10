@@ -1,4 +1,4 @@
-name: 印西トピック 自動更新
+name: 印西ニュース 自動更新
 
 on:
   schedule:
