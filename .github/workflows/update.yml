@@ -2,7 +2,7 @@ name: 印西ニュース 自動更新
 
 on:
   schedule:
-    # 毎朝6時（日本時間）に実行 = UTC 21:00
+    # 6時・10時・13時・17時（日本時間）に実行
     - cron: "0 21,1,4,8 * * *"
   # 手動実行も可能
   workflow_dispatch:
@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: リポジトリをチェックアウト
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Python セットアップ
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
