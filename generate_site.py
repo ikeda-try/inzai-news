@@ -57,12 +57,21 @@ def get_category(title, summary):
     return "話題・その他"
 
 CATEGORY_COLORS = {
-    "開発・街づくり": ("#E1F5EE", "#0F6E56", "#085041"),
-    "行政・市政":     ("#E6F1FB", "#185FA5", "#0C447C"),
-    "イベント・文化": ("#FAEEDA", "#854F0B", "#633806"),
-    "教育・子育て":   ("#EAF3DE", "#3B6D11", "#27500A"),
-    "防災・安全":     ("#FCEBEB", "#A32D2D", "#791F1F"),
-    "話題・その他":   ("#F1EFE8", "#5F5E5A", "#444441"),
+    "開発・街づくり": ("#E1F5EE", "#1D9E75", "#085041"),
+    "行政・市政":     ("#E6F1FB", "#378ADD", "#0C447C"),
+    "イベント・文化": ("#FAEEDA", "#EF9F27", "#633806"),
+    "教育・子育て":   ("#EAF3DE", "#639922", "#27500A"),
+    "防災・安全":     ("#FCEBEB", "#E24B4A", "#791F1F"),
+    "話題・その他":   ("#F1EFE8", "#888780", "#444441"),
+}
+
+CATEGORY_ICONS = {
+    "開発・街づくり": "🏗️",
+    "行政・市政":     "🏛️",
+    "イベント・文化": "🎉",
+    "教育・子育て":   "📚",
+    "防災・安全":     "🚨",
+    "話題・その他":   "📰",
 }
 
 def fetch_rss(url):
@@ -125,15 +134,24 @@ def fetch_all_news():
 def build_html(items):
     now_str = datetime.now(JST).strftime("%Y年%-m月%-d日 %H:%M")
     top_item = items[0] if items else None
-    rest = items[1:]
+
+    # カテゴリ別に分類
+    from collections import defaultdict
+    cat_map = defaultdict(list)
+    for item in items[1:]:
+        cat = get_category(item["title"], item["desc"])
+        cat_map[cat].append(item)
+
+    # カテゴリの表示順
+    cat_order = list(CATEGORY_KEYWORDS.keys())
 
     # トップニュース
     if top_item:
         cat = get_category(top_item["title"], top_item["desc"])
         bg, fg, dark = CATEGORY_COLORS[cat]
         top_html = f"""
-    <div class="hero">
-      <div class="hero-label">{html.escape(cat)}</div>
+    <div class="hero" style="border-color:{fg};">
+      <div class="hero-label" style="color:{fg};">{CATEGORY_ICONS[cat]} {html.escape(cat)}</div>
       <a class="hero-title" href="{html.escape(top_item['link'])}" target="_blank" rel="noopener">
         {html.escape(top_item['title'])}
       </a>
@@ -142,22 +160,36 @@ def build_html(items):
     else:
         top_html = ""
 
-    # ニュース一覧
-    news_rows = ""
-    for item in rest:
-        cat = get_category(item["title"], item["desc"])
+    # カテゴリ別セクション
+    sections_html = ""
+    for cat in cat_order:
+        cat_items = cat_map.get(cat, [])
+        if not cat_items:
+            continue
         bg, fg, dark = CATEGORY_COLORS[cat]
-        news_rows += f"""
-      <a class="news-item" href="{html.escape(item['link'])}" target="_blank" rel="noopener">
-        <span class="news-cat" style="background:{bg};color:{dark};">{html.escape(cat)}</span>
-        <span class="news-body">
-          <span class="news-title">{html.escape(item['title'])}</span>
-          <span class="news-date">{html.escape(item['pub_str'])}</span>
-        </span>
-      </a>"""
+        icon = CATEGORY_ICONS[cat]
+        rows = ""
+        for item in cat_items:
+            rows += f"""
+        <a class="news-item" href="{html.escape(item['link'])}" target="_blank" rel="noopener">
+          <span class="news-body">
+            <span class="news-title">{html.escape(item['title'])}</span>
+            <span class="news-date">{html.escape(item['pub_str'])}</span>
+          </span>
+        </a>"""
+        sections_html += f"""
+    <div class="cat-section">
+      <div class="cat-header" style="background:{bg};border-left:4px solid {fg};">
+        <span class="cat-icon">{icon}</span>
+        <span class="cat-name" style="color:{dark};">{html.escape(cat)}</span>
+        <span class="cat-count" style="color:{fg};">{len(cat_items)}件</span>
+      </div>
+      <div class="cat-items">{rows}
+      </div>
+    </div>"""
 
-    if not news_rows:
-        news_rows = '<p class="no-news">現在ニュースを取得できませんでした。しばらくお待ちください。</p>'
+    if not sections_html:
+        sections_html = '<p class="no-news">現在ニュースを取得できませんでした。しばらくお待ちください。</p>'
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -168,26 +200,29 @@ def build_html(items):
 <meta name="description" content="千葉県印西市の最新ニュース・話題をお届けします。">
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
-body{{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f5f5f0;color:#1a1a18;line-height:1.6}}
+body{{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f0ec;color:#1a1a18;line-height:1.6}}
 a{{text-decoration:none;color:inherit}}
-.wrap{{max-width:720px;margin:0 auto;padding:0 0 40px}}
+.wrap{{max-width:720px;margin:0 auto;padding:0 0 48px}}
 header{{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}}
 .logo{{font-size:20px;font-weight:600;color:#1a1a18}}.logo span{{color:#1D9E75}}
 .updated{{font-size:11px;color:#888;text-align:right}}
-.hero{{background:#fff;margin:0 0 2px;padding:18px 20px;border-bottom:3px solid #1D9E75}}
-.hero-label{{font-size:11px;font-weight:600;color:#1D9E75;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}}
+.hero{{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75}}
+.hero-label{{font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:.03em}}
 .hero-title{{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}}
 .hero-title:hover{{color:#1D9E75}}
 .hero-meta{{font-size:12px;color:#888}}
-.section-label{{font-size:11px;font-weight:600;color:#888;padding:14px 20px 8px;letter-spacing:.05em;text-transform:uppercase;background:#f5f5f0}}
-.news-item{{display:flex;gap:10px;align-items:flex-start;padding:12px 20px;background:#fff;border-bottom:1px solid #ededea;transition:background .15s}}
+.cat-section{{margin:0 12px 14px;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07)}}
+.cat-header{{display:flex;align-items:center;gap:8px;padding:10px 14px}}
+.cat-icon{{font-size:16px}}
+.cat-name{{font-size:13px;font-weight:700;flex:1}}
+.cat-count{{font-size:11px;font-weight:600}}
+.news-item{{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;background:#fff;border-top:1px solid #ededea;transition:background .15s}}
 .news-item:hover{{background:#f9f9f6}}
-.news-cat{{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:3px}}
 .news-body{{display:flex;flex-direction:column;gap:3px}}
 .news-title{{font-size:14px;font-weight:500;color:#1a1a18;line-height:1.5}}
 .news-item:hover .news-title{{color:#1D9E75}}
 .news-date{{font-size:11px;color:#aaa}}
-.no-news{{padding:20px;color:#888;font-size:14px;background:#fff}}
+.no-news{{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}}
 footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
 </style>
 </head>
@@ -198,10 +233,7 @@ footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
     <div class="updated">最終更新<br>{now_str}</div>
   </header>
   {top_html}
-  <div class="section-label">最新ニュース</div>
-  <div class="news-list">
-    {news_rows}
-  </div>
+  {sections_html}
   <footer>
     © 印西ニュース — Google Newsより自動収集。記事の著作権は各メディアに帰属します。
   </footer>
