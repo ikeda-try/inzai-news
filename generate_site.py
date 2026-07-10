@@ -178,7 +178,7 @@ footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
 <body>
 <div class="wrap">
   <header>
-    <div class="logo">印西<span>トピック</span></div>
+    <div class="logo">印西<span>ニュース</span></div>
     <div class="updated">最終更新<br>{now_str}</div>
   </header>
   {top_html}
