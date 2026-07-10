@@ -71,7 +71,7 @@ CATEGORY_COLORS = {
     "イベント・文化": ("#FAEEDA", "#EF9F27", "#633806"),
     "教育・子育て":   ("#EAF3DE", "#639922", "#27500A"),
     "防災・安全":     ("#FCEBEB", "#E24B4A", "#791F1F"),
-    "話題・その他":   ("#F1EFE8", "#888780", "#444441"),
+    "話題・その他":   ("#DFD9CF", "#7A6E5F", "#3D342A"),
 }
 
 CATEGORY_ICONS = {
@@ -154,8 +154,9 @@ def build_html(items):
         cat = get_category(item["title"], item["desc"], item.get("source"))
         cat_map[cat].append(item)
 
-    # カテゴリの表示順（市役所を先頭に）
-    cat_order = ["印西市役所"] + list(CATEGORY_KEYWORDS.keys())
+    # カテゴリの表示順（1:話題その他, 2:イベント, 3:市役所, 4:教育, 残り）
+    cat_order = ["話題・その他", "イベント・文化", "印西市役所", "教育・子育て",
+                 "開発・街づくり", "行政・市政", "防災・安全"]
 
     # トップニュース
     if top_item:
@@ -163,7 +164,7 @@ def build_html(items):
         bg, fg, dark = CATEGORY_COLORS[cat]
         top_html = f"""
     <div class="hero" style="border-color:{fg};">
-      <div class="hero-label" style="color:{fg};">{CATEGORY_ICONS[cat]} {html.escape(cat)}</div>
+      <div class="hero-label" style="background:{fg};color:#fff;">{CATEGORY_ICONS[cat]} {html.escape(cat)}</div>
       <a class="hero-title" href="{html.escape(top_item['link'])}" target="_blank" rel="noopener">
         {html.escape(top_item['title'])}
       </a>
@@ -219,12 +220,12 @@ header{{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;displa
 .logo{{font-size:20px;font-weight:600;color:#1a1a18}}.logo span{{color:#1D9E75}}
 .updated{{font-size:11px;color:#888;text-align:right}}
 .hero{{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75}}
-.hero-label{{font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:.03em}}
+.hero-label{{display:inline-block;font-size:11px;font-weight:700;margin-bottom:8px;letter-spacing:.03em;padding:3px 8px;border-radius:4px}}
 .hero-title{{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}}
 .hero-title:hover{{color:#1D9E75}}
 .hero-meta{{font-size:12px;color:#888}}
-.cat-grid{{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px}}
-.cat-section{{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);align-self:start}}
+.cat-grid{{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}}
+.cat-section{{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}}
 .cat-header{{display:flex;align-items:center;gap:8px;padding:10px 12px}}
 .cat-icon{{font-size:15px}}
 .cat-name{{font-size:12px;font-weight:700;flex:1}}
@@ -234,7 +235,7 @@ header{{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;displa
 .news-title{{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}}
 .news-item:hover .news-title{{color:#1D9E75}}
 .news-date{{font-size:10px;color:#aaa}}
-.cat-items{{max-height:212px;overflow-y:auto}}
+.cat-items{{flex:1;overflow-y:auto;min-height:0}}
 .cat-items::-webkit-scrollbar{{width:4px}}
 .cat-items::-webkit-scrollbar-track{{background:transparent}}
 .cat-items::-webkit-scrollbar-thumb{{background:#d0d0cc;border-radius:2px}}
