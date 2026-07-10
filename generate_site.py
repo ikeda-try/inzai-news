@@ -234,6 +234,10 @@ header{{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;displa
 .news-title{{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}}
 .news-item:hover .news-title{{color:#1D9E75}}
 .news-date{{font-size:10px;color:#aaa}}
+.cat-items{{max-height:212px;overflow-y:auto}}
+.cat-items::-webkit-scrollbar{{width:4px}}
+.cat-items::-webkit-scrollbar-track{{background:transparent}}
+.cat-items::-webkit-scrollbar-thumb{{background:#d0d0cc;border-radius:2px}}
 .no-news{{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}}
 @media(max-width:480px){{.cat-grid{{grid-template-columns:1fr}}}}
 footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
