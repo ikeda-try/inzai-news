@@ -211,6 +211,7 @@ def build_html(items):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>印西ニュース - 千葉県印西市のニュース</title>
 <meta name="description" content="千葉県印西市の最新ニュース・話題をお届けします。">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f0ec;color:#1a1a18;line-height:1.6}}
