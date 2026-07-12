@@ -64,7 +64,6 @@ CATEGORY_KEYWORDS = {
 }
 
 def get_category(title, summary, source=None):
-    # 市役所公式は専用カテゴリに固定
     if source == "市役所公式":
         return "印西市役所"
     text = title + " " + summary
@@ -94,7 +93,6 @@ CATEGORY_ICONS = {
 }
 
 def _local_tag(tag):
-    # 名前空間プレフィックス（{http://...}tagname）を除去してタグ名だけ返す
     return tag.split("}")[-1] if "}" in tag else tag
 
 
@@ -105,11 +103,6 @@ def fetch_rss(url):
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = resp.read()
         root = ET.fromstring(data)
-
-        # RSS2.0は <channel><item>...、RSS1.0/RDF(PR TIMESなど)は
-        # <rdf:RDF><channel>...</channel><item>...</item>...</rdf:RDF> と
-        # itemがchannelの子ではなく兄弟になる。両方に対応するため
-        # ツリー全体からitem要素を名前空間を無視して探す。
         item_elements = [el for el in root.iter() if _local_tag(el.tag) == "item"]
 
         for item in item_elements:
@@ -123,13 +116,14 @@ def fetch_rss(url):
                 elif name == "description":
                     desc = child.text or ""
                 elif name in ("pubDate", "date"):
-                    # pubDate: RSS2.0 (RFC822), date: dc:date (RSS1.0/RDF, ISO8601)
                     pub_raw = child.text or ""
 
             title = html.unescape(title)
             desc = html.unescape(re.sub(r"<[^>]+>", "", desc))
 
-            # Google Newsのタイトルから「 - メディア名」を除去
+            # Google Newsのタイトルから「 - メディア名」を抽出してから除去
+            publisher_match = re.search(r"\s*-\s*([^-]+)$", title)
+            publisher = publisher_match.group(1).strip() if publisher_match else ""
             title = re.sub(r"\s*-\s*[^-]+$", "", title).strip()
 
             pub_dt = None
@@ -149,6 +143,7 @@ def fetch_rss(url):
                     "desc": desc[:120] + "…" if len(desc) > 120 else desc,
                     "pub_dt": pub_dt,
                     "pub_str": pub_dt.strftime("%Y年%-m月%-d日"),
+                    "publisher": publisher,
                 })
     except Exception as e:
         print(f"RSS取得エラー ({url}): {e}")
@@ -161,28 +156,77 @@ def fetch_all_news():
     for source in RSS_SOURCES:
         items = fetch_rss(source["url"])
         src_label = source.get("source", "Google News")
+        url = source["url"]
         for item in items:
             key = item["title"][:30]
             if key not in seen_titles:
                 seen_titles.add(key)
                 item["source"] = src_label
+                # 非Google Newsソースは出典ラベルを固定
+                if "city.inzai.lg.jp" in url:
+                    item["publisher"] = "印西市"
+                elif "prtimes.jp/companyrdf" in url:
+                    item["publisher"] = "PR TIMES"
                 all_items.append(item)
     all_items.sort(key=lambda x: x["pub_dt"], reverse=True)
     return all_items[:40]
+
+
+CSS = """\
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f0ec;color:#1a1a18;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 0 48px}
+header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:20px;font-weight:600;color:#1a1a18}.logo span{color:#1D9E75}
+.updated{font-size:11px;color:#888;text-align:right}
+.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75}
+.hero-label{display:inline-block;font-size:11px;font-weight:700;margin-bottom:8px;letter-spacing:.03em;padding:3px 8px;border-radius:4px}
+.hero-title{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}
+.hero-title:hover{color:#1D9E75}
+.hero-meta{font-size:12px;color:#888}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
+.cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
+.cat-header{display:flex;align-items:center;gap:8px;padding:10px 12px}
+.cat-icon{font-size:15px}
+.cat-name{font-size:12px;font-weight:700;flex:1}
+.cat-count{font-size:11px;font-weight:600}
+.news-item{display:flex;flex-direction:column;gap:3px;padding:9px 12px;background:#fff;border-top:1px solid #ededea;transition:background .15s}
+.news-item:hover{background:#f9f9f6}
+.news-title{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}
+.news-item:hover .news-title{color:#1D9E75}
+.news-date{font-size:10px;color:#aaa}
+.cat-items{flex:1;overflow-y:auto;min-height:0}
+.cat-items::-webkit-scrollbar{width:4px}
+.cat-items::-webkit-scrollbar-track{background:transparent}
+.cat-items::-webkit-scrollbar-thumb{background:#d0d0cc;border-radius:2px}
+.no-news{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}
+@media(max-width:480px){.cat-grid{grid-template-columns:1fr}}
+footer{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}
+"""
+
+GA_TAG = """\
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89CXHHR0XZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-89CXHHR0XZ');
+</script>
+"""
 
 
 def build_html(items):
     now_str = datetime.now(JST).strftime("%Y年%-m月%-d日 %H:%M")
     top_item = items[0] if items else None
 
-    # カテゴリ別に分類
     from collections import defaultdict
     cat_map = defaultdict(list)
     for item in items[1:]:
         cat = get_category(item["title"], item["desc"], item.get("source"))
         cat_map[cat].append(item)
 
-    # カテゴリの表示順（1:話題その他, 2:イベント, 3:市役所, 4:教育, 残り）
     cat_order = ["話題・その他", "イベント・文化", "印西市役所", "教育・子育て",
                  "開発・街づくり", "行政・市政", "防災・安全"]
 
@@ -190,18 +234,20 @@ def build_html(items):
     if top_item:
         cat = get_category(top_item["title"], top_item["desc"])
         bg, fg, dark = CATEGORY_COLORS[cat]
-        top_html = f"""
-    <div class="hero" style="border-color:{fg};">
-      <div class="hero-label" style="background:{fg};color:#fff;">{CATEGORY_ICONS[cat]} {html.escape(cat)}</div>
-      <a class="hero-title" href="{html.escape(top_item['link'])}" target="_blank" rel="noopener">
-        {html.escape(top_item['title'])}
-      </a>
-      <div class="hero-meta">{html.escape(top_item['pub_str'])}</div>
-    </div>"""
+        hero_pub = " · " + html.escape(top_item["publisher"]) if top_item.get("publisher") else ""
+        top_html = (
+            '<div class="hero" style="border-color:' + fg + ';">'
+            + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
+            + CATEGORY_ICONS[cat] + " " + html.escape(cat) + "</div>"
+            + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
+            + html.escape(top_item["title"]) + "</a>"
+            + '<div class="hero-meta">' + html.escape(top_item["pub_str"]) + hero_pub + "</div>"
+            + "</div>"
+        )
     else:
         top_html = ""
 
-    # カテゴリ別セクション（2列グリッド）
+    # カテゴリ別セクション
     grid_items_html = ""
     for cat in cat_order:
         cat_items = cat_map.get(cat, [])
@@ -211,90 +257,53 @@ def build_html(items):
         icon = CATEGORY_ICONS[cat]
         rows = ""
         for item in cat_items:
-            rows += f"""
-        <a class="news-item" href="{html.escape(item['link'])}" target="_blank" rel="noopener">
-          <span class="news-title">{html.escape(item['title'])}</span>
-          <span class="news-date">{html.escape(item['pub_str'])}</span>
-        </a>"""
-        grid_items_html += f"""
-    <div class="cat-section">
-      <div class="cat-header" style="background:{bg};border-left:4px solid {fg};">
-        <span class="cat-icon">{icon}</span>
-        <span class="cat-name" style="color:{dark};">{html.escape(cat)}</span>
-        <span class="cat-count" style="color:{fg};">{len(cat_items)}件</span>
-      </div>
-      <div class="cat-items">{rows}
-      </div>
-    </div>"""
+            pub = item.get("publisher", "")
+            pub_html = " · " + html.escape(pub) if pub else ""
+            rows += (
+                '<a class="news-item" href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
+                + '<span class="news-title">' + html.escape(item["title"]) + "</span>"
+                + '<span class="news-date">' + html.escape(item["pub_str"]) + pub_html + "</span>"
+                + "</a>"
+            )
+        grid_items_html += (
+            '<div class="cat-section">'
+            + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
+            + '<span class="cat-icon">' + icon + "</span>"
+            + '<span class="cat-name" style="color:' + dark + ';">' + html.escape(cat) + "</span>"
+            + '<span class="cat-count" style="color:' + fg + ';">' + str(len(cat_items)) + "件</span>"
+            + "</div>"
+            + '<div class="cat-items">' + rows + "</div>"
+            + "</div>"
+        )
 
     if grid_items_html:
-        sections_html = f'<div class="cat-grid">{grid_items_html}\n  </div>'
+        sections_html = '<div class="cat-grid">' + grid_items_html + "</div>"
     else:
         sections_html = '<p class="no-news">現在ニュースを取得できませんでした。しばらくお待ちください。</p>'
 
-    return f"""<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>印西ニュース - 千葉県印西市のニュース</title>
-<meta name="description" content="千葉県印西市の最新ニュース・話題をお届けします。">
-<link rel="icon" type="image/png" href="favicon.png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-89CXHHR0XZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', 'G-89CXHHR0XZ');
-</script>
-<style>
-*{{box-sizing:border-box;margin:0;padding:0}}
-body{{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f0ec;color:#1a1a18;line-height:1.6}}
-a{{text-decoration:none;color:inherit}}
-.wrap{{max-width:720px;margin:0 auto;padding:0 0 48px}}
-header{{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}}
-.logo{{font-size:20px;font-weight:600;color:#1a1a18}}.logo span{{color:#1D9E75}}
-.updated{{font-size:11px;color:#888;text-align:right}}
-.hero{{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75}}
-.hero-label{{display:inline-block;font-size:11px;font-weight:700;margin-bottom:8px;letter-spacing:.03em;padding:3px 8px;border-radius:4px}}
-.hero-title{{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}}
-.hero-title:hover{{color:#1D9E75}}
-.hero-meta{{font-size:12px;color:#888}}
-.cat-grid{{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}}
-.cat-section{{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}}
-.cat-header{{display:flex;align-items:center;gap:8px;padding:10px 12px}}
-.cat-icon{{font-size:15px}}
-.cat-name{{font-size:12px;font-weight:700;flex:1}}
-.cat-count{{font-size:11px;font-weight:600}}
-.news-item{{display:flex;flex-direction:column;gap:3px;padding:9px 12px;background:#fff;border-top:1px solid #ededea;transition:background .15s}}
-.news-item:hover{{background:#f9f9f6}}
-.news-title{{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}}
-.news-item:hover .news-title{{color:#1D9E75}}
-.news-date{{font-size:10px;color:#aaa}}
-.cat-items{{flex:1;overflow-y:auto;min-height:0}}
-.cat-items::-webkit-scrollbar{{width:4px}}
-.cat-items::-webkit-scrollbar-track{{background:transparent}}
-.cat-items::-webkit-scrollbar-thumb{{background:#d0d0cc;border-radius:2px}}
-.no-news{{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}}
-@media(max-width:480px){{.cat-grid{{grid-template-columns:1fr}}}}
-footer{{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <div class="logo">印西<span>ニュース</span></div>
-    <div class="updated">最終更新<br>{now_str}</div>
-  </header>
-  {top_html}
-  {sections_html}
-  <footer>
-    © 印西ニュース — Google News・印西市公式サイトより自動収集。記事の著作権は各メディアに帰属します。
-  </footer>
-</div>
-</body>
-</html>"""
+    parts = [
+        "<!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n",
+        "<meta charset=\"UTF-8\">\n",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
+        "<title>印西ニュース - 千葉県印西市のニュース</title>\n",
+        "<meta name=\"description\" content=\"千葉県印西市の最新ニュース・話題をお届けします。\">\n",
+        "<link rel=\"icon\" type=\"image/png\" href=\"favicon.png\">\n",
+        GA_TAG,
+        "<style>\n", CSS, "</style>\n",
+        "</head>\n<body>\n",
+        "<div class=\"wrap\">\n",
+        "  <header>\n",
+        "    <div class=\"logo\">印西<span>ニュース</span></div>\n",
+        "    <div class=\"updated\">最終更新<br>" + now_str + "</div>\n",
+        "  </header>\n",
+        "  " + top_html + "\n",
+        "  " + sections_html + "\n",
+        "  <footer>\n",
+        "    &copy; 印西ニュース &mdash; Google News・印西市公式サイトより自動収集。記事の著作権は各メディアに帰属します。\n",
+        "  </footer>\n",
+        "</div>\n</body>\n</html>",
+    ]
+    return "".join(parts)
 
 
 def main():
