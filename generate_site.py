@@ -43,6 +43,15 @@ RSS_SOURCES = [
         "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+%E9%96%8B%E5%BA%97+%E6%96%B0%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3&hl=ja&gl=JP&ceid=JP:ja",
         "label": "印西新店舗",
     },
+    {
+        "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+site%3Aprtimes.jp&hl=ja&gl=JP&ceid=JP:ja",
+        "label": "印西PR TIMES(企業・団体)",
+    },
+    {
+        "url": "https://prtimes.jp/companyrdf.php?company_id=180020",
+        "label": "印西市PR TIMES(公式)",
+        "source": "市役所公式",
+    },
 ]
 
 CATEGORY_KEYWORDS = {
@@ -84,6 +93,11 @@ CATEGORY_ICONS = {
     "話題・その他":   "📰",
 }
 
+def _local_tag(tag):
+    # 名前空間プレフィックス（{http://...}tagname）を除去してタグ名だけ返す
+    return tag.split("}")[-1] if "}" in tag else tag
+
+
 def fetch_rss(url):
     items = []
     try:
@@ -91,28 +105,42 @@ def fetch_rss(url):
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = resp.read()
         root = ET.fromstring(data)
-        channel = root.find("channel")
-        if channel is None:
-            return items
-        for item in channel.findall("item"):
-            title_el = item.find("title")
-            link_el  = item.find("link")
-            desc_el  = item.find("description")
-            pub_el   = item.find("pubDate")
 
-            title   = html.unescape(title_el.text or "") if title_el is not None else ""
-            link    = link_el.text or "" if link_el is not None else ""
-            desc    = html.unescape(re.sub(r"<[^>]+>", "", desc_el.text or "")) if desc_el is not None else ""
-            pub_raw = pub_el.text or "" if pub_el is not None else ""
+        # RSS2.0は <channel><item>...、RSS1.0/RDF(PR TIMESなど)は
+        # <rdf:RDF><channel>...</channel><item>...</item>...</rdf:RDF> と
+        # itemがchannelの子ではなく兄弟になる。両方に対応するため
+        # ツリー全体からitem要素を名前空間を無視して探す。
+        item_elements = [el for el in root.iter() if _local_tag(el.tag) == "item"]
+
+        for item in item_elements:
+            title = link = desc = pub_raw = ""
+            for child in item:
+                name = _local_tag(child.tag)
+                if name == "title":
+                    title = child.text or ""
+                elif name == "link":
+                    link = child.text or ""
+                elif name == "description":
+                    desc = child.text or ""
+                elif name in ("pubDate", "date"):
+                    # pubDate: RSS2.0 (RFC822), date: dc:date (RSS1.0/RDF, ISO8601)
+                    pub_raw = child.text or ""
+
+            title = html.unescape(title)
+            desc = html.unescape(re.sub(r"<[^>]+>", "", desc))
 
             # Google Newsのタイトルから「 - メディア名」を除去
             title = re.sub(r"\s*-\s*[^-]+$", "", title).strip()
 
+            pub_dt = None
             try:
                 from email.utils import parsedate_to_datetime
                 pub_dt = parsedate_to_datetime(pub_raw).astimezone(JST)
             except Exception:
-                pub_dt = datetime.now(JST)
+                try:
+                    pub_dt = datetime.fromisoformat(pub_raw).astimezone(JST)
+                except Exception:
+                    pub_dt = datetime.now(JST)
 
             if title:
                 items.append({
