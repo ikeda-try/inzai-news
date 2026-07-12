@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-印西ニュース - RSS収集スクリプト（GitHub Actions用）
-RSSフィードを取得し、articles_raw.json に保存する。
+印西ニュース - RSS収集＋Webスクレイピングスクリプト（GitHub Actions用）
+RSSフィードの取得とWebスクレイピングを行い、articles_raw.json に保存する。
 HTML生成はCoworkスケジュールタスク（Claude AI）が担当する。
 """
 
@@ -12,6 +12,7 @@ import html
 import re
 import json
 import os
+from urllib.parse import urlparse
 
 JST = timezone(timedelta(hours=9))
 
@@ -25,7 +26,7 @@ RSS_SOURCES = [
     {
         "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF%E5%B8%82&hl=ja&gl=JP&ceid=JP:ja",
         "label": "印西市",
-        "publisher": None,  # Google Newsはタイトルから抽出
+        "publisher": None,
     },
     {
         "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+%E5%8D%83%E8%91%89&hl=ja&gl=JP&ceid=JP:ja",
@@ -93,7 +94,6 @@ def fetch_rss(source):
             title = html.unescape(title)
             desc = html.unescape(re.sub(r"<[^>]+>", "", desc))
 
-            # Google Newsのタイトルから「 - メディア名」を抽出
             if fixed_publisher is None:
                 publisher_match = re.search(r"\s*-\s*([^-]+)$", title)
                 publisher = publisher_match.group(1).strip() if publisher_match else ""
@@ -127,6 +127,71 @@ def fetch_rss(source):
     return items
 
 
+def scrape_site(source):
+    """
+    scrape_sources.json の1エントリを取得・パースして記事リストを返す。
+    日付形式: YYYY/MM/DD がリンクテキストの先頭にある形式に対応。
+    """
+    url = source["url"]
+    name = source["name"]
+    publisher = source.get("publisher", name)
+    items = []
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            raw = resp.read().decode("utf-8", errors="replace")
+
+        pattern = re.compile(
+            r'<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)</a>', re.IGNORECASE
+        )
+        seen_links = set()
+        parsed_base = urlparse(url)
+
+        for m in pattern.finditer(raw):
+            href = m.group(1)
+            text = re.sub(r"<[^>]+>", "", m.group(2)).strip()
+            text = html.unescape(text)
+
+            date_m = re.match(r"(\d{4})/(\d{2})/(\d{2})", text)
+            if not date_m:
+                continue
+
+            year = int(date_m.group(1))
+            mon = int(date_m.group(2))
+            day = int(date_m.group(3))
+            title = text[date_m.end():].strip()
+            # カテゴリ前置詞を除去
+            title = re.sub(r"^(お知らせ|イベント|ショップ|その他)\s*", "", title).strip()
+            if not title:
+                continue
+
+            # 絶対URLに変換
+            if href.startswith("/"):
+                href = f"{parsed_base.scheme}://{parsed_base.netloc}{href}"
+            elif not href.startswith("http"):
+                continue
+
+            if href in seen_links:
+                continue
+            seen_links.add(href)
+
+            pub_str = f"{year}年{mon}月{day}日"
+            pub_dt = datetime(year, mon, day, tzinfo=JST)
+            items.append({
+                "title": title,
+                "link": href,
+                "pub_str": pub_str,
+                "pub_iso": pub_dt.isoformat(),
+                "publisher": publisher,
+                "category": name,
+            })
+
+        print(f"  スクレイピング完了: {name} → {len(items)}件")
+    except Exception as e:
+        print(f"  スクレイピングエラー ({name}): {e}")
+    return items
+
+
 def main():
     all_items = []
     seen_titles = set()
@@ -140,21 +205,31 @@ def main():
                 seen_titles.add(key)
                 all_items.append(item)
 
-    # 日付順にソート
     all_items.sort(key=lambda x: x["pub_iso"], reverse=True)
 
-    # 保存（最大200件）
+    # scrape_sources.json を読んでスクレイピング
+    scraped_items = []
+    scrape_path = os.path.join(os.path.dirname(__file__), "scrape_sources.json")
+    if os.path.exists(scrape_path):
+        with open(scrape_path, encoding="utf-8") as f:
+            scrape_sources = json.load(f)
+        for src in scrape_sources:
+            print(f"スクレイピング中: {src['name']}")
+            items = scrape_site(src)
+            scraped_items.extend(items)
+
     output = {
         "fetched_at": datetime.now(JST).isoformat(),
         "count": len(all_items[:200]),
         "articles": all_items[:200],
+        "scraped": scraped_items,
     }
 
     out_path = os.path.join(os.path.dirname(__file__), "articles_raw.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n{len(all_items[:200])}件収集 → articles_raw.json に保存しました")
+    print(f"\nRSS {len(all_items[:200])}件 + スクレイピング {len(scraped_items)}件 → articles_raw.json に保存しました")
 
 
 if __name__ == "__main__":
