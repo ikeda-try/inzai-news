@@ -143,18 +143,18 @@ def main():
     # 日付順にソート
     all_items.sort(key=lambda x: x["pub_iso"], reverse=True)
 
-    # 保存（最大100件）
+    # 保存（最大200件）
     output = {
         "fetched_at": datetime.now(JST).isoformat(),
-        "count": len(all_items[:100]),
-        "articles": all_items[:100],
+        "count": len(all_items[:200]),
+        "articles": all_items[:200],
     }
 
     out_path = os.path.join(os.path.dirname(__file__), "articles_raw.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n{len(all_items)}件収集 → articles_raw.json に保存しました")
+    print(f"\n{len(all_items[:200])}件収集 → articles_raw.json に保存しました")
 
 
 if __name__ == "__main__":

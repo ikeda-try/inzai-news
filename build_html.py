@@ -5,10 +5,6 @@
 使い方:
   python build_html.py articles_final.json [repo_dir]
 
-引数:
-  articles_final.json - Claudeが精査・カテゴリ分類した記事のJSONファイル
-  repo_dir            - gitリポジトリのディレクトリ（省略時は script と同じ場所）
-
 articles_final.json のフォーマット:
 [
   {
@@ -16,50 +12,43 @@ articles_final.json のフォーマット:
     "link": "https://...",
     "pub_str": "2026年7月12日",
     "publisher": "千葉日報",
-    "category": "話題・その他",
-    "desc": "説明文（省略可）"
-  },
-  ...
+    "category": "話題・その他",   # メイン4カテゴリのどれか
+    "desc": ""
+  }
 ]
+スクレイピングサイトの記事はカテゴリにサイト名（例: "牧の原モア"）を入れる→専用セクションに表示
 
-カテゴリの選択肢:
-  話題・その他 / イベント・文化 / 印西市役所 / 教育・子育て /
-  開発・街づくり / 行政・市政 / 防災・安全
+メインカテゴリ（4種類）:
+  話題・その他 / イベント・文化 / 市政・行政 / 開発・暮らし
 """
 
-import json
-import html
-import sys
-import os
-import subprocess
-from datetime import datetime, timezone, timedelta
+import json, html, sys, os, re, subprocess
+from datetime import datetime, timezone, timedelta, date
+from collections import defaultdict
 
 JST = timezone(timedelta(hours=9))
+MAX_ITEMS_PER_CAT = 10
+SCRAPED_MAX_ITEMS = 5
+SCRAPED_MAX_DAYS = 90  # 約3ヶ月
 
-CATEGORY_ORDER = [
-    "話題・その他", "イベント・文化", "印西市役所", "教育・子育て",
-    "開発・街づくり", "行政・市政", "防災・安全"
-]
+CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし"]
 
 CATEGORY_COLORS = {
-    "印西市役所":     ("#E8EDF8", "#2C5282", "#1A325A"),
-    "開発・街づくり": ("#E1F5EE", "#1D9E75", "#085041"),
-    "行政・市政":     ("#E6F1FB", "#378ADD", "#0C447C"),
-    "イベント・文化": ("#FAEEDA", "#EF9F27", "#633806"),
-    "教育・子育て":   ("#EAF3DE", "#639922", "#27500A"),
-    "防災・安全":     ("#FCEBEB", "#E24B4A", "#791F1F"),
     "話題・その他":   ("#DFD9CF", "#7A6E5F", "#3D342A"),
+    "イベント・文化": ("#FAEEDA", "#EF9F27", "#633806"),
+    "市政・行政":     ("#E8EDF8", "#2C5282", "#1A325A"),
+    "開発・暮らし":   ("#E1F5EE", "#1D9E75", "#085041"),
 }
 
 CATEGORY_ICONS = {
-    "印西市役所":     "🏢",
-    "開発・街づくり": "🏗️",
-    "行政・市政":     "🏛️",
-    "イベント・文化": "🎉",
-    "教育・子育て":   "📚",
-    "防災・安全":     "🚨",
     "話題・その他":   "📰",
+    "イベント・文化": "🎉",
+    "市政・行政":     "🏢",
+    "開発・暮らし":   "🌱",
 }
+
+SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
+SCRAPED_ICON = "📍"
 
 CSS = """\
 *{box-sizing:border-box;margin:0;padding:0}
@@ -74,7 +63,9 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .hero-title{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}
 .hero-title:hover{color:#1D9E75}
 .hero-meta{font-size:12px;color:#888}
+.today-badge{display:inline-block;font-size:10px;font-weight:700;background:#e74c3c;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
+.scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
 .cat-header{display:flex;align-items:center;gap:8px;padding:10px 12px}
 .cat-icon{font-size:15px}
@@ -82,6 +73,8 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .cat-count{font-size:11px;font-weight:600}
 .news-item{display:flex;flex-direction:column;gap:3px;padding:9px 12px;background:#fff;border-top:1px solid #ededea;transition:background .15s}
 .news-item:hover{background:#f9f9f6}
+.news-item.today{background:#fffbe8}
+.news-item.today:hover{background:#fff5cc}
 .news-title{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}
 .news-item:hover .news-title{color:#1D9E75}
 .news-date{font-size:10px;color:#aaa}
@@ -90,7 +83,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .cat-items::-webkit-scrollbar-track{background:transparent}
 .cat-items::-webkit-scrollbar-thumb{background:#d0d0cc;border-radius:2px}
 .no-news{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}
-@media(max-width:480px){.cat-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.cat-grid,.scraped-grid{grid-template-columns:1fr}}
 footer{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}
 """
 
@@ -106,79 +99,107 @@ GA_TAG = """\
 """
 
 
+def parse_pub_date(pub_str):
+    m = re.match(r'(\d{4})年(\d+)月(\d+)日', pub_str or "")
+    if m:
+        return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    return None
+
+
+def is_today(pub_str):
+    today = datetime.now(JST).date()
+    d = parse_pub_date(pub_str)
+    return d == today if d else False
+
+
+def render_item(item):
+    pub = item.get("publisher", "")
+    pub_html = " · " + html.escape(pub) if pub else ""
+    today_cls = " today" if is_today(item.get("pub_str", "")) else ""
+    return (
+        '<a class="news-item' + today_cls + '" href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
+        + '<span class="news-title">' + html.escape(item["title"]) + "</span>"
+        + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html + "</span>"
+        + "</a>"
+    )
+
+
 def build_html(articles):
     now_str = datetime.now(JST).strftime("%Y年%-m月%-d日 %H:%M")
+    today = datetime.now(JST).date()
+    cutoff = today - timedelta(days=SCRAPED_MAX_DAYS)
 
-    from collections import defaultdict
-    cat_map = defaultdict(list)
-    for item in articles:
-        cat = item.get("category", "話題・その他")
-        if cat not in CATEGORY_COLORS:
-            cat = "話題・その他"
-        cat_map[cat].append(item)
+    main_arts = [a for a in articles if a.get("category") in CATEGORY_ORDER]
+    scraped_arts = [a for a in articles if a.get("category") not in CATEGORY_ORDER]
 
-    top_item = articles[0] if articles else None
+    top_item = main_arts[0] if main_arts else None
 
-    # トップニュース
+    # ヒーローセクション
     if top_item:
         cat = top_item.get("category", "話題・その他")
-        if cat not in CATEGORY_COLORS:
-            cat = "話題・その他"
-        bg, fg, dark = CATEGORY_COLORS[cat]
-        hero_pub = " · " + html.escape(top_item["publisher"]) if top_item.get("publisher") else ""
+        bg, fg, dark = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
+        pub_h = " · " + html.escape(top_item["publisher"]) if top_item.get("publisher") else ""
+        badge = '<span class="today-badge">今日</span>' if is_today(top_item.get("pub_str", "")) else ""
         top_html = (
             '<div class="hero" style="border-color:' + fg + ';">'
             + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
-            + CATEGORY_ICONS[cat] + " " + html.escape(cat) + "</div>"
+            + CATEGORY_ICONS.get(cat, "📰") + " " + html.escape(cat) + "</div>"
             + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
             + html.escape(top_item["title"]) + "</a>"
-            + '<div class="hero-meta">' + html.escape(top_item["pub_str"]) + hero_pub + "</div>"
+            + '<div class="hero-meta">' + html.escape(top_item.get("pub_str", "")) + pub_h + badge + "</div>"
             + "</div>"
         )
     else:
         top_html = ""
 
-    # カテゴリ別セクション（トップ記事を除いた残り）
-    remaining = articles[1:] if len(articles) > 1 else []
-    cat_map2 = defaultdict(list)
-    for item in remaining:
-        cat = item.get("category", "話題・その他")
-        if cat not in CATEGORY_COLORS:
-            cat = "話題・その他"
-        cat_map2[cat].append(item)
+    # メインカテゴリグリッド（各最大10件）
+    cat_map = defaultdict(list)
+    for item in main_arts[1:]:
+        cat_map[item.get("category", "話題・その他")].append(item)
 
-    grid_items_html = ""
+    grid_html = ""
     for cat in CATEGORY_ORDER:
-        cat_items = cat_map2.get(cat, [])
-        if not cat_items:
+        items = cat_map.get(cat, [])[:MAX_ITEMS_PER_CAT]
+        if not items:
             continue
         bg, fg, dark = CATEGORY_COLORS[cat]
-        icon = CATEGORY_ICONS[cat]
-        rows = ""
-        for item in cat_items:
-            pub = item.get("publisher", "")
-            pub_html = " · " + html.escape(pub) if pub else ""
-            rows += (
-                '<a class="news-item" href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
-                + '<span class="news-title">' + html.escape(item["title"]) + "</span>"
-                + '<span class="news-date">' + html.escape(item["pub_str"]) + pub_html + "</span>"
-                + "</a>"
-            )
-        grid_items_html += (
+        rows = "".join(render_item(i) for i in items)
+        grid_html += (
             '<div class="cat-section">'
             + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
-            + '<span class="cat-icon">' + icon + "</span>"
+            + '<span class="cat-icon">' + CATEGORY_ICONS[cat] + "</span>"
             + '<span class="cat-name" style="color:' + dark + ';">' + html.escape(cat) + "</span>"
-            + '<span class="cat-count" style="color:' + fg + ';">' + str(len(cat_items)) + "件</span>"
+            + '<span class="cat-count" style="color:' + fg + ';">' + str(len(items)) + "件</span>"
             + "</div>"
             + '<div class="cat-items">' + rows + "</div>"
             + "</div>"
         )
+    sections_html = '<div class="cat-grid">' + grid_html + "</div>" if grid_html else '<p class="no-news">現在ニュースを取得できませんでした。</p>'
 
-    if grid_items_html:
-        sections_html = '<div class="cat-grid">' + grid_items_html + "</div>"
-    else:
-        sections_html = '<p class="no-news">現在ニュースを取得できませんでした。しばらくお待ちください。</p>'
+    # スクレイピングサイト専用セクション（3ヶ月以内・最大5件）
+    scraped_map = defaultdict(list)
+    for item in scraped_arts:
+        scraped_map[item.get("category", "地域情報")].append(item)
+
+    scraped_html = ""
+    for site, items in scraped_map.items():
+        filtered = [i for i in items if (parse_pub_date(i.get("pub_str", "")) or cutoff) >= cutoff][:SCRAPED_MAX_ITEMS]
+        if not filtered:
+            continue
+        bg, fg, dark = SCRAPED_COLOR
+        rows = "".join(render_item(i) for i in filtered)
+        scraped_html += (
+            '<div class="cat-section">'
+            + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
+            + '<span class="cat-icon">' + SCRAPED_ICON + "</span>"
+            + '<span class="cat-name" style="color:' + dark + ';">' + html.escape(site) + "</span>"
+            + '<span class="cat-count" style="color:' + fg + ';">' + str(len(filtered)) + "件</span>"
+            + "</div>"
+            + '<div class="cat-items">' + rows + "</div>"
+            + "</div>"
+        )
+    if scraped_html:
+        sections_html += '<div class="scraped-grid">' + scraped_html + "</div>"
 
     parts = [
         "<!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n",
@@ -206,17 +227,13 @@ def build_html(articles):
 
 
 def git_push(repo_dir, token_path):
-    """index.html をコミットしてpush"""
-    # トークン読み込み
     token = ""
     if os.path.exists(token_path):
         with open(token_path) as f:
             token = f.read().strip()
-
     if not token:
         print("警告: トークンが見つかりません。git pushをスキップします。")
         return False
-
     now_str = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
     cmds = [
         ["git", "-C", repo_dir, "config", "user.name", "cowork-bot"],
@@ -226,14 +243,12 @@ def git_push(repo_dir, token_path):
         ["git", "-C", repo_dir, "push", "--force"],
     ]
     for cmd in cmds:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0:
-            # "nothing to commit" は正常
-            if "nothing to commit" in result.stdout + result.stderr:
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode != 0:
+            if "nothing to commit" in r.stdout + r.stderr:
                 print("変更なし。pushをスキップします。")
                 return True
-            print(f"エラー: {' '.join(cmd)}")
-            print(result.stderr)
+            print(f"エラー: {' '.join(cmd)}\n{r.stderr}")
             return False
     print("git push 完了")
     return True
@@ -243,12 +258,10 @@ def main():
     if len(sys.argv) < 2:
         print("使い方: python build_html.py articles_final.json [repo_dir]")
         sys.exit(1)
-
     json_path = sys.argv[1]
     repo_dir = sys.argv[2] if len(sys.argv) > 2 else os.path.dirname(os.path.abspath(__file__))
     token_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".gh_token")
 
-    # JSONを読み込む
     with open(json_path, encoding="utf-8") as f:
         articles = json.load(f)
 
@@ -259,8 +272,6 @@ def main():
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     print(f"index.html を生成しました → {out_path}")
-
-    # git push
     git_push(repo_dir, token_path)
 
 
