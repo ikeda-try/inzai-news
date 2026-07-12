@@ -207,30 +207,27 @@ def main():
 
     all_items.sort(key=lambda x: x["pub_iso"], reverse=True)
 
-    # scrape_sources.json を読んでスクレイピング
+    # scrape_sources.json を読んで各サイトを取得
     scraped_items = []
     scrape_path = os.path.join(os.path.dirname(__file__), "scrape_sources.json")
     if os.path.exists(scrape_path):
         with open(scrape_path, encoding="utf-8") as f:
             scrape_sources = json.load(f)
         for src in scrape_sources:
-            print(f"スクレイピング中: {src['name']}")
-            items = scrape_site(src)
-            scraped_items.extend(items)
-
-    output = {
-        "fetched_at": datetime.now(JST).isoformat(),
-        "count": len(all_items[:200]),
-        "articles": all_items[:200],
-        "scraped": scraped_items,
-    }
-
-    out_path = os.path.join(os.path.dirname(__file__), "articles_raw.json")
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-
-    print(f"\nRSS {len(all_items[:200])}件 + スクレイピング {len(scraped_items)}件 → articles_raw.json に保存しました")
-
-
-if __name__ == "__main__":
-    main()
+            name = src["name"]
+            if src.get("rss_feed_url"):
+                # RSS フィードがあればそちらを優先
+                print(f"RSS取得中（scraped）: {name}")
+                rss_src = {
+                    "url": src["rss_feed_url"],
+                    "label": name,
+                    "publisher": src.get("publisher", name),
+                    "source": "",
+                }
+                items = fetch_rss(rss_src)
+                # category をサイト名に上書き
+                for item in items:
+                    item["category"] = name
+                scraped_items.extend(items)
+                print(f"  → {len(items)}件")
+   
