@@ -73,8 +73,10 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .cat-count{font-size:11px;font-weight:600}
 .news-item{display:flex;flex-direction:column;gap:3px;padding:9px 12px;background:#fff;border-top:1px solid #ededea;transition:background .15s}
 .news-item:hover{background:#f9f9f6}
-.news-item.today{background:#fffbe8}
-.news-item.today:hover{background:#fff5cc}
+.news-item.today{background:#fef0b4}
+.news-item.today:hover{background:#fee97a}
+.news-item.recent{background:#fffbe8}
+.news-item.recent:hover{background:#fff5cc}
 .news-title{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}
 .news-item:hover .news-title{color:#1D9E75}
 .news-date{font-size:10px;color:#aaa}
@@ -106,18 +108,26 @@ def parse_pub_date(pub_str):
     return None
 
 
-def is_today(pub_str):
+def get_date_class(pub_str):
     today = datetime.now(JST).date()
     d = parse_pub_date(pub_str)
-    return d == today if d else False
+    if d is None:
+        return ""
+    delta = (today - d).days
+    if delta == 0:
+        return "today"
+    elif delta <= 3:
+        return "recent"
+    return ""
 
 
 def render_item(item):
     pub = item.get("publisher", "")
     pub_html = " · " + html.escape(pub) if pub else ""
-    today_cls = " today" if is_today(item.get("pub_str", "")) else ""
+    date_cls = get_date_class(item.get("pub_str", ""))
+    cls_suffix = " " + date_cls if date_cls else ""
     return (
-        '<a class="news-item' + today_cls + '" href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
+        '<a class="news-item' + cls_suffix + '" href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
         + '<span class="news-title">' + html.escape(item["title"]) + "</span>"
         + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html + "</span>"
         + "</a>"
@@ -139,7 +149,7 @@ def build_html(articles):
         cat = top_item.get("category", "話題・その他")
         bg, fg, dark = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
         pub_h = " · " + html.escape(top_item["publisher"]) if top_item.get("publisher") else ""
-        badge = '<span class="today-badge">今日</span>' if is_today(top_item.get("pub_str", "")) else ""
+        badge = '<span class="today-badge">今日</span>' if get_date_class(top_item.get("pub_str", "")) == "today" else ""
         top_html = (
             '<div class="hero" style="border-color:' + fg + ';">'
             + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
@@ -268,12 +278,4 @@ def main():
     print(f"{len(articles)}件の記事でHTMLを生成中...")
     html_content = build_html(articles)
 
-    out_path = os.path.join(repo_dir, "index.html")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print(f"index.html を生成しました → {out_path}")
-    git_push(repo_dir, token_path)
-
-
-if __name__ == "__main__":
-    main()
+ 
