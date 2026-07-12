@@ -1,25 +1,6 @@
 #!/usr/bin/env python3
 """
 印西ニュース - HTML生成スクリプト（Coworkスケジュールタスク用）
-
-使い方:
-  python build_html.py articles_final.json [repo_dir]
-
-articles_final.json のフォーマット:
-[
-  {
-    "title": "記事タイトル",
-    "link": "https://...",
-    "pub_str": "2026年7月12日",
-    "publisher": "千葉日報",
-    "category": "話題・その他",   # メイン4カテゴリのどれか
-    "desc": ""
-  }
-]
-スクレイピングサイトの記事はカテゴリにサイト名（例: "牧の原モア"）を入れる→専用セクションに表示
-
-メインカテゴリ（4種類）:
-  話題・その他 / イベント・文化 / 市政・行政 / 開発・暮らし
 """
 
 import json, html, sys, os, re, subprocess
@@ -28,8 +9,11 @@ from collections import defaultdict
 
 JST = timezone(timedelta(hours=9))
 MAX_ITEMS_PER_CAT = 10
+CATEGORY_MAX_ITEMS = {
+    "市政・行政": 6,
+}
 SCRAPED_MAX_ITEMS = 5
-SCRAPED_MAX_DAYS = 90  # 約3ヶ月
+SCRAPED_MAX_DAYS = 90
 
 CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし"]
 
@@ -50,8 +34,7 @@ CATEGORY_ICONS = {
 SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
 SCRAPED_ICON = "📍"
 
-CSS = """\
-*{box-sizing:border-box;margin:0;padding:0}
+CSS = """*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f0ec;color:#1a1a18;line-height:1.6}
 a{text-decoration:none;color:inherit}
 .wrap{max-width:720px;margin:0 auto;padding:0 0 48px}
@@ -89,8 +72,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 footer{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}
 """
 
-GA_TAG = """\
-<!-- Google tag (gtag.js) -->
+GA_TAG = """<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-89CXHHR0XZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -144,7 +126,6 @@ def build_html(articles):
 
     top_item = main_arts[0] if main_arts else None
 
-    # ヒーローセクション
     if top_item:
         cat = top_item.get("category", "話題・その他")
         bg, fg, dark = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
@@ -162,14 +143,14 @@ def build_html(articles):
     else:
         top_html = ""
 
-    # メインカテゴリグリッド（各最大10件）
     cat_map = defaultdict(list)
     for item in main_arts[1:]:
         cat_map[item.get("category", "話題・その他")].append(item)
 
     grid_html = ""
     for cat in CATEGORY_ORDER:
-        items = cat_map.get(cat, [])[:MAX_ITEMS_PER_CAT]
+        cap = CATEGORY_MAX_ITEMS.get(cat, MAX_ITEMS_PER_CAT)
+        items = cat_map.get(cat, [])[:cap]
         if not items:
             continue
         bg, fg, dark = CATEGORY_COLORS[cat]
@@ -186,7 +167,6 @@ def build_html(articles):
         )
     sections_html = '<div class="cat-grid">' + grid_html + "</div>" if grid_html else '<p class="no-news">現在ニュースを取得できませんでした。</p>'
 
-    # スクレイピングサイト専用セクション（3ヶ月以内・最大5件）
     scraped_map = defaultdict(list)
     for item in scraped_arts:
         scraped_map[item.get("category", "地域情報")].append(item)
@@ -250,7 +230,7 @@ def git_push(repo_dir, token_path):
         ["git", "-C", repo_dir, "config", "user.email", "cowork-bot@users.noreply.github.com"],
         ["git", "-C", repo_dir, "add", "index.html"],
         ["git", "-C", repo_dir, "commit", "-m", f"AI精査更新: {now_str}"],
-        ["git", "-C", repo_dir, "push", "--force"],
+        ["git", "-C", repo_dir, "push"],
     ]
     for cmd in cmds:
         r = subprocess.run(cmd, capture_output=True, text=True)
@@ -278,4 +258,12 @@ def main():
     print(f"{len(articles)}件の記事でHTMLを生成中...")
     html_content = build_html(articles)
 
- 
+    out_path = os.path.join(repo_dir, "index.html")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"index.html を生成しました → {out_path}")
+    git_push(repo_dir, token_path)
+
+
+if __name__ == "__main__":
+    main()
