@@ -106,10 +106,10 @@ def get_date_class(pub_str):
 def render_item(item):
     pub = item.get("publisher", "")
     pub_html = " · " + html.escape(pub) if pub else ""
-    date_cls = get_date_class(item.get("pub_str", ""))
-    cls_suffix = " " + date_cls if date_cls else ""
+    d = parse_pub_date(item.get("pub_str", ""))
+    data_pub = (' data-pub="' + d.isoformat() + '"') if d else ""
     return (
-        '<a class="news-item' + cls_suffix + '" href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
+        '<a class="news-item"' + data_pub + ' href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
         + '<span class="news-title">' + html.escape(item["title"]) + "</span>"
         + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html + "</span>"
         + "</a>"
@@ -130,14 +130,16 @@ def build_html(articles):
         cat = top_item.get("category", "話題・その他")
         bg, fg, dark = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
         pub_h = " · " + html.escape(top_item["publisher"]) if top_item.get("publisher") else ""
-        badge = '<span class="today-badge">今日</span>' if get_date_class(top_item.get("pub_str", "")) == "today" else ""
+        hero_d = parse_pub_date(top_item.get("pub_str", ""))
+        hero_pub_attr = (' data-pub="' + hero_d.isoformat() + '"') if hero_d else ""
         top_html = (
             '<div class="hero" style="border-color:' + fg + ';">'
             + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
             + CATEGORY_ICONS.get(cat, "📰") + " " + html.escape(cat) + "</div>"
             + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
             + html.escape(top_item["title"]) + "</a>"
-            + '<div class="hero-meta">' + html.escape(top_item.get("pub_str", "")) + pub_h + badge + "</div>"
+            + '<div class="hero-meta"' + hero_pub_attr + '>' + html.escape(top_item.get("pub_str", "")) + pub_h
+            + '<span class="today-badge" id="hero-today-badge" style="display:none">今日</span></div>'
             + "</div>"
         )
     else:
@@ -211,7 +213,7 @@ def build_html(articles):
         "  <footer>\n",
         "    &copy; 印西ニュース &mdash; Google News・印西市公式サイト・地域情報より自動収集。記事の著作権は各メディアに帰属します。\n",
         "  </footer>\n",
-        "</div>\n</body>\n</html>",
+        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");\n  });\n  var hm=document.querySelector(\".hero-meta[data-pub]\");\n  if(hm){\n    var diff=Math.floor((jst-new Date(hm.dataset.pub))/86400000);\n    if(diff===0){var b=document.getElementById(\"hero-today-badge\");if(b)b.style.display=\"\";}\n  }\n})();\n</script>\n</body>\n</html>",
     ]
     return "".join(parts)
 
