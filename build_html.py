@@ -56,8 +56,8 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .cat-count{font-size:11px;font-weight:600}
 .news-item{display:flex;flex-direction:column;gap:3px;padding:9px 12px;background:#fff;border-top:1px solid #ededea;transition:background .15s}
 .news-item:hover{background:#f9f9f6}
-.news-item.today{background:#FAEEDA}
-.news-item.today:hover{background:#F5D5A8}
+.news-item.today{background:#fffbe8}
+.news-item.today:hover{background:#fff5cc}
 .news-item.recent{background:#fffbe8}
 .news-item.recent:hover{background:#fff5cc}
 .news-title{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.5}
