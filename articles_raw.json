@@ -1,7 +1,57 @@
 {
-  "fetched_at": "2026-07-13T07:14:00.562302+09:00",
+  "fetched_at": "2026-07-13T19:50:41.976902+09:00",
   "count": 200,
   "articles": [
+    {
+      "title": "令和8年度第1回印西市総合計画審議会開催のお知らせ（令和8年7月28日開催）",
+      "link": "https://www.city.inzai.lg.jp/0000022107.html",
+      "desc": "",
+      "pub_iso": "2026-07-13T15:14:58+09:00",
+      "pub_str": "2026年7月13日",
+      "publisher": "印西市",
+      "source": "市役所公式",
+      "source_label": "印西市公式"
+    },
+    {
+      "title": "令和8年度第1回印西市文化ホール運営会議の開催のお知らせ（令和8年7月22日開催）",
+      "link": "https://www.city.inzai.lg.jp/0000022122.html",
+      "desc": "",
+      "pub_iso": "2026-07-13T14:32:29+09:00",
+      "pub_str": "2026年7月13日",
+      "publisher": "印西市",
+      "source": "市役所公式",
+      "source_label": "印西市公式"
+    },
+    {
+      "title": "有害鳥の駆除を行います",
+      "link": "https://www.city.inzai.lg.jp/0000022117.html",
+      "desc": "",
+      "pub_iso": "2026-07-13T12:40:32+09:00",
+      "pub_str": "2026年7月13日",
+      "publisher": "印西市",
+      "source": "市役所公式",
+      "source_label": "印西市公式"
+    },
+    {
+      "title": "ヤングケアラーについて",
+      "link": "https://www.city.inzai.lg.jp/kosodatenavi/0000016837.html",
+      "desc": "",
+      "pub_iso": "2026-07-13T11:45:21+09:00",
+      "pub_str": "2026年7月13日",
+      "publisher": "印西市",
+      "source": "市役所公式",
+      "source_label": "印西市公式"
+    },
+    {
+      "title": "【草加市】〈開店情報〉毎回長蛇の列ができる人気野菜直売店「はる姫」が本日7月12日(日)オープン！",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1BejBMRDZ3cHpKYU14VklZblhTcEpmNndydXFDRnBSQ3MxZDdCaWJNTVo0NWM1bFJ2Zklha2dwUWdtSlJmQm1oQTJXTUM3azA5OTNFUVVYRXhvdW1qVkFB?oc=5",
+      "desc": "【草加市】〈開店情報〉毎回長蛇の列ができる人気野菜直売店「はる姫」が本日7月12日(日)オープン！  号外NET 草加市",
+      "pub_iso": "2026-07-12T08:31:58+09:00",
+      "pub_str": "2026年7月12日",
+      "publisher": "号外NET 草加市",
+      "source": "",
+      "source_label": "印西新店舗"
+    },
     {
       "title": "市民公開講座会「認知症になる前にできること～MCIを知れば未来が変わる～」",
       "link": "https://www.city.inzai.lg.jp/0000022104.html",
@@ -11,16 +61,6 @@
       "publisher": "印西市",
       "source": "市役所公式",
       "source_label": "印西市公式"
-    },
-    {
-      "title": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE13c0g0RUZ5RGtYV2I0YXB5VEdMazEwMkRHTjJ2N1R3RkFlTXI2dzN0Y05IamNENHlhMTRBa2tSSGdyVU5OUlhpUFFtNzVMUXFSVEE?oc=5",
-      "desc": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京  レッツエンジョイ東京",
-      "pub_iso": "2026-07-11T02:39:54+09:00",
-      "pub_str": "2026年7月11日",
-      "publisher": "レッツエンジョイ東京",
-      "source": "",
-      "source_label": "印西市"
     },
     {
       "title": "令和8年度 後期高齢者健康診査について",
@@ -133,12 +173,42 @@
       "source_label": "印西市"
     },
     {
+      "title": "【帯広市】7月12日（日）オープン！田口畜産直送の極上ソフト＆絶品フルーツジェラート店「十勝ブラン」が国道38号沿いに誕生",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQdGZWM25sLW1hN3pRLUJaRU5NbnpCMzRWWWtjajJEQjRoVHFSOElaUHVUUE93cU0zUGRwemFiM2NtQXFabkl5STM3WHM5VHFPRmFyUWZaVXFXNHNFTXF6RjdvcUtKQXo0UHZ3ZVUwZzV2UlhfNFdHMG5GaEJhRmg3S2N3bXVJbVdaNXkxSg?oc=5",
+      "desc": "【帯広市】7月12日（日）オープン！田口畜産直送の極上ソフト＆絶品フルーツジェラート店「十勝ブラン」が国道38号沿いに誕生  地域ニュースサイト号外NET",
+      "pub_iso": "2026-07-09T00:01:58+09:00",
+      "pub_str": "2026年7月9日",
+      "publisher": "地域ニュースサイト号外NET",
+      "source": "",
+      "source_label": "印西新店舗"
+    },
+    {
       "title": "【千葉県印西市・大阪府門真市・埼玉県入間市】コストコ倉庫店3店舗にて、手軽に豆乳を作れる「SOLEMOOD 豆乳メーカー」販売開始！",
       "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1fNkdCcFBOdkgxdmotMkc3Zm9NTmo0aDBmNTNpVlZzTnJVWmlrN1o4S2lYLW1VY3A3bXdKbV93OEE4VGhLY2sxM1B5ZU95dFRFQmNv?oc=5",
       "desc": "【千葉県印西市・大阪府門真市・埼玉県入間市】コストコ倉庫店3店舗にて、手軽に豆乳を作れる「SOLEMOOD 豆乳メーカー」販売開始！  STRAIGHT PRESS",
       "pub_iso": "2026-07-08T16:22:36+09:00",
       "pub_str": "2026年7月8日",
       "publisher": "STRAIGHT PRESS",
+      "source": "",
+      "source_label": "印西市"
+    },
+    {
+      "title": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE42T0YyQzhjazRLYzFZeklaM1RVcDVTaTgwS2V2RldHR2pJd0FOMjN6RnRGcU5iOXF5ZDBBX09haDZIVFRvRkh6bm9QR2VLMjNQNTNMaXp4VQ?oc=5",
+      "desc": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画  千葉日報オンライン",
+      "pub_iso": "2026-07-08T16:00:00+09:00",
+      "pub_str": "2026年7月8日",
+      "publisher": "千葉日報オンライン",
+      "source": "",
+      "source_label": "印西市"
+    },
+    {
+      "title": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1lTkhVamFRR1Bib0pxTXJ2dFhmNTdTb3dxNHo4MEs3UXdKaEtPelpCX2FjWVJiWVF6a2NGWTdBUmR5a1liYjBOQk5sakh3WjhqaTZTLVRYSQ?oc=5",
+      "desc": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ  千葉日報オンライン",
+      "pub_iso": "2026-07-08T16:00:00+09:00",
+      "pub_str": "2026年7月8日",
+      "publisher": "千葉日報オンライン",
       "source": "",
       "source_label": "印西市"
     },
@@ -181,26 +251,6 @@
       "publisher": "印西市",
       "source": "市役所公式",
       "source_label": "印西市公式"
-    },
-    {
-      "title": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
-      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9VSVMtSzc4UGFYbnNZNk9MczFaUWFONF85ZVVoc3dIeFN1aEdGMmJFOXFvLUpxVU5wZ1BSN3JwM0VQcGNtZ1ZxbFJmLS1ZOWZGRFF5aFdKZw?oc=5",
-      "desc": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成  千葉日報オンライン",
-      "pub_iso": "2026-07-08T01:34:57+09:00",
-      "pub_str": "2026年7月8日",
-      "publisher": "千葉日報オンライン",
-      "source": "",
-      "source_label": "印西市"
-    },
-    {
-      "title": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBnUUkxUFFuV2Y5U1BYQnBaUEhrSUFMSndQRkpHcTFMSXpYbElaZEp2bHlqT0tsczM1ektOb2YwN1RMUmsyZnREQVF3Y2tZUW9admc?oc=5",
-      "desc": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ  千葉経済新聞",
-      "pub_iso": "2026-07-07T17:43:51+09:00",
-      "pub_str": "2026年7月7日",
-      "publisher": "千葉経済新聞",
-      "source": "",
-      "source_label": "印西市"
     },
     {
       "title": "【印西市】地域コーディネーターと市民の力で大成功！市制30周年「あじさいまつり」開催レポート",
@@ -293,26 +343,6 @@
       "source_label": "印西市公式"
     },
     {
-      "title": "令和8年度第1回印西市子ども・子育て会議開催のお知らせ（令和8年7月13日開催）",
-      "link": "https://www.city.inzai.lg.jp/0000021827.html",
-      "desc": "",
-      "pub_iso": "2026-07-06T16:00:00+09:00",
-      "pub_str": "2026年7月6日",
-      "publisher": "印西市",
-      "source": "市役所公式",
-      "source_label": "印西市公式"
-    },
-    {
-      "title": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB1c2NYeHZLV1VnazM4akNKcnc2VmlSRmV5NWx4VDB1aW1XWGhhdHByV1RqZW9kWkRyc2QzX0l0WU1OMGlIY0NlZlZnSUxDUkNYZ181SWY5TmEzdHdETERiQnBOT2hQMDVsbFE?oc=5",
-      "desc": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画  PR TIMES",
-      "pub_iso": "2026-07-06T14:00:02+09:00",
-      "pub_str": "2026年7月6日",
-      "publisher": "PR TIMES",
-      "source": "",
-      "source_label": "印西市"
-    },
-    {
       "title": " 北総ランドスケープ・マネジメント・センターに参画",
       "link": "https://www.city.inzai.lg.jp/0000022051.html",
       "desc": "",
@@ -383,34 +413,14 @@
       "source_label": "印西市公式"
     },
     {
-      "title": "「空・水・空芸術祭」を開催します",
-      "link": "https://www.city.inzai.lg.jp/0000021502.html",
-      "desc": "",
-      "pub_iso": "2026-07-03T18:19:14+09:00",
-      "pub_str": "2026年7月3日",
-      "publisher": "印西市",
-      "source": "市役所公式",
-      "source_label": "印西市公式"
-    },
-    {
-      "title": "声の広報　令和8年7月号",
-      "link": "https://www.city.inzai.lg.jp/0000022047.html",
-      "desc": "",
-      "pub_iso": "2026-07-03T12:00:00+09:00",
-      "pub_str": "2026年7月3日",
-      "publisher": "印西市",
-      "source": "市役所公式",
-      "source_label": "印西市公式"
-    },
-    {
-      "title": "印西市公共施設マネジメントシステム導入業務委託公募型プロポーザルの実施について",
-      "link": "https://www.city.inzai.lg.jp/0000021605.html",
-      "desc": "",
-      "pub_iso": "2026-07-02T17:51:03+09:00",
-      "pub_str": "2026年7月2日",
-      "publisher": "印西市",
-      "source": "市役所公式",
-      "source_label": "印西市公式"
+      "title": "印西市市制施行30周年記念HORNS UP FES",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE13c0g0RUZ5RGtYV2I0YXB5VEdMazEwMkRHTjJ2N1R3RkFlTXI2dzN0Y05IamNENHlhMTRBa2tSSGdyVU5OUlhpUFFtNzVMUXFSVEE?oc=5",
+      "desc": "印西市市制施行30周年記念HORNS UP FES  レッツエンジョイ東京",
+      "pub_iso": "2026-07-01T23:34:45+09:00",
+      "pub_str": "2026年7月1日",
+      "publisher": "レッツエンジョイ東京",
+      "source": "",
+      "source_label": "印西市"
     },
     {
       "title": "ひき逃げ容疑、千葉スカイセイラーズの選手を逮捕 「転倒、知らなかった」 一部否認 印西署",
@@ -423,9 +433,19 @@
       "source_label": "印西（千葉）"
     },
     {
-      "title": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区） | 印西市のプレスリリース",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5reHNWS0Vxb1lCa0M3ZnhSc3pQQmdpRFFOMldWZEVidVVWZnVQeDRZTk1MWGNiaTBlWDZCY2ZIYUdpUXpUdmRVRC1palI1cVJuRUNfdkdGSGdfM2dxM3VESHR6NUtGTlRaSFE?oc=5",
-      "desc": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区） | 印西市のプレスリリース  PR TIMES",
+      "title": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1Wa2UwRmtBOHpKODFmeFZndjZtVWZOOXd4QnI2el85SWJtTjY0MWxuMmJsOGtzQVprSmhzVnplVV9tRkdBUWtYaTVkSFZ6b0VoMUg3cUdn?oc=5",
+      "desc": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区）  フーズチャネル",
+      "pub_iso": "2026-06-30T16:41:06+09:00",
+      "pub_str": "2026年6月30日",
+      "publisher": "フーズチャネル",
+      "source": "",
+      "source_label": "印西市"
+    },
+    {
+      "title": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5qa1NpclpVdmZuWFptQ2RXX2hGZGJPNnAyemdENW53UXN6TTVnb0RhRlplT2NnMk5KR0hzT3Nhanh3WUR6TUxpaWtSTV9FV1ZPQ25sV0s4ZU1HRmNTYWVfdlJnUnk4dk8tZFE?oc=5",
+      "desc": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成  PR TIMES",
       "pub_iso": "2026-06-30T16:00:00+09:00",
       "pub_str": "2026年6月30日",
       "publisher": "PR TIMES",
@@ -481,6 +501,16 @@
       "publisher": "物流ニュースのLNEWS",
       "source": "",
       "source_label": "印西市"
+    },
+    {
+      "title": "地元の不良グループの少年ら９人逮捕 コンビニ店駐車場などで強盗致傷容疑、車内に監禁の疑いも 印西",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5zR1lSLW5lOWE3U3lMZ2kyVVFQNW5UU3ptd2poVzJrb0p4ZzFfUC1Wd1pSVDBIbVJvaHlaN3YzSWxFYjJ4NWw5MHlxVEt4dXFnOW40bVN5ajA?oc=5",
+      "desc": "地元の不良グループの少年ら９人逮捕 コンビニ店駐車場などで強盗致傷容疑、車内に監禁の疑いも 印西  千葉日報オンライン",
+      "pub_iso": "2026-06-25T16:00:00+09:00",
+      "pub_str": "2026年6月25日",
+      "publisher": "千葉日報オンライン",
+      "source": "",
+      "source_label": "印西（千葉）"
     },
     {
       "title": "１３議案可決し閉会 印西市議会",
@@ -800,7 +830,7 @@
       "pub_str": "2026年5月26日",
       "publisher": "千葉経済新聞",
       "source": "",
-      "source_label": "印西（千葉）"
+      "source_label": "印西市"
     },
     {
       "title": "【千葉県印西市】野崎副市長が育休を取得　トップ層が自ら実践し「男性の育児参加は当たり前」の組織風土をさらに推進",
@@ -953,16 +983,6 @@
       "source_label": "印西市"
     },
     {
-      "title": "空・水・空芸術祭 ロゴデザインの決定について",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbm85UDM0d2NKMmF4UDBQSnlRWF9RdHVVZDlIMDJxWW41QTNNSlh1LW5mQnBXSm56bWxIeGpXbjF3MzhVQzFVbXdxZXdOck1yVEV4ZHctb3NmWG42OWZORFRIWUVjeHJnak41RU4weUVuNHpxRlFYbjQ4RGVQR3FONw?oc=5",
-      "desc": "空・水・空芸術祭 ロゴデザインの決定について  pref.chiba.lg.jp",
-      "pub_iso": "2026-04-24T16:00:00+09:00",
-      "pub_str": "2026年4月24日",
-      "publisher": "pref.chiba.lg.jp",
-      "source": "",
-      "source_label": "印西（千葉）"
-    },
-    {
       "title": "米どころの千葉・印西で新たな日本酒が誕生 商工会「新名産品に」 [千葉県]",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBfTU1ib0hQY01aMVlTRlV2VmRtNVc4LVkzZTIwRTNrejNFbFk3M0NBbEhKWXhRc1FNTl9NNVdWMzRaRU5FU1VQajA3c0twQVFVcC1vVkQzZXUwZjlfSC16cWZNcEMxNG8?oc=5",
       "desc": "米どころの千葉・印西で新たな日本酒が誕生 商工会「新名産品に」 [千葉県]  朝日新聞",
@@ -1034,13 +1054,13 @@
     },
     {
       "title": "園児の送迎を代行「送迎保育ステーション」開設 千葉 印西",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBibXVxWEN3Q1hlb3NJT1YwdjFfalpvZTBhR3gxaTZndHBIMk9FSFM1Njl1RWtiNXMwYmEyRkZDUm5DdDVFOGUwWEdUUFVwaW9SOS1xY2pqZ0c?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1NZXJBMF9GNWl1QlRVczdIVG1vMmcwV3pwTFpTS2pBMC1MTEVKOEJST0RmNmlmNEpkZUlrcGlxemtVd19UOVZHdy1Fdk5NODdJZ2p6RXpVSlE?oc=5",
       "desc": "園児の送迎を代行「送迎保育ステーション」開設 千葉 印西  NHKニュース",
       "pub_iso": "2026-04-15T16:00:00+09:00",
       "pub_str": "2026年4月15日",
       "publisher": "NHKニュース",
       "source": "",
-      "source_label": "印西市"
+      "source_label": "印西（千葉）"
     },
     {
       "title": "【180店舗目！】京都北白川 ラーメン魁力屋「川崎銀座街店」(神奈川県川崎市)が2026年4月21日(火)にグランドオープン！",
@@ -1153,22 +1173,22 @@
       "source_label": "印西市PR TIMES(公式)"
     },
     {
-      "title": "千葉・印西市に新たな児相 子どもが過ごす一時保護所は完全個室に 熊谷知事「幸せを実感しながら成長できる社会に」",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1GRzdVcFFldnhsT2p1VE5fdVMwdE9hSUVBMUo1NnF1dDZZck1ubHZDdWU4cXY5aWdBNE9xVmJWTkwyMHo4d1pCNHlyQ21KanBlem55aDZ6QkZsUTg?oc=5",
-      "desc": "千葉・印西市に新たな児相 子どもが過ごす一時保護所は完全個室に 熊谷知事「幸せを実感しながら成長できる社会に」  東京すくすく",
-      "pub_iso": "2026-04-01T16:00:00+09:00",
-      "pub_str": "2026年4月1日",
-      "publisher": "東京すくすく",
-      "source": "",
-      "source_label": "印西市"
-    },
-    {
       "title": "【注目！】印西市で送迎保育ステーション事業スタート！",
       "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5LWEZIakVqaVpmRGhER3lGYU5RZVVmSHZzMHY0TjlKdHItY2c3UEtoajdYZTM1ZXV2bkRwV0Y0VHFDSk05cWU5a1JxQ2pRRG9nX0hwczRTdm5LaGtYaXBz?oc=5",
       "desc": "【注目！】印西市で送迎保育ステーション事業スタート！  選挙ドットコム",
       "pub_iso": "2026-04-01T16:00:00+09:00",
       "pub_str": "2026年4月1日",
       "publisher": "選挙ドットコム",
+      "source": "",
+      "source_label": "印西市"
+    },
+    {
+      "title": "千葉・印西市に新たな児相 子どもが過ごす一時保護所は完全個室に 熊谷知事「幸せを実感しながら成長できる社会に」",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1GRzdVcFFldnhsT2p1VE5fdVMwdE9hSUVBMUo1NnF1dDZZck1ubHZDdWU4cXY5aWdBNE9xVmJWTkwyMHo4d1pCNHlyQ21KanBlem55aDZ6QkZsUTg?oc=5",
+      "desc": "千葉・印西市に新たな児相 子どもが過ごす一時保護所は完全個室に 熊谷知事「幸せを実感しながら成長できる社会に」  東京すくすく",
+      "pub_iso": "2026-04-01T16:00:00+09:00",
+      "pub_str": "2026年4月1日",
+      "publisher": "東京すくすく",
       "source": "",
       "source_label": "印西市"
     },
@@ -1219,6 +1239,16 @@
       "pub_iso": "2026-03-26T16:00:00+09:00",
       "pub_str": "2026年3月26日",
       "publisher": "朝日新聞",
+      "source": "",
+      "source_label": "印西（千葉）"
+    },
+    {
+      "title": "9つの市と町を管轄する印旛児童相談所が千葉・印西に開所 子ども守る体制強化へ",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE94UkpBNVJkSE03YmdmOEpPRi1XczRESkhQZWlsZ0R1QjM0c2hXYVNvRFFua0R5Sk9lX2FxNmV6NkJHSGNFdHUwNGlxRjZRVGdxcm1kc095b1ZiR2RBVUdN?oc=5",
+      "desc": "9つの市と町を管轄する印旛児童相談所が千葉・印西に開所 子ども守る体制強化へ  千葉テレビ放送",
+      "pub_iso": "2026-03-26T16:00:00+09:00",
+      "pub_str": "2026年3月26日",
+      "publisher": "千葉テレビ放送",
       "source": "",
       "source_label": "印西（千葉）"
     },
@@ -1311,6 +1341,16 @@
       "publisher": "地域ニュースサイト号外NET",
       "source": "",
       "source_label": "印西新店舗"
+    },
+    {
+      "title": "「宗吾車両基地キッズフェスタ」と「春まつり2026」　京成グループのイベント２題（千葉県酒々井町など）",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPSlRWYVpPbjd5U1VPTzBCQ2JLTjhyS1BkTm5kR0pZSEtoelh3ci1Nb3d2ejBjZFN4ZzFMeXdyZXlncjZDLUVKM0tWeDNNdlU5VUVCZlFFa0FmOV90QXI5Um92WjUwRmJjT3J3ZEFOdXYweFU2NGNkVXl3Qnk4LVpiV3RB0gGHAUFVX3lxTFBxeDlqSm5GSGVaYTJpXzZXN1RYU0xiQU9HWElYVFpuSUpMNGt4QjVpSWxYM1lBamVYbkI3MS1vYVRjU1N5cjNtWF82eDJuMmR0cnhxZ3dkd2c2UkZnZl9QdzlOeWR3TEVYNFhzMUIxRGdSTEZmLXdaY2ZBMVkza0ZmMXowZDB1VQ?oc=5",
+      "desc": "「宗吾車両基地キッズフェスタ」と「春まつり2026」　京成グループのイベント２題（千葉県酒々井町など）  ｄメニューニュース",
+      "pub_iso": "2026-03-12T16:00:00+09:00",
+      "pub_str": "2026年3月12日",
+      "publisher": "ｄメニューニュース",
+      "source": "",
+      "source_label": "印西イベント"
     },
     {
       "title": "本日【印西市・中学校卒業式】内容",
@@ -1583,16 +1623,6 @@
       "source_label": "印西（千葉）"
     },
     {
-      "title": "【神戸市灘区】水道筋商店街『Café そのまま』さん 1月5日 グランドオープン♪ おしゃれカフェ映えスイーツ～豚汁・うどんメニューもあり！",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBsUGl0TkRVMG1jYndoVDNmUjJpcldneGM5Z2VfUDhfN2RZX01jWkZ5eThGOG5QS3E5NkpLQWtPWUJVaTBOTGdITkpyeElqSjVqb3pqeXA2UUt0TmN6Tm82SmxualBTbzA?oc=5",
-      "desc": "【神戸市灘区】水道筋商店街『Café そのまま』さん 1月5日 グランドオープン♪ おしゃれカフェ映えスイーツ～豚汁・うどんメニューもあり！  地域ニュースサイト号外NET",
-      "pub_iso": "2026-01-09T17:00:00+09:00",
-      "pub_str": "2026年1月9日",
-      "publisher": "地域ニュースサイト号外NET",
-      "source": "",
-      "source_label": "印西新店舗"
-    },
-    {
       "title": "一人で泣き叫ぶ迷子の３歳児を保護 印西市の中学２年生に署長感謝状 手をつなぎ、不安落ち着かせ",
       "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1fUUc1SW1iSkRkanc5M0ZDbm4zVjl3b19HcVdxcGdWaHNNVi1pS3VzVm5yTzFZNXEtSVVkMkFXMjBFV05sTlNLc1E5RQ?oc=5",
       "desc": "一人で泣き叫ぶ迷子の３歳児を保護 印西市の中学２年生に署長感謝状 手をつなぎ、不安落ち着かせ  47NEWS",
@@ -1773,16 +1803,6 @@
       "source_label": "印西市"
     },
     {
-      "title": "小学生が市長にプレゼン！人・自然・データが集まる千葉県印西市・藤代健吾市長とせんべい焼きを体験！首長と○○やってみたまとめ",
-      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4tbmZMRjhvaXJBS1FHNkZiSUhtdG4zYmd0S0E5cEc5cmNEM1pUOTcyODh1aG5fdVpmdG1OdG9YWFZPOTlfc1FqUmdGZVh0elllZDJtT1lINUtDaGZSQTNsbHdLTQ?oc=5",
-      "desc": "小学生が市長にプレゼン！人・自然・データが集まる千葉県印西市・藤代健吾市長とせんべい焼きを体験！首長と○○やってみたまとめ  選挙ドットコム",
-      "pub_iso": "2025-11-11T17:00:00+09:00",
-      "pub_str": "2025年11月11日",
-      "publisher": "選挙ドットコム",
-      "source": "",
-      "source_label": "印西（千葉）"
-    },
-    {
       "title": "千葉県印西市でのAIデータセンター向け拠点確保のお知らせ | データセクション株式会社のプレスリリース",
       "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5mRW9teTBaYlpzdTRfc2hmV2NvQUduS1NubjdJVHNhNVNzZHd0R0g3WThZSW11NU94TWJRS0hzYm1lSmo2OTMxMFFseDZYSHVLclFOSl91UFEwT2hlVk1hV1VMWEdhLTJLYXc?oc=5",
       "desc": "千葉県印西市でのAIデータセンター向け拠点確保のお知らせ | データセクション株式会社のプレスリリース  PR TIMES",
@@ -1853,6 +1873,16 @@
       "source_label": "印西イベント"
     },
     {
+      "title": "印西市の天気予報【NHK】今日の最新気象情報・ニュース",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5QN21obXp4QUtNUkFRRmJYQ2tFQ2hNSkFLUFFyWkJ0RW80LTQtTnowVkd2aUwyRkJLTnRYdlZabDJmNWRaRGZiNFY4VWdILWs4RUg3LU5UczJGY2piMXpCM1hGemV0RUF3RjVTOHRKQk8?oc=5",
+      "desc": "印西市の天気予報【NHK】今日の最新気象情報・ニュース  NHKニュース",
+      "pub_iso": "2025-10-29T07:17:00+09:00",
+      "pub_str": "2025年10月29日",
+      "publisher": "NHKニュース",
+      "source": "",
+      "source_label": "印西市"
+    },
+    {
       "title": "【印西市】まつや市議！世界一の演武を届ける。 - まつや知美（マツヤトモミ）",
       "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBjbVl5X1dpU3NjaUhrQlJVZTlBemhZMndHU0ZyRDFneG53YmNadV9JWUVScnFaUHA4eXA0ckFNdnB3aUVnTTA1OWNEODlDRHZVVDItMHZEclBYM0pSVTRv?oc=5",
       "desc": "【印西市】まつや市議！世界一の演武を届ける。 - まつや知美（マツヤトモミ）  選挙ドットコム",
@@ -1901,16 +1931,6 @@
       "publisher": "いこーよニュース",
       "source": "",
       "source_label": "印西イベント"
-    },
-    {
-      "title": "千葉・印西市と白井市が連携協定 子育て支援やデータセンターでルール作り検討",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBoMlotRXFwd1hrd0RtbEFfWXN0cEI2NFBQNlZPVUxNSHBXYXkwZ2RjdXJJY0ZLMFFPRFJFcXZ2T09aU0R3cm94UHBBNG9WeTBkS3AwQ0lPSmp6b3dNT2thWks0Nm52V1VPQmh1bXo4VXVGRV9rU3c?oc=5",
-      "desc": "千葉・印西市と白井市が連携協定 子育て支援やデータセンターでルール作り検討  産経ニュース",
-      "pub_iso": "2025-10-14T16:00:00+09:00",
-      "pub_str": "2025年10月14日",
-      "publisher": "産経ニュース",
-      "source": "",
-      "source_label": "印西（千葉）"
     },
     {
       "title": "【千葉】2025年10月11日・12日・13日の三連休に無料で楽しめるイベント11選",
@@ -1971,26 +1991,6 @@
       "publisher": "地域ニュースサイト号外NET",
       "source": "",
       "source_label": "印西新店舗"
-    },
-    {
-      "title": "【江戸川区】本日9/29(月)から10/5(日)プレオープンで1杯500円！麺屋武士道",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqTktacVVQNWdMQk1nRlpSaWc4N0M4VWxEWkRJNWc1aDVVOC1XdWsxRkx1RWFoVzk3ZDhFQVUzcnlkQkZjTXdoYkFldkNwSTYtQUwwaTZwb2ZoWlFzV09CUU1IWTlBUGEtNGxWZFB3?oc=5",
-      "desc": "【江戸川区】本日9/29(月)から10/5(日)プレオープンで1杯500円！麺屋武士道  号外NET 江戸川区",
-      "pub_iso": "2025-09-29T16:00:00+09:00",
-      "pub_str": "2025年9月29日",
-      "publisher": "号外NET 江戸川区",
-      "source": "",
-      "source_label": "印西新店舗"
-    },
-    {
-      "title": "事業方式はデザインビルド／28年度の供用開始目指す／印西地区環境整備組合 地域振興施設",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9oaXlLWVhEYWNJNGUzYmxXVDJxSEMxNHFTWXJ5QnlrSzkwdVUxZnZQSm5LY0NKa1FvVFBaVHpkeVVfc1A4T3VWSnlQUVJpaWRuMGhjQUVXc0Y?oc=5",
-      "desc": "事業方式はデザインビルド／28年度の供用開始目指す／印西地区環境整備組合 地域振興施設  日本工業経済新聞社",
-      "pub_iso": "2025-09-25T16:00:00+09:00",
-      "pub_str": "2025年9月25日",
-      "publisher": "日本工業経済新聞社",
-      "source": "",
-      "source_label": "印西（千葉）"
     },
     {
       "title": "【丸源ラーメン】『丸源ラーメン 函館美原店』が2025年10⽉１日(水)にグランドオープン！",
