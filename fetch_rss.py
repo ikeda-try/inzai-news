@@ -230,4 +230,25 @@ def main():
                     item["category"] = name
                 scraped_items.extend(items)
                 print(f"  → {len(items)}件")
-   
+
+            else:
+                print(f"スクレイピング中: {name}")
+                items = scrape_site(src)
+                scraped_items.extend(items)
+
+    output = {
+        "fetched_at": datetime.now(JST).isoformat(),
+        "count": len(all_items[:200]),
+        "articles": all_items[:200],
+        "scraped": scraped_items,
+    }
+
+    out_path = os.path.join(os.path.dirname(__file__), "articles_raw.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"\nRSS {len(all_items[:200])}件 + スクレイピング {len(scraped_items)}件 → articles_raw.json に保存しました")
+
+
+if __name__ == "__main__":
+    main()
