@@ -158,6 +158,14 @@ def build_html(articles):
     today = datetime.now(JST).date()
     cutoff = today - timedelta(days=SCRAPED_MAX_DAYS)
 
+    # 鎌ヶ谷・白井の開店・閉店記事は「開店・閉店」カテゴリに振り替え
+    KAITEN_KEYWORDS = ["開店", "閉店", "オープン", "クローズ", "NEW OPEN", "new open"]
+    for a in articles:
+        if a.get("category") == "鎌ヶ谷・白井":
+            title = a.get("title", "")
+            if any(kw in title for kw in KAITEN_KEYWORDS):
+                a["category"] = "開店・閉店"
+
     main_arts_all = [a for a in articles if a.get("category") in CATEGORY_ORDER]
     scraped_arts = [a for a in articles if a.get("category") not in CATEGORY_ORDER]
     def date_ok(item):
