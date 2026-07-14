@@ -198,16 +198,12 @@ def build_html(articles):
         for cat in CATEGORY_ORDER
         if cat_map.get(cat)
     ]
-    odd_total = len(active_cats) % 2 == 1
-
     grid_html = ""
     for idx, (cat, items) in enumerate(active_cats):
         bg, fg, dark = CATEGORY_COLORS[cat]
         rows = "".join(render_item(i) for i in items)
-        is_last_odd = odd_total and (idx == len(active_cats) - 1)
-        span = ' style="grid-column:1/-1"' if is_last_odd else ""
         grid_html += (
-            '<div class="cat-section"' + span + '>'
+            '<div class="cat-section">'
             + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
             + '<span class="cat-icon">' + CATEGORY_ICONS[cat] + "</span>"
             + '<span class="cat-name" style="color:' + dark + ';"> ' + html.escape(cat) + "</span>"
