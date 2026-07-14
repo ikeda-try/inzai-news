@@ -7,6 +7,7 @@ HTML生成はCoworkスケジュールタスク（Claude AI）が担当する。
 
 import urllib.request
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 import html
 import re
@@ -15,6 +16,35 @@ import os
 from urllib.parse import urlparse
 
 JST = timezone(timedelta(hours=9))
+
+def resolve_google_news_url(url, timeout=5):
+    """Google NewsのエンコードURLをリダイレクト先の実際のURLに変換"""
+    if 'news.google.com/rss/articles/' not in url:
+        return url
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.url
+    except Exception:
+        return url
+
+
+def resolve_all_google_news(items, max_workers=10):
+    """Google News URLを並列で実際のURLに解決"""
+    indices = [i for i, it in enumerate(items) if 'news.google.com/rss/articles/' in it.get('link', '')]
+    if not indices:
+        return items
+    print(f"Google News URL を解決中... ({len(indices)}件)")
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        future_map = {ex.submit(resolve_google_news_url, items[i]['link']): i for i in indices}
+        for future in as_completed(future_map):
+            i = future_map[future]
+            try:
+                items[i]['link'] = future.result()
+            except Exception:
+                pass
+    return items
+
 
 RSS_SOURCES = [
     {
@@ -205,6 +235,7 @@ def main():
                 seen_titles.add(key)
                 all_items.append(item)
 
+    all_items = resolve_all_google_news(all_items)
     all_items.sort(key=lambda x: x["pub_iso"], reverse=True)
 
     # scrape_sources.json を読んで各サイトを取得
