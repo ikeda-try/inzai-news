@@ -18,15 +18,21 @@ from urllib.parse import urlparse
 JST = timezone(timedelta(hours=9))
 
 def resolve_google_news_url(url, timeout=5):
-    """Google NewsのエンコードURLをリダイレクト先の実際のURLに変換"""
+    """Google NewsのエンコードURLをリダイレクト先の実際のURLに変換。
+    失敗時は /rss/articles/ → /articles/ に変換してブラウザ互換URLを返す。"""
     if 'news.google.com/rss/articles/' not in url:
         return url
+    fallback = url.replace('/rss/articles/', '/articles/')
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.url
+            resolved = resp.url
+            # Google URL以外に解決できた場合のみ採用
+            if 'news.google.com' not in resolved:
+                return resolved
     except Exception:
-        return url
+        pass
+    return fallback
 
 
 def resolve_all_google_news(items, max_workers=10):
@@ -45,6 +51,11 @@ def resolve_all_google_news(items, max_workers=10):
                 pass
     return items
 
+
+# 有料記事など採用しないpublisher（fetch時点で除外）
+BLOCKED_PUBLISHERS = {
+    "日経クロステック",
+}
 
 RSS_SOURCES = [
     {
@@ -152,6 +163,8 @@ def fetch_rss(source):
                     "source": src_label,
                     "source_label": source["label"],
                 })
+                if publisher in BLOCKED_PUBLISHERS:
+                    items.pop()
     except Exception as e:
         print(f"RSS取得エラー ({url}): {e}")
     return items

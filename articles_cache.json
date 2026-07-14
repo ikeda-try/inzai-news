@@ -98,12 +98,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMibEFVX3lxTE5rTHlHR2YzYlBIckxacjl4cGE1T01WNVlxYWlxRjFCTG9WSkdnMmRlbFdBRjk0ZDZkMzdXNWFRdE5ELUxHOFNfNjZmVkt5TW1FbzF2R0Utclp2R1hJSW55TG5FVUZ0d244R2dVQw?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "開発・暮らし",
     "title": "相次ぐデータセンター紛争、印西市は地区計画の変更へ",
     "pub_str": "2026年7月9日",
     "publisher": "日経クロステック",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "有料記事のため除外（日経クロステック）"
   },
   "https://news.google.com/articles/CBMiU0FVX3lxTE1fNkdCcFBOdkgxdmotMkc3Zm9NTmpRa1ViWkZoNVNRLThxNld0TGlVcnBmR0NaUXFjaElGSEtMMnhIM1lRcnFpMGlKc0h2eW9GUQ?oc=5": {
     "decision": "adopted",
