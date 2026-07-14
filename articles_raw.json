@@ -1,7 +1,17 @@
 {
-  "fetched_at": "2026-07-14T16:35:04.878871+09:00",
+  "fetched_at": "2026-07-14T18:30:18.488434+09:00",
   "count": 200,
   "articles": [
+    {
+      "title": "地域包括支援センター通信",
+      "link": "https://www.city.inzai.lg.jp/0000020313.html",
+      "desc": "市内の地域包括支援センターそれぞれで通信を発行しています。ぜひ、ご覧ください。",
+      "pub_iso": "2026-07-14T16:57:03+09:00",
+      "pub_str": "2026年7月14日",
+      "publisher": "印西市",
+      "source": "市役所公式",
+      "source_label": "印西市公式"
+    },
     {
       "title": " Instagramリール動画スクールを開催します！！",
       "link": "https://www.city.inzai.lg.jp/0000022098.html",
@@ -14,11 +24,11 @@
     },
     {
       "title": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
-      "link": "https://news.google.com/articles/CBMiakFVX3lxTFBHZXJQVlRMU2NJSjRjTTRtajkxa19sOEY5eFRTeExZRHppWVNQN2twel9EN2ROMXZPRDNQNDc5VUFUU0I1b1Bfem4zSlI5bDl3QzVpUmxHekNHRWVOYUlSQnI3UGY0UG1JVEE?oc=5",
-      "desc": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動  PR TIMES",
-      "pub_iso": "2026-07-14T15:58:26+09:00",
+      "link": "https://news.google.com/articles/CBMia0FVX3lxTE80bmlFbDV4YWFjZzlVT2FNRjFOSGUtdDhoZk9KSGxlbkFBMklscE1pemR3RF9SdFhvOVczY21xZm9rNmVMdDhLbkJMUEpVRmUyMF9KUkl0eGthUHlpSnJNakRkUjlxUjZXUVJB?oc=5",
+      "desc": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動  時事ドットコム",
+      "pub_iso": "2026-07-14T16:16:00+09:00",
       "pub_str": "2026年7月14日",
-      "publisher": "PR TIMES",
+      "publisher": "時事ドットコム",
       "source": "",
       "source_label": "印西市"
     },
@@ -51,16 +61,6 @@
       "publisher": "印西市",
       "source": "市役所公式",
       "source_label": "印西市公式"
-    },
-    {
-      "title": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画",
-      "link": "https://news.google.com/articles/CBMiV0FVX3lxTE42T0YyQzhjazRLYzFZeklaM1RVcDVTaTgwS2V2RldHR2pJd0FOMjN6RnRGcU5iOXF5ZDBBX09haDZIVFRvRkh6bm9QR2VLMjNQNTNMaXp4VQ?oc=5",
-      "desc": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画  千葉日報オンライン",
-      "pub_iso": "2026-07-14T08:15:29+09:00",
-      "pub_str": "2026年7月14日",
-      "publisher": "千葉日報オンライン",
-      "source": "",
-      "source_label": "印西市"
     },
     {
       "title": "令和8年度第1回印西市総合計画審議会開催のお知らせ（令和8年7月28日開催）",
@@ -254,11 +254,11 @@
     },
     {
       "title": "【千葉県印西市】「千葉県・住みよさランキングNo.1」印西市が新コンセプトロゴを決定。",
-      "link": "https://news.google.com/articles/CBMie0FVX3lxTE1EdkhleUtoTW9QZkVIdGczcHpjUnQzVDVIdWgwaFotZTJPLUhVcmZOOTlUd0NRd2RyTVFTM05CTUZOenlTY2gwOFhhSHB5NU8yX2w2YWMzWEZFd1Ziei1rQXVCZG10b3lGTjRmY3VwSVVsQTNxU2xUYlZrZw?oc=5",
-      "desc": "【千葉県印西市】「千葉県・住みよさランキングNo.1」印西市が新コンセプトロゴを決定。  産経ニュース",
+      "link": "https://news.google.com/articles/CBMiakFVX3lxTE1oWG5GdzZMV1JtN1RlR3hOZkltd2hxVG15UzJybXRSamFiMWRzWmhrNEhxZ21FTzVrZ3U4Mk81aUYxUGxGTldBRlpBVzloZ3BUb2c2d3ZzbmowY05FeGpISkxBLVVfQUtLdUE?oc=5",
+      "desc": "【千葉県印西市】「千葉県・住みよさランキングNo.1」印西市が新コンセプトロゴを決定。  PR TIMES",
       "pub_iso": "2026-07-08T14:45:10+09:00",
       "pub_str": "2026年7月8日",
-      "publisher": "産経ニュース",
+      "publisher": "PR TIMES",
       "source": "",
       "source_label": "印西市"
     },
@@ -373,20 +373,20 @@
       "source_label": "印西市公式"
     },
     {
+      "title": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画",
+      "link": "https://news.google.com/articles/CBMiakFVX3lxTFB1c2NYeHZLV1VnazM4akNKcnc2VmlSRmV5NWx4VDB1aW1XWGhhdHByV1RqZW9kWkRyc2QzX0l0WU1OMGlIY0NlZlZnSUxDUkNYZ181SWY5TmEzdHdETERiQnBOT2hQMDVsbFE?oc=5",
+      "desc": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画  PR TIMES",
+      "pub_iso": "2026-07-06T14:00:02+09:00",
+      "pub_str": "2026年7月6日",
+      "publisher": "PR TIMES",
+      "source": "",
+      "source_label": "印西市"
+    },
+    {
       "title": " 北総ランドスケープ・マネジメント・センターに参画",
       "link": "https://www.city.inzai.lg.jp/0000022051.html",
       "desc": "",
       "pub_iso": "2026-07-06T14:00:00+09:00",
-      "pub_str": "2026年7月6日",
-      "publisher": "印西市",
-      "source": "市役所公式",
-      "source_label": "印西市公式"
-    },
-    {
-      "title": "【重要】マイナンバーカード交付通知書に記載された受付時間の読み替えについて",
-      "link": "https://www.city.inzai.lg.jp/0000022087.html",
-      "desc": "",
-      "pub_iso": "2026-07-06T13:52:39+09:00",
       "pub_str": "2026年7月6日",
       "publisher": "印西市",
       "source": "市役所公式",
@@ -405,10 +405,10 @@
     {
       "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
       "link": "https://news.google.com/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5",
-      "desc": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報  ウォーカープラス",
+      "desc": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報  INE",
       "pub_iso": "2026-07-03T19:19:26+09:00",
       "pub_str": "2026年7月3日",
-      "publisher": "ウォーカープラス",
+      "publisher": "INE",
       "source": "",
       "source_label": "印西（千葉）"
     },
@@ -730,7 +730,7 @@
       "pub_str": "2026年5月31日",
       "publisher": "pando.life",
       "source": "",
-      "source_label": "印西市"
+      "source_label": "印西（千葉）"
     },
     {
       "title": "千葉県印西「NRT 14」サイト内に「Lenovo Neptune」検証拠点がオープン。現地で見てきた",
@@ -921,16 +921,6 @@
       "publisher": "JBpress",
       "source": "",
       "source_label": "印西市"
-    },
-    {
-      "title": "【順天堂大学】順天堂大学と印西市におけるプロモーション活動の連携協力に伴う広告契約について",
-      "link": "https://news.google.com/articles/CBMic0FVX3lxTFBEU1dLTGVOLTc5b1pmZjZQU3prck1LSFVkVWJQT1ctcTZ0aTk1NlN4ejM3MkJndHFudjlBSkYwTm9xTWZrQ1hQeFByZ1Rpc2FweF96R0w0RlladWc4UmFBcFBaaFRSajlIM1o5WVp6bmc0a0k?oc=5",
-      "desc": "【順天堂大学】順天堂大学と印西市におけるプロモーション活動の連携協力に伴う広告契約について  スポーツナビ",
-      "pub_iso": "2026-05-07T16:00:00+09:00",
-      "pub_str": "2026年5月7日",
-      "publisher": "スポーツナビ",
-      "source": "",
-      "source_label": "印西市お知らせ"
     },
     {
       "title": "順天堂大学と印西市におけるプロモーション活動の連携協力に伴う広告契約について｜ニュース＆イベント",
@@ -1373,16 +1363,6 @@
       "source_label": "印西イベント"
     },
     {
-      "title": "本日【印西市・中学校卒業式】内容",
-      "link": "https://news.google.com/articles/CBMiX0FVX3lxTFBHOUREN2w4TGo3XzRfZlVPYWpqTjVrMEJKMl9RN3Y3V2lMS0EtcEZKV1JwYTVJNExqNTNpTGV5Y1Z1MFYyQ2NFTjdWd3p4c0NSZEhnS0taQ25Ia1Eyd0tN?oc=5",
-      "desc": "本日【印西市・中学校卒業式】内容  選挙ドットコム",
-      "pub_iso": "2026-03-10T16:00:00+09:00",
-      "pub_str": "2026年3月10日",
-      "publisher": "選挙ドットコム",
-      "source": "",
-      "source_label": "印西市"
-    },
-    {
       "title": "「迷惑施設」なのに「無法状態」…データセンター立地問題、次々と法廷闘争に 東京都は対策に乗り出したが",
       "link": "https://news.google.com/articles/CBMiU0FVX3lxTE5lUnFHc1FLdjdSbHEzZmxENVNmZ3ZkT013aDRjejdSTjF1cHpjOE0wSkpYYVRhQUsybl9Zb3NGS2hBMmx5c0dhOGFjSWRwcnh0TUdv?oc=5",
       "desc": "「迷惑施設」なのに「無法状態」…データセンター立地問題、次々と法廷闘争に 東京都は対策に乗り出したが  東京新聞デジタル",
@@ -1521,6 +1501,16 @@
       "publisher": "Yahoo!ニュース",
       "source": "",
       "source_label": "印西新店舗"
+    },
+    {
+      "title": "茨城県で最大震度2の地震 茨城県・笠間市、神栖市、千葉県・市原市、浦安市、印西市、東京都・東京台東区(放送局のニュース )",
+      "link": "https://news.google.com/articles/CBMidkFVX3lxTE9VbmNSbUtQbmIyX3hkc3N3ZzF6WXBfZ0lTNGFOTU1uTG9vQ0p5bUJCYW1IYzdtU0dqM1o1ZlJueHF1X2NadThkNnBzVjQycUhsbFotclYwNmlYWU01dXZKNWhIOFJQbWk3YzQzZ1NkckJYRXIydEE?oc=5",
+      "desc": "茨城県で最大震度2の地震 茨城県・笠間市、神栖市、千葉県・市原市、浦安市、印西市、東京都・東京台東区(放送局のニュース )  tenki.jp",
+      "pub_iso": "2026-02-05T17:00:00+09:00",
+      "pub_str": "2026年2月5日",
+      "publisher": "tenki.jp",
+      "source": "",
+      "source_label": "印西市"
     },
     {
       "title": "松本ひさし個人演説会 in 印西 開催のお知らせ",
@@ -1793,16 +1783,6 @@
       "source_label": "印西市"
     },
     {
-      "title": "小学生が市長にプレゼン！人・自然・データが集まる千葉県印西市・藤代健吾市長とせんべい焼きを体験！首長と○○やってみたまとめ",
-      "link": "https://news.google.com/articles/CBMiY0FVX3lxTE4tbmZMRjhvaXJBS1FHNkZiSUhtdG4zYmd0S0E5cEc5cmNEM1pUOTcyODh1aG5fdVpmdG1OdG9YWFZPOTlfc1FqUmdGZVh0elllZDJtT1lINUtDaGZSQTNsbHdLTQ?oc=5",
-      "desc": "小学生が市長にプレゼン！人・自然・データが集まる千葉県印西市・藤代健吾市長とせんべい焼きを体験！首長と○○やってみたまとめ  選挙ドットコム",
-      "pub_iso": "2025-11-11T17:00:00+09:00",
-      "pub_str": "2025年11月11日",
-      "publisher": "選挙ドットコム",
-      "source": "",
-      "source_label": "印西（千葉）"
-    },
-    {
       "title": "千葉県印西市でのAIデータセンター向け拠点確保のお知らせ | データセクション株式会社のプレスリリース",
       "link": "https://news.google.com/articles/CBMiakFVX3lxTE5mRW9teTBaYlpzdTRfc2hmV2NvQUduS1NubjdJVHNhNVNzZHd0R0g3WThZSW11NU94TWJRS0hzYm1lSmo2OTMxMFFseDZYSHVLclFOSl91UFEwT2hlVk1hV1VMWEdhLTJLYXc?oc=5",
       "desc": "千葉県印西市でのAIデータセンター向け拠点確保のお知らせ | データセクション株式会社のプレスリリース  PR TIMES",
@@ -1923,16 +1903,6 @@
       "source_label": "印西イベント"
     },
     {
-      "title": "千葉・印西市と白井市が連携協定 子育て支援やデータセンターでルール作り検討",
-      "link": "https://news.google.com/articles/CBMidkFVX3lxTFBoMlotRXFwd1hrd0RtbEFfWXN0cEI2NFBQNlZPVUxNSHBXYXkwZ2RjdXJJY0ZLMFFPRFJFcXZ2T09aU0R3cm94UHBBNG9WeTBkS3AwQ0lPSmp6b3dNT2thWks0Nm52V1VPQmh1bXo4VXVGRV9rU3c?oc=5",
-      "desc": "千葉・印西市と白井市が連携協定 子育て支援やデータセンターでルール作り検討  産経ニュース",
-      "pub_iso": "2025-10-14T16:00:00+09:00",
-      "pub_str": "2025年10月14日",
-      "publisher": "産経ニュース",
-      "source": "",
-      "source_label": "印西（千葉）"
-    },
-    {
       "title": "【千葉】2025年10月11日・12日・13日の三連休に無料で楽しめるイベント11選",
       "link": "https://news.google.com/articles/CBMiUkFVX3lxTE5pcUw4ZnRpLVVlZFBBR2hHek5jWlItQ25QeEhYLWtpRHZyYjlMQlU1N25BLXhkX0hZTUVGMnUyT2RQQW1BQXI4S2FoUVBfMVF0UFE?oc=5",
       "desc": "【千葉】2025年10月11日・12日・13日の三連休に無料で楽しめるイベント11選  いこーよニュース",
@@ -2001,6 +1971,36 @@
       "publisher": "日本工業経済新聞社",
       "source": "",
       "source_label": "印西（千葉）"
+    },
+    {
+      "title": "【丸源ラーメン】『丸源ラーメン 函館美原店』が2025年10⽉１日(水)にグランドオープン！",
+      "link": "https://news.google.com/articles/CBMiakFVX3lxTFBRdURxR1VHY2ZGUGxIa1I2dkh3clVDTmpyNFVlWTYxSWRGVF9zRHVJalhWNUZfa1BETnNER3FOUndIX2x6M3pnY3pKZ2RUTlpja1ltRlZqR3lUR0dnX3B4aDRYdnFHWV8wQ0E?oc=5",
+      "desc": "【丸源ラーメン】『丸源ラーメン 函館美原店』が2025年10⽉１日(水)にグランドオープン！  PR TIMES",
+      "pub_iso": "2025-09-25T16:00:00+09:00",
+      "pub_str": "2025年9月25日",
+      "publisher": "PR TIMES",
+      "source": "",
+      "source_label": "印西新店舗"
+    },
+    {
+      "title": "【千葉】2025年9月23日の「秋分の日」に無料で楽しめるイベント5選",
+      "link": "https://news.google.com/articles/CBMiUkFVX3lxTE8tY3NtdVVxd1FPYjJ0eFlFN19NTDIwcGdfOVBRdzR5VFBQMXVsdmF5b3FOVThud2dTSlVldkI5dExJek5Ra1hnVjJkQTRCZ0dWa2c?oc=5",
+      "desc": "【千葉】2025年9月23日の「秋分の日」に無料で楽しめるイベント5選  いこーよニュース",
+      "pub_iso": "2025-09-21T16:00:00+09:00",
+      "pub_str": "2025年9月21日",
+      "publisher": "いこーよニュース",
+      "source": "",
+      "source_label": "印西イベント"
+    },
+    {
+      "title": "夏の終わりの盆踊り大会2025｜レッツエンジョイ東京",
+      "link": "https://news.google.com/articles/CBMiUkFVX3lxTE56QVEwUFF0VGxIMWJaV0MzUFhpX2tUT2R3VnVVMzYwdHNDTFFKdjVmYkxkM2I2YkFfN3FTd1ktMnJmUERwMXVGYW9rNm5fMXRnNEE?oc=5",
+      "desc": "夏の終わりの盆踊り大会2025｜レッツエンジョイ東京  レッツエンジョイ東京",
+      "pub_iso": "2025-09-20T16:00:00+09:00",
+      "pub_str": "2025年9月20日",
+      "publisher": "レッツエンジョイ東京",
+      "source": "",
+      "source_label": "印西イベント"
     }
   ],
   "scraped": []
