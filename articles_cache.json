@@ -4235,5 +4235,46 @@
     "reason": "AI精査除外（川口市のショッピングモール・印西エリア外）",
     "title": "minanoba川口 2026年9月17日(金)開業！テナントは？最新情報も！",
     "seen_at": "20260714-2035"
+  },
+  "https://tanaka-shoten.net/information/chiba0428/": {
+    "decision": "adopted",
+    "category": "開店・閉店",
+    "title": "【2026年5月3日 開店】中華そば専門 田中そば店 千葉ニュータウン店",
+    "pub_str": "2026年5月3日",
+    "publisher": "田中商店/田中そば店 公式サイト",
+    "seen_at": "20260714-2046"
+  },
+  "https://chibanewtown.aeonmall.jp/event/a3683f4d-9859-487a-ae24-61684023a2eb": {
+    "decision": "adopted",
+    "category": "イオンモール千葉ニュータウン",
+    "title": "とれたて！夏やさい広場with INZAI FARMERS MARCHE",
+    "pub_str": "2026年7月14日",
+    "publisher": "イオンモール千葉ニュータウン",
+    "seen_at": "20260714-2046"
+  },
+  "https://chibanewtown.aeonmall.jp/event/31f5a575-9b37-4b49-84f5-852f144a966b": {
+    "decision": "adopted",
+    "category": "イオンモール千葉ニュータウン",
+    "title": "ぷっくりマリンシールを作ろう！",
+    "pub_str": "2026年7月14日",
+    "publisher": "イオンモール千葉ニュータウン",
+    "seen_at": "20260714-2046"
+  },
+  "https://chibanewtown.aeonmall.jp/event/2647e904-6361-46b4-ab58-2749336c9a58": {
+    "decision": "adopted",
+    "category": "イオンモール千葉ニュータウン",
+    "title": "夏休みはご家族一緒に！セントラルのプールで遊ぼう！",
+    "pub_str": "2026年7月14日",
+    "publisher": "イオンモール千葉ニュータウン",
+    "seen_at": "20260714-2046"
+  },
+  "https://chibanewtown.aeonmall.jp/event/9482bc21-d754-4f22-a6dd-a36ae0f81393": {
+    "decision": "excluded",
+    "exclude_method": "auto_80plus",
+    "reason": "類似100%・自動除外",
+    "similarity": 1.0,
+    "similar_to": "びしょぬれ北極モール2026 スプラッシュで、夏を冷やせ。「花火ナイト2026」",
+    "title": "びしょぬれ北極モール2026 スプラッシュで、夏を冷やせ。「花火ナイト2026」",
+    "seen_at": "20260714-2046"
   }
 }
