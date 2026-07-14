@@ -72,7 +72,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .hero-title:hover{color:#1D9E75}
 .hero-meta{font-size:12px;color:#888}
 .today-badge{display:inline-block;font-size:10px;font-weight:700;background:#e74c3c;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
-.cat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
 .cat-header{display:flex;align-items:center;gap:8px;padding:10px 12px}
