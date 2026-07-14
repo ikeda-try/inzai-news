@@ -8,20 +8,21 @@ from datetime import datetime, timezone, timedelta, date
 from collections import defaultdict
 
 JST = timezone(timedelta(hours=9))
-MAX_ITEMS_PER_CAT = 10
-CATEGORY_MAX_ITEMS = {
-    "市政・行政": 6,
-}
+MAX_ITEMS_PER_CAT = 20
+CATEGORY_MAX_ITEMS = {}
 SCRAPED_MAX_ITEMS = 5
 SCRAPED_MAX_DAYS = 90
+CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180}  # その他は90日
+DEFAULT_CUTOFF_DAYS = 90
 
-CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし"]
+CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店"]
 
 CATEGORY_COLORS = {
     "話題・その他":   ("#DFD9CF", "#7A6E5F", "#3D342A"),
     "イベント・文化": ("#F0EAFA", "#9B59B6", "#6C3483"),
     "市政・行政":     ("#E8EDF8", "#2C5282", "#1A325A"),
     "開発・暮らし":   ("#E1F5EE", "#1D9E75", "#085041"),
+    "開店・閉店":     ("#FDE8E8", "#C0392B", "#7B1A1A"),
 }
 
 CATEGORY_ICONS = {
@@ -29,6 +30,7 @@ CATEGORY_ICONS = {
     "イベント・文化": "🎉",
     "市政・行政":     "🏢",
     "開発・暮らし":   "🌱",
+    "開店・閉店":     "🏪",
 }
 
 SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
@@ -121,8 +123,14 @@ def build_html(articles):
     today = datetime.now(JST).date()
     cutoff = today - timedelta(days=SCRAPED_MAX_DAYS)
 
-    main_arts = [a for a in articles if a.get("category") in CATEGORY_ORDER]
+    main_arts_all = [a for a in articles if a.get("category") in CATEGORY_ORDER]
     scraped_arts = [a for a in articles if a.get("category") not in CATEGORY_ORDER]
+    def date_ok(item):
+        d = parse_pub_date(item.get("pub_str", ""))
+        if not d: return True
+        days = CATEGORY_CUTOFF_DAYS.get(item.get("category", ""), DEFAULT_CUTOFF_DAYS)
+        return d >= today - timedelta(days=days)
+    main_arts = [a for a in main_arts_all if date_ok(a)]
 
     top_item = main_arts[0] if main_arts else None
 
