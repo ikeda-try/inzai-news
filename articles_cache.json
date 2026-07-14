@@ -4159,5 +4159,81 @@
     "similar_to": "あそびの学校 8月",
     "title": "あそびの学校",
     "seen_at": "20260714-1528"
+  },
+  "https://www.city.inzai.lg.jp/0000020313.html": {
+    "decision": "adopted",
+    "category": "市政・行政",
+    "title": "地域包括支援センター通信",
+    "pub_str": "2026年7月14日",
+    "publisher": "印西市",
+    "seen_at": "20260714-1943"
+  },
+  "https://www.city.inzai.lg.jp/0000022098.html": {
+    "decision": "adopted",
+    "category": "イベント・文化",
+    "title": " Instagramリール動画スクールを開催します！！",
+    "pub_str": "2026年7月14日",
+    "publisher": "印西市",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMia0FVX3lxTE80bmlFbDV4YWFjZzlVT2FNRjFOSGUtdDhoZk9KSGxlbkFBMklscE1pemR3RF9SdFhvOVczY21xZm9rNmVMdDhLbkJMUEpVRmUyMF9KUkl0eGthUHlpSnJNakRkUjlxUjZXUVJB?oc=5": {
+    "decision": "adopted",
+    "category": "話題・その他",
+    "title": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "pub_str": "2026年7月14日",
+    "publisher": "時事ドットコム",
+    "seen_at": "20260714-1943"
+  },
+  "https://www.city.inzai.lg.jp/0000021876.html": {
+    "decision": "adopted",
+    "category": "市政・行政",
+    "title": "【臨時措置を9月まで延長】指定ごみ袋以外の袋でもごみを出せるようにします",
+    "pub_str": "2026年7月14日",
+    "publisher": "印西市",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMiWEFVX3lxTE9saHoyeGVaM29GY3d0bmk1bzJiMlZDNE10WW9Sa1ZoUEN6WGVMTHhoRzcxeVRJYUJHbG83aGhHQU9UQVAyLTdLb3NhWkljd2RLTFlrRGtBZEU?oc=5": {
+    "decision": "adopted",
+    "category": "話題・その他",
+    "title": "攻めの姿勢貫く古豪 印旛明誠（印西市） 【目指せ！甲子園２０２６ 出場校プロフィル】",
+    "pub_str": "2026年6月23日",
+    "publisher": "千葉日報オンライン",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMiWEFVX3lxTE5wTTd5S3M4QW9RUXNUb3FXbmkyNXMwZkdsTlpnM0J4T1ItczUxdDhLd2wwdzBMZUU5U1RPZ25DRHNFSGNhM1hQUkJIZ0RaNEdHSTFRbHJLOWo?oc=5": {
+    "decision": "adopted",
+    "category": "話題・その他",
+    "title": "北総ライノス印西市と協定 地域活性化、市内リーグも",
+    "pub_str": "2026年4月23日",
+    "publisher": "千葉日報オンライン",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMidkFVX3lxTE9VbmNSbUtQbmIyX3hkc3N3ZzF6WXBfZ0lTNGFOTU1uTG9vQ0p5bUJCYW1IYzdtU0dqM1o1ZlJueHF1X2NadThkNnBzVjQycUhsbFotclYwNmlYWU01dXZKNWhIOFJQbWk3YzQzZ1NkckJYRXIydEE?oc=5": {
+    "decision": "excluded",
+    "exclude_method": "ai_review",
+    "reason": "AI精査除外",
+    "title": "茨城県で最大震度2の地震 茨城県・笠間市、神栖市、千葉県・市原市、浦安市、印西市、東京都・東京台東区(放送局のニュース )",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMiUkFVX3lxTE8tY3NtdVVxd1FPYjJ0eFlFN19NTDIwcGdfOVBRdzR5VFBQMXVsdmF5b3FOVThud2dTSlVldkI5dExJek5Ra1hnVjJkQTRCZ0dWa2c?oc=5": {
+    "decision": "excluded",
+    "exclude_method": "ai_review",
+    "reason": "AI精査除外",
+    "title": "【千葉】2025年9月23日の「秋分の日」に無料で楽しめるイベント5選",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMiUkFVX3lxTE56QVEwUFF0VGxIMWJaV0MzUFhpX2tUT2R3VnVVMzYwdHNDTFFKdjVmYkxkM2I2YkFfN3FTd1ktMnJmUERwMXVGYW9rNm5fMXRnNEE?oc=5": {
+    "decision": "excluded",
+    "exclude_method": "ai_review",
+    "reason": "AI精査除外",
+    "title": "夏の終わりの盆踊り大会2025｜レッツエンジョイ東京",
+    "seen_at": "20260714-1943"
+  },
+  "https://news.google.com/articles/CBMiT0FVX3lxTE9pc2JHbXVpUktSR1NxcFFPb05FS0xCVjVkRUJxX3BZZ3paWHJRLThqeXAzN2xkSnBHV29nMXZqd2NjTnE1bFlPcV9WSzhmU2c?oc=5": {
+    "decision": "excluded",
+    "exclude_method": "ai_review",
+    "reason": "AI精査除外（川口市のショッピングモール・印西エリア外）",
+    "title": "minanoba川口 2026年9月17日(金)開業！テナントは？最新情報も！",
+    "seen_at": "20260714-2035"
   }
 }
