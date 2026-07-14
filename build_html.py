@@ -12,31 +12,52 @@ MAX_ITEMS_PER_CAT = 20
 CATEGORY_MAX_ITEMS = {}
 SCRAPED_MAX_ITEMS = 20
 SCRAPED_MAX_DAYS = 180
-CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180, "イオンモール千葉ニュータウン": 180}  # その他は90日
+CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180, "イオンモール千葉ニュータウン": 180, "鎌ヶ谷・白井": 90}
 DEFAULT_CUTOFF_DAYS = 90
 
-CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "イオンモール千葉ニュータウン"]
+CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "鎌ヶ谷・白井", "イオンモール千葉ニュータウン"]
 
 CATEGORY_COLORS = {
-    "話題・その他":   ("#DFD9CF", "#7A6E5F", "#3D342A"),
-    "イベント・文化": ("#F0EAFA", "#9B59B6", "#6C3483"),
-    "市政・行政":     ("#E8EDF8", "#2C5282", "#1A325A"),
-    "開発・暮らし":   ("#E1F5EE", "#1D9E75", "#085041"),
-    "開店・閉店":     ("#FDE8E8", "#C0392B", "#7B1A1A"),
-    "イオンモール千葉ニュータウン": ("#EDE8F8", "#6B4FA7", "#3A1F6E"),
+    "話題・その他":   ("#F3F4F6", "#6B7280", "#374151"),
+    "イベント・文化": ("#F3E8FF", "#9333EA", "#6B21A8"),
+    "市政・行政":     ("#E8F1FF", "#2563EB", "#1E3A8A"),
+    "開発・暮らし":   ("#ECFDF5", "#10B981", "#065F46"),
+    "開店・閉店":     ("#FEF2F2", "#EF4444", "#991B1B"),
+    "鎌ヶ谷・白井":   ("#FFF7ED", "#F97316", "#9A3412"),
+    "イオンモール千葉ニュータウン": ("#ECFEFF", "#06B6D4", "#155E75"),
 }
 
 CATEGORY_ICONS = {
     "話題・その他":   "📰",
     "イベント・文化": "🎉",
-    "市政・行政":     "🏢",
+    "市政・行政":     "🏛",
     "開発・暮らし":   "🌱",
     "開店・閉店":     "🏪",
-    "イオンモール千葉ニュータウン": "🛍️",
+    "鎌ヶ谷・白井":   "🗺",
+    "イオンモール千葉ニュータウン": "🛍",
 }
 
 SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
 SCRAPED_ICON = "📍"
+
+# --- 出典元の正規化 ---
+PUBLISHER_ALIASES = {
+    "印西市": "印西市役所",
+}
+PUBLISHER_URL_FALLBACKS = [
+    ("kamagaya-shiroi-inzai.goguynet.jp", "鎌ヶ谷白井インザイ.jp"),
+    ("goguynet.jp",                        "goguynet"),
+]
+
+def normalize_publisher(pub, link=""):
+    """publisherの表記ゆれを正規化し、空の場合はURLからフォールバック"""
+    if pub in PUBLISHER_ALIASES:
+        return PUBLISHER_ALIASES[pub]
+    if not pub:
+        for domain, name in PUBLISHER_URL_FALLBACKS:
+            if domain in (link or ""):
+                return name
+    return pub
 
 CSS = """*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f0ec;color:#1a1a18;line-height:1.6}
@@ -107,14 +128,26 @@ def get_date_class(pub_str):
     return ""
 
 
+def kaiten_label(item):
+    """開店・閉店カテゴリで【日付 開店/閉店】がない場合に自動補完する"""
+    if item.get("category") != "開店・閉店":
+        return item.get("title", "")
+    title = item.get("title", "")
+    if title.startswith("【"):
+        return title
+    kind = "閉店" if "閉店" in title else "開店"
+    return f"【{kind}日不明】{title}"
+
+
 def render_item(item):
-    pub = item.get("publisher", "")
+    pub = normalize_publisher(item.get("publisher", ""), item.get("link", ""))
     pub_html = " · " + html.escape(pub) if pub else ""
     d = parse_pub_date(item.get("pub_str", ""))
     data_pub = (' data-pub="' + d.isoformat() + '"') if d else ""
+    title = kaiten_label(item)
     return (
         '<a class="news-item"' + data_pub + ' href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
-        + '<span class="news-title">' + html.escape(item["title"]) + "</span>"
+        + '<span class="news-title">' + html.escape(title) + "</span>"
         + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html + "</span>"
         + "</a>"
     )
@@ -139,7 +172,8 @@ def build_html(articles):
     if top_item:
         cat = top_item.get("category", "話題・その他")
         bg, fg, dark = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
-        pub_h = " · " + html.escape(top_item["publisher"]) if top_item.get("publisher") else ""
+        top_pub = normalize_publisher(top_item.get("publisher", ""), top_item.get("link", ""))
+        pub_h = " · " + html.escape(top_pub) if top_pub else ""
         hero_d = parse_pub_date(top_item.get("pub_str", ""))
         hero_pub_attr = (' data-pub="' + hero_d.isoformat() + '"') if hero_d else ""
         top_html = (
@@ -159,20 +193,25 @@ def build_html(articles):
     for item in main_arts[1:]:
         cat_map[item.get("category", "話題・その他")].append(item)
 
+    active_cats = [
+        (cat, cat_map.get(cat, [])[:CATEGORY_MAX_ITEMS.get(cat, MAX_ITEMS_PER_CAT)])
+        for cat in CATEGORY_ORDER
+        if cat_map.get(cat)
+    ]
+    odd_total = len(active_cats) % 2 == 1
+
     grid_html = ""
-    for cat in CATEGORY_ORDER:
-        cap = CATEGORY_MAX_ITEMS.get(cat, MAX_ITEMS_PER_CAT)
-        items = cat_map.get(cat, [])[:cap]
-        if not items:
-            continue
+    for idx, (cat, items) in enumerate(active_cats):
         bg, fg, dark = CATEGORY_COLORS[cat]
         rows = "".join(render_item(i) for i in items)
+        is_last_odd = odd_total and (idx == len(active_cats) - 1)
+        span = ' style="grid-column:1/-1"' if is_last_odd else ""
         grid_html += (
-            '<div class="cat-section">'
+            '<div class="cat-section"' + span + '>'
             + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
             + '<span class="cat-icon">' + CATEGORY_ICONS[cat] + "</span>"
-            + '<span class="cat-name" style="color:' + dark + ';">' + html.escape(cat) + "</span>"
-            + '<span class="cat-count" style="color:' + fg + ';">' + str(len(items)) + "件</span>"
+            + '<span class="cat-name" style="color:' + dark + ';"> ' + html.escape(cat) + "</span>"
+            + '<span class="cat-count" style="color:' + fg + ';"> ' + str(len(items)) + "件</span>"
             + "</div>"
             + '<div class="cat-items">' + rows + "</div>"
             + "</div>"
@@ -194,8 +233,8 @@ def build_html(articles):
             '<div class="cat-section">'
             + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
             + '<span class="cat-icon">' + SCRAPED_ICON + "</span>"
-            + '<span class="cat-name" style="color:' + dark + ';">' + html.escape(site) + "</span>"
-            + '<span class="cat-count" style="color:' + fg + ';">' + str(len(filtered)) + "件</span>"
+            + '<span class="cat-name" style="color:' + dark + ';"> ' + html.escape(site) + "</span>"
+            + '<span class="cat-count" style="color:' + fg + ';"> ' + str(len(filtered)) + "件</span>"
             + "</div>"
             + '<div class="cat-items">' + rows + "</div>"
             + "</div>"
@@ -223,7 +262,7 @@ def build_html(articles):
         "  <footer>\n",
         "    &copy; 印西ニュース &mdash; Google News・印西市公式サイト・地域情報より自動収集。記事の著作権は各メディアに帰属します。\n",
         "  </footer>\n",
-        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");\n  });\n  var hm=document.querySelector(\".hero-meta[data-pub]\");\n  if(hm){\n    var diff=Math.floor((jst-new Date(hm.dataset.pub))/86400000);\n    if(diff===0){var b=document.getElementById(\"hero-today-badge\");if(b)b.style.display=\"\";}\n  }\n})();\n</script>\n</body>\n</html>",
+        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");\n  });\n  var hm=document.querySelector(\".hero-meta[data-pub]\");\n  if(hm){\n    var diff=Math.floor((jst-new Date(hm.dataset.pub))/86400000);\n    if(diff===0){var b=document.getElementById(\"hero-today-badge\");if(b)b.style.display=\"\";}\"\n  }\n})();\n</script>\n</body>\n</html>",
     ]
     return "".join(parts)
 
