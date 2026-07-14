@@ -10,8 +10,8 @@ from collections import defaultdict
 JST = timezone(timedelta(hours=9))
 MAX_ITEMS_PER_CAT = 20
 CATEGORY_MAX_ITEMS = {}
-SCRAPED_MAX_ITEMS = 5
-SCRAPED_MAX_DAYS = 90
+SCRAPED_MAX_ITEMS = 20
+SCRAPED_MAX_DAYS = 180
 CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180}  # その他は90日
 DEFAULT_CUTOFF_DAYS = 90
 
