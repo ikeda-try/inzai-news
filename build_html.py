@@ -93,7 +93,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .cat-items::-webkit-scrollbar-track{background:transparent}
 .cat-items::-webkit-scrollbar-thumb{background:#d0d0cc;border-radius:2px}
 .no-news{padding:20px;color:#888;font-size:14px;background:#fff;margin:12px}
-@media(max-width:480px){.cat-grid,.scraped-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.cat-grid,.scraped-grid{grid-template-columns:1fr;gap:20px}}
 footer{text-align:center;font-size:11px;color:#aaa;padding:24px 20px 0}
 """
 
