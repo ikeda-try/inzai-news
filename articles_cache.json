@@ -8,11 +8,7 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiUkFVX3lxTE13c0g0RUZ5RGtYV2I0YXB5VEdMazEwMkRHTjJ2N1R3RkFlTXI2dzN0Y05IamNENHlhMTRBa2tSSGdyVU5OUlhpUFFtNzVMUXFSVEE?oc=5": {
-    "decision": "excluded",
     "exclude_method": "auto_80plus",
-    "reason": "類似81%・自動除外",
-    "similarity": 0.81,
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
     "title": "印西市市制施行30周年記念HORNS UP FES",
     "seen_at": "20260714-1603"
   },
@@ -773,11 +769,7 @@
     "seen_at": "20260714-1603"
   },
   "https://news.google.com/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5": {
-    "decision": "excluded",
     "exclude_method": "ai_check_70_79",
-    "reason": "類似73%・AI確認除外",
-    "similarity": 0.73,
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
     "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
     "seen_at": "20260714-1603"
   },
@@ -1328,11 +1320,7 @@
     "seen_at": "20260714-1603"
   },
   "https://news.google.com/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5": {
-    "decision": "excluded",
     "exclude_method": "ai_check_70_79",
-    "reason": "類似74%・AI確認除外",
-    "similarity": 0.74,
-    "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
     "title": "NTTデータグループ、千葉県印西・白井エリアに大規模データセンター開発へ（BCN）",
     "seen_at": "20260714-1603"
   },
@@ -3272,11 +3260,7 @@
     "seen_at": "20260714-1528"
   },
   "https://news.google.com/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5&hl=en-US&gl=US&ceid=US:en": {
-    "decision": "excluded",
     "exclude_method": "ai_check_70_79",
-    "reason": "類似74%・AI確認除外",
-    "similarity": 0.74,
-    "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
     "title": "NTTデータグループ、千葉県印西・白井エリアに大規模データセンター開発へ（BCN）",
     "seen_at": "20260714-1438"
   },
@@ -3353,20 +3337,12 @@
     "seen_at": "20260714-1438"
   },
   "https://news.google.com/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5&hl=en-US&gl=US&ceid=US:en": {
-    "decision": "excluded",
     "exclude_method": "dup_scan_ai_70_79",
-    "reason": "重複スキャン73%・AI判断除外（印西市市制施行30周年記念HORNS UP FES｜レッツエが残る）",
-    "similarity": 0.73,
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
     "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
     "seen_at": "20260714-1528"
   },
   "https://news.google.com/articles/CBMiUkFVX3lxTE13c0g0RUZ5RGtYV2I0YXB5VEdMazEwMkRHTjJ2N1R3RkFlTXI2dzN0Y05IamNENHlhMTRBa2tSSGdyVU5OUlhpUFFtNzVMUXFSVEE?oc=5&hl=en-US&gl=US&ceid=US:en": {
-    "decision": "excluded",
     "exclude_method": "auto_80plus",
-    "reason": "類似81%・自動除外",
-    "similarity": 0.81,
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
     "title": "印西市市制施行30周年記念HORNS UP FES",
     "seen_at": "20260714-1438"
   },
@@ -3712,11 +3688,7 @@
     "seen_at": "20260714-1438"
   },
   "https://news.google.com/articles/CBMic0FVX3lxTFBEU1dLTGVOLTc5b1pmZjZQU3prck1LSFVkVWJQT1ctcTZ0aTk1NlN4ejM3MkJndHFudjlBSkYwTm9xTWZrQ1hQeFByZ1Rpc2FweF96R0w0RlladWc4UmFBcFBaaFRSajlIM1o5WVp6bmc0a0k?oc=5&hl=en-US&gl=US&ceid=US:en": {
-    "decision": "excluded",
     "exclude_method": "auto_80plus",
-    "reason": "類似84%・自動除外",
-    "similarity": 0.84,
-    "similar_to": "順天堂大学と印西市におけるプロモーション活動の連携協力に伴う広告契約について｜ニュース＆イベント",
     "title": "【順天堂大学】順天堂大学と印西市におけるプロモーション活動の連携協力に伴う広告契約について",
     "seen_at": "20260714-1438"
   },
