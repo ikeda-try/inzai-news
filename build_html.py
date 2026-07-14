@@ -12,10 +12,10 @@ MAX_ITEMS_PER_CAT = 20
 CATEGORY_MAX_ITEMS = {}
 SCRAPED_MAX_ITEMS = 20
 SCRAPED_MAX_DAYS = 180
-CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180}  # その他は90日
+CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180, "イオンモール千葉ニュータウン": 180}  # その他は90日
 DEFAULT_CUTOFF_DAYS = 90
 
-CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店"]
+CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "イオンモール千葉ニュータウン"]
 
 CATEGORY_COLORS = {
     "話題・その他":   ("#DFD9CF", "#7A6E5F", "#3D342A"),
@@ -23,6 +23,7 @@ CATEGORY_COLORS = {
     "市政・行政":     ("#E8EDF8", "#2C5282", "#1A325A"),
     "開発・暮らし":   ("#E1F5EE", "#1D9E75", "#085041"),
     "開店・閉店":     ("#FDE8E8", "#C0392B", "#7B1A1A"),
+    "イオンモール千葉ニュータウン": ("#EDE8F8", "#6B4FA7", "#3A1F6E"),
 }
 
 CATEGORY_ICONS = {
@@ -31,6 +32,7 @@ CATEGORY_ICONS = {
     "市政・行政":     "🏢",
     "開発・暮らし":   "🌱",
     "開店・閉店":     "🏪",
+    "イオンモール千葉ニュータウン": "🛍️",
 }
 
 SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
