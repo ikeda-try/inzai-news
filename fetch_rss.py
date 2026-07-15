@@ -55,8 +55,76 @@ def resolve_all_google_news(items, max_workers=10):
 # 有料記事など採用しないpublisher（fetch時点で除外）
 BLOCKED_PUBLISHERS = {
     "日経クロステック",
+}
+
+# 有料記事チェックが必要なpublisher（記事ページを取得して「有料記事」表記を確認する）
+PAYWALL_CHECK_PUBLISHERS = {
     "千葉日報オンライン",
 }
+
+
+def is_paywalled(url, timeout=10):
+    """記事URLをフェッチして「有料記事」かどうかを確認する。
+    確認できない場合はFalse（採用側に倒す）を返す。"""
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+        )
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            content = resp.read(30000).decode('utf-8', errors='ignore')
+            return any(kw in content for kw in ['有料記事', '有料会員', '有料購読'])
+    except Exception as e:
+        print(f"    アクセスエラー（採用扱い）: {e}")
+        return False
+
+
+def check_cache_paywall(cache_path):
+    """既存キャッシュの千葉日報オンライン記事をpaywall確認して正しく更新する。
+    python fetch_rss.py --check-cache で呼び出す。"""
+    with open(cache_path, encoding='utf-8') as f:
+        cache = json.load(f)
+
+    targets = {url: v for url, v in cache.items()
+               if v.get('publisher') in PAYWALL_CHECK_PUBLISHERS}
+
+    print(f"千葉日報オンライン記事 {len(targets)}件のpaywall確認中...")
+    updated = 0
+
+    for url, v in targets.items():
+        title = v.get('title', '')[:50]
+        paywalled = is_paywalled(url)
+        current = v.get('decision', '')
+
+        if paywalled:
+            if current != 'excluded':
+                v['decision'] = 'excluded'
+                v['reason'] = '有料記事（paywall確認済み）'
+                updated += 1
+                print(f"  [有料→excluded] {title}")
+            else:
+                old_reason = v.get('reason', '')
+                if '有料' not in old_reason:
+                    v['reason'] = '有料記事（paywall確認済み）'
+                    updated += 1
+                print(f"  [有料・除外済み] {title}")
+        else:
+            if current == 'excluded' and '有料' in str(v.get('reason', '')):
+                # 有料扱いで除外されていたが実際は無料 → 採用に戻す
+                v['decision'] = 'adopted'
+                v.pop('reason', None)
+                updated += 1
+                print(f"  [無料→adopted] {title}")
+            else:
+                print(f"  [無料・現状維持({current})] {title}")
+
+    if updated:
+        with open(cache_path, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+        print(f"\n{updated}件更新しました → {cache_path}")
+    else:
+        print("更新なし")
+
 
 RSS_SOURCES = [
     {
@@ -252,6 +320,25 @@ def main():
     all_items = resolve_all_google_news(all_items)
     all_items.sort(key=lambda x: x["pub_iso"], reverse=True)
 
+    # 有料記事チェック（千葉日報オンライン等）
+    paywall_targets = [(i, it) for i, it in enumerate(all_items)
+                       if it.get('publisher') in PAYWALL_CHECK_PUBLISHERS]
+    if paywall_targets:
+        print(f"\n有料記事チェック中... ({len(paywall_targets)}件)")
+        blocked = set()
+        with ThreadPoolExecutor(max_workers=5) as ex:
+            future_map = {ex.submit(is_paywalled, all_items[i]['link']): i
+                          for i, _ in paywall_targets}
+            for future in as_completed(future_map):
+                i = future_map[future]
+                title = all_items[i]['title'][:45]
+                if future.result():
+                    print(f"  [有料→除外] {title}")
+                    blocked.add(i)
+                else:
+                    print(f"  [無料→採用] {title}")
+        all_items = [it for j, it in enumerate(all_items) if j not in blocked]
+
     # scrape_sources.json を読んで各サイトを取得
     scraped_items = []
     scrape_path = os.path.join(os.path.dirname(__file__), "scrape_sources.json")
@@ -296,4 +383,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--check-cache" in sys.argv:
+        cache_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "articles_cache.json")
+        check_cache_paywall(cache_path)
+    else:
+        main()
