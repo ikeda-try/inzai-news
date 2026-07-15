@@ -128,5 +128,15 @@
     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5",
     "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
     "ai_reason": "NTTデータDC開発プロジェクトの類似記事"
+  },
+  {
+    "run_ts": "20260715-1311",
+    "date": "2026-07-15",
+    "ai_decision": "pass",
+    "similarity": 0.73,
+    "title": "制限付き一般競争入札（事後審査型）の公告（令和8年7月15日公告）",
+    "link": "https://www.city.inzai.lg.jp/0000022132.html",
+    "similar_to": "制限付き一般競争入札（総合評価競争入札方式）の公告（令和8年7月10日公告）",
+    "ai_reason": "入札方式が異なる（事後審査型 vs 総合評価競争入札方式）別案件"
   }
 ]

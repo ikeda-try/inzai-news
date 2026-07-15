@@ -4276,5 +4276,55 @@
     "similar_to": "びしょぬれ北極モール2026 スプラッシュで、夏を冷やせ。「花火ナイト2026」",
     "title": "びしょぬれ北極モール2026 スプラッシュで、夏を冷やせ。「花火ナイト2026」",
     "seen_at": "20260714-2046"
+  },
+  "https://www.city.inzai.lg.jp/0000000061.html": {
+    "decision": "adopted",
+    "category": "市政・行政",
+    "title": "議長交際費",
+    "pub_str": "2026年7月15日",
+    "publisher": "印西市",
+    "seen_at": "20260715-1311"
+  },
+  "https://news.google.com/articles/CBMiWEFVX3lxTE1fSXJKOXM3R3lOSUJsdW5ST0pKTVRIWldCQkhvZF84TTMtNnZGcWJob1FtajN2SHZQd2lUQldTMnJEbkl2cUNMSnVlY19ibzlTMkZRR1JPLVE?oc=5": {
+    "decision": "adopted",
+    "category": "開発・暮らし",
+    "title": "車にひかれ男性重傷 印西",
+    "pub_str": "2026年7月15日",
+    "publisher": "千葉日報オンライン",
+    "seen_at": "20260715-1311"
+  },
+  "https://www.city.inzai.lg.jp/0000000319.html": {
+    "decision": "adopted",
+    "category": "市政・行政",
+    "title": "【6月発送あり】行政依頼配付物（町内会等への行政回覧文書）",
+    "pub_str": "2026年7月15日",
+    "publisher": "印西市",
+    "seen_at": "20260715-1311"
+  },
+  "https://news.google.com/articles/CBMickFVX3lxTFAwWlFnbV84ajROVHBmcXhPdmVCamYwaGl2b1RKWDZDcHVDS1lLWW1pWnRMWVJJT1RpRUliTjZOX005dFg0REFiSGxjZFIzS2N6cEtfVG9GMTZJUWROR0pwTjU4Um1reEZYRWtxODVJc0llZw?oc=5": {
+    "decision": "adopted",
+    "category": "開発・暮らし",
+    "title": "駅前データセンター計画めぐり住民が提訴 建築確認取り消し求める 千葉・印西市",
+    "pub_str": "2026年3月9日",
+    "publisher": "テレ朝NEWS",
+    "seen_at": "20260715-1311"
+  },
+  "https://www.city.inzai.lg.jp/0000022132.html": {
+    "decision": "adopted",
+    "category": "市政・行政",
+    "title": "制限付き一般競争入札（事後審査型）の公告（令和8年7月15日公告）",
+    "pub_str": "2026年7月15日",
+    "publisher": "印西市",
+    "seen_at": "20260715-1311",
+    "note": "類似73%・AI確認で通過"
+  },
+  "https://news.google.com/articles/CBMiakFVX3lxTFBHZXJQVlRMU2NJSjRjTTRtajkxa19sOEY5eFRTeExZRHppWVNQN2twel9EN2ROMXZPRDNQNDc5VUFUU0I1b1Bfem4zSlI5bDl3QzVpUmxHekNHRWVOYUlSQnI3UGY0UG1JVEE?oc=5": {
+    "decision": "excluded",
+    "exclude_method": "auto_80plus",
+    "reason": "類似100%・自動除外",
+    "similarity": 1.0,
+    "similar_to": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "title": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "seen_at": "20260715-1311"
   }
 }
