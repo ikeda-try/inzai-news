@@ -55,6 +55,7 @@ def resolve_all_google_news(items, max_workers=10):
 # 有料記事など採用しないpublisher（fetch時点で除外）
 BLOCKED_PUBLISHERS = {
     "日経クロステック",
+    "千葉日報オンライン",
 }
 
 RSS_SOURCES = [

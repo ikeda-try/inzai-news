@@ -111,12 +111,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiV0FVX3lxTE1lTkhVamFRR1Bib0pxTXJ2dFhmNTdVV3JGMkxyN3hFbHpOZjZPZDlHS29fY0NUTHlDMHllUTRSekNGbXJjOGkzMElhT3lBZVpfcXRJ?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "イベント・文化",
     "title": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
     "pub_str": "2026年7月8日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://www.city.inzai.lg.jp/bousaiportal/0000022090.html": {
     "decision": "adopted",
@@ -143,12 +144,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiV0FVX3lxTE9VSVMtSzc4UGFYbnNZNk9MczFaUWFNcS1QRy1JRzZLV3g2WndRQXJCUTc4bkpKc0tyMnRrMUo0S3ZtUFItWTNlb2IyN3pRMGMxa3JJVQ?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "開発・暮らし",
     "title": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
     "pub_str": "2026年7月8日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://www.city.inzai.lg.jp/0000022072.html": {
     "decision": "adopted",
@@ -287,12 +289,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE9aVXllN1o4bEJCTldoaHFtQkxJdUJJV01TcFplOVRzbTRNc3dhQXBzX1BUZXR4U1hXM3d3b3RPWXV5UFR0Wnh4Z1BUaWRPNVZpSHo3UDQ?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "話題・その他",
     "title": "ひき逃げ容疑、千葉スカイセイラーズの選手を逮捕 「転倒、知らなかった」 一部否認 印西署",
     "pub_str": "2026年7月1日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMiakFVX3lxTE5reHNWS0Vxb1lCa0M3ZnhSc3pQQmdMaFVoUVlUa0FZM3JibjdkT25RZE52bVN5UnVBV3BMZjUxRjZ4VlhDZXhJamlXSVpqam51ZHhoeDh4RlpJbmdmRzNKdjR5UkE?oc=5": {
     "decision": "adopted",
@@ -327,12 +330,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE9LYmtSNzZaTzVNM1pjYWRpc2lvLXp4eTNuOFRnM01tU3RKMTJaYVY4YWktQ05TVmhqeU5uZzhhWlFoX3dkU3BnajlUaHlRS1FLeXJR?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "話題・その他",
     "title": "不透明会計の印西観光協会 市、案内所撤退費を負担 補助停止中も妥当と判断",
     "pub_str": "2026年6月26日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMiVEFVX3lxTFBnSDZZTk1jVGIzQXhMQmpSZzRxWjNQWkhwNkV2MXRnMEhKbDhSWDVSVWxUTDh3dzVmM3hCSHRHcFBiSDVWbExkRjVWTVB3YWp4QWhO?oc=5": {
     "decision": "adopted",
@@ -343,12 +347,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTFBHUDlndXNSdnRHTWRSMkctSDVzUjBSTlNHQ3Z1b3d6VU5GYW12MWs3UGNqNjZpbEN6MVJnVVROX0ZSSDJEbTlWZFFkbzFXT2FrZUNmNA?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "市政・行政",
     "title": "１３議案可決し閉会 印西市議会",
     "pub_str": "2026年6月24日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMickFVX3lxTE5La3M1NXZqai11NUlhMXF5a2kxZjlhWlZoTVhNUFMyVmJQOUEyNkxFN0pIU0VLZWNuam43a1ZwWGJINVJWSmNKbEJvd1JZeFFUVXhDUHpFMFQ3SXlnX25ZZFk?oc=5": {
     "decision": "adopted",
@@ -399,12 +404,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE5lN3NCOFJfZzR1VFZBSjZCeHhnOHZHMW01NXV3bHJ0WGJLMmRibzNqTkZIU3hPTmJUUW9ndGdCX3Y1MmZ5OGFOanJ0bE53QlJvQ3JoQ1E?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "市政・行政",
     "title": "ごみ袋指定以外可 印西市が臨時措置 ７月３１日まで",
     "pub_str": "2026年6月10日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMiU0FVX3lxTE9MZmlMM0I2NnprbWZsR1NUaW5kR3pXanFnbUJvVTJMalJpcFdmQ01HV1dHV0pHV0htZXRrRFhUUVNZSHNlNm5FU3NTZXQ3ZGo?oc=5": {
     "decision": "adopted",
@@ -503,12 +509,13 @@
     "seen_at": "20260713-0700"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE1EZF9heHpYelRiMHFaNXc2LUFGRlRpNGFkZUdHMDhsVFIxbGJmeW5GR3Ytb2h4bHVYa1BiZ1VkUGYzeTc3S2lUSjZuWFYycmxEbFZxYw?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "開発・暮らし",
     "title": "北西連絡道早期具体化を 期成同盟会、国交相に要望 野田市－印西市を結ぶ計画",
     "pub_str": "2026年5月21日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0700"
+    "seen_at": "20260713-0700",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMiVkFVX3lxTFB6WlFPNkM2M0NZX1ZFT1NORFBrVy0tZmFQcGxLZ2xmN2NUeGJOY04zZUxDZVVHRVU2OGxfWENXNGdpMDhxR2lwOGVoZnhvT3BaclBpUQ?oc=5": {
     "decision": "adopted",
@@ -1016,12 +1023,13 @@
     "seen_at": "20260714-1603"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE5UaktCNXpPQnQzSFVkZ2hpUVhZVktpWU1JMFpxNUlSbC03NEp5cFBqX1R5Z0NOZVcydEJrY3FZdW1tNmRhYXUyN1ZxX0l1ZHRxZ1lWYWFTd2o?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "話題・その他",
     "title": "調整池に男児、下校中の高校生が制服のまま入り救出 連携した中高生３人に印西署感謝状 「今後も人助けしたい」",
     "pub_str": "2026年2月19日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260713-0719"
+    "seen_at": "20260713-0719",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMiU0FVX3lxTE9LS2FGWGxzZDA5ODFONnlMZ3U1Wi1vSlNsMzBWNFY1QkVQYWxETERYRklQQ3NMQ3VTNWJhMm5seW84cjZDQ3g1R0pkNW4zYmlRSlVB?oc=5": {
     "decision": "excluded",
@@ -4193,20 +4201,22 @@
     "seen_at": "20260714-1943"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE9saHoyeGVaM29GY3d0bmk1bzJiMlZDNE10WW9Sa1ZoUEN6WGVMTHhoRzcxeVRJYUJHbG83aGhHQU9UQVAyLTdLb3NhWkljd2RLTFlrRGtBZEU?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "話題・その他",
     "title": "攻めの姿勢貫く古豪 印旛明誠（印西市） 【目指せ！甲子園２０２６ 出場校プロフィル】",
     "pub_str": "2026年6月23日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260714-1943"
+    "seen_at": "20260714-1943",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE5wTTd5S3M4QW9RUXNUb3FXbmkyNXMwZkdsTlpnM0J4T1ItczUxdDhLd2wwdzBMZUU5U1RPZ25DRHNFSGNhM1hQUkJIZ0RaNEdHSTFRbHJLOWo?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "話題・その他",
     "title": "北総ライノス印西市と協定 地域活性化、市内リーグも",
     "pub_str": "2026年4月23日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260714-1943"
+    "seen_at": "20260714-1943",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://news.google.com/articles/CBMidkFVX3lxTE9VbmNSbUtQbmIyX3hkc3N3ZzF6WXBfZ0lTNGFOTU1uTG9vQ0p5bUJCYW1IYzdtU0dqM1o1ZlJueHF1X2NadThkNnBzVjQycUhsbFotclYwNmlYWU01dXZKNWhIOFJQbWk3YzQzZ1NkckJYRXIydEE?oc=5": {
     "decision": "excluded",
@@ -4286,12 +4296,13 @@
     "seen_at": "20260715-0928"
   },
   "https://news.google.com/articles/CBMiWEFVX3lxTE1fSXJKOXM3R3lOSUJsdW5ST0pKTVRIWldCQkhvZF84TTMtNnZGcWJob1FtajN2SHZQd2lUQldTMnJEbkl2cUNMSnVlY19ibzlTMkZRR1JPLVE?oc=5": {
-    "decision": "adopted",
+    "decision": "excluded",
     "category": "開発・暮らし",
     "title": "車にひかれ男性重傷 印西",
     "pub_str": "2026年7月15日",
     "publisher": "千葉日報オンライン",
-    "seen_at": "20260715-0928"
+    "seen_at": "20260715-0928",
+    "reason": "千葉日報オンラインは有料記事のためブロック"
   },
   "https://www.city.inzai.lg.jp/0000000319.html": {
     "decision": "adopted",
