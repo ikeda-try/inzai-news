@@ -148,7 +148,7 @@ def render_item(item):
     return (
         '<a class="news-item"' + data_pub + ' href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
         + '<span class="news-title">' + html.escape(title) + "</span>"
-        + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html + "</span>"
+        + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html + '<span class="today-badge" style="display:none">今日</span>' + "</span>"
         + "</a>"
     )
 
@@ -266,7 +266,7 @@ def build_html(articles):
         "  <footer>\n",
         "    &copy; 印西ニュース &mdash; Google News・印西市公式サイト・地域情報より自動収集。記事の著作権は各メディアに帰属します。\n",
         "  </footer>\n",
-        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");\n  });\n  var hm=document.querySelector(\".hero-meta[data-pub]\");\n  if(hm){\n    var diff=Math.floor((jst-new Date(hm.dataset.pub))/86400000);\n    if(diff===0){var b=document.getElementById(\"hero-today-badge\");if(b)b.style.display=\"\";}\n  }\n})();\n</script>\n</body>\n</html>",
+        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");if(diff===0){var b=el.querySelector(\".today-badge\");if(b)b.style.display=\"\";}\n  });\n  var hm=document.querySelector(\".hero-meta[data-pub]\");\n  if(hm){\n    var diff=Math.floor((jst-new Date(hm.dataset.pub))/86400000);\n    if(diff===0){var b=document.getElementById(\"hero-today-badge\");if(b)b.style.display=\"\";}\n  }\n})();\n</script>\n</body>\n</html>",
     ]
     return "".join(parts)
 
