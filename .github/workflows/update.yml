@@ -1,34 +1,10 @@
-name: 印西ニュース 自動更新
+name: 印西ニュース
 
 on:
-  schedule:
-    # 12時（日本時間）に実行
-    - cron: "0 3 * * *"
-  # 手動実行も可能
   workflow_dispatch:
 
 jobs:
-  update:
+  noop:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - name: リポジトリをチェックアウト
-        uses: actions/checkout@v5
-
-      - name: Python セットアップ
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-      - name: RSSを収集してJSONに保存
-        run: python fetch_rss.py
-
-      - name: 変更をコミット・プッシュ
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add articles_raw.json
-          git diff --staged --quiet || git commit -m "自動更新: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M JST')"
-          git push
+      - run: echo "RSS収集はローカル側（scrape_news.py）が担当しています。"
