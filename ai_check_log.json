@@ -628,5 +628,525 @@
     "link": "https://news.google.com/articles/CBMiggFBVV95cUxQWUtJWlNpUEdsRWRhV3dQOGwzYXI2SmtPcVBaVUJHd3p5RDBhVVlqRm1weXJSSlhkOFFfbW03dHpFNzdFdFdpclFuTkgwakhhTkhUU2ppSW5CR2I4N19GY1VvY3FQZ1lsU2U1X25tVElFVmNZNkc2WUFlRXpTQ1NYRUh3?oc=5",
     "similar_to": "",
     "ai_reason": "不動産投資広告(rakumachi.jp)のためニュースとして不適切、ユーザー指摘により除外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "コナカ　閉店のお知らせ",
+    "link": "https://www.makinohara-more.com/event-topics/konaka/",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "goodroom lounge 閉店のお知らせ",
+    "link": "https://www.makinohara-more.com/event-topics/goodroom/",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【12/14（日）】「マインクラフトで『牧の原モア』の中にお店を作ろう！」を開催しました！",
+    "link": "https://www.makinohara-more.com/event-topics/minecraft20251214/",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "CANDY SPIN（キャンディースピン)「わたあめ自動販売機」",
+    "link": "https://chibanewtown.aeonmall.jp/event/51d06053-bc1f-4b29-801e-e295b1043e49",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "Carjany ～新型車の乗り比ベサービス～",
+    "link": "https://chibanewtown.aeonmall.jp/event/150b89fd-f363-4819-b364-6aab20923608",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【独自】印西市観光協に不適切会計疑惑 職員半数が離職、「協会私物化」の声 観光案内所が閉鎖 「命綱」の市の補助金見送り",
+    "link": "https://news.google.com/articles/CBMiS0FVX3lxTE1JWnZIRU5HRS1tTmlSMWQ0WGQ2QU4yajJlWnJTZ295b0dWZFM1M20zOU1tRVhrMG5HaHU1cnk2SmsxeEtOUWJjZmVZWQ?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【千葉県印西市】地元米を活かした日本酒プロジェクトがついに結実。完成した新酒を携え、印西市商工会が市長へ表敬訪問",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE9nM1JUTGZfZ1hxZGExLWpad01qVWdEMXRaRzMxOThaSGY5SzktRE5ISFdtWFRaUmwxYlpHMlZuem1vVkcwNEI4bFpZTGRmSHNsajhvQmlhMTJrV05HR09rOFMwMWJ5cTNaZlE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "MCデジタル・リアルティ、NRTキャンパス（千葉県 印西市）にて、3棟目となるNRT14データセンターを開業",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE4zbWgxdF9IUmdPcnQ4d010Z045cGNwWmVLc0FpX2ViZUhFSWpndmpOYnVrcFluOWw2UjJwSGFxM1BfZFhydlc5VW43UXdjYnlwLS1kdV9EdTE2Z3VhOHlHdGFFakpFNUd0cmc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【注目！】印西市で送迎保育ステーション事業スタート！",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE5LWEZIakVqaVpmRGhER3lGYU5RZVVmSHZzMHY0TjlKdHItY2c3UEtoajdYZTM1ZXV2bkRwV0Y0VHFDSk05cWU5a1JxQ2pRRG9nX0hwczRTdm5LaGtYaXBz?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "反対していた市長が突然「容認」に転じた 千葉・印西市の駅前「データセンター」建設計画 住民は怒っている",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE51M3JGeXVVRGlhMU9VZ1VCdndQWlRSVkxNc3BCYkt4bXF3U0ZzVVpNLUhfYS0yQlJ0b2xhMk5JUS13Ul9YQlpGVTlSMkRHemk3MGww?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉・印西の駅前データセンター、建築確認取り消し求め住民提訴",
+    "link": "https://news.google.com/articles/CBMibEFVX3lxTE5xVUN4d2lUT1hPM2hmOUpXMFdoZ283WmR2ZU1qcGl4WC1OanQtZGNlYVJlODRTZ2ZNX0ppQTVDaHAwMFNLc1ZJTWdxT2FvLXFfVXo1NWJ2dnZsX25CRnY2Q2lueHd4cWNxdENKRA?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "駅前データセンター「認めざるを得ない」 千葉・印西、市長が見解 [千葉県]",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTE5yYlV5SWNibURYdld5NEs3THhpdk1GTlRpeUg1ME5HM2RwWDRQT1pDaFR3V2MzN2xlS1hTUjFjTkc4b2Y2TWlxTy11SjBfMDFKOU1UNUlScFF6elBqdGlyd3FvOENxZEk?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "東京電力パワーグリッドの千葉印西変電所、27年にフル稼働 データセンターに対応",
+    "link": "https://news.google.com/articles/CBMibEFVX3lxTFBrOXVQc2h1b19oTkNxUkhfYzNTNzM4VVEwLTJOZS1ZWDlGTkZzWkc5THRvbVNydDFmb2F1VW85Q1QyY3VNcVFGdVBBblB3Z1F1Yzk1S3RZeGhPTHpNZUhRMzdoNnl5S0FmM2FqRg?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "園児の送迎を代行「送迎保育ステーション」開設 千葉 印西",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE1NZXJBMF9GNWl1QlRVczdIVG1vMmcwV3pwTFpTS2pBMC1MTEVKOEJST0RmNmlmNEpkZUlrcGlxemtVd19UOVZHdy1Fdk5NODdJZ2p6RXpVSlE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉商科大学生と鎌ケ谷・白井・印西の3市が連携！防災イベント「いきのこれ!! まなぼー祭」を12/20に開催",
+    "link": "https://news.google.com/articles/CBMiW0FVX3lxTE4tT1JLdHAyb0tKY3RNQ29tRG5aekZnbFRWM2hHWVZ2MGpES2V6YzRScWF5Z084YjVsYTVlZXR1YWpldnlUNDJnM1lSNGI2UW04bWRIY2tMdnBPaWs?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉・印西 新たな児童相談所が開設 何が変わる？施設の内部も公開 #千葉 #首都圏ネットワーク #子育て #虐待 #令和のベッドタウンと東京格差 | NHK",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTE5CVUtaTDVOLTdqbFQxZWtoQ1V6TXM1UUVFeUNsMUs3ZTFBSVlDbFcyb2FqR1c1OTBpYnRvNktxZnFwTkk1YjZRVzdvTXpBRUVjZ3IycUJfcGRsN1BoMUlleC13VkRkV00?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「データセンターは工場」千葉県印西市の住民提訴 ルール整備に遅れ",
+    "link": "https://news.google.com/articles/CBMibEFVX3lxTE9TNGVrMktwY0o2RUxIdTY4VDFQOVpXX1h4RXhISnpCZFBUQTA1UnRuMG1LU3B3UF80aGQtcTIxNU9HS3pPTTlBRVFaYjlydGdvRFg5SnUtQlBjT1dUdW5RUGNtVmktNjd4Ujk2cg?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「データセンター銀座」千葉・印西市、新設続く 駅前計画に反発も",
+    "link": "https://news.google.com/articles/CBMibEFVX3lxTE5uLUE3dmIzTENNOHRzd21WcGYtNm9BT1VRU20zcVRuMkpFT2RIdmZDOHoyNmQ0bDRRNXpkS0Vsb2tFcWtQZF84Z2hBSUE2a1RSbEtYLVRkNWJUTFAtNGgzWk1kNFJDbDlJaWJxTg?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉・印西市に高電力・液冷対応のデータセンター",
+    "link": "https://news.google.com/articles/CBMiXEFVX3lxTFBlSllZRDZPMzNUeWFzMUNvZ2tEWThBak9Ea29acFpNMTN5RzZjZXM1MkFKQWk3eTdFLTEyQURvbVd4aUhZRm4zN09yc1NJVWplODdqZUpiYkU1dkxm0gFiQVVfeXFMT1l0ckU5UHJwWXpMQ3Z3Q09CSEJzLVA2R0VzQjhPc05NVV9OTjlEMkV1YVRaR1VGVHRydTZtUU9EdzRGV3lnSlFneUgxTnJqYUZuRzF0OEdoaENMc2U1UXlNQnc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西の駅前データセンター計画 「違法な建築確認」住民提訴 検査機関に取り消し求める 「認めればあしき前例に」",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBMT1JaOC1rUW5XanJxWUZwWVJPWFB1TFhGcW5YR0o2dEJjQm55UVhtZmxaVXIzZUdZWlpCQXUxV1ZYTTNPOVN4VjBRR1lqa1Y1UjE4?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ニュータウンエリア、子育ての魅力さらに 印西市と白井市が連携 まちづくりで協定、合併は否定",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE5wOS1NNFJ6NGdMYjZ1U0tDSFN6MFJVOXpSd3JXQkxkank2MDJBb1JvTEREUEM4LTJ2RTNEMmxEc2RhWFp0MkhONnk1cTZpY29jWG93?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県ラグビーまつり in 印西に参加しました！",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTFBVSFV5OVV6bjhjNEFRaVUxbWgyS3VoMFljUUpiTTYtQmRJR2lGNXJsX1kzN2toUUlwdkw0cnBpSnVwY3Yyd3dvbFE4RExhY3ZRSU9iVFVIbGhHMmVYNGMw?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "駅前データセンター計画めぐり住民が提訴 建築確認取り消し求める 千葉・印西市",
+    "link": "https://news.google.com/articles/CBMickFVX3lxTFAwWlFnbV84ajROVHBmcXhPdmVCamYwaGl2b1RKWDZDcHVDS1lLWW1pWnRMWVJJT1RpRUliTjZOX005dFg0REFiSGxjZFIzS2N6cEtfVG9GMTZJUWROR0pwTjU4Um1reEZYRWtxODVJc0llZw?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市でのAIデータセンター向け拠点確保のお知らせ | データセクション株式会社のプレスリリース",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE5mRW9teTBaYlpzdTRfc2hmV2NvQUduS1NubjdJVHNhNVNzZHd0R0g3WThZSW11NU94TWJRS0hzYm1lSmo2OTMxMFFseDZYSHVLclFOSl91UFEwT2hlVk1hV1VMWEdhLTJLYXc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市にデータセンターを開設",
+    "link": "https://news.google.com/articles/CBMijAFBVV95cUxQR2hnT0lfVlU2a3VIbVdSVEZsekVEYWJvU2FuSFJYR2JkaU9vMkVpUUJOZFpaZW1ka1p4R3BFTU1YVzdWLUtrQUFUUWtaa0R2UGhZZ21aRmd6Z2VHSHBrVzU1Y3BQMUo3ZE5uM3l2d2I3MTNBWWRldTV5d1BvT3ZPUkNRc1czcUppa21zYw?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「ヴェレーナガーデン千葉ニュータウン中央」全274区画 完売のお知らせ 大規模戸建て新街区誕生",
+    "link": "https://news.google.com/articles/CBMiT0FVX3lxTE5EZXdFWVM4aTJEa0VVV1JqU2FEcV93c3U0TldEZnp0bW9tTlFJZ3FPZk1jOVo4NlhzWWgyUHJTRXMyMU5hR1owbS1wV0d1Qms?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "令和5年度 印西市総合防災訓練において、「AR技術などを活用した浸水災害体験」などを実施します - ntt",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE1ITTFtTkVUeDdoZm4zNWNWNlVpWno2Y2pCTDNYdnF5VXhUOVRQWHpmc3BPVXJvYUQ5MlB1eUxRemtyZ0FJWlc1TWZZXzZ6bjljcWFINk5kVnVydHFSSE50N2V1SnJYNXFXSHc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「ブランズシティ千葉ニュータウン中央」販売登録開始",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE9EeGd4cThwQV9VSXFOVEtvMTVBMk5OWXV1SEw4QlJHbHJ1NGxJWV9WMTgwa2V0RWRhbThKRy04azR2YkFQRXdEeXhYTHpFZ0pXbFl2VDhJTGwwRGxXQnp2dWd2eXBiQUt5VEE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "玄関の錠を取り換え閉園を強行…「無責任だ」保育園の認可取り消し 千葉県印西市",
+    "link": "https://news.google.com/articles/CBMiUkFVX3lxTFBBaFZ6d0lxZ0RxSlRXQXp4UWF6SUxOV01OMEpQa1Y3VUJ2Y2Rzd2JWSFU5MVZERFRPcjczc0xXUEZZNkkweWlzaHFXVHVkcmJkMVE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【丸源ラーメン】『丸源ラーメン 印西牧の原モア店』が2024年６⽉21日(金)にグランドオープン！",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE9HMDhDMVRZT09ZWUpSbGFsWVZlYXRnWlFqOGNDNEFYV2k0X1lUNnFIbWZQd2J5ZHF5X0MwSHhvVXFBTVpfMjlrTHZUWUE3aGtJNVh6dHZWNGwyZlRRaXVobFg2WXFwTU5OeEE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「イオンモール千葉ニュータウンのグルメ」人気ランキングTOP25！　第1位は「グランブッフェ」【2024年最新調査結果】（1/2） | 千葉県 ねとらぼリサーチ",
+    "link": "https://news.google.com/articles/CBMiY0FVX3lxTFBlTHllY2JJQlVlaDkxQ0ZEMDVsWDRNeHlIYW5VRkRfdGxTdHBxcV82WllnU2ZPWGN1X285RVZ6R0IyQXIyQ000WkFlUWYtTzB6UVlaOUM0TU9KekZWTWRveUJHc9IBaEFVX3lxTE1BNVVuVkZ1eE9TTWVGNFlkYVhibzByQ0p5ZTBGd1A4ZU1PVmU2Mjd4VlR5UDE1ZHR6ZHFzcy1yV3FPZGxhMm9EMUp3TUlIRVp4WjNqaWdWVGdKMUpZOUgtN1VvdGR5dU05?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【12/6リフレッシュOPEN‼】バラエティー豊かな食べ放題‟グランブッフェ イオンモール千葉ニュータウン”がリフレッシュOPEN！セルフメイククレープなどの新メニュー登場で更に充実な食べ放題！",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBiRHhSNFczQVhNdTJoR3NrMkNlVFNmblRqb0ZiOXNNYzZLeEFPT0hqdFVZWDM0ZnVpUHVfWTdRUHd3NnVDSlk3MWVxcHBtbTI3QjVhYXgyWW9Ma2luWDlWVWlWSUNwMVhSd3c?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "匠のラーメン大集合！12月10日開催「牧の原モア ラーメンフェスタ」",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBuSE9BbGEzTGJUakdPMWVfeUxxelI5eTdzOEdiVXdkSlNVby1heEtKNmpJNFVLVTlqQUJDTVYzcEE1end1TXRBcm5xQXhCbGczVl9ldmFVaDNVeEd5MnVOWEZVeUR1SFY5RWc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "第42回「印西ニュータウン秋祭り」開催のご案内",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE8xQ0k3LVp6MU1CWmRoaUJKdUs5alhxeVA1dFFJWmJCZXBYOUJ4YVBKREJLajZhWDFvTURDSjc1R2Z4OUdvRnNadlJmSnM4T0pDYk8w?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「ほくそう春まつり」遊びにきてね 21日、印西市のイオンモールで",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFAyZTFFVVJNZTJTSHY1cEw1WFAxQkx0d0pSU2J3c1RCMEVyektQMGtXSlQyVEVOS1NqMDN1eGxOUGx4b3lxMmpkR2pzbjV0RVVUbkVz?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西で北総鉄道のイベント「ほくそう春まつり」 ニュータウンにぎわう",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBUTmhFa3pHcGR4cDJVRWw5VVZ5S1FDWTU1UkVKaEtQWG5NTkl3emhsdzNyd1RFVnctNTRVeVllQlB0cnBlZllHN1hyWnFtUlNQRGV3?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西市！木刈フレンドリープラザ祭り✨「まつや市議」も感動！",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE1VbjBPWTlhX2tVWUc0eWhvRlRyWHJNMkxoMDk5Q2JhVXVxaUl1bGtVSkJHUW9ieTVaSFkzbTZwSmxkMGFHN1V6V2E0SEVEWGJZSF91d0Z6YVZDeDV5VTVv?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西市にご当地アイドル「Vivid Prism」誕生 ふるさと産業まつりでデビュー曲披露へ",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE9taF93OFV4bDE5b2ZjZUNJWVBjZHVVNGFralFFSkRydGlRMGdvVXBtZ19Zb09XdzhSV2dVNzVKU0ljTDNxREd6Qkl0YXlJUzZJcEg2VHAzR1I?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "鉄道30社以上がブース共演 「ほくそう春まつり2024」盛大に開催 臨時特急も運転（千葉県印西市）",
+    "link": "https://news.google.com/articles/CBMiTEFVX3lxTE5yX29LWGJ2LXVEcEt6SmxfUkdJOG1uUVprUzZUcXNBQzJ3U3BzVEtodmF4OWZkMjkwWHRvZVRXd0wwYnBPRmFoekdESEY?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ミニ電車や鉄道各社のブースが来場者喜ばす 「ほくそう春まつり2023」（千葉県印西市）【レポート】",
+    "link": "https://news.google.com/articles/CBMiTEFVX3lxTE5QYUwtbUw4ZUVVUWYxeS0zTGdNdHJ2V0JOb3hweTdCWVR0S2VFYm1oX2k5bVNORVdvMVcxVmJVRHpzeV9YX1FTanZlQU8?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "7月5日広島建設が千葉印西市の「ヘリオスタウン印西牧の原」で人気ゆるキャラ「ねば～る君」によるステージショーなどが行われる地域PRイベント印西七夕まつりを初開催",
+    "link": "https://news.google.com/articles/CBMiW0FVX3lxTE1jNU1NUmZrOUpXOGtJYUdjSW1zQkNma1BQeldwRTlGanRoRGpQalA5RjRYLVRiT0FDZVRpRXAyLUlDV0dqRjg0NHBwQXA2WGlxT21BeXZaalB6cWM?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ドンキ／千葉県印西市に「牧の原モア店」6／10オープン",
+    "link": "https://news.google.com/articles/CBMiVEFVX3lxTE4yam44ekh5R2FoSnQ3SVprdE1vVFdZcVNqT2h3WjQycGJjOGp1cE1rU21DYnZhbHhZcE11eXZCbGh2czc3d2pzZExNaTlZMy1Oa0REVA?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市に「セナリオハウス千葉ニュータウン展示場」が1月21日(土)グランドオープン | 広島建設株式会社のプレスリリース",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE1tN3U4R3VBWU5jWXpFWWhzU0swMVlQUkZ2dnpnYjk0UXl5b1dkcV9ESDFsOW9HcUlielRHYjJVRi1wSUVVb3hEVGtsMHpEQzlxVXFDRm5fVmtrNlg3OUJWeEFWWEJlajdPVlE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ドン・キホーテnews｜千葉県印西市に631坪｢牧の原モア店｣6/10オープン",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE5hSkJlZWs3ZC1WazducE0tXzVQSzByVEZjTXg1eVg2WDNwYm1ET0pJLVkwXzIyN1d1ZnYzbGlvZC1wV0JHaU44SFhGOENReXd5SEM4?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ビッグエコー千葉ニュータウン中央駅前店が7月18日にオープン！ダーツ投げ放題とお酒が楽しめるダーツバー・B-GARAGEを併設",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE1RUENFVFdKdGowWlhxVm9ZUGlsX2RJSmhLWno1Ylh1azF6TTd1SUt1ZVltbnRteDZIRTY1OXhIT1A2LUpzNnNaZE03Yks4cVgyM09WNWhCcFQ0elRlNjMwbnpwbzFpYWdxMlE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ドン・キホーテ、6月10日、千葉県に「ドン・キホーテ牧の原モア店」オープン",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBvWDFTcUUtem5vZ3NLQjNyZkptSXd0ckRYQjVTdXdoVTBGeDVXMHNjZEdpbzlnaGxxOElCT0RYdUlsLUtQdktjbmVOOFJQZGtGbWd3?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "カプセルトイプレイゾーン「JOYGACHA(ジョイガチャ)」 2024年4月6日(土) ジョイフル本田 千葉ニュータウン店にオープン！",
+    "link": "https://news.google.com/articles/CBMiTkFVX3lxTE9aemFtVFd6aWhEWDd6YXMtUEpSTnRVa1BMRTNxSVEwRDRmc3MwSC1WOHVheHNBSU1jb3lvMC1uNThDTkJXWkVHSGs5WkRkZw?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉北総地域の中核都市をめざす「千葉ニュータウン」に、「カインズモール千葉ニュータウン」オープン！",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE02UnRIbDdaYTFLMUp1TkYybVBtU0U1S3dlcU5PTzRWUV9UVUlld2YxU0VlaDlnLWdsSG5fS1AydHd1aEUtb2VqMGs5ek5UdGsxWlc5dFkzcEdLUVNnU1NDTi05NmRXRTFWdHc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "『トイザらス・ベビーザらス 千葉ニュータウン店』10月9日（金）オープン！！",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE80aVQwaEpKQTA5MUZnaGQxUHpLVUk3Z1JUOXNGSzRxaGx3MUdMQzIxSnRLZF9YTmVzeXM0UDBrSW1QcklPMlE2S1FSS0pPSHhPVkZGM1NrdnJvaF9kNHdjc0ttWkk1VjVzT2c?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "西松屋アクロスモール新鎌ヶ谷店が7/23（木・祝）オープン、鎌ヶ谷市内2店目",
+    "link": "https://news.google.com/articles/CBMiT0FVX3lxTE1DUmZJQnlQeUdwa1JQR0tpVEVUSElDQnhUQ0JjNklldmxNajYyM0pidEJWeHRrU2hpTGhIVGx6YmIyYWxRbE53Vi1zTGthZkE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県初出店！話題のミキシングアイス『マーベラスクリーム』 ～6月25日「イオンモール千葉ニュータウン」にNEW OPEN～",
+    "link": "https://news.google.com/articles/CBMiTEFVX3lxTE5NeVRnUDIzdU5JY2loZnM5dWxFVDBVTlJkZkd4TnU3UmJfV1Q4STV6a1FmaWVNS283WkQ3VFVocUtiX0hBTlhySmFXaUs?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2205",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【新規事業】印西市、千葉NT中央駅前に送迎保育ステーションを4/1開設。専用バスで園児を市内8園へ送り届け、保育所に通う園児保護者の送迎負担を軽減",
+    "link": "https://prtimes.jp/main/html/rd/p/000000011.000180020.html",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]

@@ -566,7 +566,7 @@ def cmd_collect(args):
     pending_review_links = {e["item"]["link"] for e in existing_queue}
     excluded_links = load_excluded_links()
 
-    new_count = updated_count = unchanged_count = auto_excluded_count = skipped_pending = skipped_excluded = 0
+    new_count = updated_count = unchanged_count = auto_excluded_count = skipped_pending = skipped_excluded = expired_new_count = 0
     review_items = []
     auto_log_entries = []
     run_ts = datetime.now(JST).strftime("%Y%m%d-%H%M")
@@ -603,6 +603,24 @@ def cmd_collect(args):
 
         category = item.get("category") or guess_category_from_title(item["title"])
         item["category"] = category
+        item["retention_type"] = compute_retention_type(item)
+
+        if is_expired(item, today):
+            # 掲載期限(3か月/6か月)を超えた記事。追加してもすぐ除去されるだけなので
+            # 除外済みとして記録し、次回以降のcollectで再度処理(重複判定・AI判断)しないようにする
+            expired_new_count += 1
+            auto_log_entries.append({
+                "run_ts": run_ts,
+                "date": today.isoformat(),
+                "ai_decision": "exclude",
+                "similarity": None,
+                "title": item["title"],
+                "link": link,
+                "similar_to": "",
+                "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外",
+            })
+            continue
+
         similarity, similar_item = find_best_match(item["title"], recent_pool)
 
         if similarity >= DUP_AUTO_EXCLUDE_THRESHOLD:
@@ -623,7 +641,6 @@ def cmd_collect(args):
         needs_category = category is None
 
         if not needs_dedup_review and not needs_category:
-            item["retention_type"] = compute_retention_type(item)
             by_link[link] = item
             recent_pool.append(item)
             new_count += 1
@@ -666,7 +683,7 @@ def cmd_collect(args):
         f"合算: 新規{new_count} / 更新{updated_count} / 変化なし{unchanged_count} / "
         f"期限切れ{expired_count} / 自動除外(重複80%以上){auto_excluded_count} / "
         f"要AI判断(今回){len(review_items)}件 / 判断待ち(前回から){skipped_pending}件 / "
-        f"除外済みスキップ{skipped_excluded}件"
+        f"除外済みスキップ{skipped_excluded}件 / 新規だが掲載期限切れ{expired_new_count}件"
     )
     if review_items:
         print(f"→ {REVIEW_QUEUE_PATH.name} を確認し、decision/category_decision を記入した上で "
