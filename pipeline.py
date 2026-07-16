@@ -330,8 +330,12 @@ def scrape_goguynet(cfg, existing_by_link):
             continue
         title = title_tag.get_text(strip=True)
         category = cfg.get("category")
-        if category == "鎌ヶ谷・白井" and any(kw in title for kw in KAITEN_KEYWORDS):
+        if any(kw in title for kw in KAITEN_KEYWORDS):
             category = "開店・閉店"
+        elif category == "鎌ヶ谷・白井" and not any(kw in title for kw in ["鎌ケ谷", "鎌ヶ谷", "白井"]):
+            # 号外NETは鎌ケ谷・白井・印西の3市をカバーするため、印西市単独の記事は
+            # 「鎌ヶ谷・白井」に固定せずタイトルからの推定/AI判断(review_queue)に委ねる
+            category = None
         items.append({
             "title": title,
             "link": a["href"].strip(),
