@@ -55,7 +55,7 @@ HEADERS = {
 TIMEOUT = 15
 JST = timezone(timedelta(hours=9))
 
-CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "鎌ヶ谷・白井", "イオンモール千葉ニュータウン"]
+CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "鎌ヶ谷・白井", "イオンモール千葉ニュータウン", "牧の原モア"]
 KAITEN_KEYWORDS = ["開店", "閉店", "オープン", "クローズ", "NEW OPEN", "new open"]
 
 REGULAR_RETENTION_MONTHS = 3
@@ -687,18 +687,19 @@ CATEGORY_COLORS = {
     "開店・閉店":     ("#FEF2F2", "#EF4444", "#991B1B"),
     "鎌ヶ谷・白井":   ("#FFF7ED", "#F97316", "#9A3412"),
     "イオンモール千葉ニュータウン": ("#ECFEFF", "#06B6D4", "#155E75"),
+    "牧の原モア": ("#EDE8F8", "#6B4FA7", "#3A1F6E"),
 }
 CATEGORY_ICONS = {
     "話題・その他": "📰", "イベント・文化": "🎉", "市政・行政": "🏛",
     "開発・暮らし": "🌱", "開店・閉店": "🏪", "鎌ヶ谷・白井": "🗺",
-    "イオンモール千葉ニュータウン": "🛍",
+    "イオンモール千葉ニュータウン": "🛍", "牧の原モア": "📍",
 }
 SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
 SCRAPED_ICON = "📍"
 MAX_ITEMS_PER_CAT = 20
 SCRAPED_MAX_ITEMS = 20
 SCRAPED_MAX_DAYS = 180
-CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180, "イオンモール千葉ニュータウン": 180, "鎌ヶ谷・白井": 90}
+CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180, "イオンモール千葉ニュータウン": 180, "鎌ヶ谷・白井": 90, "牧の原モア": 180}
 DEFAULT_CUTOFF_DAYS = 90
 
 PUBLISHER_ALIASES = {"印西市": "印西市役所"}
