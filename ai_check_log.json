@@ -1148,5 +1148,15 @@
     "link": "https://prtimes.jp/main/html/rd/p/000000011.000180020.html",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260716-2217",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "認可保育園が閉園を強行、印西市が認可取り消し 保護者「認可だから安心していたのに無責任」",
+    "link": "https://news.google.com/articles/CBMiV0FVX3lxTFBmczlZUF81bFQ0TGNaaU1QdmlJRjNOMEVBY081QWpWOG5tQmpMOFlCZXNvUXc3STV5TjhkeFVLdFdzb1JFZzd1Y0ZyZHBPc0hIcWo5djYyQQ?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
