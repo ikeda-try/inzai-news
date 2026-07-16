@@ -243,12 +243,14 @@ def fetch_weather():
         )
         res.raise_for_status()
         daily = res.json()["daily"]
-        labels = ["今日", "明日"]
+        weekday_ja = ["月", "火", "水", "木", "金", "土", "日"]
         days = []
         for i in range(min(2, len(daily["time"]))):
+            d = date.fromisoformat(daily["time"][i])
+            label = f"{d.month}/{d.day}({weekday_ja[d.weekday()]})"
             icon, weather_label = WEATHER_CODE_MAP.get(daily["weather_code"][i], ("🌡", "不明"))
             days.append({
-                "label": labels[i],
+                "label": label,
                 "icon": icon,
                 "weather_label": weather_label,
                 "temp_max": round(daily["temperature_2m_max"][i]),
@@ -809,7 +811,8 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .weather-temp{display:block;font-size:12px;font-weight:700;color:#1a1a18;margin-top:2px}
 .weather-temp .tmin{color:#888;font-weight:400}
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
-@media(max-width:480px){.hero{padding:16px}.weather-widget{width:100%;justify-content:flex-start}}
+.weather-title{font-size:11px;font-weight:700;color:#888;margin-bottom:6px;letter-spacing:.03em}
+@media(max-width:480px){.hero{padding:16px}.weather-block{width:100%}.weather-widget{width:100%;justify-content:flex-start}}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
@@ -914,7 +917,7 @@ def build_html(articles):
                 + '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>"
                 + "</div>"
             )
-        weather_html = '<div class="weather-widget">' + cards + "</div>"
+        weather_html = '<div class="weather-block"><div class="weather-title">印西の天気</div><div class="weather-widget">' + cards + "</div></div>"
 
     if top_item:
         cat = top_item.get("category", "話題・その他")
