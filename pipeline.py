@@ -804,15 +804,16 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .hero-title:hover{color:#1D9E75}
 .hero-meta{font-size:12px;color:#888}
 .today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
-.weather-widget{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.weather-block{flex-shrink:0;display:flex;flex-direction:column;align-items:center}
+.weather-widget{display:flex;gap:8px}
 .weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
 .weather-day-label{display:block;font-size:10px;color:#888;font-weight:700;margin-bottom:2px}
 .weather-icon{display:block;font-size:22px;line-height:1.2}
 .weather-temp{display:block;font-size:12px;font-weight:700;color:#1a1a18;margin-top:2px}
 .weather-temp .tmin{color:#888;font-weight:400}
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
-.weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;line-height:1.4}
-@media(max-width:480px){.hero{padding:16px}.weather-widget{width:100%;justify-content:flex-start}}
+.weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;margin-bottom:4px}
+@media(max-width:480px){.hero{padding:16px}.weather-block{width:100%}.weather-widget{width:100%;justify-content:flex-start}}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
@@ -917,12 +918,10 @@ def build_html(articles):
                 + '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>"
                 + "</div>"
             )
-        weather_title = '<div class="weather-title">印西の<br>天気</div>'
         weather_html = (
-            '<div class="weather-widget">'
-            + cards[0]
-            + weather_title
-            + "".join(cards[1:])
+            '<div class="weather-block">'
+            + '<div class="weather-title">印西の天気</div>'
+            + '<div class="weather-widget">' + "".join(cards) + "</div>"
             + "</div>"
         )
 
