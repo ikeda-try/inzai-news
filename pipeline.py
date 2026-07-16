@@ -808,7 +808,7 @@ def build_html(articles):
         return d >= today - timedelta(days=days)
 
     main_arts = [a for a in main_arts_all if date_ok(a)]
-    main_arts.sort(key=lambda a: a.get("pub_str", ""), reverse=True)
+    main_arts.sort(key=lambda a: parse_pub_str(a.get("pub_str", "")) or date.min, reverse=True)
     top_item = main_arts[0] if main_arts else None
 
     if top_item:
@@ -858,7 +858,7 @@ def build_html(articles):
 
     scraped_html = ""
     for site, items in scraped_map.items():
-        items = sorted(items, key=lambda a: a.get("pub_str", ""), reverse=True)
+        items = sorted(items, key=lambda a: parse_pub_str(a.get("pub_str", "")) or date.min, reverse=True)
         filtered = [i for i in items if (parse_pub_str(i.get("pub_str", "")) or cutoff) >= cutoff][:SCRAPED_MAX_ITEMS]
         if not filtered:
             continue
