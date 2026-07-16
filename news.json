@@ -302,7 +302,7 @@
     "pub_str": "2026年7月16日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -329,7 +329,7 @@
     "pub_str": "2026年7月13日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -356,7 +356,7 @@
     "pub_str": "2026年7月10日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -374,7 +374,7 @@
     "pub_str": "2026年7月6日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "牧の原モア",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -392,7 +392,7 @@
     "pub_str": "2026年7月4日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -401,7 +401,7 @@
     "pub_str": "2026年7月3日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -410,7 +410,7 @@
     "pub_str": "2026年7月1日",
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -736,7 +736,7 @@
     "pub_str": "2026年6月22日",
     "publisher": "ITmedia",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -747,7 +747,7 @@
     "pub_str": "2026年5月7日",
     "publisher": "juntendo.ac.jp",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -758,7 +758,7 @@
     "pub_str": "2026年5月12日",
     "publisher": "福祉新聞Web",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -769,7 +769,7 @@
     "pub_str": "2026年7月8日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -780,7 +780,7 @@
     "pub_str": "2026年6月10日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -791,7 +791,7 @@
     "pub_str": "2026年4月18日",
     "publisher": "朝日新聞",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -802,7 +802,7 @@
     "pub_str": "2026年5月26日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -813,7 +813,7 @@
     "pub_str": "2026年4月17日",
     "publisher": "日経BP",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -824,7 +824,7 @@
     "pub_str": "2026年6月11日",
     "publisher": "読売新聞",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -835,7 +835,7 @@
     "pub_str": "2026年4月24日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -846,7 +846,7 @@
     "pub_str": "2026年5月28日",
     "publisher": "読売新聞",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -857,7 +857,7 @@
     "pub_str": "2026年6月5日",
     "publisher": "読売新聞",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -868,7 +868,7 @@
     "pub_str": "2026年5月30日",
     "publisher": "読売新聞",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -879,7 +879,7 @@
     "pub_str": "2026年5月29日",
     "publisher": "東京・大阪 都心上空ヘリコプター遊覧飛行",
     "source": "google-news-inzai-shi",
-    "category": "イオンモール千葉ニュータウン",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -890,7 +890,7 @@
     "pub_str": "2026年4月21日",
     "publisher": "INTERNET Watch",
     "source": "google-news-inzai-chiba",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -901,7 +901,7 @@
     "pub_str": "2026年6月24日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-chiba",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -912,7 +912,7 @@
     "pub_str": "2026年5月31日",
     "publisher": "マイナビニュース",
     "source": "google-news-inzai-chiba",
-    "category": "開店・閉店",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -965,7 +965,7 @@
     "pub_str": "2026年7月16日",
     "publisher": "レッツエンジョイ東京",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -976,7 +976,7 @@
     "pub_str": "2026年7月6日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -987,7 +987,7 @@
     "pub_str": "2026年7月15日",
     "publisher": "Yahoo!ニュース",
     "source": "google-news-inzai-shi",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -998,7 +998,7 @@
     "pub_str": "2026年7月14日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1009,7 +1009,7 @@
     "pub_str": "2026年7月13日",
     "publisher": "rakumachi.jp",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1020,7 +1020,7 @@
     "pub_str": "2026年6月19日",
     "publisher": "読売新聞",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1031,7 +1031,7 @@
     "pub_str": "2026年7月8日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1042,7 +1042,7 @@
     "pub_str": "2026年7月14日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1053,7 +1053,7 @@
     "pub_str": "2026年6月26日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1064,7 +1064,7 @@
     "pub_str": "2026年6月30日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1075,7 +1075,7 @@
     "pub_str": "2026年6月26日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1086,7 +1086,7 @@
     "pub_str": "2026年4月20日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1097,7 +1097,7 @@
     "pub_str": "2026年5月21日",
     "publisher": "朝日新聞",
     "source": "google-news-inzai-shi",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1108,7 +1108,7 @@
     "pub_str": "2026年6月25日",
     "publisher": "物流ニュースのLNEWS",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1119,7 +1119,7 @@
     "pub_str": "2026年7月10日",
     "publisher": "イザ！",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1130,7 +1130,7 @@
     "pub_str": "2026年5月13日",
     "publisher": "ほんのひきだし",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1141,7 +1141,7 @@
     "pub_str": "2026年4月24日",
     "publisher": "日本工業経済新聞社",
     "source": "google-news-inzai-shi",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1152,7 +1152,7 @@
     "pub_str": "2026年5月26日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1163,7 +1163,7 @@
     "pub_str": "2026年7月15日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1174,7 +1174,7 @@
     "pub_str": "2026年4月23日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1185,7 +1185,7 @@
     "pub_str": "2026年6月30日",
     "publisher": "Yahoo!ニュース",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1196,7 +1196,7 @@
     "pub_str": "2026年6月8日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1207,7 +1207,7 @@
     "pub_str": "2026年6月22日",
     "publisher": "ｄメニューニュース",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1218,7 +1218,7 @@
     "pub_str": "2026年5月28日",
     "publisher": "こどもとIT",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1229,7 +1229,7 @@
     "pub_str": "2026年6月10日",
     "publisher": "STRAIGHT PRESS",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1240,7 +1240,7 @@
     "pub_str": "2026年7月8日",
     "publisher": "STRAIGHT PRESS",
     "source": "google-news-inzai-shi",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1251,7 +1251,7 @@
     "pub_str": "2026年6月1日",
     "publisher": "PR TIMES",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1262,7 +1262,7 @@
     "pub_str": "2026年6月23日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-shi",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1273,7 +1273,7 @@
     "pub_str": "2026年5月27日",
     "publisher": "公明党",
     "source": "google-news-inzai-shi",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1284,7 +1284,7 @@
     "pub_str": "2026年4月23日",
     "publisher": "朝日新聞",
     "source": "google-news-inzai-shi",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1295,7 +1295,7 @@
     "pub_str": "2026年6月25日",
     "publisher": "千葉日報オンライン",
     "source": "google-news-inzai-chiba",
-    "category": "話題・その他",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1306,7 +1306,7 @@
     "pub_str": "2026年5月31日",
     "publisher": "pando.life",
     "source": "google-news-inzai-chiba",
-    "category": "イベント・文化",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1317,7 +1317,7 @@
     "pub_str": "2026年5月9日",
     "publisher": "東洋経済オンライン",
     "source": "google-news-inzai-chiba",
-    "category": "開発・暮らし",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1328,7 +1328,7 @@
     "pub_str": "2026年5月21日",
     "publisher": "朝日れすかPLUS",
     "source": "google-news-inzai-chiba",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {
@@ -1339,7 +1339,7 @@
     "pub_str": "2026年5月18日",
     "publisher": "All About ニュース",
     "source": "google-news-inzai-chiba",
-    "category": "市政・行政",
+    "category": null,
     "retention_type": "regular"
   },
   {

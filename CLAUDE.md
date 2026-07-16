@@ -13,7 +13,7 @@
 - `pipeline.py` — 収集・重複排除・カテゴリ分類・HTML生成・git publishの統合スクリプト
 - `news.json` — 統合ニュースデータ（公開対象、gitで管理）
 - `review_queue.json` — AI判断待ちの記事キュー（gitignore対象、判断後は空になり削除される）
-- `ai_check_log.json` — 重複判定AIログ（後から閾値の妥当性を検証するため）
+- `ai_check_log.json` — 重複判定AIログ（後から閾値の妥当性を検証するため。加えて、除外(exclude/auto_exclude)済みリンクの記憶としても使われ、`collect`実行時に一度除外判定した記事を再度重複判定・AIレビューにかけないようにする）
 - `開店閉店.txt`（Shift-JIS） — 開店閉店情報の調査対象店舗リスト（gitignore対象、ローカルのみ）
 - `.gh_token` — GitHub Fine-grained PAT（gitignore対象）
 - `index.html` — 生成物（GitHub Pagesで配信）

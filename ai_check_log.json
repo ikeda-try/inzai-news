@@ -228,5 +228,395 @@
     "link": "https://news.google.com/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5",
     "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
     "ai_reason": "NTTデータセンター開発の同一発表の重複記事"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市のゲリラ雷雨（豪雨）レーダー",
+    "link": "https://news.google.com/articles/CBMiYkFVX3lxTE5CV0pVQ3B3bjFjNl9vY0xpZ1hzSjVnYzhKQW90Tlg4bHdXU0dQTTJodFlOclg2a0dqV21RMF9rQXUzWUhCVEVza2N2ekcxazNZNmdRYUhnWVdUc0dEMVlqRVJR?oc=5",
+    "similar_to": null,
+    "ai_reason": "天気レーダーの自動生成ページで実質ニュースでない"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市の黄砂レーダー",
+    "link": "https://news.google.com/articles/CBMiW0FVX3lxTE1NY1JxV2N3SWtQU1c2c2VJZnBOTzM1NWtNTkVtWWFhaE9ncVJhcVItU2YzZE1yQzRXY2RfN09aajRFRll5VUNxY1JUcXFndWFEcFJZMzVCb1lhQ3c?oc=5",
+    "similar_to": null,
+    "ai_reason": "天気レーダーの自動生成ページで実質ニュースでない"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西市におけるカーボンニュートラルなまちづくりに向けた連携協定の締結について - tokyo",
+    "link": "https://news.google.com/articles/CBMiZkFVX3lxTFB1M0oxSEdnSFJHVzdvOVl2WC1CX1llc3hDSFFvWlZKMEVIaXNzSFVTV1JiT1Ywd1RBOEJjc1cwYWEyY092SzMxdHA0WGJiOXVjOVZmcDRHMm96WUlvZkhORHFzd3VTdw?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市の雨雪レーダー【予想6時間】",
+    "link": "https://news.google.com/articles/CBMiYEFVX3lxTFBXNjVJeXRGS1ZrVkNVZWVGUVVVMWJpWEFJR0xZaFBKQVNVRXgzQ282cWpDejBobHpYb2pWREkyZXRteGlqSDlyM29ES1lObEhxRkR5bjBpOU5UaVBpT01STg?oc=5",
+    "similar_to": null,
+    "ai_reason": "天気レーダーの自動生成ページで実質ニュースでない"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【印西市】小学校卒業式",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE1Ha0YxNnNtOF9JYVVHRWFUS2hRTkU2MFJ6RlYxT1VXRVJaWVR0eWNob2o1RVp4NDNBZ3piSHdhLUhzWks2RkdRRGk1VHJsZlpKNGo0TjB4bEp6T3p6Y3VB?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【特集】千葉県印西市と東京ガスが連携協定",
+    "link": "https://news.google.com/articles/CBMiV0FVX3lxTFBVX2ZFLXZUdWszS3lmcjZoOE9ydi1Sb0htc2dDQUNfMEpnOGtreDJmd1B0aFR4Zm4tR2NkY1hNLXhwcGVIQWxTZjE2QkpCSC1odEJkVWpTZw?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西市 中学校入学式 - まつや知美（マツヤトモミ）",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE4yTEF2eDdpSVEtVFFJaVhOMEVGeUVOeTBOYzZmam9ldDE2dEhvLUc0Um16V0NRMGpMM0dsbGhDcFNtRVphcXl2Ni13NTM5Rk9DS1FnaThFeEhmY0NhbVo0?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【千葉・印西市】樹齢400年、幻の桜。「吉高の大桜」の魅力と最新開花状況",
+    "link": "https://news.google.com/articles/CBMiV0FVX3lxTE1wUHNSWE9yRU1xRkM0b2VnRW93Q21faFhXbEhWMDlPaHd3RnY2MjVGWkZDbTItNk5rMDdvOGRuaE1OczlsWU9qckxjTUJEa2ZFeXJVSTdJSQ?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉・印西市に新たな児相 子どもが過ごす一時保護所は完全個室に 熊谷知事「幸せを実感しながら成長できる社会に」",
+    "link": "https://news.google.com/articles/CBMiW0FVX3lxTE1GRzdVcFFldnhsT2p1VE5fdVMwdE9hSUVBMUo1NnF1dDZZck1ubHZDdWU4cXY5aWdBNE9xVmJWTkwyMHo4d1pCNHlyQ21KanBlem55aDZ6QkZsUTg?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【バスケットボールスクール】新規開校「印西スクール」のお知らせ",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE5oQ29WSmJvbHQ0NlRTNEVMWm1vSkQ0WThORFVYeTNXdGJMcjBLR28xU3BwS0hjeVlnUFRVVF9FXzNOSmk2cmhIUWJkVHN4elpERWgw?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市 地元米で日本酒プロジェクト「龍の奇跡〜Legend of INZAI〜」完成",
+    "link": "https://news.google.com/articles/CBMiZEFVX3lxTE1OVGRMMVlOMjZNZXM0N2lBY0ZEQWc2YnRNeXhyMFltc3pobEtEM2VOUnhHU21DeGlnazdGQkZBeDh6cGFVSzVQQmQ0d0R1akZpNUFxcUpJMFJCcU83VjRrVTBBcjk?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "茨城県で最大震度2の地震 茨城県・笠間市、神栖市、千葉県・市原市、浦安市、印西市、東京都・東京台東区(放送局のニュース )",
+    "link": "https://news.google.com/articles/CBMidkFVX3lxTE9VbmNSbUtQbmIyX3hkc3N3ZzF6WXBfZ0lTNGFOTU1uTG9vQ0p5bUJCYW1IYzdtU0dqM1o1ZlJueHF1X2NadThkNnBzVjQycUhsbFotclYwNmlYWU01dXZKNWhIOFJQbWk3YzQzZ1NkckJYRXIydEE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "Liquitous、千葉県印西市と連携協定を締結し、Liqlidを活用した「DXによる市民参加促進」に取り組む",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE1ydUZaMEFOcjJlQnN0Y2FqNXkwUVZyU0E5Q0ZWVmlFd0R4VzFmNDhFdEJTYV9pVnNWaHhCN3pmZXVVX0NJeHk3Q09zN2lIcV9XQXNSNUN3bHNZS0xibzFHMnhya2FBRlJnWXc?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【千葉県印西市】市制施行30周年。ーともに歩んだ30年、ともに創るその先へー記念事業を年間通して展開",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE95OUc2NExBVUJmRGdJdl82a3JMMjd2SXQtMXdUWUdoUTV5bzlBZXRLZnBJcFg1cmhsQlFaRFQ2OHFsRmw1OV9rR0FWLUluS1p6TkVmYTNBelV6LTF2THdIMkdqaG5saFFyOHc?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "Vivid☆Prismの初のミニアルバム全国リリース印西市から全国にPRしたい",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE0tejFoVUsydVFXZ3hDc2dVNDRFTHBDS3dKWVhPeTVKMjM1MDV0Q005QzJUQV9BczhKNjE2OVhnaEtaTjNmOThSYTNmQUJsaFU5dEFv?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "一人で泣き叫ぶ迷子の３歳児を保護 印西市の中学２年生に署長感謝状 手をつなぎ、不安落ち着かせ",
+    "link": "https://news.google.com/articles/CBMiS0FVX3lxTE1fUUc1SW1iSkRkanc5M0ZDbm4zVjl3b19HcVdxcGdWaHNNVi1pS3VzVm5yTzFZNXEtSVVkMkFXMjBFV05sTlNLc1E5RQ?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県が印旛児相を新設、県7つ目 個室を導入、職員も働きやすく",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTE0zV25Oa19kajA0ZEJ1SFEyakFsOUFOU085QTZzUHVMVUZ4c2ROWXltdUNwNzBCTWlJOVRldTQ5VW5uTDhGSUYyWjB1aEtIenhvM05xVlhONWRpR0FBRktfVXpqNWdQWWs?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西観光協 不適切会計、理事証言 市監査、複数年を対象か",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTFBXRllhaWJDN3JxYU1WNU1hVGpWU3Z2S01nNzBOdENBSXlmX3Z4eUcycXBCQkNiSEY2ZmU3S05sLV9IcEtqVUNObnNHMFlvN3BjaE1LZW53Nno?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "コリアーズ／千葉県「印西市高花物流センター」内覧会、10月15・16日開催",
+    "link": "https://news.google.com/articles/CBMiVEFVX3lxTE50Z3FYZjlIcDRodTg2aV9Qd2Nmb2xQd3NyZVFTaXhWclRyMl9xQjJnUmVFMTVlOTdXdnZGOWVVQnVxdUNuVWhpQkprV1hPOWc0VzBBYw?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西DC 「建築確認違法」住民ら提訴 「工場」「倉庫」と主張 ／千葉",
+    "link": "https://news.google.com/articles/CBMiaEFVX3lxTE5CeUNBbDBCVEtnRUZlOXBWMDVpbDRMWjZUbWtScUhsTUd6UXpjZFRpYXc0X3JMQl9CVWo4OHB3MmY5YWNEUEVEajBxZE9nMXpJdUpYRHh1YVFoZy13RmFyQ01ET3dXa0dZ?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "事業方式はデザインビルド／28年度の供用開始目指す／印西地区環境整備組合 地域振興施設",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE9oaXlLWVhEYWNJNGUzYmxXVDJxSEMxNHFTWXJ5QnlrSzkwdVUxZnZQSm5LY0NKa1FvVFBaVHpkeVVfc1A4T3VWSnlQUVJpaWRuMGhjQUVXc0Y?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "松本ひさし個人演説会 in 印西 開催のお知らせ",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE1GSk9wVU9CUk9DaFl1MmFYUHJsVzNzN2xoWEMxMEVHS3FqM2xhTjBuWW1mc09vRk15cjFVX1Z4b19yQmhIanE3NHl1NUtfQVRJaVRXcXRxTm5CbjlETXBj?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市「印西市のお店を応援！キャッシュレスでお得キャンペーン！第2弾」の終了について",
+    "link": "https://news.google.com/articles/CBMiaEFVX3lxTE1aWm83NURseVZ4ZmQwVG9lSUpuNElWc01yUjdZWDl2ZWxUa1dpQk9iYWIzaDdxaEwtRlRQQVV0YlNSYTR0YXo5VnZVQzIxYmFPMDJ5UU1obnkySzd1YzlSS0syZWhtcWRI?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【6/21京都戦】『印西ホームタウンデー』のお知らせ｜お知らせ情報",
+    "link": "https://news.google.com/articles/CBMiV0FVX3lxTE96WGxNcDEzOFJvOFRCTElxdmY0ZGxObEdOOFZWbFMtMlhqX3pqZUV6MWxyc20tM18telczUlU0ODFQdEVBdjhoS0lMa0xPNE9OSFh2bzA4TQ?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市が住民向けLINE公式アカウントをリニューアル、プレイネクストラボ株式会社がシステム提供と構築を支援",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBjTWxOUHJIOUF3c2IyRlNzRVIzMVFraUlTVHZ4RFZnUmptd0tIemdvcjI4Tl84ekhGNXRGQVdjMVhGQ1hNV2pyNGNvUkF2bkhORFhYVWZiSWVaRm9jMTFrek5yaE9ydndJbGc?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "みんなのコードと千葉県印西市、新しい情報教育に関する連携協定締結",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE5ITXFLbV93b1paLTFNMVQyVEtnQ0JUTDZEQ0xoMkwxM2l3YW8waTFSREVCcktUaHl5VkFQWXVRbU1MUjlLbHVtN2JHNk5hSF9OQmp0ckZwZXZSekpVMGJqdlRLck1xN2ZZekE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "小田急不動産 初となる物流施設「小田急不動産ロジスティクスセンター印西」が竣工 テナントは西濃運輸に決定！",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBrT3JUT1ZHRURwcXd3V2ZEZW94a0hlQjR5Vkw5WXp2VFVGcXZ3TVVZc1FxR3Q5elpFM0N5TWtWanRwbG1aaHB4X3NCdlpMM2taRFpTSERPQXhTc0hReHhHTHkwWXhmV2VjbUE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【チアスクール】「ゴールドジム千葉ニュータウンJAC校」新規開校ならびに体験会開催のお知らせ",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE5zU0Nsd0FYX3hOSUF5d0Vya25NRzBobEVUZWRKV0t4V29NYjJoNnJQT2pZSjh6Qm5aMVB3WmNHdXJLVWFvN1VGcWF0aUFsQXRqU2J3?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ジェイコム千葉における 千葉ニュータウンセンターのケーブルテレビ事業の承継に関するお知らせ",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE5fMjhLci1nUFNLemwwRG9NUDJuajJxVjZ6elRyMjU5OWFxR1pwaWpHRzkxNU5ReUg4akdkb09xOHBDcjc4RGE2Z3RFa0lndHFPcmJGQlpVRmtHcEdxTE4zRXZSVDlZTkdIZVE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "らぁめん KONOSHIRO(印西市/ラーメン)",
+    "link": "https://news.google.com/articles/CBMiUEFVX3lxTE1rVEZMV2FGWGJUbi00RWRaRU9fZmgwQUNKV1VzSUZSWWJiYVZPd2wyOXVnN0JIOUxMeUFrVmVMdjhOZktiZWd0S09hdFlxUkVU?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【食べ放題で南国気分！グルメツアー第3弾！】夏を先取り！“グランブッフェ 千葉ニュータウン店”にて『ハワイアングルメフェア』を開催！時間無制限の食べ放題でトロピカルなメニューをご堪能ください。",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBCSnVKQWhGNnBGQkRSZ0dtMEdhUVB4cHhqdm8wel9KM0RYVmUyUTRPRmlrN2N0d0M4QnUtNUQ4RDRQWW5vZGZEV09wcUpsNkthWHBidVoyU0xTQkU0ekc1Q0ZMWDBULWhuOFE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "「印西市で人気のラーメン」ランキングTOP10！　1位は「喜楽」【2025年2月版／Googleクチコミ】 | 千葉県 ねとらぼリサーチ",
+    "link": "https://news.google.com/articles/CBMiY0FVX3lxTE1LUWNMWmtNUjVkQl9ZT2NkUjc5Y2tSWnVqMEFYVGt0X2lIN3c5dmY3VVBMc2hBeXpPTzVpZ0tNOTZrUTdBUm04Z2NiM21mUGhqcVgzR29aTHpsMV9GZzBMRFBSb9IBaEFVX3lxTFA0UnpnLVgtUm5jZXJnSFdHOEtUM3NEVEhjWno1WkpNc1k0NTYyZHFPNXEwT2U2R1RWSVRxRUYyM1BJclFEVjQ0aFVNRXpoN0dfSTdCaEdxNFlDdnR4YUhCeVN4SVhNOVBl?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印旛沼漁業協同組合直営レストラン水産センター",
+    "link": "https://news.google.com/articles/CBMiUEFVX3lxTE9tYkV3cTQ4TVRnbEtxN19xaU05aDA5SDE3SjdFazhZR2VhUXZzRzNveV9wZkIzMnBTRjNuSGRxUTd3UFN5eEZQc1lkOUEzNDJa?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【9/20（土）、21（日）】夏の終わりの盆踊り大会2025開催 | 株式会社千葉ニュータウンセンターのプレスリリース",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE1qdXZnTjl4bkhFUm5tVkF1Sl9yUTRsOWVTX3lFUXhqaHF6dzQ2N2VOMVctcG9aQlpPQ3RMTlI4U0o4aEhaNGVJbzRDaW1zaEJqcWgxN1JjSDdxc0pNVVp6cWVWTWY2Z2RtSUE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【印西市】まつや市議！世界一の演武を届ける。 - まつや知美（マツヤトモミ）",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTFBjbVl5X1dpU3NjaUhrQlJVZTlBemhZMndHU0ZyRDFneG53YmNadV9JWUVScnFaUHA4eXA0ckFNdnB3aUVnTTA1OWNEODlDRHZVVDItMHZEclBYM0pSVTRv?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西市牧の原モアで「夏の終わりの盆踊り大会2025」が開催 スカイランタン＆抽選会も",
+    "link": "https://news.google.com/articles/CBMiUkFVX3lxTFBETFpkaHlkYU5wZF9hNUVVOFcwdVZlM3pScV84NHBjd0lWUXVrZUZjWGhoR1hDUnI3SzZ5WElFQ21XOGlDaXJCVzMtbGVBRlNYZUE?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "歴史ある伊達印西派弓術を伝承し、東北の地域活性化に貢献したい！",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE1uaDRObWpzWWlpTmRPenZVWWJDNE9JYm1mQ3c5emFSY0JyUE13OEtzSjVianJhVHJ4dm1EZU5RSEhTMFZJcDV1eVZuU2k0X2Rzenpr?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "列車の広告枠を活用して地域の魅力を発信 北総鉄道「沿線活性化トレイン」出発進行!!（千葉県印西市）",
+    "link": "https://news.google.com/articles/CBMiTEFVX3lxTFA2TzAyaWFrSkloS3lWNnU1N1h5S3lGNl94eldvMnZod1lTQ1VSUk1Cei02dllRYmh5Wk1sMkxYX21rRHFpcE9oeUJhaUM?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2114",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "人口増加率が全国トップクラスの千葉県印西市に18年ぶり2店舗目の出店！ 『ドン・キホーテ牧の原モア店』",
+    "link": "https://news.google.com/articles/CBMiQ0FVX3lxTE56WHYxZEdoRGdJMW9YZFgxVHViaTVHcEYyekNhX2ZfR0g0VUVUOTBwWUJNRVRYUWV0QU5VTVY4aWlubEU?oc=5",
+    "similar_to": null,
+    "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
   }
 ]

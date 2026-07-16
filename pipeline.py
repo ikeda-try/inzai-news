@@ -192,6 +192,15 @@ def append_ai_log(entries: list) -> None:
     save_json_atomic(AI_LOG_PATH, log)
 
 
+def load_excluded_links() -> set:
+    """過去にルールベース/AI判断で除外(exclude)されたリンクの集合。
+    HTMLスクレイパー等、同じ記事が毎回トップページに載り続けるソース向けに、
+    一度除外判定した記事を次回collect以降も再度重複判定・AIレビューにかけないための記憶。
+    """
+    log = load_json(AI_LOG_PATH, [])
+    return {e["link"] for e in log if e.get("ai_decision") in ("auto_exclude", "exclude")}
+
+
 # ============================================================
 # HTML直接スクレイピング(RSSが無いサイト)
 # ============================================================
@@ -502,8 +511,9 @@ def cmd_collect(args):
 
     existing_queue = load_json(REVIEW_QUEUE_PATH, [])
     pending_review_links = {e["item"]["link"] for e in existing_queue}
+    excluded_links = load_excluded_links()
 
-    new_count = updated_count = unchanged_count = auto_excluded_count = skipped_pending = 0
+    new_count = updated_count = unchanged_count = auto_excluded_count = skipped_pending = skipped_excluded = 0
     review_items = []
     auto_log_entries = []
     run_ts = datetime.now(JST).strftime("%Y%m%d-%H%M")
@@ -515,6 +525,12 @@ def cmd_collect(args):
         if link in pending_review_links:
             # 前回のcollectで既にreview_queueに入っており、まだ判断されていない
             skipped_pending += 1
+            continue
+
+        if prev is None and link in excluded_links:
+            # 過去に除外判定済み(ルールベース/AI判断)のリンク。同じ記事がソース側に
+            # 載り続けているだけなので、再度重複判定・AIレビューにはかけない
+            skipped_excluded += 1
             continue
 
         if prev is not None:
@@ -588,7 +604,8 @@ def cmd_collect(args):
     print(
         f"\n合算: 新規{new_count} / 更新{updated_count} / 変化なし{unchanged_count} / "
         f"期限切れ{expired_count} / 自動除外(重複80%以上){auto_excluded_count} / "
-        f"要AI判断(今回){len(review_items)}件 / 判断待ち(前回から){skipped_pending}件"
+        f"要AI判断(今回){len(review_items)}件 / 判断待ち(前回から){skipped_pending}件 / "
+        f"除外済みスキップ{skipped_excluded}件"
     )
     if review_items:
         print(f"→ {REVIEW_QUEUE_PATH.name} を確認し、decision/category_decision を記入した上で "
@@ -626,17 +643,17 @@ def cmd_apply_review(args):
 
         if decision == "exclude":
             excluded += 1
-            if entry.get("needs_dedup_review") or entry.get("cross_check"):
-                log_entries.append({
-                    "run_ts": run_ts,
-                    "date": today.isoformat(),
-                    "ai_decision": "exclude",
-                    "similarity": entry.get("similarity"),
-                    "title": item["title"],
-                    "link": item["link"],
-                    "similar_to": entry.get("similar_to", ""),
-                    "ai_reason": entry.get("reason") or "AI判断: 重複と判定",
-                })
+            # 除外リンクの記憶(次回collectでの再判定スキップ)のため、理由の種別を問わず必ず記録する
+            log_entries.append({
+                "run_ts": run_ts,
+                "date": today.isoformat(),
+                "ai_decision": "exclude",
+                "similarity": entry.get("similarity"),
+                "title": item["title"],
+                "link": item["link"],
+                "similar_to": entry.get("similar_to", ""),
+                "ai_reason": entry.get("reason") or "AI判断: 重複と判定",
+            })
             continue
 
         # decision == "keep"
