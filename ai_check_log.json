@@ -1158,5 +1158,55 @@
     "link": "https://news.google.com/articles/CBMiV0FVX3lxTFBmczlZUF81bFQ0TGNaaU1QdmlJRjNOMEVBY081QWpWOG5tQmpMOFlCZXNvUXc3STV5TjhkeFVLdFdzb1JFZzd1Y0ZyZHBPc0hIcWo5djYyQQ?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-0821",
+    "date": "2026-07-17",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】全国ムーブメント「水辺で乾杯」に初参加。夕暮れの印旛沼で“推し水辺”を再発見",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBFV0Rrak51YXBUUWFSZGdkSEFRNjU3Tjl4MUIzaDhnTmhrV19SdHd5d1RpSkxPX2huMmI5RzBDaDJIV1YyMnVGOUhQdnFsV25pNjJDWkV4Q0ZucGJmSkFUcnBOMWF4dUZPSUE?oc=5",
+    "similar_to": "【千葉県印西市】全国ムーブメント「水辺で乾杯」に初参加。夕暮れの印旛沼で“推し水辺”を再発見",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260717-0821",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "補助金申請ミスで２人懲戒 印西市",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE9hZm1LSldqekg5dEN4VDNDTFM5SGlpWTMxSXJ4TGtlTnRpU1l4Nmc4OTNnaGs3aDVZU29lSVpoTW5CLVZTakk4X09peHlNVUduUldqSHZIMU0?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-0821",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "子どもたちが安心できる場に 千葉県内9カ所目の印旛児相 20日開設 完全個室や中庭、職員休憩室も充実",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE9fZEJnTE9EM1ByVzdfeXBDNHljY2hGN2ZTQ3NVRk9VdXpFWkppMlFhek5TSFZaQ3pQcFNWQWZjZGs2c1hHT0FzMm5ucEJKT1dnYi1v?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-0821",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "串家物語 イオンモール千葉ニュータウン店(印西市/居酒屋)＜ネット予約可",
+    "link": "https://news.google.com/articles/CBMiUEFVX3lxTE9Wc1lvVC1kWE4wTG5qREh6c09NVXdKcXlUSXpITjMtTmEwV2NxOWZNaWtRQ2Jyb0wzM2xaS1pEVTVfakpUb2dRRTBYVkZyTEtS?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-0821",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "カプセルトイプレイゾーン「JOYGACHA(ジョイガチャ)」 2024年4月6日(土) ジョイフル本田 千葉ニュータウン店にオープン！",
+    "link": "https://news.google.com/articles/CBMiR0FVX3lxTFBqa2dQY2VySVAyR0tIeC1QNVdCbnpmNkI3UzVJcnFIcWVxT2NKSUdTeUp0V3JjVTZ5aXA0Z0hzNndrZXRRX0g0?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
