@@ -4,3 +4,11 @@ token*
 .env
 .env.*
 __pycache__/
+*.tmp
+
+# レビュー中の一時ファイル・ローカル作業ファイル(公開リポジトリには含めない)
+review_queue.json
+開店閉店.txt
+印西ニュース_新プロジェクト仕様書.md
+参考/
+_deleted/

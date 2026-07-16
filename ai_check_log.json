@@ -1,142 +1,232 @@
 [
   {
-    "run_ts": "20260714-1413",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
-    "similarity": 0.74,
-    "title": "NTTデータグループ、千葉県印西・白井エリアに大規模データセンター開発へ（BCN）",
-    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
-    "ai_reason": "タイトルが酷似、同一のNTTデータ印西・白井DC発表記事と判断"
-  },
-  {
-    "run_ts": "20260714-1438",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
-    "similarity": 0.77,
-    "title": "【印西市】地域コーディネーターと市民の力で大成功！市制30周年「あじさいまつり」開催レポート",
-    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbnJpNEJwSjk5eXlMcFBCSFdqbWY4WmdLck1BbUo5dWZwRlV6R3hSUlUzOGtqLUhBeFZrR2xUQjh4RlExV0RfaEV3eEVaNUpZU1Zpd3JKTmRHa0gyWGsxNktUcjZyUURIUTJRbXZQTG1pVThKa1lWdE5TWnhldk9FUDZ6U2RXZXpoS0dCVDRZQlE?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
-    "ai_reason": "類似77%・同一イベント（あじさいまつり）の類似記事がすでに採用済み"
-  },
-  {
-    "run_ts": "20260714-1438",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
-    "similarity": 0.74,
-    "title": "千葉県印西市、小中学校向け「生成AI導入授業パッケージ」と「児童生徒用ハンドブック」を作成 みんなのコードと協働で",
-    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBtcmgzRDBIdFhsdElmX0RxRnhRalJzc1Z5c2UtMkVtNUdydVRMV2pqTmdKdkxPRHptaTRrblNGNGMyWVhCcG9ZZExzbTQ3c1pDRERv?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
-    "ai_reason": "類似74%・同一話題（印西市生成AI教材）の記事がすでに採用済み"
-  },
-  {
-    "run_ts": "20260714-1438",
-    "date": "2026-07-14",
-    "ai_decision": "pass",
-    "similarity": 0.73,
-    "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
-    "ai_reason": "印西市市制30周年HORNS UP FESの情報・別メディア（ウォーカープラス）、既採用記事と異なる出版物"
-  },
-  {
-    "run_ts": "20260714-1438",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
-    "similarity": 0.74,
-    "title": "NTTデータグループ、千葉県印西・白井エリアに大規模データセンター開発へ（BCN）",
-    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
-    "ai_reason": "類似74%・NTTデータDC同一話題の別メディア記事、既採用の類似記事あり"
-  },
-  {
-    "run_ts": "20260714-1438",
-    "date": "2026-07-14",
-    "ai_decision": "dup_check_exclude",
-    "similarity": 0.72,
-    "title": "第133回▶印西ラグビースクール（千葉県） ｜Rkids＜ラグビーキッズ＞",
-    "link": "https://news.google.com/articles/CBMiUkFVX3lxTE9EZkJoZXFDejRxNnRJUVZYcExTa212OWJDSE9oUU5aTXVLejNTNGdrT3hIQjdRTDREX1N1bWZXM3o2V2dQYUx4QS1RNWFVcUY3LVE?oc=5",
-    "similar_to": "第133回▶印西ラグビースクール（千葉県）",
-    "ai_reason": "AI重複判断除外"
-  },
-  {
-    "run_ts": "20260714-1528",
-    "date": "2026-07-14",
-    "ai_decision": "dup_auto_exclude",
-    "similarity": 0.89,
-    "title": "千葉 印西 データセンター建築確認の取り消し求め住民が提訴",
-    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9VZlNHcnFnX3FvQWt4WkdQbkF5dnNnNEdzRGo3UVg5S0dfaHA5SVg5X2daR0VfWWl6QWE2OUE1aVFQc0JvSnVNaThPUXZEc1FfODJCZVlnQ1Y?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "千葉・印西の駅前データセンター、建築確認取り消し求め住民提訴",
-    "ai_reason": "重複スキャン自動除外"
-  },
-  {
-    "run_ts": "20260714-1528",
-    "date": "2026-07-14",
-    "ai_decision": "dup_auto_exclude",
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
     "similarity": 0.83,
     "title": "イオンモールで超！COOOOOOLなハック術",
     "link": "https://chibanewtown.aeonmall.jp/event/8a2a8f81-93bc-4b1a-885e-d6e9202880f9",
     "similar_to": "イオンモールで超！COOOOOOL作戦",
-    "ai_reason": "重複スキャン自動除外"
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   },
   {
-    "run_ts": "20260714-1528",
-    "date": "2026-07-14",
-    "ai_decision": "dup_check_exclude",
-    "similarity": 0.73,
-    "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5&hl=en-US&gl=US&ceid=US:en",
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
-    "ai_reason": "AI重複判断除外"
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.8,
+    "title": "あそびの学校 8月",
+    "link": "https://chibanewtown.aeonmall.jp/event/f5a6add8-6ca1-49ed-a6a3-9176a8d284a2",
+    "similar_to": "あそびの学校",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   },
   {
-    "run_ts": "20260714-1603",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
-    "similarity": 0.77,
-    "title": "【印西市】地域コーディネーターと市民の力で大成功！市制30周年「あじさいまつり」開催レポート",
-    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbnJpNEJwSjk5eXlMcFBCSFdqbWY4WmdLck1BbUo5dWZwRlV6R3hSUlUzOGtqLUhBeFZrR2xUQjh4RlExV0RfaEV3eEVaNUpZU1Zpd3JKTmRHa0gyWGsxNktUcjZyUURIUTJRbXZQTG1pVThKa1lWdE5TWnhldk9FUDZ6U2RXZXpoS0dCVDRZQlE?oc=5",
-    "similar_to": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
-    "ai_reason": "あじさいまつりレポートの類似記事（同一イベント・別ソース）"
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.85,
+    "title": "バイク男性死亡、右折しようとした軽乗用車と衝突 印西の交差点",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE1IWk1iNV9RRC0yV0dvTzJNMjB5dHFKaFFDbHRLRE03djM3RjNBXzRsNEJUWFRLaTBlaE1TNGRUU3F5MVpFYWd2UTEwVFg3ek94dF91WHBrWHU?oc=5",
+    "similar_to": "バイク男性死亡、右折しようとした軽乗用車と衝突 印西の交差点（千葉日報オンライン）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   },
   {
-    "run_ts": "20260714-1603",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
-    "similarity": 0.73,
-    "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5",
-    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
-    "ai_reason": "HORNS UP FESの同一イベント別掲載"
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.82,
+    "title": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区）",
+    "link": "https://news.google.com/articles/CBMiVkFVX3lxTE1Wa2UwRmtBOHpKODFmeFZndjZtVWZOOXd4QnI2el85SWJtTjY0MWxuMmJsOGtzQVprSmhzVnplVV9tRkdBUWtYaTVkSFZ6b0VoMUg3cUdn?oc=5",
+    "similar_to": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区） | 印西市のプレスリリース",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   },
   {
-    "run_ts": "20260714-1603",
-    "date": "2026-07-14",
-    "ai_decision": "exclude",
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.88,
+    "title": "千葉県印西市の雷レーダー",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTFBPQV9SOWI0eWZMRnRsSWhOUDZ4MXV3clVGRFh3N0NZb0Q3c3NtMGxidHoyV2R3NnFvdnNnTTg2NHBVYy1UVWFtSHJFeUV5VW5pSWNadGlENWI0Y0VoRHVZ?oc=5",
+    "similar_to": "千葉県印西市の黄砂レーダー",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.91,
+    "title": "パリ五輪柔道金メダリスト角田夏実さんが 印西市の中学校で特別講演",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE1CWGV2cTRnU2hTZkNmOEl3Vl9fTnZVdU5mVTR3YkU0Tzd2UGJ6WGFQWmphVVVQc0ZyaHBpX1lRbV9lNl9OOVJxem5nM3ZXSVByaDhaUlF3dHQ0TmlQa2tr?oc=5",
+    "similar_to": "パリ五輪柔道金メダリスト角田夏実さんが 印西市の中学校で特別講演（チバテレ）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.85,
+    "title": "千葉 印西 データセンター建築確認の取り消し求め住民が提訴",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE9VZlNHcnFnX3FvQWt4WkdQbkF5dnNnNEdzRGo3UVg5S0dfaHA5SVg5X2daR0VfWWl6QWE2OUE1aVFQc0JvSnVNaThPUXZEc1FfODJCZVlnQ1Y?oc=5",
+    "similar_to": "千葉・印西の駅前データセンター、建築確認取り消し求め住民提訴",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.84,
+    "title": "【千葉県印西市】TSUTAYA BOOKSTORE 印西ビッグホップ、「全国パン博覧会」を開催（10月30日～11月3日）",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE1scVBSeGxDanRtZ1Jfd205ZlQ0QmhNVFJCOFJsLUEzSmNxOW9ubkN4NmwzTXpLYktwNU11RUR3VHZRU3pfU0hzOU1Sd0NnNjAyZjRV?oc=5",
+    "similar_to": "【千葉県印西市】TSUTAYA BOOKSTORE 印西ビッグホップ「おやつ博覧会」を開催（5月13日～5月17日）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.98,
+    "title": "【千葉県印西市】野崎副市長が育休を取得 トップ層が自ら実践し「男性の育児参加は当たり前」の組織風土をさらに推進",
+    "link": "https://news.google.com/articles/CBMiUkFVX3lxTE1MSFpvbmJTODlBYUxScnpqMEZzdlkydUxSUWVMYk92VXRfS3UyRmp1dVRZTGZuWHlsdnFTQXFwNkQ3QUZYVi1HR1YtbHJpNkloRVE?oc=5",
+    "similar_to": "【千葉県印西市】野﨑副市長が育休を取得 トップ層が自ら実践し「男性の育児参加は当たり前」の組織風土をさらに推進",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260716-2017",
+    "date": "2026-07-16",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.96,
+    "title": "【千葉県印西市】野崎副市長が育休を取得　トップ層が自ら実践し「男性の育児参加は当たり前」の組織風土をさらに推進",
+    "link": "https://prtimes.jp/main/html/rd/p/000000021.000180020.html",
+    "similar_to": "【千葉県印西市】野﨑副市長が育休を取得 トップ層が自ら実践し「男性の育児参加は当たり前」の組織風土をさらに推進",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "keep",
+    "similarity": 0.74,
+    "title": "【2026年6月15日 開店】リーフ鍼灸整骨院",
+    "link": "https://chibanewtown.aeonmall.jp/news/renewal/f30befc6-0acf-48c0-8bbd-21f7ac18670e",
+    "similar_to": "【2026年6月19日 開店】クリエーヌ",
+    "ai_reason": "別店舗・別日の開店情報"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "keep",
+    "similarity": 0.78,
+    "title": "令和8年度第1回印西市文化ホール運営会議の開催のお知らせ（令和8年7月22日開催）",
+    "link": "https://www.city.inzai.lg.jp/0000022122.html",
+    "similar_to": "令和8年度第1回印西市総合計画審議会開催のお知らせ（令和8年7月28日開催）",
+    "ai_reason": "別会議"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "keep",
+    "similarity": 0.76,
+    "title": "制限付き一般競争入札（総合評価競争入札方式）の公告（令和8年7月10日公告）",
+    "link": "https://www.city.inzai.lg.jp/0000022100.html",
+    "similar_to": "制限付き一般競争入札（事後審査型）の公告（令和8年7月15日公告）",
+    "ai_reason": "別入札公告"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "keep",
     "similarity": 0.72,
-    "title": "第133回▶印西ラグビースクール（千葉県） ｜Rkids＜ラグビーキッズ＞",
-    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9EZkJoZXFDejRxNnRJUVZYcExTa212OWJDSE9oUU5aTXVLejNTNGdrT3hIQjdRTDREX1N1bWZXM3o2V2dQYUx4QS1RNWFVcUY3LVE?oc=5",
-    "similar_to": "第133回▶印西ラグビースクール（千葉県）",
-    "ai_reason": "印西ラグビースクール第133回の重複"
+    "title": "令和8年度第1回印西市都市計画審議会（令和8年6月15日）",
+    "link": "https://www.city.inzai.lg.jp/0000021915.html",
+    "similar_to": "令和8年度第1回印西市総合計画審議会開催のお知らせ（令和8年7月28日開催）",
+    "ai_reason": "別会議"
   },
   {
-    "run_ts": "20260714-1603",
-    "date": "2026-07-14",
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
     "ai_decision": "exclude",
     "similarity": 0.74,
-    "title": "NTTデータグループ、千葉県印西・白井エリアに大規模データセンター開発へ（BCN）",
-    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5",
-    "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
-    "ai_reason": "NTTデータDC開発プロジェクトの類似記事"
+    "title": "千葉県印西市、小中学校向け「生成AI導入授業パッケージ」と「児童生徒用ハンドブック」を作成 みんなのコードと協働で",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBtcmgzRDBIdFhsdElmX0RxRnhRalJzc1Z5c2UtMkVtNUdydVRMV2pqTmdKdkxPRHptaTRrblNGNGMyWVhCcG9ZZExzbTQ3c1pDRERv?oc=5",
+    "similar_to": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
+    "ai_reason": "生成AI教材の同一発表の重複記事"
   },
   {
-    "run_ts": "20260715-0928",
-    "date": "2026-07-15",
-    "ai_decision": "pass",
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.71,
+    "title": "千葉県印西市の風の予報（風レーダー）",
+    "link": "https://news.google.com/articles/CBMiY0FVX3lxTE1sNW9BUEE3RjQzaE92SHJRcTBCUWFBT0tHVS00MS1WQ0RVSUpsODhITEpoWHdfOGkwdjBKeG5ISjdlZEZ1eTZVWUxwRlZISzZDRHQySXJzMWNEdHVvOFp0M2JSMA?oc=5",
+    "similar_to": "千葉県印西市の黄砂レーダー",
+    "ai_reason": "重複かつ天気レーダー系ページ"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.8,
+    "title": "千葉県印西市、生成AIの導入授業パッケージと児童生徒用生成AIハンドブックを作成 みんなのコードが支援",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBTXzZ5RHZ4cFNEa2YtcmJBaTg5ZFJYWk9rVFhVTC1nWVVhY1pldWxGeHRLMk5jSXBYWFIzWUQzNFdxWTh3Skt6WTQ1bkxpUXpocFBJ?oc=5",
+    "similar_to": "千葉県印西市、小中学校向け「生成AI導入授業パッケージ」と「児童生徒用ハンドブック」を作成 みんなのコードと協働で",
+    "ai_reason": "生成AI教材の同一発表の重複記事"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.77,
+    "title": "【千葉県印西市】全国ムーブメント「水辺で乾杯」に初参加。夕暮れの印旛沼で“推..（印西市 プレスリリース）",
+    "link": "https://news.google.com/articles/CBMiVEFVX3lxTFBvSzdHRlg5QnpWOXJYOUw3bjhTcENZOG82Zkt0QVNIOHo1d2JlSFNTaVNjVWZuU2hfMnBYdGVSTS1aaXBscjYyaHRDSjlVcGlNQnBXMQ?oc=5",
+    "similar_to": "【千葉県印西市】全国ムーブメント「水辺で乾杯」に初参加。夕暮れの印旛沼で“推し水辺”を再発見",
+    "ai_reason": "水辺で乾杯の同一発表の重複記事(タイトル末尾切れ違い)"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.79,
+    "title": "【印西市】地域コーディネーターと市民の力で大成功！市制30周年「あじさいまつり」開催レポート",
+    "link": "https://news.google.com/articles/CBMikAFBVV95cUxPbnJpNEJwSjk5eXlMcFBCSFdqbWY4WmdLck1BbUo5dWZwRlV6R3hSUlUzOGtqLUhBeFZrR2xUQjh4RlExV0RfaEV3eEVaNUpZU1Zpd3JKTmRHa0gyWGsxNktUcjZyUURIUTJRbXZQTG1pVThKa1lWdE5TWnhldk9FUDZ6U2RXZXpoS0dCVDRZQlE?oc=5",
+    "similar_to": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
+    "ai_reason": "あじさいまつりレポートの重複記事"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.78,
+    "title": "印西市におけるカーボンニュートラルなまちづくりに向けた連携協定の締結について | 東京ガス株式会社のプレスリリース",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBQejlJaEZGVGhZbloxaHdwbmQ3dWVPcHl0dEhNbmtkNy1fZ3R0eHdjbFpabXB5bUNBRU9FeFBIQ0psSjJhSmdZeEhnYVNXRTdkdVBBa040emhlNE1JdDZnZkItOXBjSWJrdHc?oc=5",
+    "similar_to": "印西市におけるカーボンニュートラルなまちづくりに向けた連携協定の締結について - tokyo",
+    "ai_reason": "カーボンニュートラル協定の重複記事(発表元違い)"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.79,
+    "title": "【千葉県印西市】「千葉県・住みよさランキングNo.1」印西市が新コンセプトロ..（印西市 プレスリリース）",
+    "link": "https://news.google.com/articles/CBMiVEFVX3lxTFBjSU5hY2RheHI4VW9nQnYzNTREbldyaW8yaHRNcE9lQ2twOTZSdEFORm5ZUExwTUN0MTlzM0ZvRXl5dTBYVXZhRUpwY3ZsMUhPMVNGUA?oc=5",
+    "similar_to": "【千葉県印西市】「千葉県・住みよさランキングNo.1」印西市が新コンセプトロゴを決定。",
+    "ai_reason": "住みよさランキングの重複記事(タイトル末尾切れ違い)"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": 0.72,
+    "title": "印西市市制施行30周年記念HORNS UP FES(千葉県)の情報",
+    "link": "https://news.google.com/articles/CBMiW0FVX3lxTE83RmtwWmFiaV93ME9MZGdmZmxSaTlzU2tLdWk3THBpZ2VwNk9DdWhfTGQ4cTIybFJrVjU4OGJ5TkwwelVEWE41M2QtMlVTemNSSmpvZDlqNWJXRzA?oc=5",
+    "similar_to": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
+    "ai_reason": "HORNS UP FESの重複記事"
+  },
+  {
+    "run_ts": "20260716-2020",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
     "similarity": 0.73,
-    "title": "制限付き一般競争入札（事後審査型）の公告（令和8年7月15日公告）",
-    "link": "https://www.city.inzai.lg.jp/0000022132.html",
-    "similar_to": "制限付き一般競争入札（総合評価競争入札方式）の公告（令和8年7月10日公告）",
-    "ai_reason": "入札種別が異なる（事後審査型 vs 総合評価競争入札方式）ので別の公告"
+    "title": "NTTデータグループ、千葉県印西・白井エリアに大規模データセンター開発へ（BCN）",
+    "link": "https://news.google.com/articles/CBMif0FVX3lxTE5MZFhKNFhqUExfOVYyNGk1YVNDalV0VUpjMkxWM1drVWR6SzBjbTlLSWRib2ZkU0tpcGcxS21iaXZVSlJ6Y2RiWmpxaWZMc2E4TDhCNElvdGhIendhU0pyMUwzMHRTc3BkWXNuNTVfS1VKbzNpbDdpdTdKNGRKejA?oc=5",
+    "similar_to": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
+    "ai_reason": "NTTデータセンター開発の同一発表の重複記事"
   }
 ]

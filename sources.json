@@ -1,0 +1,93 @@
+{
+  "html_scrapers": [
+    {
+      "id": "makinohara-more",
+      "name": "牧の原モア",
+      "publisher": "牧の原モア",
+      "url": "https://www.makinohara-more.com/",
+      "category": "牧の原モア"
+    },
+    {
+      "id": "aeonmall-chibanewtown-renewal",
+      "name": "イオンモール千葉ニュータウン(新店・閉店・リニューアル)",
+      "publisher": "イオンモール千葉ニュータウン",
+      "url": "https://chibanewtown.aeonmall.jp/news?tab=renewal",
+      "category": "イオンモール千葉ニュータウン"
+    },
+    {
+      "id": "aeonmall-chibanewtown-event",
+      "name": "イオンモール千葉ニュータウン(イベント)",
+      "publisher": "イオンモール千葉ニュータウン",
+      "url": "https://chibanewtown.aeonmall.jp/event",
+      "category": "イオンモール千葉ニュータウン"
+    },
+    {
+      "id": "goguynet-kamagaya-shiroi-inzai",
+      "name": "号外NET(鎌ケ谷市・白井市・印西市)",
+      "publisher": "号外NET",
+      "url": "https://kamagaya-shiroi-inzai.goguynet.jp/",
+      "category": "鎌ヶ谷・白井"
+    }
+  ],
+  "rss_sources": [
+    {
+      "id": "inzai-city-official",
+      "url": "https://www.city.inzai.lg.jp/rss/rss_new.xml",
+      "label": "印西市公式",
+      "publisher": "印西市",
+      "category": "市政・行政"
+    },
+    {
+      "id": "google-news-inzai-shi",
+      "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF%E5%B8%82&hl=ja&gl=JP&ceid=JP:ja",
+      "label": "印西市",
+      "publisher": null,
+      "category": null
+    },
+    {
+      "id": "google-news-inzai-chiba",
+      "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+%E5%8D%83%E8%91%89&hl=ja&gl=JP&ceid=JP:ja",
+      "label": "印西（千葉）",
+      "publisher": null,
+      "category": null
+    },
+    {
+      "id": "google-news-inzai-oshirase",
+      "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF%E5%B8%82+%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B&hl=ja&gl=JP&ceid=JP:ja",
+      "label": "印西市お知らせ",
+      "publisher": null,
+      "category": null
+    },
+    {
+      "id": "google-news-inzai-gourmet",
+      "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+%E3%82%B0%E3%83%AB%E3%83%A1+%E9%A3%B2%E9%A3%9F%E5%BA%97&hl=ja&gl=JP&ceid=JP:ja",
+      "label": "印西グルメ",
+      "publisher": null,
+      "category": null
+    },
+    {
+      "id": "google-news-inzai-event",
+      "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88+%E3%81%BE%E3%81%A4%E3%82%8A&hl=ja&gl=JP&ceid=JP:ja",
+      "label": "印西イベント",
+      "publisher": null,
+      "category": null
+    },
+    {
+      "id": "google-news-inzai-newshop",
+      "url": "https://news.google.com/rss/search?q=%E5%8D%B0%E8%A5%BF+%E9%96%8B%E5%BA%97+%E6%96%B0%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3&hl=ja&gl=JP&ceid=JP:ja",
+      "label": "印西新店舗",
+      "publisher": null,
+      "category": null
+    },
+    {
+      "id": "prtimes-inzai-city",
+      "url": "https://prtimes.jp/companyrdf.php?company_id=180020",
+      "label": "印西市PR TIMES(公式)",
+      "publisher": "PR TIMES",
+      "category": "市政・行政"
+    }
+  ],
+  "blocked_publishers": [
+    "日経クロステック"
+  ]
+}
