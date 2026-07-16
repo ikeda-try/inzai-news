@@ -31,18 +31,23 @@
 3. `python pipeline.py apply-review` を実行し、判断結果を `news.json` に反映する（`ai_check_log.json` にも記録される）。
 4. `python pipeline.py build` で `index.html` を生成する。
 5. `python pipeline.py publish` で git add/commit/push する。
-6. 最終的な件数サマリを以下のフォーマットでユーザーに報告する。数値は`collect`の出力（取得記事件数/新規の記事件数/更新{updated_count}/変化なし{unchanged_count}/新規{new_count}/自動除外(重複80%以上){auto_excluded_count}/判断待ち{skipped_pending}/除外済みスキップ{skipped_excluded}/新規だが掲載期限切れ{expired_new_count}）と`apply-review`の出力（採用{kept}/除外{excluded}）から組み立てる。
+6. 最終的な件数サマリを以下のフォーマットでユーザーに報告する。数値は`collect`の出力（取得記事件数/新規の記事件数/タイトル完全一致の重複{exact_dup_count}/更新{updated_count}/変化なし{unchanged_count}/新規{new_count}/自動除外(重複80%以上){auto_excluded_count}/判断待ち{skipped_pending}/除外済みスキップ{skipped_excluded}/新規だが掲載期限切れ{expired_new_count}）と`apply-review`の出力（採用{kept}/除外{excluded}）から組み立てる。
 
 ```
 ======================================
 
 取得記事件数    ：{collectの「取得記事件数」}
+
+(内訳)
 新規の記事件数  ：{collectの「新規の記事件数」}
 既出記事件数    ：{collectの「更新」+「変化なし」の合計}
+重複記事件数    ：{collectの「タイトル完全一致の重複」件数}
 
+(新規採用詳細)
 新規採用件数    ：{collectの「新規」+ apply-reviewの「採用」の合計}
 内AI判定採用件数：{apply-reviewの「採用」件数}
 
+(除去内訳)
 80%類似除去件数 ：{collectの「自動除外(重複80%以上)」件数}
 AI判定除去件数  ：{apply-reviewの「除外」件数}
 期限切れ除去件数：{collectの「新規だが掲載期限切れ」件数}
@@ -51,7 +56,9 @@ AI判定除去件数  ：{apply-reviewの「除外」件数}
 ======================================
 ```
 
-「新規の記事件数」＝「新規採用件数」＋「80%類似除去件数」＋「AI判定除去件数」＋「期限切れ除去件数」＋「その他除去件数」で一致するはず（内訳の検算に使う）。
+検算: 「取得記事件数」＝「新規の記事件数」＋「既出記事件数」＋「重複記事件数」。
+また「新規の記事件数」＝「新規採用件数」＋「80%類似除去件数」＋「AI判定除去件数」＋「期限切れ除去件数」＋「その他除去件数」で一致するはず。
+「重複記事件数」は、同一記事が複数のGoogle News検索クエリに重複してヒットした分（`collect`実行時に「タイトル完全一致の重複」として画面に表示される）。
 「期限切れ除去件数」は、Google News等から拾われた記事が実際には掲載期限(通常記事3か月/開店閉店6か月)を超えた過去記事の再ヒットだったケース。追加と同時に自動除外され、`ai_check_log.json`に記録されるため次回以降は「除外済みスキップ」に回る。
 
 対話実行・CronCreateスケジュール実行のどちらでもこの手順は共通。スケジュール実行時はグレーゾーン判定・カテゴリ分類を自分（Claude）の裁量で判断してよい（ユーザー確認は不要）。
