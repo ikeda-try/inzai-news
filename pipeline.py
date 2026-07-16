@@ -68,6 +68,22 @@ DUP_COMPARE_WINDOW_DAYS = 30
 
 RENEWAL_CATEGORY_LABELS = {"新店": "開店", "閉店": "閉店", "リニューアル": "リニューアル"}
 
+# 印西市役所付近の座標(Open-Meteo, APIキー不要)
+WEATHER_LAT = 35.8267
+WEATHER_LON = 140.1451
+WEATHER_CODE_MAP = {
+    0: ("☀️", "快晴"), 1: ("🌤", "晴れ"), 2: ("⛅", "晴れ時々曇り"), 3: ("☁️", "曇り"),
+    45: ("🌫", "霧"), 48: ("🌫", "霧"),
+    51: ("🌦", "霧雨"), 53: ("🌦", "霧雨"), 55: ("🌦", "霧雨"),
+    56: ("🌧", "着氷性霧雨"), 57: ("🌧", "着氷性霧雨"),
+    61: ("🌧", "雨"), 63: ("🌧", "雨"), 65: ("🌧", "強い雨"),
+    66: ("🌧", "着氷性の雨"), 67: ("🌧", "着氷性の雨"),
+    71: ("🌨", "雪"), 73: ("🌨", "雪"), 75: ("🌨", "強い雪"), 77: ("🌨", "雪粒"),
+    80: ("🌦", "にわか雨"), 81: ("🌦", "にわか雨"), 82: ("⛈", "激しいにわか雨"),
+    85: ("🌨", "にわか雪"), 86: ("🌨", "にわか雪"),
+    95: ("⛈", "雷雨"), 96: ("⛈", "雷雨(雹)"), 99: ("⛈", "雷雨(雹)"),
+}
+
 # カテゴリ未確定の記事(主にGoogle News経由)に対する、タイトルからの機械的カテゴリ推定。
 # ここで判定できないものだけをAI判断(review_queue)に回し、AIへの負荷を抑える。
 CATEGORY_KEYWORD_RULES = [
@@ -209,6 +225,40 @@ def fetch_soup(url: str) -> BeautifulSoup:
     res = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
     res.raise_for_status()
     return BeautifulSoup(res.text, "html.parser")
+
+
+def fetch_weather():
+    """印西市の今日・明日の天気予報を取得する(Open-Meteo, APIキー不要)。失敗時はNoneを返す。"""
+    try:
+        res = requests.get(
+            "https://api.open-meteo.com/v1/forecast",
+            params={
+                "latitude": WEATHER_LAT,
+                "longitude": WEATHER_LON,
+                "daily": "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+                "timezone": "Asia/Tokyo",
+                "forecast_days": 2,
+            },
+            timeout=TIMEOUT,
+        )
+        res.raise_for_status()
+        daily = res.json()["daily"]
+        labels = ["今日", "明日"]
+        days = []
+        for i in range(min(2, len(daily["time"]))):
+            icon, weather_label = WEATHER_CODE_MAP.get(daily["weather_code"][i], ("🌡", "不明"))
+            days.append({
+                "label": labels[i],
+                "icon": icon,
+                "weather_label": weather_label,
+                "temp_max": round(daily["temperature_2m_max"][i]),
+                "temp_min": round(daily["temperature_2m_min"][i]),
+                "pop": daily["precipitation_probability_max"][i],
+            })
+        return days
+    except Exception as e:
+        print(f"[WARN] 天気予報取得エラー: {e}", file=sys.stderr)
+        return None
 
 
 def extract_date_groups(text: str):
@@ -745,12 +795,21 @@ a{text-decoration:none;color:inherit}
 header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
 .logo{font-size:20px;font-weight:600;color:#1a1a18}.logo span{color:#1D9E75}
 .updated{font-size:11px;color:#888;text-align:right}
-.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75}
+.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.hero-main{flex:1;min-width:200px}
 .hero-label{display:inline-block;font-size:11px;font-weight:700;margin-bottom:8px;letter-spacing:.03em;padding:3px 8px;border-radius:4px}
 .hero-title{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}
 .hero-title:hover{color:#1D9E75}
 .hero-meta{font-size:12px;color:#888}
 .today-badge{display:inline-block;font-size:10px;font-weight:700;background:#e74c3c;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
+.weather-widget{display:flex;gap:8px;flex-shrink:0}
+.weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
+.weather-day-label{display:block;font-size:10px;color:#888;font-weight:700;margin-bottom:2px}
+.weather-icon{display:block;font-size:22px;line-height:1.2}
+.weather-temp{display:block;font-size:12px;font-weight:700;color:#1a1a18;margin-top:2px}
+.weather-temp .tmin{color:#888;font-weight:400}
+.weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
+@media(max-width:480px){.hero{padding:16px}.weather-widget{width:100%;justify-content:flex-start}}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
@@ -842,6 +901,21 @@ def build_html(articles):
     main_arts.sort(key=lambda a: parse_pub_str(a.get("pub_str", "")) or date.min, reverse=True)
     top_item = main_arts[0] if main_arts else None
 
+    weather_days = fetch_weather()
+    weather_html = ""
+    if weather_days:
+        cards = ""
+        for d in weather_days:
+            cards += (
+                '<div class="weather-day">'
+                + '<span class="weather-day-label">' + html.escape(d["label"]) + "</span>"
+                + '<span class="weather-icon" title="' + html.escape(d["weather_label"]) + '">' + d["icon"] + "</span>"
+                + '<span class="weather-temp">' + str(d["temp_max"]) + '°<span class="tmin">/' + str(d["temp_min"]) + "°</span></span>"
+                + '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>"
+                + "</div>"
+            )
+        weather_html = '<div class="weather-widget">' + cards + "</div>"
+
     if top_item:
         cat = top_item.get("category", "話題・その他")
         _, fg, _ = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
@@ -851,6 +925,7 @@ def build_html(articles):
         hero_pub_attr = (' data-pub="' + hero_d.isoformat() + '"') if hero_d else ""
         top_html = (
             '<div class="hero" style="border-color:' + fg + ';">'
+            + '<div class="hero-main">'
             + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
             + CATEGORY_ICONS.get(cat, "📰") + " " + html.escape(cat) + "</div>"
             + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
@@ -858,9 +933,11 @@ def build_html(articles):
             + '<div class="hero-meta"' + hero_pub_attr + '>' + html.escape(top_item.get("pub_str", "")) + pub_h
             + '<span class="today-badge" id="hero-today-badge" style="display:none">今日</span></div>'
             + "</div>"
+            + weather_html
+            + "</div>"
         )
     else:
-        top_html = ""
+        top_html = weather_html
 
     cat_map = defaultdict(list)
     for item in main_arts[1:]:
