@@ -618,5 +618,15 @@
     "link": "https://news.google.com/articles/CBMiQ0FVX3lxTE56WHYxZEdoRGdJMW9YZFgxVHViaTVHcEYyekNhX2ZfR0g0VUVUOTBwWUJNRVRYUWV0QU5VTVY4aWlubEU?oc=5",
     "similar_to": null,
     "ai_reason": "掲載期限(3か月)を超えた古い記事のGoogle News再ヒットのため対象外"
+  },
+  {
+    "run_ts": "20260716-2133",
+    "date": "2026-07-16",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【印西市】住みやすい街！専用庭付・駅徒歩6分【#1747】",
+    "link": "https://news.google.com/articles/CBMiggFBVV95cUxQWUtJWlNpUEdsRWRhV3dQOGwzYXI2SmtPcVBaVUJHd3p5RDBhVVlqRm1weXJSSlhkOFFfbW03dHpFNzdFdFdpclFuTkgwakhhTkhUU2ppSW5CR2I4N19GY1VvY3FQZ1lsU2U1X25tVElFVmNZNkc2WUFlRXpTQ1NYRUh3?oc=5",
+    "similar_to": "",
+    "ai_reason": "不動産投資広告(rakumachi.jp)のためニュースとして不適切、ユーザー指摘により除外"
   }
 ]
