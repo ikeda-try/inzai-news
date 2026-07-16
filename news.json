@@ -1351,5 +1351,65 @@
     "category": "開店・閉店",
     "desc": "",
     "retention_type": "store_event"
+  },
+  {
+    "title": "【2026年7月6日 開店】京都北白川 ラーメン魁力屋 ジョイフル本田千葉ニュータウン店",
+    "link": "https://inzai-topic.com/kaitikiya-joyfulcnt-open/",
+    "pub_str": "2026年7月6日",
+    "publisher": "印西とぴっく",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
+  },
+  {
+    "title": "【2026年6月1日 開店】ニチゲツ",
+    "link": "https://inzai-topic.com/panya-nichigetsu-open/",
+    "pub_str": "2026年6月1日",
+    "publisher": "印西とぴっく",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
+  },
+  {
+    "title": "【2026年4月10日 開店】ビアードパパ イオン千葉ニュータウン店",
+    "link": "https://kamagaya-shiroi-inzai.goguynet.jp/2026/03/14/beardpapaaeonchibantopen/",
+    "pub_str": "2026年4月10日",
+    "publisher": "号外NET",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
+  },
+  {
+    "title": "【2026年4月4日 開店】BAGEL MOMENT",
+    "link": "https://bagel-atsume.com/magazine/magazine-bagel_moments-1/",
+    "pub_str": "2026年4月4日",
+    "publisher": "ベーグルあつめ",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
+  },
+  {
+    "title": "【2026年3月11日 リニューアル】せんば食堂",
+    "link": "https://kamagaya-shiroi-inzai.goguynet.jp/2026/03/15/sembashkudoopen/",
+    "pub_str": "2026年3月11日",
+    "publisher": "号外NET",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
+  },
+  {
+    "title": "【2026年3月1日 開店】as.",
+    "link": "https://kamagaya-shiroi-inzai.goguynet.jp/2026/03/12/as-open/",
+    "pub_str": "2026年3月1日",
+    "publisher": "号外NET",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
   }
 ]
