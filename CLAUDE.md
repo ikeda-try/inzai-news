@@ -31,7 +31,23 @@
 3. `python pipeline.py apply-review` を実行し、判断結果を `news.json` に反映する（`ai_check_log.json` にも記録される）。
 4. `python pipeline.py build` で `index.html` を生成する。
 5. `python pipeline.py publish` で git add/commit/push する。
-6. 最終的な件数サマリ（新規/更新/変化なし/期限切れ/自動除外/AI採用/AI除外）をユーザーに報告する。
+6. 最終的な件数サマリを以下のフォーマットでユーザーに報告する。数値は`collect`の出力（取得記事件数/新規の記事件数/新規{new_count}/自動除外(重複80%以上){auto_excluded_count}/判断待ち{skipped_pending}/除外済みスキップ{skipped_excluded}）と`apply-review`の出力（採用{kept}/除外{excluded}）から組み立てる。
+
+```
+======================================
+
+取得記事件数    ：{collectの「取得記事件数」}
+新規の記事件数  ：{collectの「新規の記事件数」}
+
+新規採用件数    ：{collectの「新規」件数(ルールベースでそのまま採用)}
+AI判定採用件数  ：{apply-reviewの「採用」件数}
+
+80%類似除去件数 ：{collectの「自動除外(重複80%以上)」件数}
+AI判定除去件数  ：{apply-reviewの「除外」件数}
+その他除去件数  ：{collectの「判断待ち(前回から)」+「除外済みスキップ」の合計}
+
+======================================
+```
 
 対話実行・CronCreateスケジュール実行のどちらでもこの手順は共通。スケジュール実行時はグレーゾーン判定・カテゴリ分類を自分（Claude）の裁量で判断してよい（ユーザー確認は不要）。
 

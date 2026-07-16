@@ -487,6 +487,7 @@ def cmd_collect(args):
     today = date.today()
 
     candidates = collect_candidates(by_link, sources)
+    total_fetched = len(candidates)
 
     # 完全一致タイトルの事前重複排除(同一記事がGoogle Newsの複数クエリでヒットするケース対応)
     seen_titles = set()
@@ -601,8 +602,12 @@ def cmd_collect(args):
     elif REVIEW_QUEUE_PATH.exists():
         REVIEW_QUEUE_PATH.unlink()
 
+    new_article_count = total_fetched - exact_dup_count - updated_count - unchanged_count
     print(
-        f"\n合算: 新規{new_count} / 更新{updated_count} / 変化なし{unchanged_count} / "
+        f"\n取得記事件数{total_fetched}件 / 新規の記事件数{new_article_count}件"
+    )
+    print(
+        f"合算: 新規{new_count} / 更新{updated_count} / 変化なし{unchanged_count} / "
         f"期限切れ{expired_count} / 自動除外(重複80%以上){auto_excluded_count} / "
         f"要AI判断(今回){len(review_items)}件 / 判断待ち(前回から){skipped_pending}件 / "
         f"除外済みスキップ{skipped_excluded}件"
