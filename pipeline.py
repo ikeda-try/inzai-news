@@ -762,12 +762,12 @@ def cmd_apply_review(args):
 # ============================================================
 
 CATEGORY_COLORS = {
-    "話題・その他":   ("#F3F4F6", "#6B7280", "#374151"),
+    "話題・その他":   ("#E3E5EA", "#6B7280", "#374151"),
     "イベント・文化": ("#F3E8FF", "#9333EA", "#6B21A8"),
     "市政・行政":     ("#E8F1FF", "#2563EB", "#1E3A8A"),
     "開発・暮らし":   ("#ECFDF5", "#10B981", "#065F46"),
     "開店・閉店":     ("#FEF2F2", "#EF4444", "#991B1B"),
-    "鎌ヶ谷・白井":   ("#FFF7ED", "#F97316", "#9A3412"),
+    "鎌ヶ谷・白井":   ("#FBDFB8", "#F97316", "#9A3412"),
     "イオンモール千葉ニュータウン": ("#ECFEFF", "#06B6D4", "#155E75"),
     "牧の原モア": ("#EDE8F8", "#6B4FA7", "#3A1F6E"),
 }
@@ -803,16 +803,16 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .hero-title{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}
 .hero-title:hover{color:#1D9E75}
 .hero-meta{font-size:12px;color:#888}
-.today-badge{display:inline-block;font-size:10px;font-weight:700;background:#e74c3c;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
-.weather-widget{display:flex;gap:8px;flex-shrink:0}
+.today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
+.weather-widget{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
 .weather-day-label{display:block;font-size:10px;color:#888;font-weight:700;margin-bottom:2px}
 .weather-icon{display:block;font-size:22px;line-height:1.2}
 .weather-temp{display:block;font-size:12px;font-weight:700;color:#1a1a18;margin-top:2px}
 .weather-temp .tmin{color:#888;font-weight:400}
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
-.weather-title{font-size:11px;font-weight:700;color:#888;margin-bottom:6px;letter-spacing:.03em}
-@media(max-width:480px){.hero{padding:16px}.weather-block{width:100%}.weather-widget{width:100%;justify-content:flex-start}}
+.weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;line-height:1.4}
+@media(max-width:480px){.hero{padding:16px}.weather-widget{width:100%;justify-content:flex-start}}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
@@ -907,9 +907,9 @@ def build_html(articles):
     weather_days = fetch_weather()
     weather_html = ""
     if weather_days:
-        cards = ""
+        cards = []
         for d in weather_days:
-            cards += (
+            cards.append(
                 '<div class="weather-day">'
                 + '<span class="weather-day-label">' + html.escape(d["label"]) + "</span>"
                 + '<span class="weather-icon" title="' + html.escape(d["weather_label"]) + '">' + d["icon"] + "</span>"
@@ -917,7 +917,14 @@ def build_html(articles):
                 + '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>"
                 + "</div>"
             )
-        weather_html = '<div class="weather-block"><div class="weather-title">印西の天気</div><div class="weather-widget">' + cards + "</div></div>"
+        weather_title = '<div class="weather-title">印西の<br>天気</div>'
+        weather_html = (
+            '<div class="weather-widget">'
+            + cards[0]
+            + weather_title
+            + "".join(cards[1:])
+            + "</div>"
+        )
 
     if top_item:
         cat = top_item.get("category", "話題・その他")
