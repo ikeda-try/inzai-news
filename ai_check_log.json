@@ -1478,5 +1478,25 @@
     "link": "https://chiba-lunch.com/inzai_soba_satsuki_menu/?utm_source=rss&utm_medium=rss&utm_campaign=inzai_soba_satsuki_menu",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260718-0849",
+    "date": "2026-07-18",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【印西市木下】放課後こども食堂を守りたい",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBRN0dPQUxndGtHUGNYLWNMUHJ5dmVUellzc0EwT2dpWDFzYnlQbkNvckN2ekkxVzhJa2todDJwaEhOR2IxaDQ3Mk1pSUxGWnFiTXZz?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260718-0849",
+    "date": "2026-07-18",
+    "ai_decision": "exclude",
+    "similarity": 0.8,
+    "title": "【速報】首など３０カ所を刺し、母親を殺害した疑い 同居の４７歳男逮捕 千葉・印西署",
+    "link": "https://news.google.com/articles/CBMiS0FVX3lxTE53V0hnMmJzM1ZvcXhnMGtUblFNXzdORjN3NGtVWW42aU01UzNjU3NBYk9FOTVtQWJhUThoNzE2eHc1a0o0a1hNeXFiMA?oc=5",
+    "similar_to": "【速報】首など30カ所を刺し、母親を殺害した疑い 同居の47歳男逮捕 千葉・印西署（千葉日報オンライン）",
+    "ai_reason": "前回採用済みの同一事件記事(千葉日報オンライン発信/Yahoo!ニュース経由)と同一ニュースのため重複除外"
   }
 ]
