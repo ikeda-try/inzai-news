@@ -1368,5 +1368,35 @@
     "link": "https://news.google.com/articles/CBMiWEFVX3lxTE5zR1lSLW5lOWE3U3lMZ2kyVVFQNW5UU3ptd2poVzJrb0p4ZzFfUC1Wd1pSVDBIbVJvaHlaN3YzSWxFYjJ4NWw5MHlxVEt4dXFnOW40bVN5ajA?oc=5",
     "similar_to": "",
     "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1124",
+    "date": "2026-07-17",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFB1c2NYeHZLV1VnazM4akNKcnc2VmlSRmV5NWx4VDB1aW1XWGhhdHByV1RqZW9kWkRyc2QzX0l0WU1OMGlIY0NlZlZnSUxDUkNYZ181SWY5TmEzdHdETERiQnBOT2hQMDVsbFE?oc=5",
+    "similar_to": "【千葉県印西市】自然を「守る」から「活かす」時代へ。産官学民連携でグリーンインフラを推進する新組織「北総ランドスケープ・マネジメント・センター」に参画",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260717-1124",
+    "date": "2026-07-17",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
+    "link": "https://news.google.com/articles/CBMiW0FVX3lxTE9Ycmk3U3JjaVA2WkZVdDl1Yk41aFhDMDNFNE5ROFd2RXcxZWttUnhwZTYtMkFzWlRrNXNRUlNmNWNndDZ1UTJCUHcxOGpFZU9QUHlJcFZHZF9EQms?oc=5",
+    "similar_to": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260717-1124",
+    "date": "2026-07-17",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.85,
+    "title": "バイク男性死亡、右折しようとした軽乗用車と衝突 印西の交差点",
+    "link": "https://news.google.com/articles/CBMie0FVX3lxTE1IMDFkTnJ6UVhteU1MY0lnQjRiSzBCc19ReEYwQzBBRE9ualRVcTZtSVF2V3c5Ylk4ckc1TFN6YkNPLXZIbjNCTUZlaXdsTjctNlZOejJMY1ZEZU1fVm1uMTlTZ0ZHa0xSdEJsRElfR2tGNGNlcjRvQ2tuSQ?oc=5",
+    "similar_to": "バイク男性死亡、右折しようとした軽乗用車と衝突 印西の交差点（千葉日報オンライン）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]

@@ -55,7 +55,7 @@ HEADERS = {
 TIMEOUT = 15
 JST = timezone(timedelta(hours=9))
 
-CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "鎌ヶ谷・白井", "イオンモール千葉ニュータウン", "牧の原モア"]
+CATEGORY_ORDER = ["話題・その他", "イベント・文化", "市政・行政", "開発・暮らし", "開店・閉店", "鎌ヶ谷・白井", "イオンモール千葉ニュータウン", "牧の原モア", "ジョイフル本田千葉ニュータウン店"]
 KAITEN_KEYWORDS = ["開店", "閉店", "オープン", "クローズ", "NEW OPEN", "new open"]
 
 REGULAR_RETENTION_MONTHS = 3
@@ -442,12 +442,63 @@ def scrape_inzainet_event(cfg, existing_by_link):
     return items
 
 
+def scrape_joyfulhonda_chibant(cfg, existing_by_link):
+    """ジョイフル本田 千葉ニュータウン店のイベント情報。
+    サイトに「掲載日」はなく「開催日」しかないため、掲載日(pub_str)は初回検知日を使い、
+    タイトルに開催日を併記する(開催日をそのままpub_strにすると未来日として自動除外されるため)。
+    日付範囲は今日から60日先までを毎回動的に指定する。
+    """
+    today = date.today()
+    to_d = today + timedelta(days=60)
+    params = {
+        "search_element_0[]": "chibant",
+        "fromDate_disp": today.strftime("%Y/%m/%d"),
+        "cf_limit_keyword_1": today.strftime("%Y%m%d"),
+        "toDate_disp": to_d.strftime("%Y/%m/%d"),
+        "cf_limit_keyword_2": to_d.strftime("%Y%m%d"),
+        "search_element_3": "",
+        "s_keyword_4": "",
+        "and_or": "and",
+        "searchbutton": "検 索",
+        "csp": "search_add",
+        "feadvns_max_line_0": "5",
+        "fe_form_no": "0",
+    }
+    res = requests.get(cfg["url"], params=params, headers=HEADERS, timeout=TIMEOUT)
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "html.parser")
+    items = []
+    today_str = to_pub_str(today.year, today.month, today.day)
+    for box in soup.select("div.list-Item"):
+        a = box.select_one("a.link[href]")
+        title_tag = box.select_one(".ttl")
+        date_tag = box.select_one(".date")
+        if not (a and title_tag):
+            continue
+        link = urljoin(cfg["url"], a["href"].strip())
+        title = title_tag.get_text(strip=True)
+        day_text = date_tag.get_text(strip=True) if date_tag else ""
+        full_title = f"{title}（{day_text}）" if day_text else title
+        existing = existing_by_link.get(link)
+        pub_str = existing["pub_str"] if existing and existing.get("pub_str") else today_str
+        items.append({
+            "title": full_title,
+            "link": link,
+            "pub_str": pub_str,
+            "publisher": cfg.get("publisher", cfg["name"]),
+            "source": cfg["id"],
+            "category": cfg.get("category"),
+        })
+    return items
+
+
 HTML_SCRAPER_FUNCS = {
     "makinohara-more": scrape_makinohara,
     "aeonmall-chibanewtown-renewal": scrape_aeonmall_renewal,
     "aeonmall-chibanewtown-event": scrape_aeonmall_event,
     "goguynet-kamagaya-shiroi-inzai": scrape_goguynet,
     "inzainet-event": scrape_inzainet_event,
+    "joyfulhonda-chibant": scrape_joyfulhonda_chibant,
 }
 
 
@@ -822,15 +873,18 @@ CATEGORY_COLORS = {
     "鎌ヶ谷・白井":   ("#FBDFB8", "#F97316", "#9A3412"),
     "イオンモール千葉ニュータウン": ("#ECFEFF", "#06B6D4", "#155E75"),
     "牧の原モア": ("#EDE8F8", "#6B4FA7", "#3A1F6E"),
+    "ジョイフル本田千葉ニュータウン店": ("#EFE3D5", "#8B5E34", "#4A2E15"),
 }
 CATEGORY_ICONS = {
     "話題・その他": "📰", "イベント・文化": "🎉", "市政・行政": "🏛",
     "開発・暮らし": "🌱", "開店・閉店": "🏪", "鎌ヶ谷・白井": "🗺",
     "イオンモール千葉ニュータウン": "🛍", "牧の原モア": "📍",
+    "ジョイフル本田千葉ニュータウン店": "🔨",
 }
 SCRAPED_COLOR = ("#EDE8F8", "#6B4FA7", "#3A1F6E")
 SCRAPED_ICON = "📍"
 MAX_ITEMS_PER_CAT = 20
+CATEGORY_MAX_ITEMS = {"ジョイフル本田千葉ニュータウン店": 40}
 SCRAPED_MAX_ITEMS = 20
 SCRAPED_MAX_DAYS = 180
 CATEGORY_CUTOFF_DAYS = {"開店・閉店": 180, "イオンモール千葉ニュータウン": 180, "鎌ヶ谷・白井": 90, "牧の原モア": 180}
@@ -1004,7 +1058,10 @@ def build_html(articles):
     for item in main_arts[1:]:
         cat_map[item.get("category", "話題・その他")].append(item)
 
-    active_cats = [(cat, cat_map.get(cat, [])[:MAX_ITEMS_PER_CAT]) for cat in CATEGORY_ORDER if cat_map.get(cat)]
+    active_cats = [
+        (cat, cat_map.get(cat, [])[:CATEGORY_MAX_ITEMS.get(cat, MAX_ITEMS_PER_CAT)])
+        for cat in CATEGORY_ORDER if cat_map.get(cat)
+    ]
     grid_html = ""
     for cat, items in active_cats:
         bg, fg, dark = CATEGORY_COLORS[cat]

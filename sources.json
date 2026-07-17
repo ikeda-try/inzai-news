@@ -34,6 +34,13 @@
       "publisher": "いんざいネット.com",
       "url": "https://inzainet.com/event/",
       "category": "イベント・文化"
+    },
+    {
+      "id": "joyfulhonda-chibant",
+      "name": "ジョイフル本田(千葉ニュータウン店イベント)",
+      "publisher": "ジョイフル本田",
+      "url": "https://event.joyfulhonda.com/search.php",
+      "category": "ジョイフル本田千葉ニュータウン店"
     }
   ],
   "rss_sources": [
