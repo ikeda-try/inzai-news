@@ -1298,5 +1298,75 @@
     "link": "https://news.google.com/articles/CBMiWEFVX3lxTE1fSXJKOXM3R3lOSUJsdW5ST0pKTVRIWldCQkhvZF84TTMtNnZGcWJob1FtajN2SHZQd2lUQldTMnJEbkl2cUNMSnVlY19ibzlTMkZRR1JPLVE?oc=5",
     "similar_to": "",
     "ai_reason": "有料記事(paywall)のためユーザー指摘により除外。千葉日報オンライン自体はブロックしない"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ごみ袋指定以外可 印西市が臨時措置 ７月３１日まで",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE5lN3NCOFJfZzR1VFZBSjZCeHhnOHZMTnJHNy11MG9rV1NHQmtuNTk3TEplU0xzUnMwcTlXYW5URzVXWmljbkFWelR3QU5PQUtUbWUtZWxzZWY?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "１３議案可決し閉会 印西市議会",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTFBHUDlndXNSdnRHTWRSMkctSDVzUjA2TFV4NVFMYUdGeGVzbjJSM3pKU21QWnRvMUZFNEFMSkYtUzNJaWNOLWQ4eXJ4OVJacEhmNEotZldPRW4?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
+    "link": "https://news.google.com/articles/CBMiV0FVX3lxTE9VSVMtSzc4UGFYbnNZNk9MczFaUWFONF85ZVVoc3dIeFN1aEdGMmJFOXFvLUpxVU5wZ1BSN3JwM0VQcGNtZ1ZxbFJmLS1ZOWZGRFF5aFdKZw?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "不透明会計の印西観光協会 市、案内所撤退費を負担 補助停止中も妥当と判断",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE9LYmtSNzZaTzVNM1pjYWRpc2lvLXpZNko3aTdNZ0ZOSi1qelNxcDZMV1d5WVNST0dXX1lmYUtQTThHWHVrakw3VUp4bTk4VkU0TDNoRjNYRGM?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "北総ライノス印西市と協定 地域活性化、市内リーグも",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE5wTTd5S3M4QW9RUXNUb3FXbmkyNXMwZkdsTlpnM0J4T1ItczUxdDhLd2wwdzBMZUU5U1RPZ25DRHNFSGNhM1hQUkJIZ0RaNEdHSTFRbHJLOWo?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "攻めの姿勢貫く古豪 印旛明誠（印西市） 【目指せ！甲子園２０２６ 出場校プロフィル】",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE9saHoyeGVaM29GY3d0bmk1bzJiMlZDNE10WW9Sa1ZoUEN6WGVMTHhoRzcxeVRJYUJHbG83aGhHQU9UQVAyLTdLb3NhWkljd2RLTFlrRGtBZEU?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
+  },
+  {
+    "run_ts": "20260717-1053",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "地元の不良グループの少年ら９人逮捕 コンビニ店駐車場などで強盗致傷容疑、車内に監禁の疑いも 印西",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE5zR1lSLW5lOWE3U3lMZ2kyVVFQNW5UU3ptd2poVzJrb0p4ZzFfUC1Wd1pSVDBIbVJvaHlaN3YzSWxFYjJ4NWw5MHlxVEt4dXFnOW40bVN5ajA?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー確認により除外。千葉日報オンラインは今後blocked_publishersでブロック"
   }
 ]
