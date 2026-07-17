@@ -1442,5 +1442,15 @@
     "source": "google-news-inzai-chiba",
     "category": "開発・暮らし",
     "retention_type": "regular"
+  },
+  {
+    "title": "【2026年5月6日 開店】aebe",
+    "link": "https://chiba-lunch.com/inzai-aebe-musashiya-cafe-italian/",
+    "pub_str": "2026年5月6日",
+    "publisher": "ちばもぐ",
+    "source": "開店閉店情報",
+    "category": "開店・閉店",
+    "desc": "",
+    "retention_type": "store_event"
   }
 ]
