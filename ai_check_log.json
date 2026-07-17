@@ -1398,5 +1398,55 @@
     "link": "https://news.google.com/articles/CBMie0FVX3lxTE1IMDFkTnJ6UVhteU1MY0lnQjRiSzBCc19ReEYwQzBBRE9ualRVcTZtSVF2V3c5Ylk4ckc1TFN6YkNPLXZIbjNCTUZlaXdsTjctNlZOejJMY1ZEZU1fVm1uMTlTZ0ZHa0xSdEJsRElfR2tGNGNlcjRvQ2tuSQ?oc=5",
     "similar_to": "バイク男性死亡、右折しようとした軽乗用車と衝突 印西の交差点（千葉日報オンライン）",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260718-0014",
+    "date": "2026-07-18",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.82,
+    "title": "バイク男性死亡、右折しようとした軽乗用車と衝突　印西の交差点",
+    "link": "https://news.google.com/articles/CBMifkFVX3lxTE1RYW5QVnBFNmsyVDMzOGkwMnhsQ0VRck41R1gwaXllNXkxWloxXzRjOWhFblR1RHVlaXI0VTdJZUVwcC1uTm1WNkI4TlVBdTdfY01tbGJIUElDTmstWlY3S0NqN0xlRUkzWFJzUWtWQndpLW50VmdTb1FDcjI4d9IBgwFBVV95cUxOWkpiT080YnJDQ2MyVDZhcm1yRkt0eUh1M2tDMS0yRnc4aGZEanhjNEpRdzVsV2NOOXdnUks2X2MyQjFZcVJNeTNtZ1JpTWdsbVNEN3g1d3ZZZEVCbWxwRWt4UndPSlJsX3RKTzhuOXA4NGRiTmlIZzFyd3ZIdEFGdjZjMA?oc=5",
+    "similar_to": "バイク男性死亡、右折しようとした軽乗用車と衝突 印西の交差点（千葉日報オンライン）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260718-0014",
+    "date": "2026-07-18",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.95,
+    "title": "【速報】首など30カ所を刺し、母親を殺害した疑い 同居の47歳男逮捕 千葉・印西署 (千葉日報オンライン)",
+    "link": "https://news.google.com/articles/CBMijgFBVV95cUxQLTItN3haNFpsRDczcC1RWE9pbGlRRjZSWkwtTXJ4ZmpJWkRjUXpxcGNCSVNsVjdFUnpWY2JkZ0d3eFVtX2hMZ1hYeVJmdS1KV080YmoxQTlsMjRNOURueHE2cld1VzBmRThvTHZFSndabE5PSGpFS2N1Z2x3UG16el94dUQzYWFyV2RMbmFB?oc=5",
+    "similar_to": "【速報】首など30カ所を刺し、母親を殺害した疑い 同居の47歳男逮捕 千葉・印西署（千葉日報オンライン）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260718-0014",
+    "date": "2026-07-18",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE5qa1NpclpVdmZuWFptQ2RXX2hGZGJPNnAyemdENW53UXN6TTVnb0RhRlplT2NnMk5KR0hzT3Nhanh3WUR6TUxpaWtSTV9FV1ZPQ25sV0s4ZU1HRmNTYWVfdlJnUnk4dk8tZFE?oc=5",
+    "similar_to": "【千葉県印西市】印西市教育委員会、小中学校向け「生成AI導入授業パッケージ」と「生成AIハンドブック」を作成",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260718-0014",
+    "date": "2026-07-18",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.88,
+    "title": "【速報】首など30カ所を刺し、母親を殺害した疑い 同居の47歳男逮捕 千葉・印西署",
+    "link": "https://news.google.com/articles/CBMie0FVX3lxTFBNYzdGYnJiOUo5LXdBV1MxQ09fWUlza1NRTUFUSXM2WU00RHNMbEdKNzJQazM4X2huSzRORzh5T2JrUDNzODJmdlkyX1loWTIxVzU2N1gzOWh0cUw4aDVDSHpycWswTG5MVlRXbWlUVzNqLWFKOFNZVkhWdw?oc=5",
+    "similar_to": "【速報】首など30カ所を刺し、母親を殺害した疑い 同居の47歳男逮捕 千葉・印西署（千葉日報オンライン）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260718-0014",
+    "date": "2026-07-18",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "STUDIO ZERO（スタジオゼロ）が提供する伴走型行政経営DXサービス「.Gov」、印西市子育て支援の取り組み事例公開のお知らせ | 株式会社プレイドのプレスリリース",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE1yYWpZbkp2azEzZkJuVEVGQ3VxVDVwWld0MHpCWjBoaXR6T1h2d3ZYOVJlMjBjNEtaYW9hdXREb19NdEQwN25LX2Q0cUktaXllZWJqZWdMR1RJN1FhaHhMaWtEUVVlTnVnQVE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
