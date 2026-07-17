@@ -408,11 +408,46 @@ def scrape_goguynet(cfg, existing_by_link):
     return items
 
 
+def scrape_inzainet_event(cfg, existing_by_link):
+    """いんざいネット.comのイベント一覧。北総地域全体(我孫子・取手・成田等)を扱うため、
+    地域タグに「印西市(class=inzai)」が付いているイベントのみ対象とする。
+    掲載日(pub_str)は初回検知日を使う(開催日は未来日付になり得るため流用しない)。
+    """
+    url = cfg["url"]
+    soup = fetch_soup(url)
+    items = []
+    today_str = to_pub_str(date.today().year, date.today().month, date.today().day)
+    for li in soup.select("ul.event_list > li"):
+        if li.find("span", class_="inzai") is None:
+            continue
+        a = li.select_one("a[href]")
+        title_tag = li.select_one("h2")
+        day_tag = li.select_one(".event_day time")
+        if not (a and title_tag):
+            continue
+        link = a["href"].strip()
+        title = title_tag.get_text(strip=True)
+        day_text = day_tag.get_text(strip=True) if day_tag else ""
+        full_title = f"{title}（{day_text}）" if day_text else title
+        existing = existing_by_link.get(link)
+        pub_str = existing["pub_str"] if existing and existing.get("pub_str") else today_str
+        items.append({
+            "title": full_title,
+            "link": link,
+            "pub_str": pub_str,
+            "publisher": cfg.get("publisher", cfg["name"]),
+            "source": cfg["id"],
+            "category": cfg.get("category"),
+        })
+    return items
+
+
 HTML_SCRAPER_FUNCS = {
     "makinohara-more": scrape_makinohara,
     "aeonmall-chibanewtown-renewal": scrape_aeonmall_renewal,
     "aeonmall-chibanewtown-event": scrape_aeonmall_event,
     "goguynet-kamagaya-shiroi-inzai": scrape_goguynet,
+    "inzainet-event": scrape_inzainet_event,
 }
 
 

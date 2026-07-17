@@ -27,6 +27,13 @@
       "publisher": "号外NET",
       "url": "https://kamagaya-shiroi-inzai.goguynet.jp/",
       "category": "鎌ヶ谷・白井"
+    },
+    {
+      "id": "inzainet-event",
+      "name": "いんざいネット(イベント)",
+      "publisher": "いんざいネット.com",
+      "url": "https://inzainet.com/event/",
+      "category": "イベント・文化"
     }
   ],
   "rss_sources": [
