@@ -1288,5 +1288,15 @@
     "link": "https://chiba-lunch.com/yakiniku-king-shinkamagaya-renewal/?utm_source=rss&utm_medium=rss&utm_campaign=yakiniku-king-shinkamagaya-renewal",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1042",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "車にひかれ男性重傷 印西",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTE1fSXJKOXM3R3lOSUJsdW5ST0pKTVRIWldCQkhvZF84TTMtNnZGcWJob1FtajN2SHZQd2lUQldTMnJEbkl2cUNMSnVlY19ibzlTMkZRR1JPLVE?oc=5",
+    "similar_to": "",
+    "ai_reason": "有料記事(paywall)のためユーザー指摘により除外。千葉日報オンライン自体はブロックしない"
   }
 ]
