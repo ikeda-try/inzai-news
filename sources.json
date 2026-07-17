@@ -85,6 +85,13 @@
       "label": "印西市PR TIMES(公式)",
       "publisher": "PR TIMES",
       "category": "市政・行政"
+    },
+    {
+      "id": "chibamogu-inzai",
+      "url": "https://chiba-lunch.com/category/%E3%82%A8%E3%83%AA%E3%82%A2/%E5%8D%B0%E8%A5%BF%E5%B8%82/feed/",
+      "label": "印西グルメ(ちばもぐ)",
+      "publisher": "ちばもぐ",
+      "category": "話題・その他"
     }
   ],
   "blocked_publishers": [

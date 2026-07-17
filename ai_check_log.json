@@ -1208,5 +1208,15 @@
     "link": "https://news.google.com/articles/CBMiR0FVX3lxTFBqa2dQY2VySVAyR0tIeC1QNVdCbnpmNkI3UzVJcnFIcWVxT2NKSUdTeUp0V3JjVTZ5aXA0Z0hzNndrZXRRX0g0?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1018",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西▷ビアードパパがイオン千葉ニュータウンにNewオープン！【シュークリーム専門店】",
+    "link": "https://chiba-lunch.com/inzai-aeon-chibanewtown-beardpapa/?utm_source=rss&utm_medium=rss&utm_campaign=inzai-aeon-chibanewtown-beardpapa",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
