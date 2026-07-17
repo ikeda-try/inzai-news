@@ -1448,5 +1448,35 @@
     "link": "https://news.google.com/articles/CBMiakFVX3lxTE1yYWpZbkp2azEzZkJuVEVGQ3VxVDVwWld0MHpCWjBoaXR6T1h2d3ZYOVJlMjBjNEtaYW9hdXREb19NdEQwN25LX2Q0cUktaXllZWJqZWdMR1RJN1FhaHhMaWtEUVVlTnVnQVE?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260718-0035",
+    "date": "2026-07-18",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "巡回バスと保育所バスを組み合わせた送迎保育ステーション、印西市で開設｜新・公民連携最前線｜PPPまちづくり",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBkODRhVE14N0dFLXNBQWZRaDRrZEZKa0E5RVdLRnozMm1YSTRkU2l3eGYwUEhCVzhKaGtTQVhjWmY4WEVqV2lkbFBiNGlXLXRwREU5OUFncEsxbk9LUk01Yl9XWldKQnJFVlE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260718-0035",
+    "date": "2026-07-18",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西発ご当地ラーメンを 山武の「大高醬油」とコラボ 10日に開店 [千葉県]",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTE81Z2t1eFdDbEdmVEx2dzRKNEEwTWYxenAtdGJpenVILXRqbDlTS0oyeUlVT3J6N2VVVWVMQ1AyQ2dERXRVMXV0RlZFakE4WTJvTG9VaGtmZVR5d01peW5VemNZYjJJWUE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260718-0035",
+    "date": "2026-07-18",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西▷コスパ抜群！老舗蕎麦屋のボリューム満点、進化系蕎麦｜メニュー【そば処 さつき】",
+    "link": "https://chiba-lunch.com/inzai_soba_satsuki_menu/?utm_source=rss&utm_medium=rss&utm_campaign=inzai_soba_satsuki_menu",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]

@@ -153,9 +153,18 @@ def is_expired(item: dict, today=None) -> bool:
     """通常記事は3か月、開店閉店情報(retention_type=store_event)は6か月より古ければTrue。
     通常記事が未来日付になっているのはパースミスとみなして除外対象とする
     (開店閉店情報は開店/閉店の予定日を使うため未来日付でも正常なので対象外)。
+    event_end_date(イベント開催終了日)を持つ記事は、それを過ぎたら
+    上記のリテンション期間によらず即座に期限切れとする(掲載期限より優先)。
     """
     if today is None:
         today = date.today()
+    event_end = item.get("event_end_date")
+    if event_end:
+        try:
+            if today > date.fromisoformat(event_end):
+                return True
+        except ValueError:
+            pass
     pub_date = parse_pub_str(item.get("pub_str", ""))
     if pub_date is None:
         return False
@@ -481,10 +490,15 @@ def scrape_joyfulhonda_chibant(cfg, existing_by_link):
         full_title = f"{title}（{day_text}）" if day_text else title
         existing = existing_by_link.get(link)
         pub_str = existing["pub_str"] if existing and existing.get("pub_str") else today_str
+        # 開催終了日: 「A～B」形式なら最後の日付、単日なら1つだけの日付を終了日とする。
+        # 見つからない場合はNone(通常の掲載期限ロジックにフォールバック)。
+        end_matches = re.findall(r"(\d{4})年(\d{1,2})月(\d{1,2})日", day_text)
+        event_end_date = date(*map(int, end_matches[-1])).isoformat() if end_matches else None
         items.append({
             "title": full_title,
             "link": link,
             "pub_str": pub_str,
+            "event_end_date": event_end_date,
             "publisher": cfg.get("publisher", cfg["name"]),
             "source": cfg["id"],
             "category": cfg.get("category"),
@@ -692,9 +706,15 @@ def cmd_collect(args):
         item["retention_type"] = compute_retention_type(item)
 
         if is_expired(item, today):
-            # 掲載期限(3か月/6か月)を超えた記事。追加してもすぐ除去されるだけなので
-            # 除外済みとして記録し、次回以降のcollectで再度処理(重複判定・AI判断)しないようにする
+            # 掲載期限(3か月/6か月、またはイベント開催終了日)を超えた記事。追加してもすぐ除去
+            # されるだけなので除外済みとして記録し、次回以降のcollectで再度処理
+            # (重複判定・AI判断)しないようにする
             expired_new_count += 1
+            event_end = item.get("event_end_date")
+            reason = (
+                f"ルールベース: イベント開催終了日({event_end})を過ぎた記事のため対象外"
+                if event_end else "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+            )
             auto_log_entries.append({
                 "run_ts": run_ts,
                 "date": today.isoformat(),
@@ -703,7 +723,7 @@ def cmd_collect(args):
                 "title": item["title"],
                 "link": link,
                 "similar_to": "",
-                "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外",
+                "ai_reason": reason,
             })
             continue
 
