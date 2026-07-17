@@ -9,7 +9,7 @@
 - GA4測定ID: G-89CXHHR0XZ
 
 ## ファイル構成
-- `sources.json` — 収集元の一元定義（HTMLスクレイピング4件＋RSS9件）
+- `sources.json` — 収集元の一元定義（HTMLスクレイピング4件＋RSS11件）
 - `pipeline.py` — 収集・重複排除・カテゴリ分類・HTML生成・git publishの統合スクリプト
 - `news.json` — 統合ニュースデータ（公開対象、gitで管理）
 - `review_queue.json` — AI判断待ちの記事キュー（gitignore対象、判断後は空になり削除される）

@@ -1218,5 +1218,75 @@
     "link": "https://chiba-lunch.com/inzai-aeon-chibanewtown-beardpapa/?utm_source=rss&utm_medium=rss&utm_campaign=inzai-aeon-chibanewtown-beardpapa",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "白井▷プロの「もつ」に驚いた！人気のキッチンカーでテイクアウト｜メニュー【もつ煮込み 八庵】",
+    "link": "https://chiba-lunch.com/shiroi-hachian-kichencar-menu-motsu/?utm_source=rss&utm_medium=rss&utm_campaign=shiroi-hachian-kichencar-menu-motsu",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県白井市▷地元で人気！超穴場のいちご狩りスポット【アグリぱぁく】",
+    "link": "https://chiba-lunch.com/chiba-shiroi-aguripark-ichigogari/?utm_source=rss&utm_medium=rss&utm_campaign=chiba-shiroi-aguripark-ichigogari",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "白井▶鳥貴族！2月からの新メニューと、食べ飲み放題のコツ。",
+    "link": "https://chiba-lunch.com/shiroi-torikizoku-tabehoudai-yakitori/?utm_source=rss&utm_medium=rss&utm_campaign=shiroi-torikizoku-tabehoudai-yakitori",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "白井▶和牛も焼肉食べ放題！美味くてコスパの良い店｜メニュー【聖幸苑 せいこうえん】",
+    "link": "https://chiba-lunch.com/shiroi-yakiniku-seikoen-tabehoudai/?utm_source=rss&utm_medium=rss&utm_campaign=shiroi-yakiniku-seikoen-tabehoudai",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【閉店】鎌ケ谷▶祖母の味が残る、たこ焼き居酒屋｜メニュー【たこ焼き居酒屋 たじま】",
+    "link": "https://chiba-lunch.com/kamaagaya-takoyaki-izakata-tajima/?utm_source=rss&utm_medium=rss&utm_campaign=kamaagaya-takoyaki-izakata-tajima",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【千葉県4店舗】鎌ケ谷にハワイ出現？ボリューム満点ハワイ料理｜レビュー【コナズ珈琲】",
+    "link": "https://chiba-lunch.com/kamagaya-konas-coffee-hawai-pancake/?utm_source=rss&utm_medium=rss&utm_campaign=kamagaya-konas-coffee-hawai-pancake",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260717-1024",
+    "date": "2026-07-17",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "焼肉きんぐ「五大名物リニューアル」実食レビュー｜メニュー｜期間限定【焼肉きんぐ　新鎌ヶ谷店】",
+    "link": "https://chiba-lunch.com/yakiniku-king-shinkamagaya-renewal/?utm_source=rss&utm_medium=rss&utm_campaign=yakiniku-king-shinkamagaya-renewal",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
