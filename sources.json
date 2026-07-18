@@ -41,6 +41,13 @@
       "publisher": "ジョイフル本田",
       "url": "https://event.joyfulhonda.com/search.php",
       "category": "ジョイフル本田千葉ニュータウン店"
+    },
+    {
+      "id": "inzaiparque",
+      "name": "千葉ほくそうパルケ(印西市)",
+      "publisher": "千葉ほくそうパルケ",
+      "url": "https://inzaiparque.com/feed/",
+      "category": "話題・その他"
     }
   ],
   "rss_sources": [

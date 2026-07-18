@@ -451,6 +451,48 @@ def scrape_inzainet_event(cfg, existing_by_link):
     return items
 
 
+def scrape_inzaiparque(cfg, existing_by_link):
+    """千葉ほくそうパルケ(旧いんざいパルケ)。北総地域全体(茨城県南部含む)を扱うため、
+    RSSのcategoryタグに「印西市」が付いている記事のみ対象とする。
+    """
+    url = cfg["url"]
+    res = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+    res.raise_for_status()
+    root = ET.fromstring(res.content)
+    items = []
+    for item in root.iter():
+        if _local_tag(item.tag) != "item":
+            continue
+        title = link = pub_raw = ""
+        categories = []
+        for child in item:
+            name = _local_tag(child.tag)
+            if name == "title":
+                title = child.text or ""
+            elif name == "link":
+                link = child.text or ""
+            elif name == "pubDate":
+                pub_raw = child.text or ""
+            elif name == "category":
+                categories.append((child.text or "").strip())
+        if "印西市" not in categories:
+            continue
+        title = html.unescape(title)
+        try:
+            pub_dt = parsedate_to_datetime(pub_raw).astimezone(JST)
+        except Exception:
+            pub_dt = datetime.now(JST)
+        items.append({
+            "title": title,
+            "link": link.strip(),
+            "pub_str": to_pub_str(pub_dt.year, pub_dt.month, pub_dt.day),
+            "publisher": cfg.get("publisher", cfg["name"]),
+            "source": cfg["id"],
+            "category": cfg.get("category"),
+        })
+    return items
+
+
 def scrape_joyfulhonda_chibant(cfg, existing_by_link):
     """ジョイフル本田 千葉ニュータウン店のイベント情報。
     サイトに「掲載日」はなく「開催日」しかないため、掲載日(pub_str)は初回検知日を使い、
@@ -513,6 +555,7 @@ HTML_SCRAPER_FUNCS = {
     "goguynet-kamagaya-shiroi-inzai": scrape_goguynet,
     "inzainet-event": scrape_inzainet_event,
     "joyfulhonda-chibant": scrape_joyfulhonda_chibant,
+    "inzaiparque": scrape_inzaiparque,
 }
 
 
