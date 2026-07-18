@@ -455,10 +455,10 @@ def scrape_joyfulhonda_chibant(cfg, existing_by_link):
     """ジョイフル本田 千葉ニュータウン店のイベント情報。
     サイトに「掲載日」はなく「開催日」しかないため、掲載日(pub_str)は初回検知日を使い、
     タイトルに開催日を併記する(開催日をそのままpub_strにすると未来日として自動除外されるため)。
-    日付範囲は今日から60日先までを毎回動的に指定する。
+    日付範囲は今日から30日先までを毎回動的に指定する。
     """
     today = date.today()
-    to_d = today + timedelta(days=60)
+    to_d = today + timedelta(days=30)
     params = {
         "search_element_0[]": "chibant",
         "fromDate_disp": today.strftime("%Y/%m/%d"),
