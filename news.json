@@ -834,7 +834,7 @@
     "pub_iso": "2026-06-05T16:00:00+09:00",
     "pub_str": "2026年6月5日",
     "publisher": "読売新聞",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -2052,6 +2052,15 @@
     "publisher": "ジョイフル本田",
     "source": "joyfulhonda-chibant",
     "category": "ジョイフル本田千葉ニュータウン店",
+    "retention_type": "regular"
+  },
+  {
+    "title": "【鎌ケ谷市】2026年の「松戸駐屯地 盆踊り大会」は7月25日（土）開催！ 屋台や縁日もあり、打上花火もあがります！",
+    "link": "https://kamagaya-shiroi-inzai.goguynet.jp/2026/07/18/matsudochutonchibonodori2026/",
+    "pub_str": "2026年7月18日",
+    "publisher": "号外NET",
+    "source": "goguynet-kamagaya-shiroi-inzai",
+    "category": "鎌ヶ谷・白井",
     "retention_type": "regular"
   }
 ]
