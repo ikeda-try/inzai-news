@@ -1528,5 +1528,35 @@
     "link": "https://news.google.com/articles/CBMiakFVX3lxTE0zdDI4WUNrTXhtd3ZkRktvbldueVRVdi1fcFRfV2Y5Zmx6NGphUGNEQldYa2JtVFpRcGVINDZaTVM3SmhtSXBDemtla19qb2tyV0RoN1dxc0xxRWNiTTBRSjNDOFlJdU1XU1E?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260719-0018",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.93,
+    "title": "LEDレジン体験　アルファベットの目印チャーム作り（2026年08月18日(火)～2026年08月19日(水)）",
+    "link": "https://event.joyfulhonda.com/single-exp.php?id=13165&store=chibant",
+    "similar_to": "LEDレジン体験　アルファベットの目印チャーム作り（2026年08月04日(火)～2026年08月05日(水)）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-0018",
+    "date": "2026-07-19",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "【印西市】Vivid☆Prism全国デビューCD・MV制作に挑戦！",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE56M3pfbW5iSjN0V0MwQnVVOXdmNUFOSGlaZjZPQ29nWlNVdVItaXRtWGs5dk5yYUtTLWxCdjMxU2Z1MnA3QWhVemFRTkg3NzI3eC04?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260719-0018",
+    "date": "2026-07-19",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "本日【印西市・中学校卒業式】内容",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTFBHOUREN2w4TGo3XzRfZlVPYWpqTjVrMEJKMl9RN3Y3V2lMS0EtcEZKV1JwYTVJNExqNTNpTGV5Y1Z1MFYyQ2NFTjdWd3p4c0NSZEhnS0taQ25Ia1Eyd0tN?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
