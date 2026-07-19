@@ -1558,5 +1558,45 @@
     "link": "https://news.google.com/articles/CBMiX0FVX3lxTFBHOUREN2w4TGo3XzRfZlVPYWpqTjVrMEJKMl9RN3Y3V2lMS0EtcEZKV1JwYTVJNExqNTNpTGV5Y1Z1MFYyQ2NFTjdWd3p4c0NSZEhnS0taQ25Ia1Eyd0tN?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260719-1011",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.97,
+    "title": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社　ニュータウンに広がる田園風景",
+    "link": "https://news.google.com/articles/CBMieEFVX3lxTFBydEdlY3R1ak5XTERHQW1LZ2dFTVZXeUtNM0NRby1XVXhLT09NT2FvaGVTa3RPZWZrNFdwd3lOYVByUWY2X0J1ZFU5UThENk1lWXQwUU5ZVDI1QWpQS1loZHNtRjRBN2pyeXlQOWQ2eEdoYXMwdmhhVdIBeEFVX3lxTFBydEdlY3R1ak5XTERHQW1LZ2dFTVZXeUtNM0NRby1XVXhLT09NT2FvaGVTa3RPZWZrNFdwd3lOYVByUWY2X0J1ZFU5UThENk1lWXQwUU5ZVDI1QWpQS1loZHNtRjRBN2pyeXlQOWQ2eEdoYXMwdmhhVQ?oc=5",
+    "similar_to": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社 ニュータウンに広がる田園風景",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-1011",
+    "date": "2026-07-19",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "保護者の代わりに保育園へ送迎、印西市が新事業 入園の偏り是正も [千葉県]",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTE4tTUlBVExBSmlwVTBoQ1pfWUthcWdyQTJxeTRJWkJ1a1hRVEdscXVPMEk4bVRUenNDaXMxd1RpdTBqSXE0U0RsNWFpZDFnSU1GY3VkYnJzZmhWVUNWZ3QtSG1hTnU3QW8?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260719-1011",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.82,
+    "title": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区）",
+    "link": "https://news.google.com/articles/CBMiV0FVX3lxTE1XWW1uUDI2bk43Q0VQNGM2enRtcGE3dW5iR2stM3RXSDBrYnp0aWZiRE5iczB5aGUxRWotazFMSU02NERxeU9MMWhkQVR3LTdOWnozYmxoQQ?oc=5",
+    "similar_to": "【千葉県印西市】移動スーパーの運行開始について（平賀学園台地区） | 印西市のプレスリリース",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-1011",
+    "date": "2026-07-19",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "印西市と白井市はまちづくりに関する連携協定を締結",
+    "link": "https://news.google.com/articles/CBMihAFBVV95cUxOdlZTN05SSmJMUDczRHRvQ2p5Wld0bi1NSW1rdXVSUlp0eUxlUEhlREl5dHJzVmFoV2pMcXhxbnJaakpieVpKcjZnRHNHVzZQUmI0ZGtQbE5hQjREUjczaGlBYk1xcVNuWU9LZTl0MEpKWGttOUUwdnIzcFo0bVdla3NILTk?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
