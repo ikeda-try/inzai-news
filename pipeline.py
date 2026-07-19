@@ -237,12 +237,22 @@ def fetch_soup(url: str) -> BeautifulSoup:
     return BeautifulSoup(res.text, "html.parser")
 
 
+WEATHER_LATE_NIGHT_HOUR = 22
+
+
 def fetch_weather():
-    """印西市の今日・明日の天気予報を取得する(Open-Meteo, APIキー不要)。失敗時はNoneを返す。
+    """印西市の天気予報を2日分取得する(Open-Meteo, APIキー不要)。失敗時はNoneを返す。
+    22時以降に実行された場合は「今日・明日」ではなく「明日・明後日」を表示する
+    (深夜近くに今日の天気を出しても実用性が低いため)。
     天気・気温は気象庁(JMA)モデル(models=jma_seamless)を明示指定して精度を優先する。
     ただしjma_seamlessは降水確率(precipitation_probability_max)を返さないため、
     降水確率のみ既定モデル(best_match)から別途取得して補う。
     """
+    now_jst = datetime.now(JST)
+    start_date = now_jst.date()
+    if now_jst.hour >= WEATHER_LATE_NIGHT_HOUR:
+        start_date += timedelta(days=1)
+    end_date = start_date + timedelta(days=1)
     try:
         res = requests.get(
             "https://api.open-meteo.com/v1/forecast",
@@ -251,7 +261,8 @@ def fetch_weather():
                 "longitude": WEATHER_LON,
                 "daily": "weather_code,temperature_2m_max,temperature_2m_min",
                 "timezone": "Asia/Tokyo",
-                "forecast_days": 2,
+                "start_date": start_date.isoformat(),
+                "end_date": end_date.isoformat(),
                 "models": "jma_seamless",
             },
             timeout=TIMEOUT,
@@ -268,7 +279,8 @@ def fetch_weather():
                     "longitude": WEATHER_LON,
                     "daily": "precipitation_probability_max",
                     "timezone": "Asia/Tokyo",
-                    "forecast_days": 2,
+                    "start_date": start_date.isoformat(),
+                    "end_date": end_date.isoformat(),
                 },
                 timeout=TIMEOUT,
             )
