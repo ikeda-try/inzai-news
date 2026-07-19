@@ -1688,5 +1688,25 @@
     "link": "https://news.google.com/articles/CBMif0FVX3lxTE9vVG11S0l5MFBkeUJKSnJFQ2t3UTFpU0d3bUtUSnBqT0pQbjV1NS1UNloxN3JWbHBEQmRJSzdpeDBJTGtKNGs0WkRtRVItM3VzU2dKWlpvTHhkZGk0N2JOOGhpT1h3RWZobnREbGZvbjdrUVZNY1VKY0pLZVFEVWc?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260720-0855",
+    "date": "2026-07-20",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.81,
+    "title": "「INZAIまちフェス」出店者を募集します！ ",
+    "link": "https://www.city.inzai.lg.jp/0000019903.html",
+    "similar_to": "「INZAIまちフェス」を開催します！",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260720-0855",
+    "date": "2026-07-20",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "新鎌ケ谷駅ビル ジャパンミート卸売市場 鎌ヶ谷店 2026年9月開業予定！テナントは？最新情報も！",
+    "link": "https://news.google.com/articles/CBMiT0FVX3lxTE53eWVuUlNsaTZRQkgwVXhJLUhrTmxlVVBPN29Wa290WW9mZGF2Z1F3N1FBMFgwYzdPTnpaZUUtVGNXekQzcFdEanhfVk9Dekk?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]

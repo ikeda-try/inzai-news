@@ -845,7 +845,7 @@
     "pub_iso": "2026-05-29T16:00:00+09:00",
     "pub_str": "2026年5月29日",
     "publisher": "東京・大阪 都心上空ヘリコプター遊覧飛行",
-    "source": "google-news-inzai-shi",
+    "source": "google-news-inzai-chiba",
     "category": "イオンモール千葉ニュータウン",
     "retention_type": "regular"
   },
@@ -2072,6 +2072,70 @@
     "publisher": "東京新聞デジタル",
     "source": "google-news-inzai-shi",
     "category": "イベント・文化",
+    "retention_type": "regular"
+  },
+  {
+    "title": "【印西市】7月26日（日）「戸神フェスタ2026 夏祭り」開催！ 太鼓パフォーマンスや盆踊りあり、キッチンカーもやってくる！",
+    "link": "https://kamagaya-shiroi-inzai.goguynet.jp/2026/07/20/tokamifesta2026natsumatsuri/",
+    "pub_str": "2026年7月20日",
+    "publisher": "号外NET",
+    "source": "goguynet-kamagaya-shiroi-inzai",
+    "category": "イベント・文化",
+    "retention_type": "regular"
+  },
+  {
+    "title": "広報いんざい　令和8年8月号　No.1044",
+    "link": "https://www.city.inzai.lg.jp/0000022139.html",
+    "desc": "",
+    "pub_iso": "2026-07-20T08:00:00+09:00",
+    "pub_str": "2026年7月20日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "千葉ニュータウン中央駅前イベント出店希望者募集",
+    "link": "https://www.city.inzai.lg.jp/0000022092.html",
+    "desc": "",
+    "pub_iso": "2026-07-20T08:00:00+09:00",
+    "pub_str": "2026年7月20日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "「INZAIまちフェス」を開催します！",
+    "link": "https://www.city.inzai.lg.jp/0000019909.html",
+    "desc": "",
+    "pub_iso": "2026-07-20T00:00:00+09:00",
+    "pub_str": "2026年7月20日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "イルミネーション実施団体を募集します。",
+    "link": "https://www.city.inzai.lg.jp/0000008388.html",
+    "desc": "",
+    "pub_iso": "2026-07-20T00:00:00+09:00",
+    "pub_str": "2026年7月20日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "戦後80年事業　あなたの戦争体験を教えてください",
+    "link": "https://www.city.inzai.lg.jp/0000021697.html",
+    "desc": "",
+    "pub_iso": "2026-07-20T00:00:00+09:00",
+    "pub_str": "2026年7月20日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
     "retention_type": "regular"
   }
 ]
