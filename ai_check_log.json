@@ -1598,5 +1598,15 @@
     "link": "https://news.google.com/articles/CBMihAFBVV95cUxOdlZTN05SSmJMUDczRHRvQ2p5Wld0bi1NSW1rdXVSUlp0eUxlUEhlREl5dHJzVmFoV2pMcXhxbnJaakpieVpKcjZnRHNHVzZQUmI0ZGtQbE5hQjREUjczaGlBYk1xcVNuWU9LZTl0MEpKWGttOUUwdnIzcFo0bVdla3NILTk?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260719-1211",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社 ニュータウンに広がる田園風景",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBDTm5VLU5tZGZmbHRXUjhxMTdVOWNKRU5fWlY4cG1lX1p3aktmY3VMWG9ycUJkR1hxSEtUNWprZEdlM3pNQXl4N245RloyV3JlMjYw?oc=5",
+    "similar_to": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社 ニュータウンに広がる田園風景",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]

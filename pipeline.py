@@ -61,6 +61,7 @@ KAITEN_KEYWORDS = ["開店", "閉店", "オープン", "クローズ", "NEW OPEN
 REGULAR_RETENTION_MONTHS = 3
 STORE_EVENT_RETENTION_MONTHS = 6
 STORE_EVENT_TITLE_PATTERN = re.compile(r"^【(\d{4})年(\d{1,2})月(\d{1,2})日\s+(開店|閉店|リニューアル)】")
+EVENT_END_GRACE_DAYS = 3
 
 DUP_AUTO_EXCLUDE_THRESHOLD = 0.8
 DUP_REVIEW_THRESHOLD = 0.7
@@ -153,15 +154,15 @@ def is_expired(item: dict, today=None) -> bool:
     """通常記事は3か月、開店閉店情報(retention_type=store_event)は6か月より古ければTrue。
     通常記事が未来日付になっているのはパースミスとみなして除外対象とする
     (開店閉店情報は開店/閉店の予定日を使うため未来日付でも正常なので対象外)。
-    event_end_date(イベント開催終了日)を持つ記事は、それを過ぎたら
-    上記のリテンション期間によらず即座に期限切れとする(掲載期限より優先)。
+    event_end_date(イベント開催終了日)を持つ記事は、そこから3日経過したら
+    上記のリテンション期間によらず期限切れとする(掲載期限より優先)。
     """
     if today is None:
         today = date.today()
     event_end = item.get("event_end_date")
     if event_end:
         try:
-            if today > date.fromisoformat(event_end):
+            if today > date.fromisoformat(event_end) + timedelta(days=EVENT_END_GRACE_DAYS):
                 return True
         except ValueError:
             pass
@@ -780,7 +781,7 @@ def cmd_collect(args):
             expired_new_count += 1
             event_end = item.get("event_end_date")
             reason = (
-                f"ルールベース: イベント開催終了日({event_end})を過ぎた記事のため対象外"
+                f"ルールベース: イベント開催終了日({event_end})から{EVENT_END_GRACE_DAYS}日を超えた記事のため対象外"
                 if event_end else "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
             )
             auto_log_entries.append({
