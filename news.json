@@ -1184,7 +1184,7 @@
     "pub_iso": "2026-05-31T16:00:00+09:00",
     "pub_str": "2026年5月31日",
     "publisher": "pando.life",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "イベント・文化",
     "retention_type": "regular"
   },
@@ -1329,7 +1329,7 @@
     "pub_iso": "2026-05-30T16:00:00+09:00",
     "pub_str": "2026年5月30日",
     "publisher": "東京新聞デジタル",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -2056,11 +2056,22 @@
     "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
     "link": "https://news.google.com/articles/CBMiZkFVX3lxTE9fLXlqQUltbkZEdzdpNEJQcWFEMTdXQkZISldSRVFiX0xLOXFqVDdlajRzQ3NVcXhoOERIOW9fcE4zTWR5Ukd6NktrRUI1NE9NYWNRMWtXbnFnNE9nVGxxcmVtSE1fUQ?oc=5",
     "desc": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動  読売新聞",
-    "pub_iso": "2026-07-19T11:30:09+09:00",
+    "pub_iso": "2026-07-19T10:30:00+09:00",
     "pub_str": "2026年7月19日",
     "publisher": "読売新聞",
     "source": "google-news-inzai-shi",
     "category": "開発・暮らし",
+    "retention_type": "regular"
+  },
+  {
+    "title": "ロゴデザインで芸術祭をPR 来春、成田市・印西市・栄町で開催",
+    "link": "https://news.google.com/articles/CBMiU0FVX3lxTE9oTE1kdFc5elRwemZCTVRoUUcxek9ORk9YWlYtWXFacDAzTjB4c2ZzRy1ZaEVhdTFISFM0aHdmWmMxZjVRN0FkYUd1bmtKaGZNYnlB?oc=5",
+    "desc": "ロゴデザインで芸術祭をPR 来春、成田市・印西市・栄町で開催  東京新聞デジタル",
+    "pub_iso": "2026-04-30T16:00:00+09:00",
+    "pub_str": "2026年4月30日",
+    "publisher": "東京新聞デジタル",
+    "source": "google-news-inzai-shi",
+    "category": "イベント・文化",
     "retention_type": "regular"
   }
 ]

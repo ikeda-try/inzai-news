@@ -1608,5 +1608,45 @@
     "link": "https://news.google.com/articles/CBMiU0FVX3lxTFBDTm5VLU5tZGZmbHRXUjhxMTdVOWNKRU5fWlY4cG1lX1p3aktmY3VMWG9ycUJkR1hxSEtUNWprZEdlM3pNQXl4N245RloyV3JlMjYw?oc=5",
     "similar_to": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社 ニュータウンに広がる田園風景",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-1529",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.88,
+    "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動 (読売新聞オンライン)",
+    "link": "https://news.google.com/articles/CBMijgFBVV95cUxPNk94TWVVSHFMbDZaeHA4U1BxUzlERG5YUE4wV1FCMjNqUVZCV05HTmxsOV9yMV9PWGd5Mm5ZU215RWxfc1hfSGxudVhueDNPOGJnU0RRSXpGXzlDS0wwNGpfckl4V3FJYjJ6UUpxRk9rRFVSLXl0M0FsMFpBRTJKWDQ1MUJXU0lfT0poVkJ3?oc=5",
+    "similar_to": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-1529",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.89,
+    "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動（読売新聞オンライン）",
+    "link": "https://news.google.com/articles/CBMiiAFBVV95cUxOX0tkbWRMUzJMYTU4NlZhSk12TzdncHpyQzZYQTlsSDBlb2JxbEN6ZlJjLTJnLWJUS2xCMmVKcGhFQ19idGhaYktwYm1zdDYtVkdic2xUQmJlbXJyOVZudUhNMmx3VkU4VmdTZFAxNEt5UlBvZGhmZUJ1TmQ1dU5xNlh2NVdkYUtG?oc=5",
+    "similar_to": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-1529",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.97,
+    "title": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社　ニュータウンに広がる田園風景",
+    "link": "https://news.google.com/articles/CBMifEFVX3lxTE9Kc2FaX3d4MnJZb283cUU0YzZpZXZUWlBfRnA0T3c4NnFEVmZpY3d0ZHRETmZ0S0hRUm45OTFIN2RNRGxNREd4NThCV2VTSl9YcUhjU0Rtci1FN2h0N1htMEJIQnZKSVo2U203NElKdkJmdkozSnlYc3phMTnSAXhBVV95cUxQcnRHZWN0dWpOV0xER0FtS2dnRU1WV3lLTTNDUW8tV1V4S09PTU9hb2hlU2t0T2VmazRXcHd5TmFQclFmNl9CdWRVOVE4RDZNZVl0MFFOWVQyNUFqUEtZaGRzbUY0QTdqcnl5UDlkNnhHaGFzMHZoYVU?oc=5",
+    "similar_to": "〈ぷらっと千葉 でこぼこ探訪〉印西市・戸神宗像神社 ニュータウンに広がる田園風景",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-1529",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.97,
+    "title": "街がステージになる一日 印西市「印西まちなか音楽祭」が育む新たなつながり",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTFA1UkV2eDNIbWMtOHdmbF91Y2FrdXAya2pRZ3VtVVduaGI2LTlqa0x2RUtoaFJ6cVg0clAzUnBDTk11bVRXNHc2T0FQNWQ4azBGYTVGUUJ3WEt3ZU9SQnpN?oc=5",
+    "similar_to": "街がステージになる一日　印西市「印西まちなか音楽祭」が育む新たなつながり",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]
