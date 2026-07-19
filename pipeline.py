@@ -72,15 +72,15 @@ RENEWAL_CATEGORY_LABELS = {"新店": "開店", "閉店": "閉店", "リニュー
 WEATHER_LAT = 35.8267
 WEATHER_LON = 140.1451
 WEATHER_CODE_MAP = {
-    0: ("☀️", "快晴"), 1: ("🌤", "晴れ"), 2: ("⛅", "晴れ時々曇り"), 3: ("☁️", "曇り"),
+    0: ("☀", "快晴"), 1: ("🌤", "晴れ"), 2: ("⛅", "晴れ時々曇り"), 3: ("☁", "曇り"),
     45: ("🌫", "霧"), 48: ("🌫", "霧"),
-    51: ("🌦", "霧雨"), 53: ("🌦", "霧雨"), 55: ("🌦", "霧雨"),
+    51: ("☂", "霧雨"), 53: ("☂", "霧雨"), 55: ("☂", "霧雨"),
     56: ("🌧", "着氷性霧雨"), 57: ("🌧", "着氷性霧雨"),
     61: ("🌧", "雨"), 63: ("🌧", "雨"), 65: ("🌧", "強い雨"),
     66: ("🌧", "着氷性の雨"), 67: ("🌧", "着氷性の雨"),
-    71: ("🌨", "雪"), 73: ("🌨", "雪"), 75: ("🌨", "強い雪"), 77: ("🌨", "雪粒"),
-    80: ("🌦", "にわか雨"), 81: ("🌦", "にわか雨"), 82: ("⛈", "激しいにわか雨"),
-    85: ("🌨", "にわか雪"), 86: ("🌨", "にわか雪"),
+    71: ("❄", "雪"), 73: ("❄", "雪"), 75: ("❄", "強い雪"), 77: ("❄", "雪粒"),
+    80: ("☂", "にわか雨"), 81: ("☂", "にわか雨"), 82: ("⛈", "激しいにわか雨"),
+    85: ("❄", "にわか雪"), 86: ("❄", "にわか雪"),
     95: ("⛈", "雷雨"), 96: ("⛈", "雷雨(雹)"), 99: ("⛈", "雷雨(雹)"),
 }
 
@@ -237,21 +237,46 @@ def fetch_soup(url: str) -> BeautifulSoup:
 
 
 def fetch_weather():
-    """印西市の今日・明日の天気予報を取得する(Open-Meteo, APIキー不要)。失敗時はNoneを返す。"""
+    """印西市の今日・明日の天気予報を取得する(Open-Meteo, APIキー不要)。失敗時はNoneを返す。
+    天気・気温は気象庁(JMA)モデル(models=jma_seamless)を明示指定して精度を優先する。
+    ただしjma_seamlessは降水確率(precipitation_probability_max)を返さないため、
+    降水確率のみ既定モデル(best_match)から別途取得して補う。
+    """
     try:
         res = requests.get(
             "https://api.open-meteo.com/v1/forecast",
             params={
                 "latitude": WEATHER_LAT,
                 "longitude": WEATHER_LON,
-                "daily": "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+                "daily": "weather_code,temperature_2m_max,temperature_2m_min",
                 "timezone": "Asia/Tokyo",
                 "forecast_days": 2,
+                "models": "jma_seamless",
             },
             timeout=TIMEOUT,
         )
         res.raise_for_status()
         daily = res.json()["daily"]
+
+        pop_by_date = {}
+        try:
+            pop_res = requests.get(
+                "https://api.open-meteo.com/v1/forecast",
+                params={
+                    "latitude": WEATHER_LAT,
+                    "longitude": WEATHER_LON,
+                    "daily": "precipitation_probability_max",
+                    "timezone": "Asia/Tokyo",
+                    "forecast_days": 2,
+                },
+                timeout=TIMEOUT,
+            )
+            pop_res.raise_for_status()
+            pop_daily = pop_res.json()["daily"]
+            pop_by_date = dict(zip(pop_daily["time"], pop_daily["precipitation_probability_max"]))
+        except Exception as e:
+            print(f"[WARN] 降水確率取得エラー: {e}", file=sys.stderr)
+
         weekday_ja = ["月", "火", "水", "木", "金", "土", "日"]
         days = []
         for i in range(min(2, len(daily["time"]))):
@@ -264,7 +289,7 @@ def fetch_weather():
                 "weather_label": weather_label,
                 "temp_max": round(daily["temperature_2m_max"][i]),
                 "temp_min": round(daily["temperature_2m_min"][i]),
-                "pop": daily["precipitation_probability_max"][i],
+                "pop": pop_by_date.get(daily["time"][i]),
             })
         return days
     except Exception as e:
@@ -1079,12 +1104,13 @@ def build_html(articles):
     if weather_days:
         cards = []
         for d in weather_days:
+            pop_html = '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>" if d["pop"] is not None else ""
             cards.append(
                 '<div class="weather-day">'
                 + '<span class="weather-day-label">' + html.escape(d["label"]) + "</span>"
                 + '<span class="weather-icon" title="' + html.escape(d["weather_label"]) + '">' + d["icon"] + "</span>"
                 + '<span class="weather-temp">' + str(d["temp_max"]) + '°<span class="tmin">/' + str(d["temp_min"]) + "°</span></span>"
-                + '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>"
+                + pop_html
                 + "</div>"
             )
         weather_html = (
