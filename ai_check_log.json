@@ -1648,5 +1648,45 @@
     "link": "https://news.google.com/articles/CBMiX0FVX3lxTFA1UkV2eDNIbWMtOHdmbF91Y2FrdXAya2pRZ3VtVVduaGI2LTlqa0x2RUtoaFJ6cVg0clAzUnBDTk11bVRXNHc2T0FQNWQ4azBGYTVGUUJ3WEt3ZU9SQnpN?oc=5",
     "similar_to": "街がステージになる一日　印西市「印西まちなか音楽祭」が育む新たなつながり",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-2109",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.89,
+    "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動（読売新聞オンライン）",
+    "link": "https://news.google.com/articles/CBMif0FVX3lxTFBlOVFYalRMSnJ2Zy1CUElRbjdYQUlVd1hzWDdLUHBpN1dHTnRvci1VNm03QnBXV1JZQTE0OEF2MHZSYTNMZHpJejN4d0lnMmw1THFOTTk4bVk4c3JaUXhhSTZLZ0ExRVpNdU5BS2gwR2RhQ1loMFJPR2FDUE5uaGs?oc=5",
+    "similar_to": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-2109",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.88,
+    "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動 (読売新聞オンライン)",
+    "link": "https://news.google.com/articles/CBMijgFBVV95cUxPWk9OTE50ZTkxMEFiLVhqeFpUUV91a2U1YmZJWlRaOGVRV3ZtWURUQkd4c2w0cnlROEY5QVp6QjFHd1J3cVFYOWtzU0lTOXdoSEJ1WEViOXAtQlV5ZWNvNXg3THZhVlBFWVEyT2dXRnQzYmxSM0JrZkFfT3FUZklxXzZqbE0zYWlVWnBFY19n?oc=5",
+    "similar_to": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-2109",
+    "date": "2026-07-19",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "link": "https://news.google.com/articles/CBMihAFBVV95cUxPNXpxd1lhVDJCWm5oM1N2NlJWS2JieGdWLXpFVFFnMmxScnlPc1d1N1VmTUVCNWlpLTFYb05BcFh1TEhNcXpmMzdySktFZl9UMHdUNEt0ekswdkdKN0VsRjlkdzcwUC1VZTA1RVZrb0hYRVlWZlEzM2JROVRwVGZFdGJVZUjSAYoBQVVfeXFMT3dES0d3TExnaUhUbFZYMnBibjFlcGs4Z0c1MXJRSUI4TUk3Ulk1Vktxb0pzVlhKbDF5NVNFNk1kRnhDV2Fid2U2UUhhOXo3YmtrYzRhRVhjNXptYS1CaHlERmFRcTV4b3hwOFVEYVBpNUpiN0hHRDRpNnozUDU4cE9LdTNkMXIzWEpn?oc=5",
+    "similar_to": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260719-2109",
+    "date": "2026-07-19",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "ガリバー千葉ニュータウン店 グランドオープン！！ガリバー千葉ニュータウン店からのお知らせ G014041728451586414",
+    "link": "https://news.google.com/articles/CBMif0FVX3lxTE9vVG11S0l5MFBkeUJKSnJFQ2t3UTFpU0d3bUtUSnBqT0pQbjV1NS1UNloxN3JWbHBEQmRJSzdpeDBJTGtKNGs0WkRtRVItM3VzU2dKWlpvTHhkZGk0N2JOOGhpT1h3RWZobnREbGZvbjdrUVZNY1VKY0pLZVFEVWc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
