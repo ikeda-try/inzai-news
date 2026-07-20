@@ -1718,5 +1718,15 @@
     "link": "https://news.google.com/articles/CBMiUEFVX3lxTE5ncmI2U2M1OWp4XzJnWkV3UEg5S3hsQW1oVlpFaVplRUdodXRoS2tWcDl2UnpNVDg0QVFBM3FvZjZzQnN4S2I3YWFfZWFxQnFi?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260720-2224",
+    "date": "2026-07-20",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTE03bW9Ua0NZWl9fZ0tTUGtOQ1N6SzVJeXVneV9VWEYwaXlSVjRZLVVURTFlZGVTTTY0dzdhVHdfdTFFbU5ULWtHbzd2NXZKcm9ZTElFYzZBZG1wSHcwbGxZUmRITGlJaWs?oc=5",
+    "similar_to": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]
