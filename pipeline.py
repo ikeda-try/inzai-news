@@ -41,6 +41,7 @@ SOURCES_PATH = BASE_DIR / "sources.json"
 NEWS_PATH = BASE_DIR / "news.json"
 REVIEW_QUEUE_PATH = BASE_DIR / "review_queue.json"
 AI_LOG_PATH = BASE_DIR / "ai_check_log.json"
+NEW_BADGE_PATH = BASE_DIR / "new_badge.json"
 STORE_LIST_PATH = BASE_DIR / "開店閉店.txt"
 INDEX_HTML_PATH = BASE_DIR / "index.html"
 TOKEN_PATH = BASE_DIR / ".gh_token"
@@ -225,6 +226,17 @@ def load_excluded_links() -> set:
     """
     log = load_json(AI_LOG_PATH, [])
     return {e["link"] for e in log if e.get("ai_decision") in ("auto_exclude", "exclude")}
+
+
+def load_new_badge_links() -> set:
+    """直近の更新で新規追加された記事(「新着」バッジ対象)のリンク集合。
+    更新が無かった回はここを触らないので、変化が出るまで前回の「新着」が残り続ける。
+    """
+    return set(load_json(NEW_BADGE_PATH, []))
+
+
+def save_new_badge_links(links) -> None:
+    save_json_atomic(NEW_BADGE_PATH, sorted(links))
 
 
 # ============================================================
@@ -748,6 +760,7 @@ def cmd_collect(args):
     excluded_links = load_excluded_links()
 
     new_count = updated_count = unchanged_count = auto_excluded_count = skipped_pending = skipped_excluded = expired_new_count = 0
+    new_links_this_run = []
     review_items = []
     auto_log_entries = []
     run_ts = datetime.now(JST).strftime("%Y%m%d-%H%M")
@@ -831,6 +844,7 @@ def cmd_collect(args):
             by_link[link] = item
             recent_pool.append(item)
             new_count += 1
+            new_links_this_run.append(link)
             continue
 
         review_items.append({
@@ -855,6 +869,10 @@ def cmd_collect(args):
 
     save_json_atomic(NEWS_PATH, final_items)
     append_ai_log(auto_log_entries)
+
+    if new_links_this_run:
+        # 新規記事が出た=前回までの「新着」バッジを今回分で置き換える
+        save_new_badge_links(new_links_this_run)
 
     combined_queue = existing_queue + review_items
     if combined_queue:
@@ -894,6 +912,7 @@ def cmd_apply_review(args):
     run_ts = datetime.now(JST).strftime("%Y%m%d-%H%M")
 
     kept = excluded = pending = 0
+    kept_links_this_run = []
     log_entries = []
     remaining_queue = []
 
@@ -933,6 +952,7 @@ def cmd_apply_review(args):
         item["retention_type"] = compute_retention_type(item)
         by_link[item["link"]] = item
         kept += 1
+        kept_links_this_run.append(item["link"])
         if entry.get("needs_dedup_review") or entry.get("cross_check"):
             log_entries.append({
                 "run_ts": run_ts,
@@ -951,6 +971,10 @@ def cmd_apply_review(args):
 
     save_json_atomic(NEWS_PATH, final_items)
     append_ai_log(log_entries)
+
+    if kept_links_this_run:
+        # collect直後に実行される想定のため、直前のcollectで立てた「新着」に合流させる(上書きしない)
+        save_new_badge_links(load_new_badge_links() | set(kept_links_this_run))
 
     if remaining_queue:
         save_json_atomic(REVIEW_QUEUE_PATH, remaining_queue)
@@ -1011,6 +1035,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .hero-title:hover{color:#1D9E75}
 .hero-meta{font-size:12px;color:#888}
 .today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
+.new-badge{display:inline-block;font-size:8px;font-weight:700;background:#223A70;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
 .weather-block{flex-shrink:0;display:flex;flex-direction:column;align-items:center}
 .weather-widget{display:flex;gap:8px}
 .weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
@@ -1077,15 +1102,16 @@ def kaiten_label(item):
     return f"【{kind}日不明】{title}"
 
 
-def render_item(item):
+def render_item(item, new_links):
     pub = normalize_publisher(item.get("publisher", ""), item.get("link", ""))
     pub_html = " · " + html.escape(pub) if pub else ""
     d = parse_pub_str(item.get("pub_str", ""))
     data_pub = (' data-pub="' + d.isoformat() + '"') if d else ""
     title = kaiten_label(item)
+    new_html = '<span class="new-badge">新着</span>' if item.get("link") in new_links else ""
     return (
         '<a class="news-item"' + data_pub + ' href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
-        + '<span class="news-title">' + html.escape(title) + "</span>"
+        + '<span class="news-title">' + html.escape(title) + new_html + "</span>"
         + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html
         + '<span class="today-badge" style="display:none">今日</span></span>'
         + "</a>"
@@ -1097,6 +1123,7 @@ def build_html(articles):
     now_str = f"{now.year}年{now.month}月{now.day}日 {now.strftime('%H:%M')}"
     today = now.date()
     cutoff = today - timedelta(days=SCRAPED_MAX_DAYS)
+    new_links = load_new_badge_links()
 
     main_arts_all = [a for a in articles if a.get("category") in CATEGORY_ORDER]
     scraped_arts = [a for a in articles if a.get("category") not in CATEGORY_ORDER]
@@ -1109,7 +1136,9 @@ def build_html(articles):
         return d >= today - timedelta(days=days)
 
     main_arts = [a for a in main_arts_all if date_ok(a)]
-    main_arts.sort(key=lambda a: parse_pub_str(a.get("pub_str", "")) or date.min, reverse=True)
+    # pub_strが同日の記事は、news.json内での追加順(=後から追加されたもの)が上に来るようにする
+    added_order = {id(a): i for i, a in enumerate(articles)}
+    main_arts.sort(key=lambda a: (parse_pub_str(a.get("pub_str", "")) or date.min, added_order[id(a)]), reverse=True)
     top_item = main_arts[0] if main_arts else None
 
     weather_days = fetch_weather()
@@ -1140,13 +1169,14 @@ def build_html(articles):
         pub_h = " · " + html.escape(top_pub) if top_pub else ""
         hero_d = parse_pub_str(top_item.get("pub_str", ""))
         hero_pub_attr = (' data-pub="' + hero_d.isoformat() + '"') if hero_d else ""
+        hero_new_html = '<span class="new-badge">新着</span>' if top_item.get("link") in new_links else ""
         top_html = (
             '<div class="hero" style="border-color:' + fg + ';">'
             + '<div class="hero-main">'
             + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
             + CATEGORY_ICONS.get(cat, "📰") + " " + html.escape(cat) + "</div>"
             + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
-            + html.escape(top_item["title"]) + "</a>"
+            + html.escape(top_item["title"]) + hero_new_html + "</a>"
             + '<div class="hero-meta"' + hero_pub_attr + '>' + html.escape(top_item.get("pub_str", "")) + pub_h
             + '<span class="today-badge" id="hero-today-badge" style="display:none">今日</span></div>'
             + "</div>"
@@ -1167,7 +1197,7 @@ def build_html(articles):
     grid_html = ""
     for cat, items in active_cats:
         bg, fg, dark = CATEGORY_COLORS[cat]
-        rows = "".join(render_item(i) for i in items)
+        rows = "".join(render_item(i, new_links) for i in items)
         grid_html += (
             '<div class="cat-section">'
             + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
@@ -1191,7 +1221,7 @@ def build_html(articles):
         if not filtered:
             continue
         bg, fg, dark = SCRAPED_COLOR
-        rows = "".join(render_item(i) for i in filtered)
+        rows = "".join(render_item(i, new_links) for i in filtered)
         scraped_html += (
             '<div class="cat-section">'
             + '<div class="cat-header" style="background:' + bg + ';border-left:4px solid ' + fg + ';">'
