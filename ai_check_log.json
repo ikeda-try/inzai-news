@@ -1708,5 +1708,15 @@
     "link": "https://news.google.com/articles/CBMiT0FVX3lxTE53eWVuUlNsaTZRQkgwVXhJLUhrTmxlVVBPN29Wa290WW9mZGF2Z1F3N1FBMFgwYzdPTnpaZUUtVGNXekQzcFdEanhfVk9Dekk?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260720-2159",
+    "date": "2026-07-20",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "はな膳 千葉ニュータウン店(千葉市その他/和食)",
+    "link": "https://news.google.com/articles/CBMiUEFVX3lxTE5ncmI2U2M1OWp4XzJnWkV3UEg5S3hsQW1oVlpFaVplRUdodXRoS2tWcDl2UnpNVDg0QVFBM3FvZjZzQnN4S2I3YWFfZWFxQnFi?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
