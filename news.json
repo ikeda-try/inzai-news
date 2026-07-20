@@ -1329,7 +1329,7 @@
     "pub_iso": "2026-05-30T16:00:00+09:00",
     "pub_str": "2026年5月30日",
     "publisher": "東京新聞デジタル",
-    "source": "google-news-inzai-shi",
+    "source": "google-news-inzai-chiba",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -2135,6 +2135,28 @@
     "pub_str": "2026年7月20日",
     "publisher": "印西市",
     "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "ワイン酒場 バルデペロ(印西市/ダイニングバー・バル)",
+    "link": "https://news.google.com/articles/CBMiggFBVV95cUxOOHZ0UGtRdFlCVXhMeEdoblVOTm1RT3FHRTdmTDE1YzJTVk93VldiM25qNk5uOFF4d3U3ajY1LVVqY0MwTjBmeC1OaW5DZ015Sl80R2pfYXduU2x3d3dwWUlPZmFzMzZxOWY4cFJCMWt2RjNLUmJyeUFaRFU4aWlfWkFB?oc=5",
+    "desc": "ワイン酒場 バルデペロ(印西市/ダイニングバー・バル)  ホットペッパーグルメ",
+    "pub_iso": "2026-07-17T19:15:14+09:00",
+    "pub_str": "2026年7月17日",
+    "publisher": "ホットペッパーグルメ",
+    "source": "google-news-inzai-shi",
+    "category": "話題・その他",
+    "retention_type": "regular"
+  },
+  {
+    "title": "みんなのコード、印西市教育委員会の生成AI利活用を支援。授業実践に役立つコンテンツなどを作成",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE12U2VuTXdJMHRGZE9PYV85MzZpQzhjSkItcF8xZVFZU1pjMlQ1bWd0Mi1CdGtscWhVM2hrUTB3b1NGWjFNbEg5dVVjbFRyVlA4RFdYNGtaU3M4eU43aGZqREl4clZ3ZE5HeUE?oc=5",
+    "desc": "みんなのコード、印西市教育委員会の生成AI利活用を支援。授業実践に役立つコンテンツなどを作成  PR TIMES",
+    "pub_iso": "2026-05-28T16:00:00+09:00",
+    "pub_str": "2026年5月28日",
+    "publisher": "PR TIMES",
+    "source": "google-news-inzai-shi",
     "category": "市政・行政",
     "retention_type": "regular"
   }
