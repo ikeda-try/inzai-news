@@ -259,8 +259,7 @@ def ensure_weather_icon_cached(icon_src: str) -> str:
 
 
 def weather_day_label(d: date) -> str:
-    weekday_ja = ["月", "火", "水", "木", "金", "土", "日"]
-    return f"{d.month}/{d.day}({weekday_ja[d.weekday()]})"
+    return f"{d.month}/{d.day}"
 
 
 def resolve_weather_date(month: int, day_num: int, now_jst: datetime) -> date:
@@ -268,6 +267,17 @@ def resolve_weather_date(month: int, day_num: int, now_jst: datetime) -> date:
     if month < now_jst.month - 6:
         year += 1
     return date(year, month, day_num)
+
+
+def weekday_daytype_fallback(d: date):
+    """曜日のみからのdaytypeフォールバック(祝日は考慮できない)。
+    #flick_list_week側の分類(祝日を含む)が取れればそちらで上書きされる。
+    """
+    if d.weekday() == 5:
+        return "sat"
+    if d.weekday() == 6:
+        return "sun"
+    return None
 
 
 def parse_weather_card(card, now_jst: datetime):
@@ -291,7 +301,10 @@ def parse_weather_card(card, now_jst: datetime):
         if txt.isdigit():
             pop_values.append(int(txt))
     return {
+        "_day": d.day,
         "label": weather_day_label(d),
+        "weekday": d.weekday(),
+        "daytype": weekday_daytype_fallback(d),
         "icon": ensure_weather_icon_cached(icon_tag["src"]),
         "weather_label": status_tag.get_text(strip=True),
         "temp_max": int(high_m.group(1)),
@@ -301,7 +314,9 @@ def parse_weather_card(card, now_jst: datetime):
 
 
 def parse_weather_week_row(row, d: date):
-    """#flick_list_week内の1日分の行(明後日以降)を解析する。天気文言・降水確率%は無い。"""
+    """#flick_list_week内の1日分の行(明後日以降)を解析する。天気文言は無い。
+    降水確率は当日以降の行なら%表示(pop_by_day経由で別途上書きされる想定)。
+    """
     high_tag = row.select_one(".high p")
     low_tag = row.select_one(".low p")
     icon_tag = row.select_one("img.wx__icon")
@@ -312,7 +327,10 @@ def parse_weather_week_row(row, d: date):
     if not (high_m and low_m):
         return None
     return {
+        "_day": d.day,
         "label": weather_day_label(d),
+        "weekday": d.weekday(),
+        "daytype": weekday_daytype_fallback(d),
         "icon": ensure_weather_icon_cached(icon_tag["src"]),
         "weather_label": "",
         "temp_max": int(high_m.group(1)),
@@ -321,14 +339,59 @@ def parse_weather_week_row(row, d: date):
     }
 
 
+def parse_weather_week_pop(week_container) -> dict:
+    """#flick_list_week内の各日の降水確率(%)を{day(int): pop(int)}で返す。
+    過去日は「Xミリ」(実績降水量)、当日以降は「X%」(予報)で表示されるため、%表記の行のみ拾う。
+    """
+    pop_by_day = {}
+    for row in week_container.select("ul.wxweek_content"):
+        day_tag = row.select_one(".date .day")
+        rain_tag = row.select_one(".rain p")
+        if not (day_tag and rain_tag):
+            continue
+        text = rain_tag.get_text(strip=True)
+        if not text.endswith("%"):
+            continue
+        m = re.match(r"(\d+)%", text)
+        day_m = re.match(r"\d+", day_tag.get_text(strip=True))
+        if m and day_m:
+            pop_by_day[int(day_m.group())] = int(m.group(1))
+    return pop_by_day
+
+
+def parse_weather_week_daytype(week_container) -> dict:
+    """#flick_list_week内の各日の曜日色種別を{day(int): "sat"|"sun"|None}で返す。
+    ウェザーニューズ側は祝日もsunクラスとして扱っている(=日曜と同色)ため、
+    自前の祝日判定を持たずサイト側の分類をそのまま使う。
+    """
+    daytype_by_day = {}
+    for row in week_container.select("ul.wxweek_content"):
+        date_li = row.select_one(".date")
+        day_tag = row.select_one(".date .day")
+        if not (date_li and day_tag):
+            continue
+        day_m = re.match(r"\d+", day_tag.get_text(strip=True))
+        if not day_m:
+            continue
+        classes = date_li.get("class", [])
+        if "sun" in classes:
+            daytype_by_day[int(day_m.group())] = "sun"
+        elif "sat" in classes:
+            daytype_by_day[int(day_m.group())] = "sat"
+        else:
+            daytype_by_day[int(day_m.group())] = None
+    return daytype_by_day
+
+
 def fetch_weather():
     """印西市の天気予報を今日・明日・明後日の3日分取得し、時刻に応じて2日分を返す。失敗時はNoneを返す。
     22時以降に実行された場合は「今日・明日」ではなく「明日・明後日」を表示する
     (深夜近くに今日の天気を出しても実用性が低いため)。
     このページはVue.jsで描画されるが、初期HTMLに実データがサーバーサイドレンダリング
     済みで埋め込まれているため、JS実行なしのスクレイピングで取得できる。
-    今日・明日は#flick_list_today(天気文言・降水確率まで取れる)、明後日は#flick_list_week
-    (気温・アイコンのみ)から取得する。アイコン画像はweather_icons/にキャッシュして使い回す。
+    天気文言・気温は#flick_list_today(今日・明日分)/#flick_list_week(明後日分)から取得し、
+    降水確率は表記ゆれが無い#flick_list_week側の値で統一する。
+    アイコン画像はweather_icons/にキャッシュして使い回す。
     """
     now_jst = datetime.now(JST)
     try:
@@ -345,9 +408,9 @@ def fetch_weather():
                     if day:
                         days.append(day)
 
-        target = now_jst.date() + timedelta(days=2)
         week_container = soup.select_one("#flick_list_week")
         if week_container is not None:
+            target = now_jst.date() + timedelta(days=2)
             for row in week_container.select("ul.wxweek_content"):
                 day_tag = row.select_one(".date .day")
                 if day_tag and day_tag.get_text(strip=True) == str(target.day):
@@ -355,6 +418,17 @@ def fetch_weather():
                     if day:
                         days.append(day)
                     break
+
+            pop_by_day = parse_weather_week_pop(week_container)
+            daytype_by_day = parse_weather_week_daytype(week_container)
+            for day in days:
+                if day["_day"] in pop_by_day:
+                    day["pop"] = pop_by_day[day["_day"]]
+                if day["_day"] in daytype_by_day:
+                    day["daytype"] = daytype_by_day[day["_day"]]
+
+        for day in days:
+            day.pop("_day", None)
 
         selected = days[1:3] if now_jst.hour >= WEATHER_LATE_NIGHT_HOUR else days[0:2]
         return selected if selected else None
@@ -1081,12 +1155,15 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .weather-widget{display:flex;gap:8px}
 .weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
 .weather-day-label{display:block;font-size:10px;color:#888;font-weight:700;margin-bottom:2px}
-.weather-icon{display:block;width:28px;height:28px;margin:0 auto}
-.weather-temp{display:block;font-size:12px;font-weight:700;color:#1a1a18;margin-top:2px}
-.weather-temp .tmin{color:#888;font-weight:400}
+.weather-day-label .wd-sun{color:#ff3000}
+.weather-day-label .wd-sat{color:#0060ff}
+.weather-icon{display:block;height:28px;width:auto;margin:0 auto}
+.weather-temp{display:block;font-size:12px;font-weight:700;margin-top:2px}
+.weather-temp .tmax{color:#f64d00}
+.weather-temp .tmin{color:#0075f3;font-weight:700}
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
 .weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;margin-bottom:4px}
-@media(max-width:480px){.hero{padding:16px}.weather-block{width:100%}.weather-widget{width:100%;justify-content:flex-start}}
+@media(max-width:480px){.hero{padding:16px}.weather-block{width:100%}.weather-widget{width:100%;justify-content:center}}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
@@ -1185,14 +1262,25 @@ def build_html(articles):
     weather_days = fetch_weather()
     weather_html = ""
     if weather_days:
+        weekday_ja = ["月", "火", "水", "木", "金", "土", "日"]
         cards = []
         for d in weather_days:
             pop_html = '<span class="weather-pop">☂' + str(d["pop"]) + "%</span>" if d["pop"] is not None else ""
+            weekday_idx = d.get("weekday")
+            wd_char = weekday_ja[weekday_idx] if weekday_idx is not None else ""
+            daytype = d.get("daytype")
+            if daytype == "sun":
+                wd_html = '(<span class="wd-sun">' + wd_char + "</span>)"
+            elif daytype == "sat":
+                wd_html = '(<span class="wd-sat">' + wd_char + "</span>)"
+            else:
+                wd_html = "(" + wd_char + ")"
+            day_label_html = html.escape(d["label"]) + wd_html
             cards.append(
                 '<div class="weather-day">'
-                + '<span class="weather-day-label">' + html.escape(d["label"]) + "</span>"
+                + '<span class="weather-day-label">' + day_label_html + "</span>"
                 + '<img class="weather-icon" src="' + html.escape(d["icon"]) + '" alt="' + html.escape(d["weather_label"]) + '" title="' + html.escape(d["weather_label"]) + '">'
-                + '<span class="weather-temp">' + str(d["temp_max"]) + '°<span class="tmin">/' + str(d["temp_min"]) + "°</span></span>"
+                + '<span class="weather-temp"><span class="tmax">' + str(d["temp_max"]) + '°</span><span class="tmin">/' + str(d["temp_min"]) + "°</span></span>"
                 + pop_html
                 + "</div>"
             )
