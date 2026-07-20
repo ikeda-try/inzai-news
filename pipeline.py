@@ -1346,47 +1346,48 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .train-widget{flex:0 0 auto}
 .train-widget-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;margin-bottom:8px}
 .train-widget-title .train-direction{font-weight:400;margin-left:2px}
-.train-columns{display:flex;gap:28px}
-.train-divider{width:1px;align-self:stretch;background:#e0e0d8}
+.train-columns{display:flex}
+.train-divider{width:1px;align-self:stretch;background:#e0e0d8;margin:0 12px 0 20px}
 .train-station-name{font-size:13px;font-weight:700;color:#1a1a18;margin-bottom:6px}
-.train-item{font-size:12px;color:#333;padding:3px 0;display:flex;gap:6px;align-items:baseline;white-space:nowrap;font-variant-numeric:tabular-nums}
-.train-time{font-weight:700;color:#1D9E75;min-width:52px}
+.train-item{font-size:12px;color:#333;padding:3px 0;display:flex;gap:5px;align-items:baseline;white-space:nowrap;font-variant-numeric:tabular-nums}
+.train-time{font-weight:700;color:#1D9E75;min-width:46px}
 .train-dot{display:inline-block;width:11px;color:#1D9E75;font-size:9px;position:relative;top:-1px}
-.train-type{font-size:10px;color:#888;min-width:26px}
+.train-type{font-size:10px;color:#888;min-width:22px}
 .train-type-express{color:#e07b00}
 .train-dest{flex:1}
-.train-countdown{font-size:10px;color:#bbb;width:68px;flex-shrink:0}
+.train-countdown{font-size:10px;color:#bbb;width:66px;flex-shrink:0}
 .train-countdown-next{color:#555}
 .train-note{font-size:9px;color:#aaa;margin-top:6px;padding-left:11px}
 .train-empty{font-size:12px;color:#888}
 .weather-block{flex-shrink:0;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit}
 .weather-widget{display:flex;gap:8px}
-.weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
+.weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;width:70px;box-sizing:content-box}
 .weather-day-label{display:block;font-size:10px;color:#888;font-weight:700;margin-bottom:2px}
 .weather-day-label .wd-sun{color:#ff3000}
 .weather-day-label .wd-sat{color:#0060ff}
 .weather-icon{display:block;height:28px;width:auto;margin:0 auto}
-.weather-name{display:block;font-size:10px;color:#888;font-weight:700;margin-top:2px;white-space:nowrap}
+.weather-name{display:block;font-size:10px;color:#888;font-weight:700;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .weather-temp{display:block;font-size:12px;font-weight:700;margin-top:2px}
 .weather-temp .tmax{color:#f64d00}
 .weather-temp .tmin{color:#0075f3;font-weight:700}
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
 .weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;margin-bottom:4px}
 @media(max-width:480px){
-.hero{padding:10px;gap:6px;flex-wrap:nowrap}
+.hero{padding:10px;gap:5px;flex-wrap:nowrap}
 .train-widget-title{font-size:7px;margin-bottom:3px}
-.train-columns{gap:6px}
+.train-divider{margin:0 2px 0 6px}
 .train-station-name{font-size:9px;margin-bottom:2px}
-.train-item{font-size:8px;gap:2px;padding:1px 0}
+.train-item{font-size:8px;gap:1px;padding:1px 0}
 .train-time{min-width:32px}
 .train-dot{width:6px;font-size:6px}
 .train-type{font-size:7px;min-width:13px}
-.train-countdown{font-size:7px;width:36px}
+.train-countdown{font-size:7px;width:20px}
 .train-note{font-size:6px;padding-left:6px;margin-top:3px}
 .weather-widget{gap:3px}
-.weather-day{padding:3px 5px;min-width:36px}
+.weather-day{padding:3px 5px;width:49px;box-sizing:content-box}
 .weather-icon{height:18px}
-.weather-day-label,.weather-name,.weather-pop{font-size:7px}
+.weather-day-label,.weather-pop{font-size:7px}
+.weather-name{font-size:7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .weather-temp{font-size:9px}
 .weather-title{font-size:7px;margin-bottom:2px}
 }
@@ -1605,6 +1606,7 @@ def build_html(articles):
         "    var wd=now.getDay();\n"
         "    var dayType=(JP_HOLIDAYS.indexOf(todayStr)!==-1||wd===0||wd===6)?\"weekend\":\"weekday\";\n"
         "    var nowSec=now.getHours()*3600+now.getMinutes()*60+now.getSeconds();\n"
+        "    var isNarrow=window.innerWidth<=480;\n"
         "    Object.keys(TRAIN_DATA).forEach(function(key){\n"
         "      var st=TRAIN_DATA[key];\n"
         "      var container=document.getElementById(\"train-list-\"+key);\n"
@@ -1624,13 +1626,15 @@ def build_html(articles):
         "      while(list.length<3){ list.push(null); }\n"
         "      container.innerHTML=list.map(function(x,i){\n"
         "        if(x===null){\n"
-        "          return '<div class=\"train-item\"><span class=\"train-time\"><span class=\"train-dot\"></span>--:--</span><span class=\"train-type\">--</span><span class=\"train-dest\">-----</span><span class=\"train-countdown\">あと--分--秒</span></div>';\n"
+        "          var emptyCd=isNarrow?\"--:--\":\"あと--分--秒\";\n"
+        "          return '<div class=\"train-item\"><span class=\"train-time\"><span class=\"train-dot\"></span>--:--</span><span class=\"train-type\">--</span><span class=\"train-dest\">-----</span><span class=\"train-countdown\">'+emptyCd+'</span></div>';\n"
         "        }\n"
         "        var m=Math.floor(x.remain/60), s=x.remain%60;\n"
         "        var typeCls=x.t.type.indexOf(\"特\")!==-1?\" train-type-express\":\"\";\n"
         "        var cdCls=i===0?\" train-countdown-next\":\"\";\n"
         "        var dot=x.t.origin?\"●\":\"\";\n"
-        "        var cdText=x.remain<=FAR_SEC?('あと'+pad2(m)+'分'+pad2(s)+'秒'):'あと--分--秒';\n"
+        "        var farText=isNarrow?\"--:--\":\"あと--分--秒\";\n"
+        "        var cdText=x.remain>FAR_SEC?farText:(isNarrow?(pad2(m)+\":\"+pad2(s)):('あと'+pad2(m)+'分'+pad2(s)+'秒'));\n"
         "        return '<div class=\"train-item\"><span class=\"train-time\"><span class=\"train-dot\">'+dot+'</span>'+x.t.time+'</span><span class=\"train-type'+typeCls+'\">'+x.t.type+'</span><span class=\"train-dest\">'+x.t.dest+'行</span><span class=\"train-countdown'+cdCls+'\">'+cdText+'</span></div>';\n"
         "      }).join(\"\");\n"
         "    });\n"
