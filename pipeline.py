@@ -243,12 +243,36 @@ WEATHER_LATE_NIGHT_HOUR = 22
 WEATHER_ICON_DIR = BASE_DIR / "weather_icons"
 
 
-def ensure_weather_icon_cached(icon_src: str) -> str:
+WEATHER_ICON_CDN = "https://weathernews.jp/s/topics/img/wxicon/"
+
+# ウェザーニューズ公式アイコン一覧(https://weathernews.jp/ip/help5/tab_icon.html)から採取したコード→天気名。
+# 明後日分(#flick_list_week)は天気文言を持たないため、既知コードであればここから補完する。
+WEATHER_ICON_LABELS = {
+    "100": "晴れ", "550": "猛暑", "101": "晴れ時々くもり", "102": "晴れ一時雨",
+    "104": "晴れ一時雪", "110": "晴れのち時々くもり", "112": "晴れのち時々雨",
+    "115": "晴れのち時々雪", "200": "くもり", "201": "くもり時々晴れ",
+    "202": "くもり時々雨", "204": "くもり時々雪", "210": "くもりのち晴れ",
+    "212": "くもりのち雨", "215": "くもりのち雪", "650": "小雨", "300": "雨",
+    "850": "大雨・嵐", "301": "雨時々晴れ", "302": "雨時々止む", "303": "雨時々雪",
+    "311": "雨のち晴れ", "313": "雨のちくもり", "314": "雨のち時々雪", "430": "みぞれ",
+    "400": "雪", "950": "大雪・吹雪", "401": "雪時々晴れ", "402": "雪時々止む",
+    "403": "雪時々雨", "411": "雪のち晴れ", "413": "雪のちくもり", "414": "雪のち雨",
+}
+
+
+def ensure_weather_icon_cached(icon_src: str, label: str = "") -> str:
     """ウェザーニューズのアイコン画像をweather_icons/にキャッシュし、index.htmlからの相対パスを返す。
+    ファイル名は「{コード}_{天気名}.png」形式(天気名が取れない場合は「{コード}.png」)。
     同名ファイルが既にあれば再取得しない。
+    実際にスクレイピングされたsrc(onebox配下、8bitパレットPNG)ではなく、
+    同一コード体系で同じ152x112pxかつRGBAでより高画質なtopics配下のCDNから取得する
+    (2026-07-20に画質比較の上で切り替え)。
     """
-    url = "https:" + icon_src if icon_src.startswith("//") else icon_src
-    filename = url.split("/")[-1].split("?")[0]
+    src_url = "https:" + icon_src if icon_src.startswith("//") else icon_src
+    code = re.sub(r"\.png$", "", src_url.split("/")[-1].split("?")[0])
+    url = f"{WEATHER_ICON_CDN}{code}.png"
+    safe_label = re.sub(r"[^\w一-龥ぁ-んァ-ヶー]", "", label) if label else ""
+    filename = f"{code}_{safe_label}.png" if safe_label else f"{code}.png"
     local_path = WEATHER_ICON_DIR / filename
     if not local_path.exists():
         WEATHER_ICON_DIR.mkdir(exist_ok=True)
@@ -295,6 +319,7 @@ def parse_weather_card(card, now_jst: datetime):
     if not (m and high_m and low_m):
         return None
     d = resolve_weather_date(int(m.group(1)), int(m.group(2)), now_jst)
+    status = status_tag.get_text(strip=True)
     pop_values = []
     for cell in card.select("table.precipitation tbody td span"):
         txt = cell.get_text(strip=True).replace("%", "")
@@ -305,8 +330,8 @@ def parse_weather_card(card, now_jst: datetime):
         "label": weather_day_label(d),
         "weekday": d.weekday(),
         "daytype": weekday_daytype_fallback(d),
-        "icon": ensure_weather_icon_cached(icon_tag["src"]),
-        "weather_label": status_tag.get_text(strip=True),
+        "icon": ensure_weather_icon_cached(icon_tag["src"], status),
+        "weather_label": status,
         "temp_max": int(high_m.group(1)),
         "temp_min": int(low_m.group(1)),
         "pop": max(pop_values) if pop_values else None,
@@ -316,6 +341,8 @@ def parse_weather_card(card, now_jst: datetime):
 def parse_weather_week_row(row, d: date):
     """#flick_list_week内の1日分の行(明後日以降)を解析する。天気文言は無い。
     降水確率は当日以降の行なら%表示(pop_by_day経由で別途上書きされる想定)。
+    天気名はアイコンコードがWEATHER_ICON_LABELSの既知コードであれば補完し、
+    未知コードなら空のままにする(このセクションはそもそも天気文言を持たないため)。
     """
     high_tag = row.select_one(".high p")
     low_tag = row.select_one(".low p")
@@ -326,13 +353,16 @@ def parse_weather_week_row(row, d: date):
     low_m = re.search(r"(-?\d+)", low_tag.get_text())
     if not (high_m and low_m):
         return None
+    icon_src = icon_tag["src"]
+    code = re.sub(r"\.png$", "", icon_src.split("/")[-1].split("?")[0])
+    weather_label = WEATHER_ICON_LABELS.get(code, "")
     return {
         "_day": d.day,
         "label": weather_day_label(d),
         "weekday": d.weekday(),
         "daytype": weekday_daytype_fallback(d),
-        "icon": ensure_weather_icon_cached(icon_tag["src"]),
-        "weather_label": "",
+        "icon": ensure_weather_icon_cached(icon_src, weather_label),
+        "weather_label": weather_label,
         "temp_max": int(high_m.group(1)),
         "temp_min": int(low_m.group(1)),
         "pop": None,
@@ -1158,6 +1188,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .weather-day-label .wd-sun{color:#ff3000}
 .weather-day-label .wd-sat{color:#0060ff}
 .weather-icon{display:block;height:28px;width:auto;margin:0 auto}
+.weather-name{display:block;font-size:10px;color:#888;font-weight:700;margin-top:2px;white-space:nowrap}
 .weather-temp{display:block;font-size:12px;font-weight:700;margin-top:2px}
 .weather-temp .tmax{color:#f64d00}
 .weather-temp .tmin{color:#0075f3;font-weight:700}
@@ -1276,10 +1307,12 @@ def build_html(articles):
             else:
                 wd_html = "(" + wd_char + ")"
             day_label_html = html.escape(d["label"]) + wd_html
+            weather_name_html = '<span class="weather-name">' + html.escape(d["weather_label"]) + "</span>" if d["weather_label"] else ""
             cards.append(
                 '<div class="weather-day">'
                 + '<span class="weather-day-label">' + day_label_html + "</span>"
                 + '<img class="weather-icon" src="' + html.escape(d["icon"]) + '" alt="' + html.escape(d["weather_label"]) + '" title="' + html.escape(d["weather_label"]) + '">'
+                + weather_name_html
                 + '<span class="weather-temp"><span class="tmax">' + str(d["temp_max"]) + '°</span><span class="tmin">/' + str(d["temp_min"]) + "°</span></span>"
                 + pop_html
                 + "</div>"
