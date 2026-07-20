@@ -1373,7 +1373,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
 .weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;margin-bottom:4px}
 @media(max-width:480px){
-.hero{padding:10px;gap:5px;flex-wrap:nowrap}
+.hero{padding:10px;gap:12px;flex-wrap:nowrap;justify-content:center}
 .train-widget-title{font-size:7px;margin-bottom:3px}
 .train-divider{margin:0 2px 0 6px}
 .train-station-name{font-size:9px;margin-bottom:2px}
