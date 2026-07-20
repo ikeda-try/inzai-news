@@ -70,21 +70,9 @@ DUP_COMPARE_WINDOW_DAYS = 30
 
 RENEWAL_CATEGORY_LABELS = {"新店": "開店", "閉店": "閉店", "リニューアル": "リニューアル"}
 
-# 印西市役所付近の座標(Open-Meteo, APIキー不要)
-WEATHER_LAT = 35.8267
-WEATHER_LON = 140.1451
-WEATHER_CODE_MAP = {
-    0: ("☀️", "快晴"), 1: ("☀️", "晴れ"), 2: ("⛅", "晴れ時々曇り"), 3: ("☁️", "曇り"),
-    45: ("🌁", "霧"), 48: ("🌁", "霧"),
-    51: ("☔", "霧雨"), 53: ("☔", "霧雨"), 55: ("☔", "霧雨"),
-    56: ("☔", "着氷性霧雨"), 57: ("☔", "着氷性霧雨"),
-    61: ("☔", "雨"), 63: ("☔", "雨"), 65: ("☔", "強い雨"),
-    66: ("☔", "着氷性の雨"), 67: ("☔", "着氷性の雨"),
-    71: ("❄️", "雪"), 73: ("❄️", "雪"), 75: ("❄️", "強い雪"), 77: ("❄️", "雪粒"),
-    80: ("☔", "にわか雨"), 81: ("☔", "にわか雨"), 82: ("⛈", "激しいにわか雨"),
-    85: ("❄️", "にわか雪"), 86: ("❄️", "にわか雪"),
-    95: ("⛈", "雷雨"), 96: ("⛈", "雷雨(雹)"), 99: ("⛈", "雷雨(雹)"),
-}
+# 印西市の天気予報(ウェザーニューズ)
+WEATHER_SITE_URL = "https://weathernews.jp/onebox/tenki/chiba/12231/?tab=3"
+WEATHER_FETCH_URL = "https://weathernews.jp/onebox/tenki/chiba/12231/week.html?tab=4"
 
 # カテゴリ未確定の記事(主にGoogle News経由)に対する、タイトルからの機械的カテゴリ推定。
 # ここで判定できないものだけをAI判断(review_queue)に回し、AIへの負荷を抑える。
@@ -252,71 +240,80 @@ def fetch_soup(url: str) -> BeautifulSoup:
 WEATHER_LATE_NIGHT_HOUR = 22
 
 
+def weather_icon_for_status(status: str) -> str:
+    """ウェザーニューズの天気テキスト(例: 「晴れ時々くもり」「猛暑」)から絵文字を判定する。"""
+    if "雷" in status:
+        return "⛈"
+    if "雪" in status:
+        return "❄️"
+    if "雨" in status:
+        return "☔"
+    has_sun = "晴" in status or "猛暑" in status
+    has_cloud = "曇" in status or "くもり" in status
+    if has_sun and has_cloud:
+        return "⛅"
+    if has_cloud:
+        return "☁️"
+    if has_sun:
+        return "☀️"
+    return "🌡"
+
+
 def fetch_weather():
-    """印西市の天気予報を2日分取得する(Open-Meteo, APIキー不要)。失敗時はNoneを返す。
+    """印西市の天気予報を2日分取得する(ウェザーニューズ)。失敗時はNoneを返す。
     22時以降に実行された場合は「今日・明日」ではなく「明日・明後日」を表示する
     (深夜近くに今日の天気を出しても実用性が低いため)。
-    天気・気温は気象庁(JMA)モデル(models=jma_seamless)を明示指定して精度を優先する。
-    ただしjma_seamlessは降水確率(precipitation_probability_max)を返さないため、
-    降水確率のみ既定モデル(best_match)から別途取得して補う。
+    このページはVue.jsで描画されるが、初期HTMLに実データがサーバーサイドレンダリング
+    済みで埋め込まれているため、JS実行なしのスクレイピングで取得できる。
     """
     now_jst = datetime.now(JST)
-    start_date = now_jst.date()
-    if now_jst.hour >= WEATHER_LATE_NIGHT_HOUR:
-        start_date += timedelta(days=1)
-    end_date = start_date + timedelta(days=1)
     try:
-        res = requests.get(
-            "https://api.open-meteo.com/v1/forecast",
-            params={
-                "latitude": WEATHER_LAT,
-                "longitude": WEATHER_LON,
-                "daily": "weather_code,temperature_2m_max,temperature_2m_min",
-                "timezone": "Asia/Tokyo",
-                "start_date": start_date.isoformat(),
-                "end_date": end_date.isoformat(),
-                "models": "jma_seamless",
-            },
-            timeout=TIMEOUT,
-        )
-        res.raise_for_status()
-        daily = res.json()["daily"]
-
-        pop_by_date = {}
-        try:
-            pop_res = requests.get(
-                "https://api.open-meteo.com/v1/forecast",
-                params={
-                    "latitude": WEATHER_LAT,
-                    "longitude": WEATHER_LON,
-                    "daily": "precipitation_probability_max",
-                    "timezone": "Asia/Tokyo",
-                    "start_date": start_date.isoformat(),
-                    "end_date": end_date.isoformat(),
-                },
-                timeout=TIMEOUT,
-            )
-            pop_res.raise_for_status()
-            pop_daily = pop_res.json()["daily"]
-            pop_by_date = dict(zip(pop_daily["time"], pop_daily["precipitation_probability_max"]))
-        except Exception as e:
-            print(f"[WARN] 降水確率取得エラー: {e}", file=sys.stderr)
+        soup = fetch_soup(WEATHER_FETCH_URL)
+        container = soup.select_one("#flick_list_today")
+        if container is None:
+            return None
+        cards = container.select("div.card")
+        idx = next((i for i, c in enumerate(cards) if c.get("id") == "now__day"), None)
+        if idx is None:
+            return None
+        selected = cards[idx + 1:idx + 3] if now_jst.hour >= WEATHER_LATE_NIGHT_HOUR else cards[idx:idx + 2]
 
         weekday_ja = ["月", "火", "水", "木", "金", "土", "日"]
         days = []
-        for i in range(min(2, len(daily["time"]))):
-            d = date.fromisoformat(daily["time"][i])
-            label = f"{d.month}/{d.day}({weekday_ja[d.weekday()]})"
-            icon, weather_label = WEATHER_CODE_MAP.get(daily["weather_code"][i], ("🌡", "不明"))
+        for card in selected:
+            date_span = card.select_one("h3 span")
+            status_tag = card.select_one(".status.pc")
+            high_tag = card.select_one(".temp .high dd")
+            low_tag = card.select_one(".temp .low dd")
+            if not (date_span and status_tag and high_tag and low_tag):
+                continue
+            m = re.search(r"(\d+)月(\d+)日", date_span.get_text())
+            high_m = re.search(r"(-?\d+)℃", high_tag.get_text())
+            low_m = re.search(r"(-?\d+)℃", low_tag.get_text())
+            if not (m and high_m and low_m):
+                continue
+            month, day_num = int(m.group(1)), int(m.group(2))
+            year = now_jst.year
+            if month < now_jst.month - 6:
+                year += 1
+            d = date(year, month, day_num)
+            status = status_tag.get_text(strip=True)
+
+            pop_values = []
+            for cell in card.select("table.precipitation tbody td span"):
+                txt = cell.get_text(strip=True).replace("%", "")
+                if txt.isdigit():
+                    pop_values.append(int(txt))
+
             days.append({
-                "label": label,
-                "icon": icon,
-                "weather_label": weather_label,
-                "temp_max": round(daily["temperature_2m_max"][i]),
-                "temp_min": round(daily["temperature_2m_min"][i]),
-                "pop": pop_by_date.get(daily["time"][i]),
+                "label": f"{d.month}/{d.day}({weekday_ja[d.weekday()]})",
+                "icon": weather_icon_for_status(status),
+                "weather_label": status,
+                "temp_max": int(high_m.group(1)),
+                "temp_min": int(low_m.group(1)),
+                "pop": max(pop_values) if pop_values else None,
             })
-        return days
+        return days if days else None
     except Exception as e:
         print(f"[WARN] 天気予報取得エラー: {e}", file=sys.stderr)
         return None
@@ -1036,7 +1033,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .hero-meta{font-size:12px;color:#888}
 .today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
 .new-badge{display:inline-block;font-size:8px;font-weight:700;background:#223A70;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
-.weather-block{flex-shrink:0;display:flex;flex-direction:column;align-items:center}
+.weather-block{flex-shrink:0;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit}
 .weather-widget{display:flex;gap:8px}
 .weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
 .weather-day-label{display:block;font-size:10px;color:#888;font-weight:700;margin-bottom:2px}
@@ -1156,10 +1153,10 @@ def build_html(articles):
                 + "</div>"
             )
         weather_html = (
-            '<div class="weather-block">'
+            '<a class="weather-block" href="' + WEATHER_SITE_URL + '" target="_blank" rel="noopener">'
             + '<div class="weather-title">印西の天気</div>'
             + '<div class="weather-widget">' + "".join(cards) + "</div>"
-            + "</div>"
+            + "</a>"
         )
 
     if top_item:
