@@ -246,18 +246,36 @@ WEATHER_ICON_DIR = BASE_DIR / "weather_icons"
 WEATHER_ICON_CDN = "https://weathernews.jp/s/topics/img/wxicon/"
 
 # ウェザーニューズ公式アイコン一覧(https://weathernews.jp/ip/help5/tab_icon.html)から採取したコード→天気名。
+# 同じコードでも「のち時々」「のち一時」のように接続詞が重複する表記揺れや、「一時」/「時々」の揺れがあるため、
+# normalize_weather_label()適用後の形(「のち」+「一時」は「一時」を省いて「のち」のみ、単独の「一時」は「時々」)で統一して保持する。
 # 明後日分(#flick_list_week)は天気文言を持たないため、既知コードであればここから補完する。
 WEATHER_ICON_LABELS = {
-    "100": "晴れ", "550": "猛暑", "101": "晴れ時々くもり", "102": "晴れ一時雨",
-    "104": "晴れ一時雪", "110": "晴れのち時々くもり", "112": "晴れのち時々雨",
-    "115": "晴れのち時々雪", "200": "くもり", "201": "くもり時々晴れ",
+    "100": "晴れ", "550": "猛暑", "101": "晴れ時々くもり", "102": "晴れ時々雨",
+    "104": "晴れ時々雪", "110": "晴れのちくもり", "112": "晴れのち雨",
+    "115": "晴れのち雪", "200": "くもり", "201": "くもり時々晴れ",
     "202": "くもり時々雨", "204": "くもり時々雪", "210": "くもりのち晴れ",
     "212": "くもりのち雨", "215": "くもりのち雪", "650": "小雨", "300": "雨",
     "850": "大雨・嵐", "301": "雨時々晴れ", "302": "雨時々止む", "303": "雨時々雪",
-    "311": "雨のち晴れ", "313": "雨のちくもり", "314": "雨のち時々雪", "430": "みぞれ",
+    "311": "雨のち晴れ", "313": "雨のちくもり", "314": "雨のち雪", "430": "みぞれ",
     "400": "雪", "950": "大雪・吹雪", "401": "雪時々晴れ", "402": "雪時々止む",
     "403": "雪時々雨", "411": "雪のち晴れ", "413": "雪のちくもり", "414": "雪のち雨",
 }
+
+
+NEW_WEATHER_ICONS_THIS_RUN = []
+
+
+def normalize_weather_label(text: str) -> str:
+    """天気名称を正規化する。同一アイコンに対し「晴れのち時々雨」「晴れのち一時雨」「晴れのち雨」のように
+    表記が複数存在するため、次の2段階で統一する。
+    1. 「のち」+「時々」/「一時」が連続する場合は後続の接続詞を省き「のち」のみ残す(例: 晴れのち時々雨→晴れのち雨)
+    2. 残った単独の「一時」は「時々」に統一する(例: 晴れ一時雨→晴れ時々雨)
+    これによりコード番号1つに対して名称が1つに定まり、キャッシュファイル名が表記揺れで増殖するのを防ぐ。
+    """
+    if not text:
+        return text
+    text = re.sub(r"のち(時々|一時)", "のち", text)
+    return text.replace("一時", "時々")
 
 
 def ensure_weather_icon_cached(icon_src: str, label: str = "") -> str:
@@ -267,10 +285,13 @@ def ensure_weather_icon_cached(icon_src: str, label: str = "") -> str:
     実際にスクレイピングされたsrc(onebox配下、8bitパレットPNG)ではなく、
     同一コード体系で同じ152x112pxかつRGBAでより高画質なtopics配下のCDNから取得する
     (2026-07-20に画質比較の上で切り替え)。
+    新規ダウンロードが発生した場合はNEW_WEATHER_ICONS_THIS_RUNに記録し、
+    build実行時にどのアイコンが新規に増えたかを報告できるようにする。
     """
     src_url = "https:" + icon_src if icon_src.startswith("//") else icon_src
     code = re.sub(r"\.png$", "", src_url.split("/")[-1].split("?")[0])
     url = f"{WEATHER_ICON_CDN}{code}.png"
+    label = normalize_weather_label(label)
     safe_label = re.sub(r"[^\w一-龥ぁ-んァ-ヶー]", "", label) if label else ""
     filename = f"{code}_{safe_label}.png" if safe_label else f"{code}.png"
     local_path = WEATHER_ICON_DIR / filename
@@ -279,6 +300,7 @@ def ensure_weather_icon_cached(icon_src: str, label: str = "") -> str:
         res = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
         res.raise_for_status()
         local_path.write_bytes(res.content)
+        NEW_WEATHER_ICONS_THIS_RUN.append(filename)
     return f"weather_icons/{filename}"
 
 
@@ -319,7 +341,7 @@ def parse_weather_card(card, now_jst: datetime):
     if not (m and high_m and low_m):
         return None
     d = resolve_weather_date(int(m.group(1)), int(m.group(2)), now_jst)
-    status = status_tag.get_text(strip=True)
+    status = normalize_weather_label(status_tag.get_text(strip=True))
     pop_values = []
     for cell in card.select("table.precipitation tbody td span"):
         txt = cell.get_text(strip=True).replace("%", "")
@@ -1428,6 +1450,8 @@ def cmd_build(args):
     content = build_html(articles)
     INDEX_HTML_PATH.write_text(content, encoding="utf-8")
     print(f"index.html を生成しました → {INDEX_HTML_PATH}")
+    if NEW_WEATHER_ICONS_THIS_RUN:
+        print(f"新しい天気アイコンをダウンロードしました: {', '.join(NEW_WEATHER_ICONS_THIS_RUN)}")
 
 
 # ============================================================
