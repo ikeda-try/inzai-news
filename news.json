@@ -2159,5 +2159,33 @@
     "source": "google-news-inzai-shi",
     "category": "市政・行政",
     "retention_type": "regular"
+  },
+  {
+    "title": "ハンドメイドcharm ワークショップイベント",
+    "link": "https://chibanewtown.aeonmall.jp/event/72c3c21a-a43c-4885-a74b-c08d5e37b43c",
+    "pub_str": "2026年7月20日",
+    "publisher": "イオンモール千葉ニュータウン",
+    "source": "aeonmall-chibanewtown-event",
+    "category": "イオンモール千葉ニュータウン",
+    "retention_type": "regular"
+  },
+  {
+    "title": "ハンドメイドリボンマルシェcharm",
+    "link": "https://chibanewtown.aeonmall.jp/event/550a6b59-9edc-43a5-94b3-2cc8194de9d2",
+    "pub_str": "2026年7月20日",
+    "publisher": "イオンモール千葉ニュータウン",
+    "source": "aeonmall-chibanewtown-event",
+    "category": "イオンモール千葉ニュータウン",
+    "retention_type": "regular"
+  },
+  {
+    "title": "アトレーヌ防水塗料実演会（2026年07月25日(土)）",
+    "link": "https://event.joyfulhonda.com/single-exp.php?id=13837&store=chibant",
+    "pub_str": "2026年7月20日",
+    "event_end_date": "2026-07-25",
+    "publisher": "ジョイフル本田",
+    "source": "joyfulhonda-chibant",
+    "category": "ジョイフル本田千葉ニュータウン店",
+    "retention_type": "regular"
   }
 ]
