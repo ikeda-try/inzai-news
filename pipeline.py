@@ -489,6 +489,151 @@ def fetch_weather():
         return None
 
 
+# ============================================================
+# 電車時刻表(北総鉄道 印西牧の原・千葉ニュータウン中央 上り)
+# ============================================================
+
+TRAIN_TIMETABLE_URL = "https://hokuso.ekitan.com/jp/pc/T5"
+TRAIN_STATIONS = {
+    "inzaimakinohara": {"name": "印西牧の原", "sl_code": "200-13"},
+    "chibanewtownchuo": {"name": "千葉ニュータウン中央", "sl_code": "200-12"},
+}
+TRAIN_DIRECTION_LABEL = "京成高砂・日本橋方面"
+HOLIDAY_CSV_URL = "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv"
+
+
+def fetch_train_timetable(sl_code: str, dw: str) -> list:
+    """北総鉄道(hokuso.ekitan.com)の指定駅・ダイヤ区分(dw=0:平日 / dw=1:土曜・休日)の
+    上り(京成高砂・日本橋方面)時刻表を取得する。行き先の略字(例:「羽」)はページ内の
+    凡例(「羽−羽田空港」等)から都度読み取って正式名称に変換するため、行き先が
+    増減しても追従できる。取得失敗時は空リストを返す。
+    """
+    params = {"USR": "PC", "dw": dw, "slCode": sl_code, "d": "1"}
+    res = requests.get(TRAIN_TIMETABLE_URL, params=params, headers=HEADERS, timeout=TIMEOUT)
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "html.parser")
+
+    dest_map = {}
+    for m in re.finditer(r"([一-龥])[−\-]([一-龥ヶケ]+)", soup.get_text()):
+        dest_map[m.group(1)] = m.group(2)
+
+    trains = []
+    for tr in soup.select("table tr"):
+        hour_tag = tr.select_one("th.side01, th.side02")
+        if not hour_tag:
+            continue
+        hour_text = hour_tag.get_text(strip=True)
+        if not hour_text.isdigit():
+            continue
+        hour = int(hour_text)
+        for box in tr.select("div.syasyubox"):
+            text = box.get_text("|", strip=True).replace("\xa0", " ")
+            parts = [p for p in text.split("|") if p]
+            if len(parts) < 2:
+                continue
+            m = re.match(r"(\S+)\s+(\S)$", parts[0])
+            if not m:
+                continue
+            train_type, dest_abbr = m.group(1), m.group(2)
+            minute_m = re.search(r"\d+", parts[1])
+            if not minute_m:
+                continue
+            # ページ内の凡例に「下線＝当駅始発」とあり、分の数字が<span class="underline">の場合は
+            # その駅から走り始める電車(通過・途中駅発ではない)を示す。
+            is_origin = box.select_one("span.underline") is not None
+            trains.append({
+                "time": f"{hour:02d}:{int(minute_m.group()):02d}",
+                "type": train_type,
+                "dest": dest_map.get(dest_abbr, dest_abbr),
+                "origin": is_origin,
+            })
+    trains.sort(key=lambda t: t["time"])
+    return trains
+
+
+def fetch_train_data() -> dict:
+    """全対象駅の平日/土曜・休日の上り時刻表をまとめて取得する。
+    駅ごとに取得失敗しても他の駅の結果は返す(失敗した駅は空リストのまま)。
+    """
+    data = {}
+    for key, st in TRAIN_STATIONS.items():
+        entry = {"name": st["name"], "weekday": [], "weekend": []}
+        for dw, daytype in (("0", "weekday"), ("1", "weekend")):
+            try:
+                entry[daytype] = fetch_train_timetable(st["sl_code"], dw)
+            except Exception as e:
+                print(f"[WARN] 電車時刻表取得エラー({st['name']}/{daytype}): {e}", file=sys.stderr)
+        data[key] = entry
+    return data
+
+
+def fetch_japanese_holidays() -> list:
+    """内閣府の祝日データ(CSV)から祝日一覧(ISO日付文字列)を取得する。
+    ページ全体のサイズを抑えるため前年以降の日付のみ返す。取得失敗時は空リストを返す。
+    """
+    try:
+        res = requests.get(HOLIDAY_CSV_URL, headers=HEADERS, timeout=TIMEOUT)
+        res.raise_for_status()
+        text = res.content.decode("shift_jis")
+        cutoff_year = date.today().year - 1
+        holidays = []
+        for line in text.splitlines()[1:]:
+            cell = line.split(",")[0].strip()
+            try:
+                d = datetime.strptime(cell, "%Y/%m/%d").date()
+            except ValueError:
+                continue
+            if d.year >= cutoff_year:
+                holidays.append(d.isoformat())
+        return holidays
+    except Exception as e:
+        print(f"[WARN] 祝日データ取得エラー: {e}", file=sys.stderr)
+        return []
+
+
+TRAIN_CACHE_PATH = BASE_DIR / "train_timetable_cache.json"
+TRAIN_CACHE_MAX_AGE_DAYS = 30
+TRAIN_TIMETABLE_CHANGED = False
+
+
+def load_or_fetch_train_data():
+    """電車時刻表・祝日データをキャッシュ(train_timetable_cache.json)から読む。
+    ダイヤ改正は年に数回程度しかなく、buildのたびに北総鉄道サイトへ問い合わせるのは
+    過剰なので、TRAIN_CACHE_MAX_AGE_DAYS以内ならキャッシュをそのまま使い、
+    古い/存在しない場合のみ再取得してキャッシュを更新する。
+    再取得が全滅した場合(サイト障害等)は、多少古くてもキャッシュがあればそれを使い続ける
+    (真っ白になるより古い時刻表の方がまし)。
+    再取得した結果が前回キャッシュの内容と異なる場合はダイヤ改正とみなし、
+    TRAIN_TIMETABLE_CHANGEDを立ててbuild実行時に報告できるようにする。
+    """
+    global TRAIN_TIMETABLE_CHANGED
+    cache = load_json(TRAIN_CACHE_PATH, None)
+    if cache:
+        fetched_at = datetime.fromisoformat(cache["fetched_at"])
+        age_days = (datetime.now(JST) - fetched_at).days
+        if age_days < TRAIN_CACHE_MAX_AGE_DAYS:
+            return cache["train_data"], cache["holidays"]
+
+    train_data = fetch_train_data()
+    holidays = fetch_japanese_holidays()
+    has_any_train = any(entry["weekday"] or entry["weekend"] for entry in train_data.values())
+
+    if has_any_train:
+        if cache and cache["train_data"] != train_data:
+            TRAIN_TIMETABLE_CHANGED = True
+        save_json_atomic(TRAIN_CACHE_PATH, {
+            "fetched_at": datetime.now(JST).isoformat(),
+            "train_data": train_data,
+            "holidays": holidays,
+        })
+        return train_data, holidays
+
+    if cache:
+        print("[WARN] 電車時刻表の再取得に失敗したため、古いキャッシュを使用します", file=sys.stderr)
+        return cache["train_data"], cache["holidays"]
+    return train_data, holidays
+
+
 def extract_date_groups(text: str):
     normalized = unicodedata.normalize("NFKC", text)
     m = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", normalized)
@@ -1195,14 +1340,25 @@ a{text-decoration:none;color:inherit}
 header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
 .logo{font-size:20px;font-weight:600;color:#1a1a18}.logo span{color:#1D9E75}
 .updated{font-size:11px;color:#888;text-align:right}
-.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-.hero-main{flex:1;min-width:200px}
-.hero-label{display:inline-block;font-size:11px;font-weight:700;margin-bottom:8px;letter-spacing:.03em;padding:3px 8px;border-radius:4px}
-.hero-title{font-size:19px;font-weight:600;color:#1a1a18;line-height:1.45;display:block;margin-bottom:6px}
-.hero-title:hover{color:#1D9E75}
-.hero-meta{font-size:12px;color:#888}
+.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
 .new-badge{display:inline-block;font-size:8px;font-weight:700;background:#223A70;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
+.train-widget{flex:0 0 auto}
+.train-widget-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;margin-bottom:8px}
+.train-widget-title .train-direction{font-weight:400;margin-left:2px}
+.train-columns{display:flex;gap:28px}
+.train-divider{width:1px;align-self:stretch;background:#e0e0d8}
+.train-station-name{font-size:13px;font-weight:700;color:#1a1a18;margin-bottom:6px}
+.train-item{font-size:12px;color:#333;padding:3px 0;display:flex;gap:6px;align-items:baseline;white-space:nowrap;font-variant-numeric:tabular-nums}
+.train-time{font-weight:700;color:#1D9E75;min-width:52px}
+.train-dot{display:inline-block;width:11px;color:#1D9E75;font-size:9px;position:relative;top:-1px}
+.train-type{font-size:10px;color:#888;min-width:26px}
+.train-type-express{color:#e07b00}
+.train-dest{flex:1}
+.train-countdown{font-size:10px;color:#bbb;width:68px;flex-shrink:0}
+.train-countdown-next{color:#555}
+.train-note{font-size:9px;color:#aaa;margin-top:6px;padding-left:11px}
+.train-empty{font-size:12px;color:#888}
 .weather-block{flex-shrink:0;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit}
 .weather-widget{display:flex;gap:8px}
 .weather-day{background:#f5f5f1;border-radius:8px;padding:8px 12px;text-align:center;min-width:66px}
@@ -1216,7 +1372,24 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .weather-temp .tmin{color:#0075f3;font-weight:700}
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
 .weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;margin-bottom:4px}
-@media(max-width:480px){.hero{padding:16px}.weather-block{width:100%}.weather-widget{width:100%;justify-content:center}}
+@media(max-width:480px){
+.hero{padding:10px;gap:6px;flex-wrap:nowrap}
+.train-widget-title{font-size:7px;margin-bottom:3px}
+.train-columns{gap:6px}
+.train-station-name{font-size:9px;margin-bottom:2px}
+.train-item{font-size:8px;gap:2px;padding:1px 0}
+.train-time{min-width:32px}
+.train-dot{width:6px;font-size:6px}
+.train-type{font-size:7px;min-width:13px}
+.train-countdown{font-size:7px;width:36px}
+.train-note{font-size:6px;padding-left:6px;margin-top:3px}
+.weather-widget{gap:3px}
+.weather-day{padding:3px 5px;min-width:36px}
+.weather-icon{height:18px}
+.weather-day-label,.weather-name,.weather-pop{font-size:7px}
+.weather-temp{font-size:9px}
+.weather-title{font-size:7px;margin-bottom:2px}
+}
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 4px;grid-auto-rows:270px}
 .scraped-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 4px;grid-auto-rows:200px}
 .cat-section{border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column}
@@ -1310,7 +1483,6 @@ def build_html(articles):
     # pub_strが同日の記事は、news.json内での追加順(=後から追加されたもの)が上に来るようにする
     added_order = {id(a): i for i, a in enumerate(articles)}
     main_arts.sort(key=lambda a: (parse_pub_str(a.get("pub_str", "")) or date.min, added_order[id(a)]), reverse=True)
-    top_item = main_arts[0] if main_arts else None
 
     weather_days = fetch_weather()
     weather_html = ""
@@ -1346,32 +1518,29 @@ def build_html(articles):
             + "</a>"
         )
 
-    if top_item:
-        cat = top_item.get("category", "話題・その他")
-        _, fg, _ = CATEGORY_COLORS.get(cat, CATEGORY_COLORS["話題・その他"])
-        top_pub = normalize_publisher(top_item.get("publisher", ""), top_item.get("link", ""))
-        pub_h = " · " + html.escape(top_pub) if top_pub else ""
-        hero_d = parse_pub_str(top_item.get("pub_str", ""))
-        hero_pub_attr = (' data-pub="' + hero_d.isoformat() + '"') if hero_d else ""
-        hero_new_html = '<span class="new-badge">新着</span>' if top_item.get("link") in new_links else ""
-        top_html = (
-            '<div class="hero" style="border-color:' + fg + ';">'
-            + '<div class="hero-main">'
-            + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
-            + CATEGORY_ICONS.get(cat, "📰") + " " + html.escape(cat) + "</div>"
-            + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
-            + html.escape(top_item["title"]) + "</a>"
-            + '<div class="hero-meta"' + hero_pub_attr + '>' + html.escape(top_item.get("pub_str", "")) + pub_h
-            + '<span class="today-badge" id="hero-today-badge" style="display:none">今日</span>' + hero_new_html + "</div>"
-            + "</div>"
-            + weather_html
+    train_data, train_holidays = load_or_fetch_train_data()
+    train_columns_html = ""
+    for i, (key, entry) in enumerate(train_data.items()):
+        if i > 0:
+            train_columns_html += '<div class="train-divider"></div>'
+        train_columns_html += (
+            '<div class="train-station">'
+            + '<div class="train-station-name">' + html.escape(entry["name"]) + "</div>"
+            + '<div class="train-list" id="train-list-' + key + '"></div>'
             + "</div>"
         )
-    else:
-        top_html = weather_html
+    train_html = (
+        '<div class="train-widget">'
+        + '<div class="train-widget-title">北総鉄道<span class="train-direction">('
+        + html.escape(TRAIN_DIRECTION_LABEL) + ")</span></div>"
+        + '<div class="train-columns">' + train_columns_html + "</div>"
+        + '<div class="train-note"><span class="train-dot">●</span>は当駅始発</div>'
+        + "</div>"
+    )
+    top_html = '<div class="hero">' + train_html + weather_html + "</div>"
 
     cat_map = defaultdict(list)
-    for item in main_arts[1:]:
+    for item in main_arts:
         cat_map[item.get("category", "話題・その他")].append(item)
 
     active_cats = [
@@ -1419,6 +1588,59 @@ def build_html(articles):
     if scraped_html:
         sections_html += '<div class="scraped-grid">' + scraped_html + "</div>"
 
+    train_data_json = json.dumps(
+        {k: {"weekday": v["weekday"], "weekend": v["weekend"]} for k, v in train_data.items()},
+        ensure_ascii=False,
+    )
+    holidays_json = json.dumps(train_holidays, ensure_ascii=False)
+    train_script = (
+        "<script>\n"
+        f"var TRAIN_DATA={train_data_json};\n"
+        f"var JP_HOLIDAYS={holidays_json};\n"
+        "(function(){\n"
+        "  function pad2(n){return String(n).padStart(2,\"0\");}\n"
+        "  function renderTrains(){\n"
+        "    var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n"
+        "    var todayStr=now.getFullYear()+\"-\"+pad2(now.getMonth()+1)+\"-\"+pad2(now.getDate());\n"
+        "    var wd=now.getDay();\n"
+        "    var dayType=(JP_HOLIDAYS.indexOf(todayStr)!==-1||wd===0||wd===6)?\"weekend\":\"weekday\";\n"
+        "    var nowSec=now.getHours()*3600+now.getMinutes()*60+now.getSeconds();\n"
+        "    Object.keys(TRAIN_DATA).forEach(function(key){\n"
+        "      var st=TRAIN_DATA[key];\n"
+        "      var container=document.getElementById(\"train-list-\"+key);\n"
+        "      if(!container) return;\n"
+        "      var dayList=st[dayType]||[];\n"
+        "      var candidates=dayList.map(function(t){\n"
+        "        var hm=t.time.split(\":\");\n"
+        "        var tSec=(+hm[0])*3600+(+hm[1])*60;\n"
+        "        return {t:t, remain:tSec-nowSec};\n"
+        "      }).filter(function(x){return x.remain>=0;});\n"
+        "      if(candidates.length===0){\n"
+        "        container.innerHTML='<div class=\"train-empty\">本日の運行は終了しました</div>';\n"
+        "        return;\n"
+        "      }\n"
+        "      var FAR_SEC=99*60;\n"
+        "      var list=candidates.slice(0,3);\n"
+        "      while(list.length<3){ list.push(null); }\n"
+        "      container.innerHTML=list.map(function(x,i){\n"
+        "        if(x===null){\n"
+        "          return '<div class=\"train-item\"><span class=\"train-time\"><span class=\"train-dot\"></span>--:--</span><span class=\"train-type\">--</span><span class=\"train-dest\">-----</span><span class=\"train-countdown\">あと--分--秒</span></div>';\n"
+        "        }\n"
+        "        var m=Math.floor(x.remain/60), s=x.remain%60;\n"
+        "        var typeCls=x.t.type.indexOf(\"特\")!==-1?\" train-type-express\":\"\";\n"
+        "        var cdCls=i===0?\" train-countdown-next\":\"\";\n"
+        "        var dot=x.t.origin?\"●\":\"\";\n"
+        "        var cdText=x.remain<=FAR_SEC?('あと'+pad2(m)+'分'+pad2(s)+'秒'):'あと--分--秒';\n"
+        "        return '<div class=\"train-item\"><span class=\"train-time\"><span class=\"train-dot\">'+dot+'</span>'+x.t.time+'</span><span class=\"train-type'+typeCls+'\">'+x.t.type+'</span><span class=\"train-dest\">'+x.t.dest+'行</span><span class=\"train-countdown'+cdCls+'\">'+cdText+'</span></div>';\n"
+        "      }).join(\"\");\n"
+        "    });\n"
+        "  }\n"
+        "  renderTrains();\n"
+        "  setInterval(renderTrains, 1000);\n"
+        "})();\n"
+        "</script>\n"
+    )
+
     parts = [
         "<!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n",
         "<meta charset=\"UTF-8\">\n",
@@ -1439,7 +1661,9 @@ def build_html(articles):
         "  <footer>\n",
         "    &copy; 印西ニュース &mdash; Google News・印西市公式サイト・地域情報より自動収集。記事の著作権は各メディアに帰属します。\n",
         "  </footer>\n",
-        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");if(diff===0){var b=el.querySelector(\".today-badge\");if(b)b.style.display=\"\";}\n  });\n  var hm=document.querySelector(\".hero-meta[data-pub]\");\n  if(hm){\n    var diff=Math.floor((jst-new Date(hm.dataset.pub))/86400000);\n    if(diff===0){var b=document.getElementById(\"hero-today-badge\");if(b)b.style.display=\"\";}\n  }\n})();\n</script>\n</body>\n</html>",
+        "</div>\n<script>\n(function(){\n  var now=new Date(new Date().toLocaleString(\"en-US\",{timeZone:\"Asia/Tokyo\"}));\n  var jstToday=now.getFullYear()+\"-\"+String(now.getMonth()+1).padStart(2,\"0\")+\"-\"+String(now.getDate()).padStart(2,\"0\");\n  var jst=new Date(jstToday);\n  document.querySelectorAll(\".news-item[data-pub]\").forEach(function(el){\n    var diff=Math.floor((jst-new Date(el.dataset.pub))/86400000);\n    if(diff>=0&&diff<=3) el.classList.add(\"recent\");if(diff===0){var b=el.querySelector(\".today-badge\");if(b)b.style.display=\"\";}\n  });\n})();\n</script>\n",
+        train_script,
+        "</body>\n</html>",
     ]
     return "".join(parts)
 
@@ -1452,6 +1676,8 @@ def cmd_build(args):
     print(f"index.html を生成しました → {INDEX_HTML_PATH}")
     if NEW_WEATHER_ICONS_THIS_RUN:
         print(f"新しい天気アイコンをダウンロードしました: {', '.join(NEW_WEATHER_ICONS_THIS_RUN)}")
+    if TRAIN_TIMETABLE_CHANGED:
+        print("[INFO] 北総鉄道の電車時刻表が前回取得時から変更されています(ダイヤ改正の可能性)")
 
 
 # ============================================================

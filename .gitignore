@@ -8,6 +8,7 @@ __pycache__/
 
 # レビュー中の一時ファイル・ローカル作業ファイル(公開リポジトリには含めない)
 review_queue.json
+train_timetable_cache.json
 開店閉店.txt
 印西ニュース_新プロジェクト仕様書.md
 参考/
