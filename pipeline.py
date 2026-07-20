@@ -1111,9 +1111,9 @@ def render_item(item, new_links):
     new_html = '<span class="new-badge">新着</span>' if item.get("link") in new_links else ""
     return (
         '<a class="news-item"' + data_pub + ' href="' + html.escape(item["link"]) + '" target="_blank" rel="noopener">'
-        + '<span class="news-title">' + html.escape(title) + new_html + "</span>"
+        + '<span class="news-title">' + html.escape(title) + "</span>"
         + '<span class="news-date">' + html.escape(item.get("pub_str", "")) + pub_html
-        + '<span class="today-badge" style="display:none">今日</span></span>'
+        + '<span class="today-badge" style="display:none">今日</span>' + new_html + "</span>"
         + "</a>"
     )
 
@@ -1176,9 +1176,9 @@ def build_html(articles):
             + '<div class="hero-label" style="background:' + fg + ';color:#fff;">'
             + CATEGORY_ICONS.get(cat, "📰") + " " + html.escape(cat) + "</div>"
             + '<a class="hero-title" href="' + html.escape(top_item["link"]) + '" target="_blank" rel="noopener">'
-            + html.escape(top_item["title"]) + hero_new_html + "</a>"
+            + html.escape(top_item["title"]) + "</a>"
             + '<div class="hero-meta"' + hero_pub_attr + '>' + html.escape(top_item.get("pub_str", "")) + pub_h
-            + '<span class="today-badge" id="hero-today-badge" style="display:none">今日</span></div>'
+            + '<span class="today-badge" id="hero-today-badge" style="display:none">今日</span>' + hero_new_html + "</div>"
             + "</div>"
             + weather_html
             + "</div>"
