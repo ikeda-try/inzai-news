@@ -850,17 +850,6 @@
     "retention_type": "regular"
   },
   {
-    "title": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
-    "link": "https://news.google.com/articles/CBMia0FVX3lxTE5LWlZYOUZaMnFlWUNtTG84bjIxeFdHc0dxVHdwemRyZktLRVdJTWFVQUlvZEhTOUp3dUZUT1hhOGdNTnpQZXJhMXJneUd6X0FBRjJlRkg5NTR2azl3UXlobDB5aElMeEFhT0w4?oc=5",
-    "desc": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動  INTERNET Watch",
-    "pub_iso": "2026-04-21T16:00:00+09:00",
-    "pub_str": "2026年4月21日",
-    "publisher": "INTERNET Watch",
-    "source": "google-news-inzai-chiba",
-    "category": "開発・暮らし",
-    "retention_type": "regular"
-  },
-  {
     "title": "千葉県印西「NRT 14」サイト内に「Lenovo Neptune」検証拠点がオープン。現地で見てきた",
     "link": "https://news.google.com/articles/CBMiXEFVX3lxTE5CdnV3M0VpZm5zdVl0QlVhMmswMGgwT2ZUbndKVm5ZOHh0eDV0WDZPbFV1UlBNOG5lclQxSFdrWGdfTDRqTERrRTE1V0kydGduZXZJaEtZaXdiSEEz?oc=5",
     "desc": "千葉県印西「NRT 14」サイト内に「Lenovo Neptune」検証拠点がオープン。現地で見てきた  マイナビニュース",
@@ -2312,6 +2301,16 @@
     "publisher": "印西市",
     "source": "inzai-city-official",
     "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "レザーキーホルダー＆コインケース作り体験（2026年08月21日(金)）",
+    "link": "https://event.joyfulhonda.com/single-exp.php?id=13602&store=chibant",
+    "pub_str": "2026年7月22日",
+    "event_end_date": "2026-08-21",
+    "publisher": "ジョイフル本田",
+    "source": "joyfulhonda-chibant",
+    "category": "ジョイフル本田千葉ニュータウン店",
     "retention_type": "regular"
   }
 ]
