@@ -490,31 +490,47 @@ def fetch_weather():
 
 
 # ============================================================
-# 電車時刻表(北総鉄道 印西牧の原・千葉ニュータウン中央 上り)
+# 電車時刻表(印西牧の原・千葉ニュータウン中央 上り / 浅草橋・新鎌ヶ谷 下り)
 # ============================================================
 
 TRAIN_TIMETABLE_URL = "https://hokuso.ekitan.com/jp/pc/T5"
-TRAIN_STATIONS = {
-    "inzaimakinohara": {"name": "印西牧の原", "sl_code": "200-13"},
-    "chibanewtownchuo": {"name": "千葉ニュータウン中央", "sl_code": "200-12"},
+EKITAN_TIMETABLE_URL = "https://ekitan.com/timetable/railway/line-station/{code}/d2"
+
+# 上り: 印西牧の原・千葉ニュータウン中央 → 京成高砂・日本橋方面(hokuso.ekitan.com, d=1)
+TRAIN_STATIONS_UP = {
+    "inzaimakinohara": {"name": "印西牧の原", "site": "hokuso", "sl_code": "200-13", "d": "1"},
+    "chibanewtownchuo": {"name": "千葉ニュータウン中央", "site": "hokuso", "sl_code": "200-12", "d": "1"},
 }
-TRAIN_DIRECTION_LABEL = "京成高砂・日本橋方面"
+TRAIN_DIRECTION_LABEL_UP = "京成高砂・日本橋方面"
+
+# 下り: 浅草橋・新鎌ヶ谷 → 印西牧の原方面(浅草橋はhokuso.ekitan.comの対象外のため
+# 一般のekitan.com「駅探」を使用。新鎌ヶ谷はhokuso.ekitan.comのd=2(印旛日本医大方面)を使用)
+TRAIN_STATIONS_DOWN = {
+    "asakusabashi": {"name": "浅草橋", "site": "ekitan", "line_code": "222-15"},
+    "shinkamagaya": {"name": "新鎌ヶ谷", "site": "hokuso", "sl_code": "200-8", "d": "2"},
+}
+TRAIN_DIRECTION_LABEL_DOWN = "印西牧の原・成田空港方面"
+
+# 浅草橋発の電車のうち、京成高砂より手前で終点になる・本線経由で印西を通らない行き先は除外する
+# (芝山千代田=東成田線, 押上/京成高砂/青砥=北総線に入らない, 京成佐倉/京成成田=本線経由で印西を通らない)
+ASAKUSABASHI_EXCLUDE_DESTS = {"芝山千代田", "押上", "京成高砂", "京成佐倉", "京成成田", "青砥"}
+
 HOLIDAY_CSV_URL = "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv"
 
 
-def fetch_train_timetable(sl_code: str, dw: str) -> list:
-    """北総鉄道(hokuso.ekitan.com)の指定駅・ダイヤ区分(dw=0:平日 / dw=1:土曜・休日)の
-    上り(京成高砂・日本橋方面)時刻表を取得する。行き先の略字(例:「羽」)はページ内の
-    凡例(「羽−羽田空港」等)から都度読み取って正式名称に変換するため、行き先が
-    増減しても追従できる。取得失敗時は空リストを返す。
+def fetch_train_timetable(sl_code: str, dw: str, d: str = "1") -> list:
+    """北総鉄道(hokuso.ekitan.com)の指定駅・ダイヤ区分(dw=0:平日 / dw=1:土曜・休日)・
+    方面(d=1:京成高砂・日本橋方面 / d=2:印旛日本医大方面)の時刻表を取得する。行き先の略字
+    (例:「羽」)はページ内の凡例(「羽−羽田空港」等)から都度読み取って正式名称に変換するため、
+    行き先が増減しても追従できる。取得失敗時は空リストを返す。
     """
-    params = {"USR": "PC", "dw": dw, "slCode": sl_code, "d": "1"}
+    params = {"USR": "PC", "dw": dw, "slCode": sl_code, "d": d}
     res = requests.get(TRAIN_TIMETABLE_URL, params=params, headers=HEADERS, timeout=TIMEOUT)
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "html.parser")
 
     dest_map = {}
-    for m in re.finditer(r"([一-龥])[−\-]([一-龥ヶケ]+)", soup.get_text()):
+    for m in re.finditer(r"([一-龥])[−\-]([一-龥ぁ-んァ-ヶー]+)", soup.get_text()):
         dest_map[m.group(1)] = m.group(2)
 
     trains = []
@@ -551,18 +567,75 @@ def fetch_train_timetable(sl_code: str, dw: str) -> list:
     return trains
 
 
+def fetch_train_timetable_ekitan(line_code: str, dw: str, exclude_dests: set = None) -> list:
+    """一般のekitan.com(駅探)から指定路線コード(例:浅草橋=222-15)の時刻表を取得する。
+    hokuso.ekitan.comの対象外の駅(北総線に属さない駅)用。
+    ダイヤ区分はdw=0:平日 / dw=2:休日(土曜・休日をまとめて代表させるため休日側を採用)。
+    ページには方面ごとに<table class="search-result-data ek-search-result">が2つ並んでおり、
+    タブの並び順(direction_code=1→2)と同じ順で出現するため、2つ目(押上方面、北総線に
+    直通する側)を使う。各電車は<li data-tr-type=種別 data-dest=行き先 data-start=当駅始発の場合のみ非空>
+    属性を持ち、行き先は既に正式名称なので変換不要。exclude_destsに含まれる行き先は除外する。
+    """
+    url = EKITAN_TIMETABLE_URL.format(code=line_code)
+    res = requests.get(url, params={"dw": dw}, headers=HEADERS, timeout=TIMEOUT)
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "html.parser")
+
+    tables = soup.select("table.search-result-data.ek-search-result")
+    if len(tables) < 2:
+        return []
+    table = tables[1]
+
+    exclude_dests = exclude_dests or set()
+    trains = []
+    for tr in table.select("tr.ek-hour_line"):
+        hour_tag = tr.select_one("td")
+        if not hour_tag:
+            continue
+        hour_text = hour_tag.get_text(strip=True)
+        if not hour_text.isdigit():
+            continue
+        hour = int(hour_text)
+        for li in tr.select("li.ek-train-tooltip"):
+            dest = li.get("data-dest", "").strip()
+            if not dest or dest in exclude_dests:
+                continue
+            train_type = li.get("data-tr-type", "").strip()
+            minute_tag = li.select_one("span.time-min")
+            if not minute_tag:
+                continue
+            minute_text = minute_tag.get_text(strip=True)
+            if not minute_text.isdigit():
+                continue
+            trains.append({
+                "time": f"{hour:02d}:{int(minute_text):02d}",
+                "type": train_type,
+                "dest": dest,
+                "origin": bool(li.get("data-start", "").strip()),
+            })
+    trains.sort(key=lambda t: t["time"])
+    return trains
+
+
 def fetch_train_data() -> dict:
-    """全対象駅の平日/土曜・休日の上り時刻表をまとめて取得する。
+    """全対象駅(上り2駅+下り2駅)の平日/土曜・休日の時刻表をまとめて取得する。
     駅ごとに取得失敗しても他の駅の結果は返す(失敗した駅は空リストのまま)。
     """
     data = {}
-    for key, st in TRAIN_STATIONS.items():
+    for key, st in {**TRAIN_STATIONS_UP, **TRAIN_STATIONS_DOWN}.items():
         entry = {"name": st["name"], "weekday": [], "weekend": []}
-        for dw, daytype in (("0", "weekday"), ("1", "weekend")):
-            try:
-                entry[daytype] = fetch_train_timetable(st["sl_code"], dw)
-            except Exception as e:
-                print(f"[WARN] 電車時刻表取得エラー({st['name']}/{daytype}): {e}", file=sys.stderr)
+        if st["site"] == "hokuso":
+            for dw, daytype in (("0", "weekday"), ("1", "weekend")):
+                try:
+                    entry[daytype] = fetch_train_timetable(st["sl_code"], dw, st.get("d", "1"))
+                except Exception as e:
+                    print(f"[WARN] 電車時刻表取得エラー({st['name']}/{daytype}): {e}", file=sys.stderr)
+        else:  # ekitan
+            for dw, daytype in (("0", "weekday"), ("2", "weekend")):
+                try:
+                    entry[daytype] = fetch_train_timetable_ekitan(st["line_code"], dw, ASAKUSABASHI_EXCLUDE_DESTS)
+                except Exception as e:
+                    print(f"[WARN] 電車時刻表取得エラー({st['name']}/{daytype}): {e}", file=sys.stderr)
         data[key] = entry
     return data
 
@@ -607,8 +680,10 @@ def load_or_fetch_train_data():
     TRAIN_TIMETABLE_CHANGEDを立ててbuild実行時に報告できるようにする。
     """
     global TRAIN_TIMETABLE_CHANGED
+    expected_keys = set(TRAIN_STATIONS_UP) | set(TRAIN_STATIONS_DOWN)
     cache = load_json(TRAIN_CACHE_PATH, None)
-    if cache:
+    cache_has_all_stations = bool(cache) and expected_keys <= set(cache["train_data"].keys())
+    if cache and cache_has_all_stations:
         fetched_at = datetime.fromisoformat(cache["fetched_at"])
         age_days = (datetime.now(JST) - fetched_at).days
         if age_days < TRAIN_CACHE_MAX_AGE_DAYS:
@@ -619,7 +694,9 @@ def load_or_fetch_train_data():
     has_any_train = any(entry["weekday"] or entry["weekend"] for entry in train_data.values())
 
     if has_any_train:
-        if cache and cache["train_data"] != train_data:
+        # 駅構成を変更した直後(旧キャッシュに新駅が無い)は差分比較の対象外とし、
+        # ダイヤ改正の誤検知を防ぐ
+        if cache and cache_has_all_stations and cache["train_data"] != train_data:
             TRAIN_TIMETABLE_CHANGED = True
         save_json_atomic(TRAIN_CACHE_PATH, {
             "fetched_at": datetime.now(JST).isoformat(),
@@ -1340,6 +1417,8 @@ a{text-decoration:none;color:inherit}
 header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
 .logo{font-size:20px;font-weight:600;color:#1a1a18}.logo span{color:#1D9E75}
 .updated{font-size:11px;color:#888;text-align:right}
+.train-dir-toggle{background:#f5f5f1;border:1px solid #d8d8d0;color:#1a1a18;font-size:11px;font-weight:700;padding:6px 12px;border-radius:16px;cursor:pointer;white-space:nowrap}
+.train-dir-toggle:hover{background:#ececE6}
 .hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
 .new-badge{display:inline-block;font-size:8px;font-weight:700;background:#223A70;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
@@ -1347,6 +1426,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .train-widget-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;margin-bottom:8px}
 .train-widget-title .train-direction{font-weight:400;margin-left:2px}
 .train-columns{display:flex}
+.train-columns-hidden{display:none}
 .train-divider{width:1px;align-self:stretch;background:#e0e0d8;margin:0 8px 0 14px}
 .train-station-name{font-size:13px;font-weight:700;color:#1a1a18;margin-bottom:6px}
 .train-item{font-size:12px;color:#333;padding:3px 0;display:flex;gap:5px;align-items:baseline;white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -1373,6 +1453,10 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .weather-pop{display:block;font-size:10px;color:#2563EB;margin-top:1px}
 .weather-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;text-align:center;margin-bottom:4px}
 @media(max-width:480px){
+header{padding:10px 12px}
+.logo{font-size:16px}
+.updated{font-size:9px}
+.train-dir-toggle{font-size:9px;padding:4px 8px;border-radius:12px}
 .hero{padding:10px;gap:12px;flex-wrap:nowrap;justify-content:center}
 .train-widget-title{font-size:7px;margin-bottom:3px}
 .train-divider{margin:0 2px 0 6px}
@@ -1521,21 +1605,31 @@ def build_html(articles):
         )
 
     train_data, train_holidays = load_or_fetch_train_data()
-    train_columns_html = ""
-    for i, (key, entry) in enumerate(train_data.items()):
-        if i > 0:
-            train_columns_html += '<div class="train-divider"></div>'
-        train_columns_html += (
-            '<div class="train-station">'
-            + '<div class="train-station-name">' + html.escape(entry["name"]) + "</div>"
-            + '<div class="train-list" id="train-list-' + key + '"></div>'
-            + "</div>"
-        )
+
+    def build_train_columns_html(stations: dict) -> str:
+        parts = []
+        for i, key in enumerate(stations):
+            if i > 0:
+                parts.append('<div class="train-divider"></div>')
+            entry = train_data.get(key, {"name": stations[key]["name"]})
+            parts.append(
+                '<div class="train-station">'
+                + '<div class="train-station-name">' + html.escape(entry["name"]) + "</div>"
+                + '<div class="train-list" id="train-list-' + key + '"></div>'
+                + "</div>"
+            )
+        return "".join(parts)
+
+    train_columns_up_html = build_train_columns_html(TRAIN_STATIONS_UP)
+    train_columns_down_html = build_train_columns_html(TRAIN_STATIONS_DOWN)
     train_html = (
         '<div class="train-widget">'
-        + '<div class="train-widget-title">北総鉄道<span class="train-direction">('
-        + html.escape(TRAIN_DIRECTION_LABEL) + ")</span></div>"
-        + '<div class="train-columns">' + train_columns_html + "</div>"
+        + '<div class="train-widget-title" id="train-widget-title">'
+        + '<span id="train-title-name">北総鉄道</span>'
+        + '<span class="train-direction" id="train-direction">(' + html.escape(TRAIN_DIRECTION_LABEL_UP) + ")</span>"
+        + "</div>"
+        + '<div class="train-columns" id="train-columns-up">' + train_columns_up_html + "</div>"
+        + '<div class="train-columns train-columns-hidden" id="train-columns-down">' + train_columns_down_html + "</div>"
         + '<div class="train-note"><span class="train-dot">●</span>は当駅始発</div>'
         + "</div>"
     )
@@ -1595,10 +1689,15 @@ def build_html(articles):
         ensure_ascii=False,
     )
     holidays_json = json.dumps(train_holidays, ensure_ascii=False)
+    train_group_meta_json = json.dumps({
+        "up": {"name": "北総鉄道", "direction": "(" + TRAIN_DIRECTION_LABEL_UP + ")", "toggleLabel": "下り時刻表"},
+        "down": {"name": "北総鉄道", "direction": "(" + TRAIN_DIRECTION_LABEL_DOWN + " ：印西へ向かう電車のみ表示)", "toggleLabel": "上り時刻表"},
+    }, ensure_ascii=False)
     train_script = (
         "<script>\n"
         f"var TRAIN_DATA={train_data_json};\n"
         f"var JP_HOLIDAYS={holidays_json};\n"
+        f"var TRAIN_GROUP_META={train_group_meta_json};\n"
         "(function(){\n"
         "  function pad2(n){return String(n).padStart(2,\"0\");}\n"
         "  function renderTrains(){\n"
@@ -1640,7 +1739,22 @@ def build_html(articles):
         "      }).join(\"\");\n"
         "    });\n"
         "  }\n"
-        "  renderTrains();\n"
+        "  var currentGroup=\"up\";\n"
+        "  function setGroup(g){\n"
+        "    currentGroup=g;\n"
+        "    document.getElementById(\"train-columns-up\").classList.toggle(\"train-columns-hidden\", g!==\"up\");\n"
+        "    document.getElementById(\"train-columns-down\").classList.toggle(\"train-columns-hidden\", g!==\"down\");\n"
+        "    var meta=TRAIN_GROUP_META[g];\n"
+        "    document.getElementById(\"train-title-name\").textContent=meta.name;\n"
+        "    document.getElementById(\"train-direction\").textContent=meta.direction;\n"
+        "    document.getElementById(\"train-dir-toggle-label\").textContent=meta.toggleLabel;\n"
+        "    renderTrains();\n"
+        "  }\n"
+        "  var toggleBtn=document.getElementById(\"train-dir-toggle\");\n"
+        "  if(toggleBtn){\n"
+        "    toggleBtn.addEventListener(\"click\", function(){ setGroup(currentGroup===\"up\"?\"down\":\"up\"); });\n"
+        "  }\n"
+        "  setGroup(\"up\");\n"
         "  setInterval(renderTrains, 1000);\n"
         "})();\n"
         "</script>\n"
@@ -1659,6 +1773,7 @@ def build_html(articles):
         "<div class=\"wrap\">\n",
         "  <header>\n",
         "    <div class=\"logo\">印西<span>ニュース</span></div>\n",
+        "    <button type=\"button\" class=\"train-dir-toggle\" id=\"train-dir-toggle\"><span id=\"train-dir-toggle-label\">下り時刻表</span></button>\n",
         "    <div class=\"updated\">最終更新<br>" + now_str + "</div>\n",
         "  </header>\n",
         "  " + top_html + "\n",
