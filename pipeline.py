@@ -1340,22 +1340,22 @@ a{text-decoration:none;color:inherit}
 header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
 .logo{font-size:20px;font-weight:600;color:#1a1a18}.logo span{color:#1D9E75}
 .updated{font-size:11px;color:#888;text-align:right}
-.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.hero{background:#fff;margin:0 0 16px;padding:18px 20px;border-bottom:3px solid #1D9E75;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .today-badge{display:inline-block;font-size:8px;font-weight:700;background:#e74c3c;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
 .new-badge{display:inline-block;font-size:8px;font-weight:700;background:#223A70;color:#fff;padding:0 4px;border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.5}
 .train-widget{flex:0 0 auto}
 .train-widget-title{font-size:10px;font-weight:700;color:#888;letter-spacing:.02em;margin-bottom:8px}
 .train-widget-title .train-direction{font-weight:400;margin-left:2px}
 .train-columns{display:flex}
-.train-divider{width:1px;align-self:stretch;background:#e0e0d8;margin:0 12px 0 20px}
+.train-divider{width:1px;align-self:stretch;background:#e0e0d8;margin:0 8px 0 14px}
 .train-station-name{font-size:13px;font-weight:700;color:#1a1a18;margin-bottom:6px}
 .train-item{font-size:12px;color:#333;padding:3px 0;display:flex;gap:5px;align-items:baseline;white-space:nowrap;font-variant-numeric:tabular-nums}
 .train-time{font-weight:700;color:#1D9E75;min-width:46px}
 .train-dot{display:inline-block;width:11px;color:#1D9E75;font-size:9px;position:relative;top:-1px}
 .train-type{font-size:10px;color:#888;min-width:22px}
 .train-type-express{color:#e07b00}
-.train-dest{flex:1}
-.train-countdown{font-size:10px;color:#bbb;width:66px;flex-shrink:0}
+.train-dest{flex:1;overflow:hidden;text-overflow:ellipsis;max-width:90px}
+.train-countdown{font-size:10px;color:#bbb;width:60px;flex-shrink:0}
 .train-countdown-next{color:#555}
 .train-note{font-size:9px;color:#aaa;margin-top:6px;padding-left:11px}
 .train-empty{font-size:12px;color:#888}
@@ -1382,6 +1382,7 @@ header{background:#fff;border-bottom:1px solid #e0e0d8;padding:14px 20px;display
 .train-dot{width:6px;font-size:6px}
 .train-type{font-size:7px;min-width:13px}
 .train-countdown{font-size:7px;width:20px}
+.train-dest{max-width:40px}
 .train-note{font-size:6px;padding-left:6px;margin-top:3px}
 .weather-widget{gap:3px}
 .weather-day{padding:3px 5px;width:49px;box-sizing:content-box}
