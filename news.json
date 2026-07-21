@@ -2247,5 +2247,27 @@
     "source": "inzai-city-official",
     "category": "市政・行政",
     "retention_type": "regular"
+  },
+  {
+    "title": "脳活にチャレンジ！お家でできる認知症予防",
+    "link": "https://www.city.inzai.lg.jp/0000015704.html",
+    "desc": "おうちでできる脳の活性化運動の紹介",
+    "pub_iso": "2026-07-21T11:45:27+09:00",
+    "pub_str": "2026年7月21日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "【印西市】社会を明るくする運動",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE9QaWhzYkpvRDg1elR4VE55dm5qVnJDUWdnYXJBMUxUalh1S0hselBjYjFUR0Z1Sm5zalBSN01zaFVnN0RVU003STc2RVlKSTFOaXlTaW45ck16S1VnOEFN?oc=5",
+    "desc": "【印西市】社会を明るくする運動  選挙ドットコム",
+    "pub_iso": "2026-07-21T11:34:05+09:00",
+    "pub_str": "2026年7月21日",
+    "publisher": "選挙ドットコム",
+    "source": "google-news-inzai-shi",
+    "category": "市政・行政",
+    "retention_type": "regular"
   }
 ]
