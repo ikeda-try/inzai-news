@@ -2280,5 +2280,27 @@
     "source": "inzai-city-official",
     "category": "市政・行政",
     "retention_type": "regular"
+  },
+  {
+    "title": "幼稚園・認定こども園・保育園等ガイドブックについて",
+    "link": "https://www.city.inzai.lg.jp/kosodatenavi/0000018044.html",
+    "desc": "",
+    "pub_iso": "2026-07-21T14:22:19+09:00",
+    "pub_str": "2026年7月21日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "印西市部活動地域展開推進協議会",
+    "link": "https://www.city.inzai.lg.jp/0000022158.html",
+    "desc": "",
+    "pub_iso": "2026-07-21T14:00:00+09:00",
+    "pub_str": "2026年7月21日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
   }
 ]
