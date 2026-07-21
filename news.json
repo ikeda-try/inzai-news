@@ -1173,7 +1173,7 @@
     "pub_iso": "2026-05-31T16:00:00+09:00",
     "pub_str": "2026年5月31日",
     "publisher": "pando.life",
-    "source": "google-news-inzai-shi",
+    "source": "google-news-inzai-chiba",
     "category": "イベント・文化",
     "retention_type": "regular"
   },
@@ -1184,7 +1184,7 @@
     "pub_iso": "2026-05-09T16:00:00+09:00",
     "pub_str": "2026年5月9日",
     "publisher": "東洋経済オンライン",
-    "source": "google-news-inzai-shi",
+    "source": "google-news-inzai-chiba",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -1318,7 +1318,7 @@
     "pub_iso": "2026-05-30T16:00:00+09:00",
     "pub_str": "2026年5月30日",
     "publisher": "東京新聞デジタル",
-    "source": "google-news-inzai-shi",
+    "source": "google-news-inzai-chiba",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -2224,6 +2224,17 @@
     "publisher": "号外NET",
     "source": "goguynet-kamagaya-shiroi-inzai",
     "category": "開店・閉店",
+    "retention_type": "regular"
+  },
+  {
+    "title": "令和8年度印西市史編さん講座「知りたい歴史を調べてみよう！」を開催",
+    "link": "https://www.city.inzai.lg.jp/0000022066.html",
+    "desc": "",
+    "pub_iso": "2026-07-21T09:00:00+09:00",
+    "pub_str": "2026年7月21日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
     "retention_type": "regular"
   }
 ]
