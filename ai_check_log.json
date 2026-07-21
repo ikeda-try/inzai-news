@@ -1748,5 +1748,15 @@
     "link": "https://news.google.com/articles/CBMia0FVX3lxTE9kUW1MMlUtTTV0NGZORXlFX0pnQUF2Szlvb1JuUmNjWkVPRDN5RlhrR1dSRk1IT2JWMzY5ZGt4V1pYdC1UVEpaWTNFWmZaNVFjQUhxRTU0ZTdXRjdBbFplZnhCS2NSbTctZno0?oc=5",
     "similar_to": null,
     "ai_reason": "「印西市コスモス賞」は大井競馬場の地方競馬レース名が地名と一致しているだけの記事(内容は馬のレース結果)で、印西市の地域ニュースとして無関係なため除外"
+  },
+  {
+    "run_ts": "20260721-1356",
+    "date": "2026-07-21",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "link": "https://news.google.com/articles/CBMiUkFVX3lxTE5ZM2o0U2h6NVJmZHNNQ1RZaG5pZzFzXzFBdll5aVZjUDVuZUt6eEtkaGZUYks5Zlk2Zk1RVjVQUHdFa2tCQzJ1N3ZUVnFSTHJtYlE?oc=5",
+    "similar_to": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]
