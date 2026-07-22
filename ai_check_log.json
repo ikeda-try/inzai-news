@@ -1818,5 +1818,45 @@
     "link": "https://www.city.inzai.lg.jp/0000022160.html",
     "similar_to": "令和8年度第1回印西市総合計画審議会開催のお知らせ（令和8年7月28日開催）",
     "ai_reason": "いじめ問題対策連絡協議会(7/29開催)と総合計画審議会(7/28開催)は別の会議で、タイトルの定型文が似ているだけの別ニュース"
+  },
+  {
+    "run_ts": "20260722-2213",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "9つの市と町を管轄する印旛児童相談所が千葉・印西に開所 子ども守る体制強化へ",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE94UkpBNVJkSE03YmdmOEpPRi1XczRESkhQZWlsZ0R1QjM0c2hXYVNvRFFua0R5Sk9lX2FxNmV6NkJHSGNFdHUwNGlxRjZRVGdxcm1kc095b1ZiR2RBVUdN?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260722-2213",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "（千葉）印西市草深で下半身露出　３月３０日",
+    "link": "https://news.google.com/articles/CBMinAFBVV95cUxPT2lTLWlaWWNEVHpDd1JpTnI4NGNVTFpnM0E1bG1majlPRThpUGlOT3NORmJJZ25KQ2ptOVhtWjNmbGpUcjBzZ1lrQzVoSjlPX3VnRUhNamlxS0xkcm9CS05WNGJOR3RxYXYzYnRyMFYxbmdmY0dXWi1fek1XRC1BbzhvRjV6MzBxbUNVMHl4a2hTTUpvUnJwNlpvOEPSAaIBQVVfeXFMTVpzTWptdEh0Wjg0aXNZeWF5ZHRvUFR2TkY2ZkttMmM4WjFJQ2FPV0xMckZIZFRGUmw1bFRqNTdkejR4OVFVYU0xRDg2R2VuV1NDUWJiX1pUVG5TNndfQ2g2VlpVcEd4UWtLMkRyNHRuOHdSblctUVc0eU54Z1cwWUVCcTlFSk1YWmdscGFuT3RCWXgxNjN6V2prTHRISmRhV2JR?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260722-2213",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "茨城県古河市、広告のプロが移住促進 千葉県印西市はAI活用指南",
+    "link": "https://news.google.com/articles/CBMibEFVX3lxTFAtTnkxdmhXNXFOaklTZXg4U21icF9BSTQ1LTFITkVqanZRYkNFTW8yZXltU2JWQy1wcFpxRGRmUklnZThDa19sZTNiZHEyT3dPRmFtSFRJX0ExX3BUUFFrX3Z6T1ZsZFJlZGx2Zw?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260722-2213",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市「印西市のお店を応援！キャッシュレスでお得キャンペーン！第1弾」の終了について",
+    "link": "https://news.google.com/articles/CBMiaEFVX3lxTFBJb2g5MkNzTzM5QndrNXZoY0VONVFzNTdlV0RuMWNuR2pvalk4R2FwazI2ck9CcVJTeTFXWnhQTEU4T0o4XzE5Ry1WbEQxNVYzcmRWS3hhVmx5WlgyWjc2WE5LbDlDMHdJ?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
