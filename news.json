@@ -845,7 +845,7 @@
     "pub_iso": "2026-05-29T16:00:00+09:00",
     "pub_str": "2026年5月29日",
     "publisher": "東京・大阪 都心上空ヘリコプター遊覧飛行",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "イオンモール千葉ニュータウン",
     "retention_type": "regular"
   },
@@ -1162,7 +1162,7 @@
     "pub_iso": "2026-05-31T16:00:00+09:00",
     "pub_str": "2026年5月31日",
     "publisher": "pando.life",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "イベント・文化",
     "retention_type": "regular"
   },
@@ -1173,7 +1173,7 @@
     "pub_iso": "2026-05-09T16:00:00+09:00",
     "pub_str": "2026年5月9日",
     "publisher": "東洋経済オンライン",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -1307,7 +1307,7 @@
     "pub_iso": "2026-05-30T16:00:00+09:00",
     "pub_str": "2026年5月30日",
     "publisher": "東京新聞デジタル",
-    "source": "google-news-inzai-chiba",
+    "source": "google-news-inzai-shi",
     "category": "開発・暮らし",
     "retention_type": "regular"
   },
@@ -2353,6 +2353,17 @@
     "publisher": "印西市",
     "source": "inzai-city-official",
     "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "印西▷うなぎの刺身に、関東・関西風のうな重食べ比べ。うなぎ料理専門店「川昌」がオープン！",
+    "link": "https://chiba-lunch.com/inzai-unagi-kawasyo/?utm_source=rss&utm_medium=rss&utm_campaign=inzai-unagi-kawasyo",
+    "desc": "2026年7月22日にオープンしたうなぎ料理専門店「川昌」さんが気になり、伺いました。 うなぎ料理専門店 川昌 （かわしょう） ・1981年創業、埼玉県に本店がある。・備長炭で焼いた鰻を提供している。・うなぎの刺身や、関 […]\nThe post 印西▷うなぎの刺身に、関東・関西風のうな重食べ比べ。うなぎ料理専門店「川昌」がオープン！ first appeared on ちばもぐ.",
+    "pub_iso": "2026-07-22T19:37:37+09:00",
+    "pub_str": "2026年7月22日",
+    "publisher": "ちばもぐ",
+    "source": "chibamogu-inzai",
+    "category": "話題・その他",
     "retention_type": "regular"
   }
 ]
