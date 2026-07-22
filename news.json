@@ -512,8 +512,8 @@
     "title": "地域包括支援センター通信",
     "link": "https://www.city.inzai.lg.jp/0000020313.html",
     "desc": "市内の地域包括支援センターそれぞれで通信を発行しています。ぜひ、ご覧ください。",
-    "pub_iso": "2026-07-14T16:57:03+09:00",
-    "pub_str": "2026年7月14日",
+    "pub_iso": "2026-07-22T11:44:21+09:00",
+    "pub_str": "2026年7月22日",
     "publisher": "印西市",
     "source": "inzai-city-official",
     "category": "市政・行政",
@@ -903,9 +903,9 @@
     "retention_type": "regular"
   },
   {
-    "title": "印西市市制施行30周年記念HORNS UP FES",
+    "title": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京",
     "link": "https://news.google.com/articles/CBMiUkFVX3lxTE13c0g0RUZ5RGtYV2I0YXB5VEdMazEwMkRHTjJ2N1R3RkFlTXI2dzN0Y05IamNENHlhMTRBa2tSSGdyVU5OUlhpUFFtNzVMUXFSVEE?oc=5",
-    "desc": "印西市市制施行30周年記念HORNS UP FES  レッツエンジョイ東京",
+    "desc": "印西市市制施行30周年記念HORNS UP FES｜レッツエンジョイ東京  レッツエンジョイ東京",
     "pub_iso": "2026-07-01T23:34:45+09:00",
     "pub_str": "2026年7月1日",
     "publisher": "レッツエンジョイ東京",
@@ -2241,8 +2241,8 @@
     "title": "脳活にチャレンジ！お家でできる認知症予防",
     "link": "https://www.city.inzai.lg.jp/0000015704.html",
     "desc": "おうちでできる脳の活性化運動の紹介",
-    "pub_iso": "2026-07-21T11:45:27+09:00",
-    "pub_str": "2026年7月21日",
+    "pub_iso": "2026-07-22T12:04:12+09:00",
+    "pub_str": "2026年7月22日",
     "publisher": "印西市",
     "source": "inzai-city-official",
     "category": "市政・行政",
@@ -2311,6 +2311,48 @@
     "publisher": "ジョイフル本田",
     "source": "joyfulhonda-chibant",
     "category": "ジョイフル本田千葉ニュータウン店",
+    "retention_type": "regular"
+  },
+  {
+    "title": "【印西市】7月25日（土）「Cosmos Palette 夏祭り 2026」開催！ 盛りだくさんのステージLIVEのほかキッチンカーや屋台も楽しめる！",
+    "link": "https://kamagaya-shiroi-inzai.goguynet.jp/2026/07/22/cosmospalettenatsumatsuri2026/",
+    "pub_str": "2026年7月22日",
+    "publisher": "号外NET",
+    "source": "goguynet-kamagaya-shiroi-inzai",
+    "category": "イベント・文化",
+    "retention_type": "regular"
+  },
+  {
+    "title": "多文化共生推進講座　～海外で活躍する日本人～",
+    "link": "https://www.city.inzai.lg.jp/0000021121.html",
+    "desc": "",
+    "pub_iso": "2026-07-22T14:11:45+09:00",
+    "pub_str": "2026年7月22日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "令和8年度 第1回印西市社会教育委員会議開催について",
+    "link": "https://www.city.inzai.lg.jp/0000022169.html",
+    "desc": "",
+    "pub_iso": "2026-07-22T13:02:42+09:00",
+    "pub_str": "2026年7月22日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
+    "retention_type": "regular"
+  },
+  {
+    "title": "令和8年度印西市いじめ問題対策連絡協議会開催のお知らせ（令和8年7月29日開催）",
+    "link": "https://www.city.inzai.lg.jp/0000022160.html",
+    "desc": "",
+    "pub_iso": "2026-07-22T13:00:00+09:00",
+    "pub_str": "2026年7月22日",
+    "publisher": "印西市",
+    "source": "inzai-city-official",
+    "category": "市政・行政",
     "retention_type": "regular"
   }
 ]

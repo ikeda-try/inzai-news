@@ -1768,5 +1768,55 @@
     "link": "https://event.joyfulhonda.com/single-exp.php?id=13857&store=chibant",
     "similar_to": "季節の絵柄を使って　          グラスデコ作り（2026年07月25日(土)）",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260722-1554",
+    "date": "2026-07-22",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "link": "https://news.google.com/articles/CBMijgFBVV95cUxNeWhYNVBtQ3lfOWxBbVhRUzk5ZElIZ2pfczR2OWtOUHVMTVMtWkpoMm14c0ZNNGNDRENHcnVDX3pidWZmSXJucy1aOG5iZ3ZHcTVLS0pPa1pZZlJELVZRRG45dk01TWtWTkp1SWVRSjgxenh5YUFIZlQtaTBtUUhOMVZ0eWdjNjRqZjhVQTNn0gGKAUFVX3lxTE93REtHd0xMZ2lIVGxWWDJwYm4xZXBrOGdHNTFyUUlCOE1JN1JZNVZLcW9Kc1ZYSmwxeTVTRTZNZEZ4Q1dhYndlNlFIYTl6N2Jra2M0YUVYYzV6bWEtQmh5REZhUXE1eG94cDhVRGFQaTVKYjdIR0Q0aTZ6M1A1OHBPS3UzZDFyM1hKZw?oc=5",
+    "similar_to": "データセンター集積で住民との摩擦拡大の千葉・印西市、今度は変電所の新設計画浮上…再び反対運動",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260722-1554",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "園児の送迎を代行「送迎保育ステーション」開設 千葉 印西",
+    "link": "https://news.google.com/articles/CBMiWEFVX3lxTFBibXVxWEN3Q1hlb3NJT1YwdjFfalpvZTBhR3gxaTZndHBIMk9FSFM1Njl1RWtiNXMwYmEyRkZDUm5DdDVFOGUwWEdUUFVwaW9SOS1xY2pqZ0c?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260722-1554",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "NTTデータグループ、千葉県印西・白井エリアで国内最大級のデータセンター開発プロジェクトを始動",
+    "link": "https://news.google.com/articles/CBMia0FVX3lxTE5LWlZYOUZaMnFlWUNtTG84bjIxeFdHc0dxVHdwemRyZktLRVdJTWFVQUlvZEhTOUp3dUZUT1hhOGdNTnpQZXJhMXJneUd6X0FBRjJlRkg5NTR2azl3UXlobDB5aElMeEFhT0w4?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260722-1554",
+    "date": "2026-07-22",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉県印西市と「災害時における支援物資の受入及び配送等に関する協定」を締結 - sg",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTFBMX2tBVGZCajd6aVhETWlvZmgtX3JaUHlLa3lCRVd6UzI3ZUpVcEVQVmxBdlo4a3dMdE82emhPVVVscDBQV2lvNDRsTXdWcHR5RWFSN2RNcVpldmFuSTdNU2JobWlWOExNVnc?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260722-1555",
+    "date": "2026-07-22",
+    "ai_decision": "keep",
+    "similarity": 0.74,
+    "title": "令和8年度印西市いじめ問題対策連絡協議会開催のお知らせ（令和8年7月29日開催）",
+    "link": "https://www.city.inzai.lg.jp/0000022160.html",
+    "similar_to": "令和8年度第1回印西市総合計画審議会開催のお知らせ（令和8年7月28日開催）",
+    "ai_reason": "いじめ問題対策連絡協議会(7/29開催)と総合計画審議会(7/28開催)は別の会議で、タイトルの定型文が似ているだけの別ニュース"
   }
 ]
