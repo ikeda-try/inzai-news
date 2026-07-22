@@ -1858,5 +1858,15 @@
     "link": "https://news.google.com/articles/CBMiaEFVX3lxTFBJb2g5MkNzTzM5QndrNXZoY0VONVFzNTdlV0RuMWNuR2pvalk4R2FwazI2ck9CcVJTeTFXWnhQTEU4T0o4XzE5Ry1WbEQxNVYzcmRWS3hhVmx5WlgyWjc2WE5LbDlDMHdJ?oc=5",
     "similar_to": "",
     "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260723-0701",
+    "date": "2026-07-23",
+    "ai_decision": "auto_exclude",
+    "similarity": 1.0,
+    "title": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
+    "link": "https://news.google.com/articles/CBMiakFVX3lxTE9wbW1xQTFlTFlRTWV3RXhyY2VhTm9kb0JzbWJuM3I3bkY1bmlXajhNdW5mc2pfTU9VYmZuUHJqVWpQUzVXMWpram1aRExYMzFYUG43U1k0M1liN1RMaHZKTXJBVXVkMkZyUmc?oc=5",
+    "similar_to": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]
