@@ -1868,5 +1868,15 @@
     "link": "https://news.google.com/articles/CBMiakFVX3lxTE9wbW1xQTFlTFlRTWV3RXhyY2VhTm9kb0JzbWJuM3I3bkY1bmlXajhNdW5mc2pfTU9VYmZuUHJqVWpQUzVXMWpram1aRExYMzFYUG43U1k0M1liN1RMaHZKTXJBVXVkMkZyUmc?oc=5",
     "similar_to": "【千葉県印西市】地域コーディネーターと市民が咲かせた！市制施行30周年記念「あじさいまつり」開催レポ",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260723-1209",
+    "date": "2026-07-23",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "2026年7月23日（木）6:00-7:30印西牧の原駅今日も暑いですね。",
+    "link": "https://news.google.com/articles/CBMiX0FVX3lxTE9paFg2VDVZcnBzd3ZyenJITFFMc3JSdVhpWVEwTEZ1UThjZks5eDRMYzJqdlpTRGtTbWZFRFpKUFNGRlhGbG1lZjdlc2lCZ1pwZ3hlMW1QM0ZOMW9oZW93?oc=5",
+    "similar_to": null,
+    "ai_reason": "選挙ドットコム経由の政治家個人の辻立ち活動日記(「今日も暑いですね」等の感想のみ)で、ニュースとしての実質的な内容がないため除外"
   }
 ]
