@@ -1888,5 +1888,15 @@
     "link": "https://news.google.com/articles/CBMid0FVX3lxTE5ldUtqUkZKRXY0YWdSY0R5S2J1N2pXdVBJa0hRZEFBUThMZnpFbmJqRkhQSnFkUGQtMGpQR3hfa1hyUDliaEM1UThueXlidG1GODg1QWh2ZzRDeElBV3lCTnJKZHRUcEk1TDlYUmx2alVwM2U5QXpR?oc=5",
     "similar_to": "【千葉県印西市】広島へ学びに向かう中学生18人。「平和を次世代につなぐ夏」を始動",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260724-0425",
+    "date": "2026-07-24",
+    "ai_decision": "auto_exclude",
+    "similarity": 0.9,
+    "title": "クロスステッチを楽しもう！（2026年08月23日(日)）",
+    "link": "https://event.joyfulhonda.com/single-exp.php?id=13163&store=chibant",
+    "similar_to": "クロスステッチを楽しもう！（2026年07月25日(土)）",
+    "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
   }
 ]
