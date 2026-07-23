@@ -1898,5 +1898,25 @@
     "link": "https://event.joyfulhonda.com/single-exp.php?id=13163&store=chibant",
     "similar_to": "クロスステッチを楽しもう！（2026年07月25日(土)）",
     "ai_reason": "ルールベース: 類似度80%以上のため自動除外"
+  },
+  {
+    "run_ts": "20260724-0847",
+    "date": "2026-07-24",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "米どころの千葉・印西で新たな日本酒が誕生 商工会「新名産品に」 [千葉県]",
+    "link": "https://news.google.com/articles/CBMiZ0FVX3lxTFBfTU1ib0hQY01aMVlTRlV2VmRtNVc4LVkzZTIwRTNrejNFbFk3M0NBbEhKWXhRc1FNTl9NNVdWMzRaRU5FU1VQajA3c0twQVFVcC1vVkQzZXUwZjlfSC16cWZNcEMxNG8?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
+  },
+  {
+    "run_ts": "20260724-0847",
+    "date": "2026-07-24",
+    "ai_decision": "exclude",
+    "similarity": null,
+    "title": "千葉商科大学と鎌ケ谷・白井・印西の3市が連携 防災イベント「いきのこれ!! まなぼー祭」を12/20（土）開催",
+    "link": "https://news.google.com/articles/CBMiRkFVX3lxTE1sMFNSQlZoWTZ3akpaTjNMUmRIQXRVS2RNVG5nYldCMG1MOWljWUpzT2pTMldkcVEyMy12WGhOd2ZfTTFENkE?oc=5",
+    "similar_to": "",
+    "ai_reason": "ルールベース: 掲載期限(3か月/6か月)を超えた記事のため対象外"
   }
 ]
