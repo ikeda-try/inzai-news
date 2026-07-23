@@ -2379,5 +2379,14 @@
     "source": "google-news-inzai-shi",
     "category": "イベント・文化",
     "retention_type": "regular"
+  },
+  {
+    "title": "イオンでテンションぶち上げろ！ WELCOME TO THE イオン！",
+    "link": "https://chibanewtown.aeonmall.jp/event/e02fdacb-000a-44e2-9785-f29e89189b29",
+    "pub_str": "2026年7月23日",
+    "publisher": "イオンモール千葉ニュータウン",
+    "source": "aeonmall-chibanewtown-event",
+    "category": "イオンモール千葉ニュータウン",
+    "retention_type": "regular"
   }
 ]
